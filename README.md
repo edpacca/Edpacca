@@ -1,0 +1,1 @@
+Creating a personal portfolio to showcase my programming and other creative endeavours.
