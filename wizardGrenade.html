@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Wizard Grenade</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+				<div id="intro code">
+					<h1><br></h1>
+				</div>
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp;</a></li>
+						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; </a></li>
+						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp;</a></li>
+						<li><a href="photo.html">&nbsp; &nbsp; Photo &nbsp; &nbsp;</a></li>
+						<li><a href="food.html">&nbsp; &nbsp; Beer etc &nbsp; &nbsp;</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+				<nav id="nav" style="margin-top: 0em;">
+					<ul class="linkssub">
+						<li class="active"><a>Wizard Grenade</a></li>
+						<li><a href="">Project Manticore</li>
+						<li><a href="">Wizard Quest</a></li>
+						<li><a href="">Wizard Target</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<a href = "https://github.com/Edpacca/WizardGrenade2" target ="blank"><h1>Wizard Grenade</h1></a>
+									<a href="#" class="button primary" onclick="playMusic('audio/WQ_main_theme.mp3')"> Play Music </a>
+									<a href="#" class="button" onclick="pauseMusic()"> Stop</a>
+								</header>
+								<video class = "image main" autoplay loop muted playsinline>
+									<source src="video/Demo.mp4" type="video/mp4" alt ="WizardGrenade Demo">
+								  </video>
+								
+								<!-- Overview -->
+									<p>Wizard Grenade was born after challenging myself to recreating a childhood favourite PC game of mine "Worms2". 
+									I developed the game from scratch using only the <a href ="https://www.monogame.net/"> Monogame</a> open source implementation of the Microsoft XNA 4 framework, to run the game loop and draw the spritebatch
+									to the screen. The main challenges were to develop a basic physics engine, create destructable and collidable terrain and to finish a playable game
+									before my arbitrary three month deadline. The game was finished on time but I couldn't help but spend an extra week tweaking some aesthetical elements, and finishing off a basic music score.
+									 This project taught me a lot of important lessons about software architecture, game design and object-oriented programming.
+									</p>
+
+
+								<!-- Contents -->
+
+									<div class="row">
+										<div class="col-3">
+											<h3>Programming</h3>
+											<ul>
+												<a href = "#physics"><li>Physics</li></a>
+												<a href = "#terrain"><li>Destructable Terrain</li></a>
+												<a href = "#menu"><li>Menu tools</li></a>
+												<a href = "#UML"><li>Architecture (UML)</li></a>
+											</ul>
+
+										</div>
+										<div class="col-3">
+											<h3>Gameplay</h3>
+											<ul>
+												<li>How to play</li>
+												<li>Weapons</li>
+												<li>Maps</li>
+												<li>Easter Egg</li>
+											</ul>
+
+										</div>
+									</div>
+							</section>
+							<h1>PROGRAMMING</h1>
+							<section class="special">
+								<article>
+									<h2 id = "physics">Physics</h2>
+									<p>	The physics are what really spawned this project - after replaying Worms2 for the first time in years I found the act of throwing and timing the grenade throws so satisfying that I wanted to recreate it myself</p>
+									<video class = "image main" autoplay loop muted playsinline>
+										<source src="video/Physics.mp4" type="video/mp4" alt ="physics demo">
+									  </video>
+								</article>
+							</section>
+							<section class="special">
+								<article>
+									<h2 id = "terrain">Destructable Terrain</h2>
+									<p> The terrain came from this idea.</p>
+								</article>
+							</section>
+							<section>
+								<article>
+									<h2 id = "menu">Menu Tools</h2>
+									<div class = "row">
+										<div class = col-6>
+											<p style = "padding-bottom: 2px;"><a class="image fit"><img src="images/WizardGrenade/WG_menu.png" alt="" /></a>
+											
+												Here I want to highlight some non-specific classes or tools I crated to build the menus in the game.
+												I wanted a simple interface, so I chose to represent all settings graphically with integer steps.
+											</p>
+											<p>
+												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> class was developed to handle this, having both an integer property (e.g number of Wizards in a team), but with the option to calculate a float value if required; for example the "Music Volume" setting shown in the menu above will have a value of 2/5 = 0.4f.
+											</p>
+											<p>
+												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/SpriteMeter.cs" target="blank">SpriteMeter</a> class simply prints a number of <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Sprite.cs" target ="blank">Sprite</a> objects to the screen separated by an interval; the "SetSpriteMeter()" method in <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> can be used to calculate this interval. I chose to pass the value of the setting directly in the "Draw()" method.	
+												
+											</p>
+											<p>
+												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class draws the text options out to the screen. The constructor takes a List&ltstring&gt, and a 'bool' which determines a vertical or single position layout. 
+												<video class = "image fit" autoplay loop muted playsinline>
+													<source src="video/OptionsLayout.mp4" type="video/mp4">
+												  </video>
+												The video clip above demonstrates the difference. I created another class called  <a href = "https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/OptionArrows.cs" target="blank">OptionArrows</a> which will measure the length of the selected 'string' and adjust position.
+												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class also handles changing option with the respective arrow keys (i.e. L/R for single, U/D for vertical) holding the List Index as an integer property.
+											</p>
+	
+	
+										</div>
+	
+	
+										<div class = "col-6">
+											<pre><code>
+<pub>public class</pub> <cl>Setting</cl>
+{
+	<pub>public float</pub> Value { <pub>get</pub>; <pub>private set</pub>; }
+	<pub>public int</pub> IntValue { <pub></pub>; <pub>private set</pub>; }
+	<pub>public int</pub>  MinValue { <pub>get</pub>; <pub>private set</pub>; }
+	<pub>public int</pub>  MaxValue { <pub>get</pub>; <pub>private set</pub>; }
+	<pub>private</pub> <cl>SpriteMeter</cl> _spriteMeter;
+
+	<pub>public</pub> <cl>Setting</cl>(<pub>int</pub> initialValue, <pub>int</pub> minValue, <pub>int</pub> maxValue)
+	{
+		IntValue = initialValue;
+		MinValue = minValue;
+		MaxValue = maxValue;
+		Value = (<pub>float</pub>)IntValue / (<pub>float</pub>)MaxValue;
+	}
+
+	...
+
+	<pub>public void</pub> SetSpriteMeter(<pub>float</pub> maxWidth, <pub>float</pub> spriteScale)
+	{
+		_spriteMeter.Interval = maxWidth / (MaxValue - 1);
+		_spriteMeter.Sprite.SpriteScale = spriteScale;
+	}
+
+	<pub>public void</pub> SetValue(<pub>int</pub> value)
+	{
+		IntValue = value >= MaxValue ? MaxValue : value $lt= MinValue ? MinValue : value;
+		Value = (<pub>float</pub>)IntValue / (<pub>float</pub>)MaxValue;
+	}
+
+	<pub>public void</pub> ChangeValue(<pub>int</pub> diff) => SetValue(IntValue + diff);
+
+	...
+}
+	
+	</code></pre>
+	
+	<div class = "col-6">
+		<pre><code>
+<pub>public class</pub> <cl>SpriteMeter</cl>
+{
+	<pub>public</pub> <cl>Sprite</cl> Sprite { <pub>get</pub>; <pub>set</pub>; }
+	<pub>public float</pub> Interval { <pub>get</pub>; <pub>set</pub>; } = 10f;
+
+	<pub>public</pub> <cl>SpriteMeter</cl>(<cl>ContentManager</cl> contentManager, <pub>string</pub> fileName)
+	{
+		Sprite = new <cl>Sprite</cl>(contentManager, fileName);
+	}
+
+	<pub>public void</pub> Draw(<cl>SpriteBatch</cl> spriteBatch, <st>Vector2</st> position, <pub>int</pub> value)
+	{
+		for (<pub>int</pub> i = 0; i &lt value; i++)
+			Sprite.DrawSprite(spriteBatch, new <st>Vector2</st>(position.X + (i * Interval), position.Y));
+	}
+}
+											</code></pre>
+											NB// "..."  indicates where code was ommitted for brevity
+										</div>
+									</div>
+							</article>
+						</section>
+						<section class = "special">
+							<article>
+								<h2 id = "UML">Architecture</h2>
+								<h4>WARNING: WALL OF TEXT</h4>
+								<p>You might wonder why this project is "<a>WizardGrenade2</a>" on GitHub - For <a>WG1</a> I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. 
+									I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. 
+									Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are <b>Singletons</b> which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the <a>StateMachine</a>) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. 
+									The free account on <a href ="https://www.lucidchart.com" target="blank">LucidChart</a> restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. Without describing everything the basic structure is as follows.
+									<div class = "iframe-container">
+										<iframe allowfullscreen frameborder="0" src="https://lucid.app/documents/embeddedchart/8aafee33-1517-42b7-ad84-3154dbd60263" id="cGN77Lv0O604"></iframe>
+									</div>
+									<div class ="row">
+									<ul class ="par">
+										<li><a>WGGame</a> is the main game class. This handles the game loop logic, determines whether we are in the menu, running the game, or if the game is paused. It also contains the CameraManager which determines the origin matrix (i.e. drawing UI, menus) and the transform matrix (i.e. in game)</li>
+										<li>The <a>GameSetup</a> is a menu where the game options and map are chosen - once selected a small <a>GameOptions</a> class is injected as a constructor to <a>GameScreen</a> along with the ContentManager.</li>
+										<li>The <a>GameScreen</a> passes on the <a>GameOptions</a> to the <a>BattleManager</a> which loads the respective number of <a>Teams</a> and sets the number of Wizards per team; each <a>Team</a> calculates their total health and feeds this back to the <a>GameScreen</a> which primes the <a>UserInterface</a> with the team <a>HealthBars</a> and the round time</li>
+										<li><a>Teams</a> handles the initial placement of the Wizards, and after that polls the <a>StateMachine</a> for the active GameState and determines which <a>Team</a> and <a>Wizard</a> are active.</li>
+										<li>Each <a>Team</a> has a different Sprite so this is where each <a>Wizard</a> is drawn and where the collective health is tallied. The movement method is only called for the active <a>Wizard</a> of the active <a>Team</a>.</li>
+										<li>Improving on my last design, the <a>Wizard</a> class handles movement, damage and animation states but <b>has</b> a GameObject (see below). The <a>Wizard</a> also contains an <a>Entity</a> which has health, a "Damage()" method and checks if the Wizard is dead or not.</li>
+										<li>The <a>GameObject</a> class handles the physics (see <a href = "#physics">Physics</a>) and draws the Sprite at the correct position. In hindsight I could have decoupled this further by containing the <a>Sprite</a> within <a>GameObject</a> rather than inheriting from it.</li>
+										<li>Another improvement on the first design was having the <a>WeaponManager</a> handle all the weapons and simply draw them at the position of the active <a>Wizard</a>. The <a>WeaponManager</a> is updated by the <a>BattleManager</a> and takes the active wizard position in it's Update() method.</li>
+										<li>The <a>WeaponManager</a> class is one of the dreaded <b>Singletons</b> which acts as a conduit between the Wizards and the Weapons. The WeaponManager is Lazy Initialised so it is only called once the teams are loaded; a list containing <em>all</em> Wizards is collected by <a>Teams</a> and passed to the <a>WeaponManager</a>. Then when a <a>Weapon</a> explodes near a <a>Wizard</a> the <a>WeaponManager</a> can call AddVelocity() on the Wizard (or any other GameOjbect) and make them react to the explosion</li>
+										<li>The explosion imparts a velocity value as function of distance from the explosion, which causes variable amounts of damage depending on how close the <a>Wizard</a> was to the explosion </li>
+										<li>The Weapons are discussed in more detail here (<a href = "#weapons">Weapons</a>) but the way each one interacts with Wizards is different, hence they contain virtual methods to be overriden by the specific weapon class</li>
+										
+									</ul>
+								</div>
+								</p>
+
+							</article>
+						</section>
+
+
+
+						
+
+
+
+				</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>Eddie Pace</li><li>Edpacca</li></ul>
+					<ul><a href = https://html5up.net/>Template reworked from HTML5 UP</a></ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src ="assets/js/audio.js"></script>
+
+	</body>
+</html>
