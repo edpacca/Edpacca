@@ -16,3 +16,10 @@ function hideVideo(file) {
     var video = file;
     video.style.display='none';
 }
+
+function playVideo() {
+    var video = document.getElementById("portal");
+    video.currentTime = 0;
+    video.style.display='initial';
+    video.playVideo;
+}
