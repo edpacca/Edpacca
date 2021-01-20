@@ -11,3 +11,8 @@ function pauseMusic() {
     music = new Audio();
     music.play();
 }
+
+function hideVideo(file) {
+    var video = file;
+    video.style.display='none';
+}
