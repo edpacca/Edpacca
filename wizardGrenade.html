@@ -14,7 +14,7 @@
 				<div id="intro code">
 					<h1><br></h1>
 				</div>
-				<!-- Nav -->
+				<!-- Nav bars -->
 				<nav id="nav">
 					<ul class="links">
 						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp;</a></li>
@@ -36,7 +36,7 @@
 					</ul>
 				</nav>
 
-				<!-- Main -->
+				<!-- Main page -->
 					<div id="main">
 
 						<!-- Post -->
@@ -48,90 +48,149 @@
 								</header>
 								<video class = "image main" autoplay loop muted playsinline>
 									<source src="video/Demo.mp4" type="video/mp4" alt ="WizardGrenade Demo">
-								  </video>
+								</video>
 								
 								<!-- Overview -->
-									<p>Wizard Grenade was born after challenging myself to recreating a childhood favourite PC game of mine "Worms2". 
-									I developed the game from scratch using only the <a href ="https://www.monogame.net/"> Monogame</a> open source implementation of the Microsoft XNA 4 framework, to run the game loop and draw the spritebatch
-									to the screen. The main challenges were to develop a basic physics engine, create destructable and collidable terrain and to finish a playable game
-									before my arbitrary three month deadline. The game was finished on time but I couldn't help but spend an extra week tweaking some aesthetical elements, and finishing off a basic music score.
-									 This project taught me a lot of important lessons about software architecture, game design and object-oriented programming.
-									</p>
-
+								<p>Wizard Grenade was born after challenging myself to recreating a childhood favourite PC game of mine "Worms2". 
+								I developed the game from scratch using only the <a href ="https://www.monogame.net/"> Monogame</a> open source implementation of the Microsoft XNA 4 framework, to run the game loop and draw the spritebatch
+								to the screen. The main challenges were to develop a basic physics engine, create destructable and collidable terrain and to finish a playable game
+								before my arbitrary three month deadline. The game was finished on time but I couldn't help but spend an extra week tweaking some aesthetical elements, and finishing off a basic music score.
+									This project taught me a lot of important lessons about software architecture, game design and object-oriented programming.
+								</p>
 
 								<!-- Contents -->
+								<div class="row">
+									<div class="col-4">
+										<a href="#programming"><h3>Programming</h3></a>
+										<ul>
+											<a href = "#physics"><li>Physics</li></a>
+											<a href = "#terrain"><li>Destructable Terrain</li></a>
+											<a href = "#menu"><li>Menu tools</li></a>
+											<a href = "#UML"><li>Architecture (UML)</li></a>
+										</ul>
+									</div>
 
-									<div class="row">
-										<div class="col-3">
-											<h3>Programming</h3>
-											<ul>
-												<a href = "#physics"><li>Physics</li></a>
-												<a href = "#terrain"><li>Destructable Terrain</li></a>
-												<a href = "#menu"><li>Menu tools</li></a>
-												<a href = "#UML"><li>Architecture (UML)</li></a>
-											</ul>
+									<div class ="col-4">
+										<div class = "image stacked">
+											<img class = "image stacked layer1" src="images/WizardGrenade/book.png" onclick="playVideo()">
 
-										</div>
-										<div class="col-3">
-											<h3>Gameplay</h3>
-											<ul>
-												<li>How to play</li>
-												<li>Weapons</li>
-												<li>Maps</li>
-												<li>Easter Egg</li>
-											</ul>
-
+											<video class="image stacked layer2" preload="none" id="portal" onended="hideVideo(this)">
+												<source src="video/WG_portal.mp4" type="video/mp4" alt ="portal">
+												</video>
 										</div>
 									</div>
+
+									<div class="col-4" style="padding-left: 4em;">
+										<h3>Gameplay</h3>
+										<ul>
+											<li>How to play</li>
+											<li>Weapons</li>
+											<li>Maps</li>
+											<li>Easter Egg</li>
+										</ul>
+									</div>
+								</div>
 							</section>
-							<h1>PROGRAMMING</h1>
-							<section class="special">
+
+							<div>
+								<h1 style="text-decoration: underline; text-align: center;" id ="programming">PROGRAMMING</h1>
+								<br>
+							</div>
+
+							<section class="special" >
 								<article>
 									<h2 id = "physics">Physics</h2>
-									<p>	The physics are what really spawned this project - after replaying Worms2 for the first time in years I found the act of throwing and timing the grenade throws so satisfying that I wanted to recreate it myself</p>
-									<video class = "image main" autoplay loop muted playsinline>
-										<source src="video/Physics.mp4" type="video/mp4" alt ="physics demo">
-									  </video>
+									<div class ="row">
+										<div class = "col-6">
+											<p>	The physics are what really spawned this project - after replaying Worms2 for the first time in years I found the act of throwing and timing the grenade throws so satisfying that I wanted to recreate it myself.
+												Being a 2D pixel game made things simpler. Every object in my game which reacts to gravity and interacts with the map has a class which I named <a>GameObject</a>. The general physics system works as follows:
+												<ul class="par">
+													
+													<li>A <a>GameObject</a> is created with a <a>Polygon</a> to describe the collision points. A number of vertices (expressed in the <a>GameObject</a> constructor) are drawn in a circle around the centre of the Texture2D image. 
+														 This is shown for the <a>Wizard</a>, the <a>Fireball</a> in Fig1 right. If '0' is entered then the polgyon is simply the Texture2D rectangle as shown by the <a>Arrow</a>.</li>
+													<li>I contained the physical properties <b>position</b> and <b>velocity</b> (of type vector2) and <b>rotation</b> (float) within a class called <a>Space2D</a>. A <a>GameObject</a> has a <a>Space2D</a> for both "real space" and "potential space", as well as a value for "mass".</li>
+													<li>As in the real world, each loop of the game has gravity act upon each <a>GameObject</a> as a function of its mass and an arbitrary acceleration (I chose 9.8f which is close to real gravitational acceleration on earth in ms<sup>-2</sup>). All vector and mechanical physics calculations are handled in the <a>Mechanics</a> class.</li>
+													<li>At the end of a game loop, each <a>GameObject</a> has a given velocity, resolved from gravity, explosions and collisions with the map. This velocity is modulated by gravity at the start of every Update, as shown in Fig2. The value of Space2D.rotation is updated to match the velocity direction</li>
+													<li>The vertices of a <a>GameObject</a> <a>Polygon</a> are transformed by a rotation Matrix to reflect the velocity. In actuality only half the polygon points are recorded, as a <a>GameObject</a> only needs to check collisions in the direction it is travelling.</li>
+													<li>As per the Update loop shown in Fig2. the "potential space" is updated first, collisions resolved (or not) and then "real space" is updated. This prevents an object from moving into the terrain.</li>
+													<li>The <a>Map</a> is loaded in at the beginning of the game as a 2D 'bool' array for each pixel: <b>true</b> for colour and <b>false</b> for trasnparent.</li>
+													<li>In potential space, the transformed collision points (x, y) are cast as integers and checked against the map array. If the value is true then they are deemed to be "colliding" (Fig3[1]).</li>
+													<li>I got some inspiration from an excellent YouTube channel <a href="youtube.com/channel/UC-yuWVUplUJZvieEligKBkA" target="blank">javidx9</a> for approximating pixel resolution collisions; we sum up the vectors created by a colliding point and the centre of the object (Fig3[1]). From this we obtain the 'response' vector, which is approximately orthogonal to colliding surface. </li>
+													<li>From this we use the dot-product of the normalised response vector (n) and initial velocity (v) to get the reflection vector (r), which becomes the new velocity: <i> r = v - 2( v . n )n</i>. The magnitude of r depends on the magnitude of v, but isn't affected by the angle or how many collision points are actually colliding.</li>
+													<li>We dampen the reflection vector to simulate friction; each <a>GameObject</a> has its own coefficient for this, so we can modulate how bouncy an object is.</li>
+												</ul>
+											</p>
+										</div>
+										<div class = "col-6">
+											<video class = "image fit" autoplay loop muted playsinline>
+												<source src="video/Physics.mp4" type="video/mp4" alt ="physics demo">
+											</video>
+
+											<img class = "image fit" src="images/WizardGrenade/physics1.png">
+											Fig1. "polygons" make the collision points for GameObjects.
+											
+											<pre style="text-align: left;">
+												<code>
+<pub>public void</pub> Update(<cl>GameTime</cl> gameTime)
+{
+	_acceleration += <cl>Mechanics</cl>.ApplyGravity(_parameters.mass);
+	_realSpace.velocity += _acceleration * (<pub>float</pub>)gameTime.ElapsedGameTime.TotalSeconds;
+	_acceleration = Vector2.Zero;
+	UpdatePotentialSpace(gameTime);
+	ResolveCollisions(gameTime);
+}
+											</code>
+										</pre>
+										Fig2. Update loop for the GameObject class.
+									</div>
+
+									</div>
+										<div>
+											<img class = "image fit" src="images/WizardGrenade/physics2.png">
+											Fig3. <b>[0]</b> velocity from gravity <b>[1]</b> check for collisions in "potential space". <b>[2]</b> calculate reflection vector. <b>[3]</b> assign new velocity in "real space" 
+										</div>
 								</article>
 							</section>
+
 							<section class="special">
 								<article>
 									<h2 id = "terrain">Destructable Terrain</h2>
 									<p> The terrain came from this idea.</p>
 								</article>
 							</section>
+
 							<section>
 								<article>
 									<h2 id = "menu">Menu Tools</h2>
 									<div class = "row">
 										<div class = col-6>
-											<p style = "padding-bottom: 2px;"><a class="image fit"><img src="images/WizardGrenade/WG_menu.png" alt="" /></a>
+											<p style = "padding-top: 1.1em;"><a class="image fit"><img src="images/WizardGrenade/WG_menu.png" alt="" /></a>
 											
 												Here I want to highlight some non-specific classes or tools I crated to build the menus in the game.
 												I wanted a simple interface, so I chose to represent all settings graphically with integer steps.
 											</p>
-											<p>
-												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> class was developed to handle this, having both an integer property (e.g number of Wizards in a team), but with the option to calculate a float value if required; for example the "Music Volume" setting shown in the menu above will have a value of 2/5 = 0.4f.
-											</p>
-											<p>
-												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/SpriteMeter.cs" target="blank">SpriteMeter</a> class simply prints a number of <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Sprite.cs" target ="blank">Sprite</a> objects to the screen separated by an interval; the "SetSpriteMeter()" method in <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> can be used to calculate this interval. I chose to pass the value of the setting directly in the "Draw()" method.	
-												
-											</p>
-											<p>
-												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class draws the text options out to the screen. The constructor takes a List&ltstring&gt, and a 'bool' which determines a vertical or single position layout. 
-												<video class = "image fit" autoplay loop muted playsinline>
-													<source src="video/OptionsLayout.mp4" type="video/mp4">
-												  </video>
+
+											<!-- Setting class -->
+											<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> 
+												class was developed to handle this, having both an integer property (e.g number of Wizards in a team), but with the option to calculate a float value if required; for example the "Music Volume" setting shown in the menu above will have a value of 2/5 = 0.4f.</p>
+											
+												<!-- SpriteMeter class -->
+											<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/SpriteMeter.cs" target="blank">SpriteMeter</a> 
+												class simply prints a number of <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Sprite.cs" target ="blank">Sprite</a> objects to the screen separated by an interval; 
+												the "SetSpriteMeter()" method in <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> can be used to calculate this interval. I chose to pass the value of the setting directly in the "Draw()" method.</p>
+											
+												<!-- Option class -->
+											<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class draws the text options out to the screen. 
+												The constructor takes a List&ltstring&gt, and a 'bool' which determines a vertical or single position layout. 
+												<video class = "image fit" autoplay loop muted playsinline><source src="video/OptionsLayout.mp4" type="video/mp4"></video>
 												The video clip above demonstrates the difference. I created another class called  <a href = "https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/OptionArrows.cs" target="blank">OptionArrows</a> which will measure the length of the selected 'string' and adjust position.
 												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class also handles changing option with the respective arrow keys (i.e. L/R for single, U/D for vertical) holding the List Index as an integer property.
 											</p>
-	
-	
 										</div>
-	
-	
+										<!-- Setting Code -->
 										<div class = "col-6">
-											<pre><code>
+											<pre>
+												<code>
 <pub>public class</pub> <cl>Setting</cl>
 {
 	<pub>public float</pub> Value { <pub>get</pub>; <pub>private set</pub>; }
@@ -166,11 +225,11 @@
 
 	...
 }
-	
-	</code></pre>
-	
-	<div class = "col-6">
-		<pre><code>
+											</code>
+										</pre>
+										<!-- SpriteMeter code-->
+										<pre>
+											<code>
 <pub>public class</pub> <cl>SpriteMeter</cl>
 {
 	<pub>public</pub> <cl>Sprite</cl> Sprite { <pub>get</pub>; <pub>set</pub>; }
@@ -187,12 +246,14 @@
 			Sprite.DrawSprite(spriteBatch, new <st>Vector2</st>(position.X + (i * Interval), position.Y));
 	}
 }
-											</code></pre>
-											NB// "..."  indicates where code was ommitted for brevity
-										</div>
+											</code>
+										</pre>
+										NB// "..."  indicates where code was ommitted for brevity
 									</div>
+								</div>
 							</article>
 						</section>
+
 						<section class = "special">
 							<article>
 								<h2 id = "UML">Architecture</h2>
@@ -200,10 +261,16 @@
 								<p>You might wonder why this project is "<a>WizardGrenade2</a>" on GitHub - For <a>WG1</a> I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. 
 									I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. 
 									Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are <b>Singletons</b> which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the <a>StateMachine</a>) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. 
-									The free account on <a href ="https://www.lucidchart.com" target="blank">LucidChart</a> restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. Without describing everything the basic structure is as follows.
-									<div class = "iframe-container">
-										<iframe allowfullscreen frameborder="0" src="https://lucid.app/documents/view/8aafee33-1517-42b7-ad84-3154dbd60263"></iframe>
+									The free account on <a href ="https://www.lucidchart.com" target="blank">LucidChart</a> restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. The basic structure is as follows:
+									
+									<div class = "image main">
+										<img src="images/WizardGrenade/WG2_UML.png">
 									</div>
+									
+									<!-- <div class = "iframe-container">
+										<iframe allowfullscreen frameborder="0" src="https://lucid.app/documents/view/8aafee33-1517-42b7-ad84-3154dbd60263"></iframe>
+									</div> -->
+
 									<div class ="row">
 									<ul class ="par">
 										<li><a>WGGame</a> is the main game class. This handles the game loop logic, determines whether we are in the menu, running the game, or if the game is paused. It also contains the CameraManager which determines the origin matrix (i.e. drawing UI, menus) and the transform matrix (i.e. in game)</li>
@@ -249,7 +316,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src ="assets/js/audio.js"></script>
+			<script src ="assets/js/media.js"></script>
 
 	</body>
 </html>
