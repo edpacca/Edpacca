@@ -81,7 +81,7 @@ input, select, textarea {
 	@media screen and (max-width: 480px) {
 
 		html, body {
-			min-width: 320px;
+			min-width: 50px;
 		}
 
 	}
@@ -4885,7 +4885,7 @@ input, select, textarea {
 
 	.iframe-container {
 		overflow: hidden;
-		padding-top: 70.70%;
+		padding-top: 56.25%;
 		position: relative;
 	  }
 	  
