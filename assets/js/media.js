@@ -17,8 +17,8 @@ function hideVideo(file) {
     video.style.display='none';
 }
 
-function playVideo() {
-    var video = document.getElementById("portal");
+function playTheVideo(id) {
+    var video = document.getElementById(id);
     video.currentTime = 0;
     video.style.display='initial';
     video.playVideo;
