@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Wizard Grenade</title>
+		<title>Wizard Grenade </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -14,6 +14,11 @@
 				<div id="intro code">
 					<h1><br></h1>
 				</div>
+
+				<header id="header">
+					<a href="index.html" class="logo">0 &nbsp; 0 <br>__</b></a>
+				</header>
+
 				<!-- Nav bars -->
 				<nav id="nav">
 					<ul class="links">
@@ -21,7 +26,7 @@
 						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; </a></li>
 						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp;</a></li>
 						<li><a href="photo.html">&nbsp; &nbsp; Photo &nbsp; &nbsp;</a></li>
-						<li><a href="food.html">&nbsp; &nbsp; Beer etc &nbsp; &nbsp;</a></li>
+						<li><a href="food.html">&nbsp; &nbsp; Brewing+ &nbsp; &nbsp;</a></li>
 					</ul>
 					<ul class="icons">
 						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
@@ -42,7 +47,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<a href = "https://github.com/Edpacca/WizardGrenade2" target ="blank"><h1>Wizard Grenade</h1></a>
+									<a href = "https://github.com/Edpacca/WizardGrenade2" target ="blank"><h1>Wizard Grenade <br>C#</h1></a>
 									<a href="#" class="button primary" onclick="playMusic('audio/WQ_main_theme.mp3')"> Play Music </a>
 									<a href="#" class="button" onclick="pauseMusic()"> Stop</a>
 								</header>
@@ -72,10 +77,10 @@
 
 									<div class ="col-4">
 										<div class = "image stacked">
-											<img class = "image stacked layer1" src="images/WizardGrenade/book.png" onclick="playVideo()">
+											<img class = "image stacked layer1" src="images/WizardGrenade/book.png" onclick="playVideo('portal')">
 
-											<video class="image stacked layer2" preload="none" id="portal" onended="hideVideo(this)">
-												<source src="video/WG_portal.mp4" type="video/mp4" alt ="portal">
+											<video class="image stacked layer2" preload="none" id="portal" onclick="playVideo('portal')"; onended="hideVideo(this)";>
+												<source src="video/WG_portal.mp4" type="video/mp4" alt ="WGPortal">
 												</video>
 										</div>
 									</div>
@@ -316,7 +321,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src ="assets/js/media.js"></script>
+			<script src="assets/js/media.js"></script>
 
 	</body>
 </html>
