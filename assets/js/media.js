@@ -17,9 +17,10 @@ function hideVideo(file) {
     video.style.display='none';
 }
 
-function playTheVideo(id) {
+function playVideo(id) {
     var video = document.getElementById(id);
+    video.pause();
     video.currentTime = 0;
     video.style.display='initial';
-    video.playVideo;
+    video.play();
 }
