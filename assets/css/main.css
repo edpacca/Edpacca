@@ -2662,7 +2662,12 @@ input, select, textarea {
 			display: grid;
 			width: 100%;
 		}
-			.image.stacked.layer1, .image.stacked.layer2{
+			.image.stacked.layer1{
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+			.image.stacked.layer2{
 				grid-column: 1;
 				grid-row: 1;
 			}
@@ -4901,4 +4906,30 @@ input, select, textarea {
 		 top: 0;
 		 width: 100%;
 	  }
+
+		/* Tooltip container */
+		.tooltip {
+		position: relative;
+		display: inline;
+		}
+
+		/* Tooltip text */
+		.tooltip .tooltiptext {
+		visibility: hidden;
+		width: 500px;
+		background-color: black;
+		color: #f1a707;
+		text-align: center;
+		padding: 5px 0;
+		border-radius: 6px;
+		
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		z-index: 1;
+		}
+
+		/* Show the tooltip text when you mouse over the tooltip container */
+		.tooltip:hover .tooltiptext {
+		visibility: visible;
+		}
 
