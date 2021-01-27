@@ -12,44 +12,42 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 				<div id="intro code">
-					<h1><br></h1>
+					<header id="header">
+						<a href="index.html" class="logo icon solid fa-dungeon"> Home</a>
+					</header>
 				</div>
-
-				<header id="header">
-					<a href="index.html" class="logo">0 &nbsp; 0 <br>__</b></a>
-				</header>
 
 				<!-- Nav bars -->
 				<nav id="nav">
 					<ul class="links">
-						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp;</a></li>
-						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; </a></li>
-						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp;</a></li>
-						<li><a href="photo.html">&nbsp; &nbsp; Photo &nbsp; &nbsp;</a></li>
-						<li><a href="food.html">&nbsp; &nbsp; Brewing+ &nbsp; &nbsp;</a></li>
+						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp; <li class="active icon solid fa-code" style="color: #1e252d;">&nbsp;</li></a></li>
+						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; <li class="icon solid fa-music" style="color: #ffffff;">&nbsp;</li> </a></li>
+						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp; <li class="icon solid fa-video"style="color: #ffffff;">&nbsp;</li></a></li>
 					</ul>
 					<ul class="icons">
 						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 					</ul>
 				</nav>
-				<nav id="nav" style="margin-top: 0em;">
-					<ul class="linkssub">
-						<li class="active"><a>Wizard Grenade</a></li>
-						<li><a href="">Project Manticore</li>
-						<li><a href="">Wizard Quest</a></li>
-						<li><a href="">Wizard Target</a></li>
-					</ul>
-				</nav>
-
 				<!-- Main page -->
 					<div id="main">
 
 						<!-- Post -->
 							<section class="post">
+								<ul class="actions fit" style="margin-top: -4rem;">
+									<li><a href="wizardGrenade.html" class="button primary fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+									<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+									<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+									<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+									<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+								</ul>	
+								<br>
+								
+
 								<header class="major">
+									<a class="button larger primary icon solid fa-music" onclick="playMusic('audio/WQ_main_theme.mp3')"></a>
+									<a class="button larger icon solid fa-stop" onclick="pauseMusic()"></a>
+									<br> <br>
 									<a href = "https://github.com/Edpacca/WizardGrenade2" target ="blank"><h1>Wizard Grenade <br>C#</h1></a>
-									<a href="#" class="button primary" onclick="playMusic('audio/WQ_main_theme.mp3')"> Play Music </a>
-									<a href="#" class="button" onclick="pauseMusic()"> &nbsp; &nbsp; Stop &nbsp; &nbsp;</a>
 								</header>
 								<video class = "image main" autoplay loop playsinline>
 									<source src="video/Demo.mp4" type="video/mp4" alt ="WizardGrenade Demo">
@@ -67,12 +65,12 @@
 								<!-- Contents -->
 								<div class="row">
 									<div class="col-4">
-										<a href="#programming"><h3>Programming</h3></a>
+										<h3><a href="#programming">Programming</a></h3>
 										<ul>
-											<a href = "#physics"><li>Physics</li></a>
-											<a href = "#terrain"><li>Destructable Terrain</li></a>
-											<a href = "#menu"><li>Menu tools</li></a>
-											<a href = "#UML"><li>Architecture (UML)</li></a>
+											<a href = "wgPhysics.html"><li>Physics</li></a>
+											<a href = "wgTerrain.html"><li>Destructable Terrain</li></a>
+											<a href = "wgMenu.html"><li>Menu tools</li></a>
+											<a href = "wgArchitecture.html"><li>Architecture (UML)</li></a>
 										</ul>
 									</div>
 
@@ -80,7 +78,7 @@
 										<div class = "image stacked">
 											<img class = "image stacked layer1" src="images/WizardGrenade/book.png" onclick="playVideo('portal')">
 
-											<video class="image stacked layer2" preload="none" id="portal" onended="hideVideo(this)">
+											<video class="image stacked layer2" style="display:none;" preload="none" id="portal" onclick="playVideo('portal')"; onended="hideVideo(this)">
 												<source src="video/WG_portal.mp4" type="video/mp4">
 												</video>
 										</div>
@@ -90,264 +88,128 @@
 										<h3>Gameplay</h3>
 										<ul>
 											<li>How to play</li>
-											<li>Weapons</li>
-											<li>Maps</li>
+											<li>Weapons &amp; Maps</li>
+											<li>Music &amp; Audio</li>
 											<li>Easter Egg</li>
 										</ul>
 									</div>
 								</div>
 							</section>
 
-							<section class="special" >
-								<div>
-									<h1 style="text-decoration: underline; text-align: center;" id ="programming">PROGRAMMING</h1><br>
-								</div>
+							<header class="major" id="programming">
+							<a class="image lefthead"><img src="images/WizardGrenade/potion1.png"/></a>
+							<a class="image righthead"><img src="images/WizardGrenade/potion2.png"/></a>
+							<h1 style="text-decoration: underline;">PROGRAMMING</h1>
+
+							<br>
+							</header>
+
+							<section class="posts">
+								<article >
+									<header>
+										<h2><a href="wgPhysics.html">Physics</a></h2>
+									</header>
+									<a href="wgPhysics.html" class="image fit"><img src="images/WizardGrenade/physics2.png" alt="" /></a>
+									<p> The physics are what really spawned this project - after replaying <a href="https://www.team17.com/games/worms-2-armageddon/" target="blank"><b>Worms2</b></a> for the first time in at least a decade, the simple act of aiming and timing tricky grenade throws was so satisfying that I wanted to recreate it. </p>
+									<ul class="actions special">
+										<li><a href="wgPhysics.html" class="button">Read more</a></li>
+									</ul>
+								</article>
 
 								<article>
-									<h2 id = "physics">Physics</h2>
-									<div class ="row">
-										<div class = "col-6">
-											<p>	The physics are what really spawned this project - after replaying <a href="https://www.team17.com/games/worms-2-armageddon/" target="blank"><b>Worms2</b></a> for the first time in at least a decade, the simple act of aiming and timing tricky grenade throws was so satisfying that I wanted to recreate it. Upon achieving this, armed with a modest level of new programming knowledge I thought, “I’ll just make the whole game, it can’t be that much work!” … that thought did not last long, but at least it didn’t deter me.
-												In truth, the physics only needs to approximate a simple mechanical model. For this I created a class called <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a>, which is included in every object that is acted upon by gravity and collides with the map, such as the fireballs or the wizards. The GameObject class works as follows:
-											</p>
-										</div>
-										<div class = "col-6">
-											<video class = "image fit" autoplay loop muted playsinline>
-												<source src="video/Physics.mp4" type="video/mp4" alt ="physics demo">
-											</video>
-										</div>
+									<header>
+										<h2><a href="wgTerrain.html">Destructible Terrain</a></h2>
+									</header>
+									<a href="wgTerrain.html" class="image fit"><img src="images/WizardGrenade/WG_Terrain.jpg" alt="" /></a>
+									<p> The next aspect of <a href="https://www.team17.com/games/worms-2-armageddon/" target="blank"><b>Worms2</b></a> to figure out was how to make the terrain destructible, and react to the weapon explosions but remain collidable.</p>
+									<ul class="actions special">
+										<li><a href="wgTerrain.html" class="button">Read more</a></li>
+									</ul>
+								</article>
 
-									</div>
-									<div>
-										<ul class="par">
-											<li>As each <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> is drawn to the screen, it inherits from the Sprite class. In hindsight GameObject could contain a Sprite rather than inherit to reduce coupling between the two.</li>			
-											<li>The <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> constructor takes another class called GameObjectParameters, which includes the essential physical properties: mass, dampingFactor and numberOfCollisionPoints, as well as the parameters required to load the Sprite. The <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> and Sprite class constructors are overloaded to take animation frames for animated sprites. </li>
+								<article>
+									<header>
+										<h2><a href="wgMenu.html">Menu Tools</a></h2>
+									</header>
+									<a href="wgMenu.html" class="image fit"><img src="images/WizardGrenade/WG_menu.png" alt="" /></a>
+									<p>	This article covers some non-specific classes or tools I crated to build the menus in the game.
+										I wanted a simple interface, so I chose to represent all settings graphically with integer steps.</p>
+									<ul class="actions special">
+										<li><a href="wgMenu.html" class="button">Read more</a></li>
+									</ul>
+								</article>
+
+								<article>
+									<header>
+										<h2><a href="wgArchitecture.html">Architecture</a></h2>
+									</header>
+									<a href="wgArchitecture.html" class="image fit" style="height: 20rem;"><img src="images/WizardGrenade/WG2_UML.png" alt="" /></a>
+									<p>	Here I cover the overall architecture of the application, going into detail about how the game is structured using a UML diagram for reference.</p>
+									<ul class="actions special">
+										<li><a href="wgArchitecture.html" class="button">Read more</a></li>
+									</ul>
+								</article>
+							</section>
+
+							<header class="major" id="gameplay">
+								<a class="image lefthead"><img src="images/WizardGrenade/book1.png"/></a>
+								<a class="image righthead"><img src="images/WizardGrenade/book2.png"/></a>
+								<h1 style="text-decoration: underline;">GAMEPLAY</h1>
+								<p> Coming soon... </p>
+								<br>
+								</header>
+	
+								<section class="posts">
+									<article>
+										<header>
+											<h2><a href="#">How To Play</a></h2>
+										</header>
+										<a href="#" class="image fit"><img src="" alt="" /></a>
+										<p> </p>
+										<ul class="actions special">
+											<li><a href="" class="button disabled">Read more</a></li>
 										</ul>
+									</article>
+									<article>
+										<header>
+											<h2><a href="#">Weapons &amp; Maps</a></h2>
+										</header>
+										<a href="#" class="image fit"><img src="" alt="" /></a>
 
-										<div class ="row">
+										<ul class="actions special">
+											<li><a href="" class="button disabled">Read more</a></li>
+										</ul>
+									</article>
+									<article>
+										<header>
+											<h2><a href="#">Music &amp; Audio</a></h2>
+										</header>
+										<a href="#" class="image fit"><img src="" alt="" /></a>
+										<p> </p>
+										<ul class="actions special">
+											<li><a href="" class="button disabled">Read more</a></li>
+										</ul>
+									</article>
+									<article>
+										<header>
+											<h2><a href="#">Easter Eggs</a></h2>
+										</header>
+										<a href="#" class="image fit"><img src="" alt="" /></a>
+										<p> </p>
+										<ul class="actions special">
+											<li><a href="" class="button disabled">Read more</a></li>
+										</ul>
+									</article>
 
-											<div class = "col-6">
-												<pre ><code style="overflow-y: scroll; height:25rem;">
-<pub>public class</pub> <cl>GameObjectParameters</cl>
-{
-   <pub>public bool</pub> CanRotate { <pub>get</pub>; <pub>set</pub>; }
-   <pub>public readonly string</pub> fileName;
-   <pub>public readonly int </pub> framesH;
-   <pub>public readonly int </pub> framesV;
-   <pub>public readonly float </pub> mass;
-   <pub>public readonly int </pub> numberOfCollisionPoints;
-   <pub>public readonly float </pub> dampingFactor;
+								</section>
 
-<com>// Empty constructor.</com>
-   <pub>public</pub> <cl>GameObjectParameters</cl>(){}
-
-<com>// Constructor for single frame Sprite.</com>
-   <pub>public</pub> <cl>GameObjectParameters</cl>(<pub>string</pub> setFileName, <pub>float</pub> setMass, <pub>bool</pub> canRotate, <pub>int</pub> setNumberOfCollisionPoints, <pub>float</pub> setDampingFactor)
-   {
-	   fileName = setFileName;
-	   mass = setMass;
-	   CanRotate = canRotate;
-	   numberOfCollisionPoints = setNumberOfCollisionPoints;
-	   dampingFactor = setDampingFactor;
-   }
-
-<com>// Constructor for Sprite with animation frames. </com>
-   <pub>public</pub> <cl>GameObjectParameters</cl>(<pub>string</pub> setFileName, <pub>float</pub> setMass, <pub>bool</pub> canRotate, <pub>int</pub> setNumberOfCollisionPoints, <pub>float</pub> setDampingFactor, <pub>int</pub> setFramesH, <pub>int</pub> setFramesV)
-	   : this (setFileName, setMass, canRotate, setNumberOfCollisionPoints, setDampingFactor)
-   {
-	   framesH = setFramesH;
-	   framesV = setFramesV;
-   }
-}													
-												</code></pre>
-											</div>
-
-											<div class = "col-6">
-												<img class="image fit" src="images/WizardGrenade/physics1.png">
-												<br>
-												<p style="color: black;"><bf>Fig. 1</bf> "polygons" make the collision points for GameObjects. <br> These points can be arranged in a circle or a rectangle.</p>
-											</div>
-										</div>
-									<br>
-
-									<ul class="par">
-										<li>The <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> constructor initialises another class called Polygon with the number of collision points. If 0 is passed, then the corners of the Sprite are picked (like the arrow in <bf>Fig. 1</bf>), else a circle is drawn in points about the centre of the Sprite (Wizard and Fireball). </li>			
-										<li>In essence, <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> makes the position of a Sprite responsive to gravity, and collisions with the map. We control this by modulating the object's 2-dimensional <span class="tooltip"><a>velocity</a> <span class="tooltiptext"> velocity is speed in a given direction, in this case a 2D velocity: (x, y)</span></span> on each game loop, which then acts on the current position. Another class, Space2D contains properties of position, velocity and rotation.</li>
-										<li>Each frame, or loop of the game code, a <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> velocity is influenced by acceleration due to gravity in the direction ‘+y’, which is relative to the object’s mass. <span class="tooltip"><a> The (x, y) vector acceleration due to gravity each frame is then:  (0, GRAVITY * mass),</a> <span class="tooltiptext">For GRAVITY I chose 9.8f which is close to real gravitational acceleration on earth in ms<sup>-2</sup>.</span></span> which is simply added to the current velocity. However, before updating the object’s position we need to check if the new position would make any collision points overlap with the map. To do this, I gave each <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> a separate instance of Space2D for “real space” and “potential space”.</li>
-										<li>The Polygon contains the collision points relative to the object at position (0, 0), and a set of transformed collision points; this only contains <i>half</i> of the points as we only need to check collisions in the direction we are travelling. <span class="tooltip"><a>The transformed points are calculated each frame from the current position and velocity.</a><span class="tooltiptext"> The <i>rotation angle</i> is calculated from the velocity direction, then each collision point is passed through a rotation matrix to get the transformed position</span> </span> In <bf>Fig. 2 </bf> the Wizard is falling straight down, so the collision points are centred around (0, +y).</li>
-										
-									</ul>
-									<div style="margin-bottom: 2rem;">
-										<img class = "image fit" src="images/WizardGrenade/physics2.png">
-										<p style="color:black;"><bf>Fig. 2 </bf> <bf>A</bf> initial velocity in real space. <bf>B</bf> check for collisions in potential space. <bf>C</bf> calculate reflection vector. <bf>D</bf> assign new velocity in real space. </p>
-									</div>
-									<ul class="par">
-										<li>Now, looking at <bf>Fig. 2A</bf> we have a <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> falling with an initial velocity (0, +y). At the beginning of the loop the gravity is applied to the initial velocity, and the potential position is calculated. <bf>Fig. 2B</bf> shows that two of the collision points in potential space are overlapping with the map.</li>
-										<li>The Map is loaded in at the beginning of the game as a 2D 'bool' array for each pixel: <b>true</b> for colour and <b>false</b> for transparent. The x and y floating point values for a given collision point are cast as integers and checked against the 2D map array. If the result at that array index is <b>true</b> then the point is "colliding".</li>
-										<li>As in <bf>Fig. 2B</bf> we draw vectors from all colliding points to the object centre, and sum them which creates a response vector; this is perpendicular to a line which approximates the colliding surface of the map. </li>
-										<li>From this we use the dot-product of initial velocity (v) and normalised response vector (n) to get the reflection vector (r), which becomes the new velocity: <bf><i> r = v - 2( v . n )n</i></bf>. By normalising (n), the magnitude of (r) depends only on the magnitude of (v).</li>
-										<li>The reflection or new velocity is multiplied by a dampingFactor to simulate friction; each <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> has a different dampingFactor to allow us to control how bouncy an object is.</li>
-										<li>Finally the new velocity is added to the previous position, and the object is drawn at it’s new position. These ideas for pixel level collision resolution were inspired by an excellent YouTube channel <a href="https://www.youtube.com/channel/UC-yuWVUplUJZvieEligKBkA" target="blank">javidx9</a>.</li>
-										<li>Some objects rotate to the direction they are travelling, in which case the rotation angle is calculated from the new velocity and the object is drawn at this angle. The Wizard however faces downwards, so all Wizards are drawn at the same angle regardless of velocity.</li>
-										<li>GameObjects can have velocities imparted upon them by an explosion or being hit by an arrow. This is all taken into account each frame of the game loop and factors into the final velocity and position, creating a sufficient approximation of classical mechanics.</li>
-									</ul>
-
-
-									</div>
-								</article>
-							</section>
-
-							<section class="special">
-								<article>
-									<h2 id = "terrain">Destructable Terrain</h2>
-									<p> The terrain came from this idea.</p>
-								</article>
-							</section>
-
-							<section>
-								<article>
-									<h2 id = "menu">Menu Tools</h2>
-									<div>
-										<div>
-											<p style = "padding-top: 1.1em;"><a class="image left"><img src="images/WizardGrenade/WG_menu.png" alt="" /></a>
-											
-												Here I want to highlight some non-specific classes or tools I crated to build the menus in the game.
-												I wanted a simple interface, so I chose to represent all settings graphically with integer steps.
-											</p>
-
-											<!-- Setting class -->
-											<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> 
-												class was developed to handle this, having both an integer property (e.g number of Wizards in a team), but with the option to calculate a float value if required; for example the "Music Volume" setting shown in the menu above will have a value of 2/5 = 0.4f.</p>
-											
-												<!-- SpriteMeter class -->
-											<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/SpriteMeter.cs" target="blank">SpriteMeter</a> 
-												class simply prints a number of <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Sprite.cs" target ="blank">Sprite</a> objects to the screen separated by an interval; 
-												the "SetSpriteMeter()" method in <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> can be used to calculate this interval. I chose to pass the value of the setting directly in the "Draw()" method.</p>
-											
-												<video class = "image right" autoplay loop muted playsinline><source src="video/OptionsLayout.mp4" type="video/mp4"></video>
-												<!-- Option class -->
-											<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class draws the text options out to the screen. 
-												The constructor takes a List&ltstring&gt, and a 'bool' which determines a vertical or single position layout. 
-												
-												The video clip right demonstrates the difference. I created another class called  <a href = "https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/OptionArrows.cs" target="blank">OptionArrows</a> which will measure the length of the selected 'string' and adjust position.
-												The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class also handles changing option with the respective arrow keys (i.e. L/R for single, U/D for vertical) holding the List Index as an integer property.
-											</p>
-											
-										</div>
-										<!-- Setting Code -->
-									</div>
-										<br>
-									<div>
-										<div>
-											<pre ><code style="overflow-y: scroll; height: 40rem;">
-<pub>public class</pub> <cl>Setting</cl>
-{
-	<pub>public float</pub> Value { <pub>get</pub>; <pub>private set</pub>; }
-	<pub>public int</pub> IntValue { <pub></pub>; <pub>private set</pub>; }
-	<pub>public int</pub>  MinValue { <pub>get</pub>; <pub>private set</pub>; }
-	<pub>public int</pub>  MaxValue { <pub>get</pub>; <pub>private set</pub>; }
-	<pub>private</pub> <cl>SpriteMeter</cl> _spriteMeter;
-
-	<pub>public</pub> <cl>Setting</cl>(<pub>int</pub> initialValue, <pub>int</pub> minValue, <pub>int</pub> maxValue)
-	{
-		IntValue = initialValue;
-		MinValue = minValue;
-		MaxValue = maxValue;
-		Value = (<pub>float</pub>)IntValue / (<pub>float</pub>)MaxValue;
-	}
-
-	...
-
-	<pub>public void</pub> SetSpriteMeter(<pub>float</pub> maxWidth, <pub>float</pub> spriteScale)
-	{
-		_spriteMeter.Interval = maxWidth / (MaxValue - 1);
-		_spriteMeter.Sprite.SpriteScale = spriteScale;
-	}
-
-	<pub>public void</pub> SetValue(<pub>int</pub> value)
-	{
-		IntValue = value >= MaxValue ? MaxValue : value $lt= MinValue ? MinValue : value;
-		Value = (<pub>float</pub>)IntValue / (<pub>float</pub>)MaxValue;
-	}
-
-	<pub>public void</pub> ChangeValue(<pub>int</pub> diff) => SetValue(IntValue + diff);
-
-	...
-}
-											</code></pre>
-										</div>
-										<br>
-										NB// "..."  indicates where code was ommitted for brevity
-										<div>
-										<!-- SpriteMeter code-->
-											<pre><code>
-<pub>public class</pub> <cl>SpriteMeter</cl>
-{
-	<pub>public</pub> <cl>Sprite</cl> Sprite { <pub>get</pub>; <pub>set</pub>; }
-	<pub>public float</pub> Interval { <pub>get</pub>; <pub>set</pub>; } = 10f;
-
-	<pub>public</pub> <cl>SpriteMeter</cl>(<cl>ContentManager</cl> contentManager, <pub>string</pub> fileName)
-	{
-		Sprite = new <cl>Sprite</cl>(contentManager, fileName);
-	}
-
-	<pub>public void</pub> Draw(<cl>SpriteBatch</cl> spriteBatch, <st>Vector2</st> position, <pub>int</pub> value)
-	{
-		for (<pub>int</pub> i = 0; i &lt value; i++)
-			Sprite.DrawSprite(spriteBatch, new <st>Vector2</st>(position.X + (i * Interval), position.Y));
-	}
-}
-											</code></pre>
-											<br>
-
-										</div>
-									</div>
-							</article>
-						</section>
-
-						<section class = "special">
-							<article>
-								<h2 id = "UML">Architecture</h2>
-								<h4>WARNING: WALL OF TEXT</h4>
-								<p>You might wonder why this project is "<a>WizardGrenade2</a>" on GitHub - For <a>WG1</a> I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. 
-									I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. 
-									Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are <b>Singletons</b> which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the <a>StateMachine</a>) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. 
-									The free account on <a href ="https://www.lucidchart.com" target="blank">LucidChart</a> restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. The basic structure is as follows:
-									
-									<div class = "image main">
-										<img src="images/WizardGrenade/WG2_UML.png">
-									</div>
-									
-									<!-- <div class = "iframe-container">
-										<iframe allowfullscreen frameborder="0" src="https://lucid.app/documents/view/8aafee33-1517-42b7-ad84-3154dbd60263"></iframe>
-									</div> -->
-
-									<div class ="row">
-									<ul class ="par">
-										<li><a>WGGame</a> is the main game class. This handles the game loop logic, determines whether we are in the menu, running the game, or if the game is paused. It also contains the CameraManager which determines the origin matrix (i.e. drawing UI, menus) and the transform matrix (i.e. in game)</li>
-										<li>The <a>GameSetup</a> is a menu where the game options and map are chosen - once selected a small <a>GameOptions</a> class is injected as a constructor to <a>GameScreen</a> along with the ContentManager.</li>
-										<li>The <a>GameScreen</a> passes on the <a>GameOptions</a> to the <a>BattleManager</a> which loads the respective number of <a>Teams</a> and sets the number of Wizards per team; each <a>Team</a> calculates their total health and feeds this back to the <a>GameScreen</a> which primes the <a>UserInterface</a> with the team <a>HealthBars</a> and the round time</li>
-										<li><a>Teams</a> handles the initial placement of the Wizards, and after that polls the <a>StateMachine</a> for the active GameState and determines which <a>Team</a> and <a>Wizard</a> are active.</li>
-										<li>Each <a>Team</a> has a different Sprite so this is where each <a>Wizard</a> is drawn and where the collective health is tallied. The movement method is only called for the active <a>Wizard</a> of the active <a>Team</a>.</li>
-										<li>Improving on my last design, the <a>Wizard</a> class handles movement, damage and animation states but <b>has</b> a GameObject (see below). The <a>Wizard</a> also contains an <a>Entity</a> which has health, a "Damage()" method and checks if the Wizard is dead or not.</li>
-										<li>The <a>GameObject</a> class handles the physics (see <a href = "#physics">Physics</a>) and draws the Sprite at the correct position. In hindsight I could have decoupled this further by containing the <a>Sprite</a> within <a>GameObject</a> rather than inheriting from it.</li>
-										<li>Another improvement on the first design was having the <a>WeaponManager</a> handle all the weapons and simply draw them at the position of the active <a>Wizard</a>. The <a>WeaponManager</a> is updated by the <a>BattleManager</a> and takes the active wizard position in it's Update() method.</li>
-										<li>The <a>WeaponManager</a> class is one of the dreaded <b>Singletons</b> which acts as a conduit between the Wizards and the Weapons. The WeaponManager is Lazy Initialised so it is only called once the teams are loaded; a list containing <em>all</em> Wizards is collected by <a>Teams</a> and passed to the <a>WeaponManager</a>. Then when a <a>Weapon</a> explodes near a <a>Wizard</a> the <a>WeaponManager</a> can call AddVelocity() on the Wizard (or any other GameOjbect) and make them react to the explosion</li>
-										<li>The explosion imparts a velocity value as function of distance from the explosion, which causes variable amounts of damage depending on how close the <a>Wizard</a> was to the explosion </li>
-										<li>The Weapons are discussed in more detail here (<a href = "#weapons">Weapons</a>) but the way each one interacts with Wizards is different, hence they contain virtual methods to be overriden by the specific weapon class</li>
-										
-									</ul>
-								</div>
-								</p>
-
-							</article>
-						</section>
-
-
-
-						
-
-
+							<ul class="actions fit">
+								<li><a href="wizardGrenade.html" class="button primary fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+								<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+								<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+								<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+								<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+							</ul>	
 
 				</div>
 
