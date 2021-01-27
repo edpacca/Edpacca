@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Wizard Grenade - Terrain </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+				<div id="intro code">
+					<header id="header">
+						<a href="index.html" class="logo icon solid fa-dungeon"> Home</a>
+					</header>
+				</div>
+
+				<!-- Nav bars -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp; <li class="active icon solid fa-code" style="color: #1e252d;">&nbsp;</li></a></li>
+						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; <li class="icon solid fa-music" style="color: #ffffff;">&nbsp;</li> </a></li>
+						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp; <li class="icon solid fa-video"style="color: #ffffff;">&nbsp;</li></a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Main page -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<ul class="actions fit" style="margin-top: -4rem;">
+									<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+									<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+									<li><a href="wgTerrain.html" class="button primary fit icon solid fa-mountain">Terrain</a></li>
+									<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+									<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+								</ul>
+								<br><br>
+								
+									<a class="image lefthead"><img src="images/WizardGrenade/book1.png"/></a>
+									<a class="image righthead"><img src="images/WizardGrenade/book2.png"/></a>
+									<h1 style="text-decoration: underline; text-align: center;">Destructible Terrain</h1>
+								<br>
+								<br>
+
+								<div>
+
+								<p>	The next aspect of <a href="https://www.team17.com/games/worms-2-armageddon/" target="blank"><b>Worms2</b></a> to figure out was how to make the terrain destructible, and react to the weapon explosions but remain collidable.
+								This actually proved fairly simple because the collision physics already takes place at the pixel level. So really this is a discussion of how the <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Framework/Map.cs" target="blank">Map</a> class works.
+								Now, the Map class is one of the dreaded singletons that I used in the design of this game, because I wanted weapon objects to be able to call the DeformLevel() method without each object requiring a reference to the Map class. The Map class is also referenced by the CollisionManager, which all GameObjects need access to, so this is a singleton too.
+								In my first iteration of the game, I didn't use any singletons but I did have to pass a lot of information up and down through a complex heirarchy of classes, which felt rather messy and coupled everything togther too tightly. I understand that a singleton in essence does the same thing, but I have more experience now. Nonetheless, I will break down the main sections of the Map class and explain how we get destructible terrain.</p>
+								<img class="image fit" src="images/WizardGrenade/WG_Terrain.jpg">
+								</div>
+
+							<section class="special" >
+								<article>
+									<h2>Loading the data</h2>
+<p>The Map class is <i>Lazy initialised</i>, which means it doesn't get isntantiated until it is first called in the code. This happens after the user has selected the Map which they want to battle on. I have each file named "map" followed by a number, so the number is what is selected upon loading. The LoadContent function takes the file name and a bool called "isCollidable", and attempts to load the image into a "Texture2D" called _mapTexture. 
+I used a try, catch block for some defensive programming; If the file name does not correspond to an accessible file it will load a deafult file. First the data for each pixel is read contigously from the map Texture2D ("_mapTexture") into a uint[] "_mapPixelColourData", starting at index 0 and running through the whole map. The LoadPixelCollisionData() method then reads this into a 2D bool array, which corresponds to the rows and columns from the contiguous array of colour data. Wherever there is a transparent pixel in the .png file, the colour data is recoreded as '0'. Because each element of the bool[,] is initialised to false, we check if the colour value is != 0, and if so set it to true. </p>
+
+			<pre><code style="overflow-y: scroll; height: 40rem;">
+	<pub>public sealed class</pub> <cl>Map</cl>
+	{
+		<pub>private</pub> <cl>Map</cl>() {}
+		<pub>private static readonly</pub> <cl>Lazy</cl>&lt;<cl>Map</cl>&gt; lazyMap = <pub>new</pub> <cl>Lazy</cl>&lt;<cl>Map</cl>&gt;(() => <pub>new</pub> <cl>Map</cl>());
+		<pub>public static</pub> <cl>Map</cl> Instance { <pub>get</pub> => lazyMap.Value; }
+
+		<pub>public bool</pub>[,] MapPixelCollisionData { <pub>get</pub>; <pub>private set</pub>; }
+		<pub>private uint</pub>[] _mapPixelColourData;
+
+		<pub>private</pub> <cl>CollisionManager</cl> _collisionManager;
+		<pub>private</pub> <cl>Texture2D</cl> _mapTexture;
+		<pub>private</pub> <st>Vector2</st> _mapPosition = <st>Vector2</st>.Zero;
+		<pub>private readonly string</pub> _defaultFileName = <str>@"Maps/Map2"</str>;
+
+		<pub>public void</pub> LoadContent(<cl>ContentManager</cl> contentManager, <pub>string</pub> fileName, <pub>bool</pub> isCollidable)
+		{
+			<pub>try</pub> { _mapTexture = contentManager.Load&lt;<cl>Texture2D</cl>&gt;(fileName); }
+			<pub>catch</pub> (<cl>Exception</cl>) { _mapTexture = contentManager.Load&lt;<cl>Texture2D</cl>>(_defaultFileName); }
+
+			_mapPixelColourData = <pub>new uint</pub>[_mapTexture.Width * _mapTexture.Height];
+			_mapTexture.GetData(_mapPixelColourData, 0, _mapPixelColourData.Length);
+			MapPixelCollisionData = LoadPixelCollisionData(_mapTexture, _mapPixelColourData);
+
+			<pub>if</pub> (isCollidable)
+			{
+				_collisionManager = CollisionManager.Instance;
+				_collisionManager.InitialiseMapData();
+			}
+		}
+
+		<pub>private</pub> bool[,] LoadPixelCollisionData(<cl>Texture2D</cl> texture, <pub>uint[]</pub> mapData)
+		{
+			<pub>if</pub> (mapData.Length != texture.Width * texture.Height)
+			<pub>throw new</pub> <cl>ArgumentException</cl>(<str>"MapData must match the texture data provided"</str>);
+
+			<pub>bool</pub>[,] boolArray = <pub>new</pub> <pub>bool</pub>[texture.Width, texture.Height];
+
+			<pub>for</pub> (<pub>int</pub> x = 0; x &lt; texture.Width; ++x)
+			{
+				<pub>for</pub> (<pub>int</pub> y = 0; y &lt; texture.Height; ++y)
+				{
+					<pub>if</pub> (mapData[x + y * texture.Width] != 0)
+						boolArray[x, y] = <pub>true</pub>;
+				}
+			}
+			<pub>return</pub> boolArray;
+		}
+
+		</code></pre>
+		<br>
+		<p>I discuss this in detail in the <a href="wgPhysics.html">Physics</a> section, but essentially a GameObject has collision points, which can reference their position with respect to this 2D bool array as x,y coordinates; each 'point' has a float for x and y, which are simply cast as integers ande indexed into the 2D bool array. For example a collision point is at position (423.2512, 120.8334), we check the value of MapPixelCollisionData[423,120] which is <b>false</b>, the pixel is empty and the point is <i>not</i> colliding with the map.</p>
+
+		<br>
+		<h2>Changing the data</h2>
+
+		<p> Now that collisions are handled, it is simply a matter of calling the DeformLevel() method whenever there is an explosion which will change the map. For simplicity these are always circles, which we obtain by iterating through a square area of pixels. 
+			To keep things simple on the front end, the thing that is exploding only passes its centre position and the explosion radius. The Map method PositionInArray() calculates the relative position within the 2D bool array. I kept mathematical functions in a Utility class, this one is beautifully named "IsWithinCircleInSquare" which (obviously) checks if a point is within a circle drawn within a square. If it is, then set the corresponding value in the <i>contiguous</i> colour data array to 0, as it is now empty - and updating the bool array to <b>false</b> so that objects will no longer collide with that pixel. Then at the end of DeformLevel() we update the map Texture2D data so that it doesn't show any colour at those points any more. And voila, desctructible, collidable terrain.
+			
+		</p>
+
+		<pre><code style="overflow-y: scroll; height: 40rem;">
+
+		<pub>public void</pub> DeformLevel(<pub>int</pub> radius, <st>Vector2</st> position)
+		{
+			<pub>int</pub> diameter = 2 * radius;
+
+			<pub>for</pub> (<pub>int</pub> x = 0; x &lt; diameter; ++x)
+			{
+				<pub>for</pub> (<pub>int</pub> y = 0; y &lt; diameter; ++y)
+				{
+					<pub>if</pub> (IsPointInBlastArea(radius, position, x, y))
+					{
+						_mapPixelColourData[PositionInArray(radius, position, x, y)] = 0;
+						MapPixelCollisionData[ArrayColumn(radius, position, x), ArrayRow(radius, position, y)] = <pub>false</pub>;
+					}
+				}
+			}
+			_mapTexture.SetData(_mapPixelColourData);
+		}
+
+		<pub>private</pub> <pub>bool</pub> IsPointInBlastArea(int blastRadius, <st>Vector2</st> blastPosition, <pub>int</pub> x, <pub>int</pub> y)
+		{
+			<pub>return</pub> Utility.IsWithinCircleInSquare(blastRadius, x, y) &&
+				blastPosition.X + x - blastRadius &lt; MapPixelCollisionData.GetLength(0) - 1 &&
+				blastPosition.Y + y - blastRadius &lt; MapPixelCollisionData.GetLength(1) - 1 &&
+				blastPosition.X + x - blastRadius >= 0 &&
+				blastPosition.Y + y - blastRadius >= 0;
+		}
+
+		<com>//...Draw() method ommited for brevity.</com>
+
+		<pub>private int</pub> PositionInArray(<pub>int</pub> radius, <st>Vector2</st> position, <pub>int</pub> x, <pub>int</pub> y) => ArrayColumn(radius, position, x) + (ArrayRow(radius, position, y) * _mapTexture.Width);
+		<pub>private int</pub> ArrayColumn(<pub>int</pub> radius, <st>Vector2</st> position, <pub>int</pub> x) => (<pub>int</pub>)position.X + x - radius;
+		<pub>private int</pub> ArrayRow(<pub>int</pub> radius, <st>Vector2</st> position, <pub>int</pub> y) => (<pub>int</pub>)position.Y + y - radius;
+	}
+
+	</code>	</pre>
+	<br>
+	<p>This simple but clever idea comes form this fantastic <a href="http://web.archive.org/web/20090101215451/http://blog.xna3.com/2007/12/2d-deformable-level.html" target="blank">article</a>. I simply changed things to suit my game. I tried to make the code as clean and simple as I could, which is not easy when iterating through multiple for loops.</p>
+								</article>
+							</section>
+							<br>
+							<ul class="actions fit">
+								<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+								<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+								<li><a href="wgTerrain.html" class="button primary fit icon solid fa-mountain">Terrain</a></li>
+								<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+								<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+							</ul>
+				</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>Eddie Pace</li><li>Edpacca</li></ul>
+					<ul><a href = https://html5up.net/>Template reworked from HTML5 UP</a></ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/media.js"></script>
+
+	</body>
+</html>
