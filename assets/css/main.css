@@ -203,7 +203,7 @@ input, select, textarea {
 	}
 
 	h2 {
-		font-size: 2.0rem;
+		font-size: 1.75rem;
 		line-height: 1.3;
 		margin: 0 0 1.5rem 0;
 	}
@@ -284,6 +284,10 @@ input, select, textarea {
 
 			pre code com {
 				color: rgb(163, 163, 163);
+			}
+
+			pre code str {
+				color: rgb(228, 154, 93);
 			}
 
 
@@ -2185,6 +2189,17 @@ input, select, textarea {
 			padding: 0 2.75rem;
 		}
 
+		input[type="submit"].larger,
+		input[type="reset"].larger,
+		input[type="button"].larger,
+		button.larger,
+		.button.larger {
+			font-size: 2rem;
+			height: 5.5rem;
+			line-height: 5.5rem;
+			padding: 0 2.15rem 2.75rem 2.75rem;
+		}
+
 		@media screen and (max-width: 980px) {
 
 			input[type="submit"],
@@ -2628,10 +2643,27 @@ input, select, textarea {
 				width: 100%;
 			}
 
+			.image.lefthead img, .image.righthead img {
+				width: 40%;
+			}
+
 		.image.left {
 			float: left;
 			margin: 0 2rem 2rem 0;
 			top: 0.75rem;
+		}
+
+		.image.lefthead {
+			float: left;
+			bottom: 1rem;
+			overflow: visible;
+		}
+
+		.image.righthead {
+			float: right;
+			bottom: 1rem;
+			left: 9rem;
+			overflow: visible;
 		}
 
 		.image.right {
@@ -3717,7 +3749,7 @@ input, select, textarea {
 		-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 		-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 		transition: transform 1s ease, opacity 1s ease;
-		background: rgba(255, 255, 255, 0.175);
+		background: #212931;
 		height: 4rem;
 		line-height: 4rem;
 		margin: -4rem auto 0 auto;
@@ -3751,7 +3783,7 @@ input, select, textarea {
 
 		#nav a {
 			color: #ffffff;
-			border-bottom-color: rgba(255, 255, 255, 0.5);
+			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 
 			#nav a:hover {
@@ -3823,6 +3855,7 @@ input, select, textarea {
 						color: inherit !important;
 						background-color: rgba(255, 255, 255, 0.1);
 					}
+					
 
 				#nav ul.links li.active {
 					background-color: #f1a707;
@@ -3834,6 +3867,7 @@ input, select, textarea {
 
 						#nav ul.links li.active a:hover {
 							color: #ffffff !important;
+							background-color: initial;
 						}
 		#nav ul.links {
 			display: -moz-flex;
@@ -3946,7 +3980,7 @@ input, select, textarea {
 					}
 
 						#nav ul.linkssub li.active a:hover {
-							color: #f19f07 !important;
+							color: #f1a707 !important;
 						}						
 
 		#nav ul.icons {
