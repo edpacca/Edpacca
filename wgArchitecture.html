@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Wizard Grenade - Terrain </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+				<div id="intro code">
+					<header id="header">
+						<a href="index.html" class="logo icon solid fa-dungeon"> Home</a>
+					</header>
+				</div>
+
+				<!-- Nav bars -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp; <li class="active icon solid fa-code" style="color: #1e252d;">&nbsp;</li></a></li>
+						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; <li class="icon solid fa-music" style="color: #ffffff;">&nbsp;</li> </a></li>
+						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp; <li class="icon solid fa-video"style="color: #ffffff;">&nbsp;</li></a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+
+				<!-- Main page -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+
+								<ul class="actions fit" style="margin-top: -4rem;">
+									<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+									<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+									<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+									<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+									<li><a href="wgArchitecture.html" class="button primary fit icon solid fa-university">Architecture</a></li>
+								</ul>
+								<br><br>
+								
+									<a class="image lefthead"><img src="images/WizardGrenade/book1.png"/></a>
+									<a class="image righthead"><img src="images/WizardGrenade/book2.png"/></a>
+									<h1 style="text-decoration: underline; text-align: center;">Architecture</h1>
+								<br>
+								<br>
+								<p>You might wonder why this project is "<a>WizardGrenade2</a>" on GitHub - For <a>WG1</a> I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. 
+									I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. 
+									Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are <b>Singletons</b> which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the <a>StateMachine</a>) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. 
+									The free account on <a href ="https://www.lucidchart.com" target="blank">LucidChart</a> restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. The basic structure is as follows:
+									
+		
+
+								<section class = "special">
+									<article>
+										
+											<div class = "image main">
+												<img src="images/WizardGrenade/WG2_UML.png">
+											</div>
+											
+											<!-- <div class = "iframe-container">
+												<iframe allowfullscreen frameborder="0" src="https://lucid.app/documents/view/8aafee33-1517-42b7-ad84-3154dbd60263"></iframe>
+											</div> -->
+		
+											<div class ="row">
+											<ul class ="par">
+												<li><a>WGGame</a> is the main game class. This handles the game loop logic, determines whether we are in the menu, running the game, or if the game is paused. It also contains the CameraManager which determines the origin matrix (i.e. drawing UI, menus) and the transform matrix (i.e. in game)</li>
+												<li>The <a>GameSetup</a> is a menu where the game options and map are chosen - once selected a small <a>GameOptions</a> class is injected as a constructor to <a>GameScreen</a> along with the ContentManager.</li>
+												<li>The <a>GameScreen</a> passes on the <a>GameOptions</a> to the <a>BattleManager</a> which loads the respective number of <a>Teams</a> and sets the number of Wizards per team; each <a>Team</a> calculates their total health and feeds this back to the <a>GameScreen</a> which primes the <a>UserInterface</a> with the team <a>HealthBars</a> and the round time</li>
+												<li><a>Teams</a> handles the initial placement of the Wizards, and after that polls the <a>StateMachine</a> for the active GameState and determines which <a>Team</a> and <a>Wizard</a> are active.</li>
+												<li>Each <a>Team</a> has a different Sprite so this is where each <a>Wizard</a> is drawn and where the collective health is tallied. The movement method is only called for the active <a>Wizard</a> of the active <a>Team</a>.</li>
+												<li>Improving on my last design, the <a>Wizard</a> class handles movement, damage and animation states but <b>has</b> a GameObject (see below). The <a>Wizard</a> also contains an <a>Entity</a> which has health, a "Damage()" method and checks if the Wizard is dead or not.</li>
+												<li>The <a>GameObject</a> class handles the physics (see <a href = "#physics">Physics</a>) and draws the Sprite at the correct position. In hindsight I could have decoupled this further by containing the <a>Sprite</a> within <a>GameObject</a> rather than inheriting from it.</li>
+												<li>Another improvement on the first design was having the <a>WeaponManager</a> handle all the weapons and simply draw them at the position of the active <a>Wizard</a>. The <a>WeaponManager</a> is updated by the <a>BattleManager</a> and takes the active wizard position in it's Update() method.</li>
+												<li>The <a>WeaponManager</a> class is one of the dreaded <b>Singletons</b> which acts as a conduit between the Wizards and the Weapons. The WeaponManager is Lazy Initialised so it is only called once the teams are loaded; a list containing <em>all</em> Wizards is collected by <a>Teams</a> and passed to the <a>WeaponManager</a>. Then when a <a>Weapon</a> explodes near a <a>Wizard</a> the <a>WeaponManager</a> can call AddVelocity() on the Wizard (or any other GameOjbect) and make them react to the explosion</li>
+												<li>The explosion imparts a velocity value as function of distance from the explosion, which causes variable amounts of damage depending on how close the <a>Wizard</a> was to the explosion </li>
+												<li>The way each Weapon interacts with Wizards is different, hence they contain virtual methods to be overriden by the specific weapon class. I intend to prepare another section on how these weapons work in the future.</li>
+												
+											</ul>
+										</div>
+										</p>
+		
+									</article>
+								</section>
+							<ul class="actions fit">
+								<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+								<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+								<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+								<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+								<li><a href="wgArchitecture.html" class="button primary fit icon solid fa-university">Architecture</a></li>
+							</ul>
+				</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>Eddie Pace</li><li>Edpacca</li></ul>
+					<ul><a href = https://html5up.net/>Template reworked from HTML5 UP</a></ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/media.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Wizard Grenade - Menu </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+				<div id="intro code">
+					<header id="header">
+						<a href="index.html" class="logo icon solid fa-dungeon"> Home</a>
+					</header>
+				</div>
+
+				<!-- Nav bars -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp; <li class="active icon solid fa-code" style="color: #1e252d;">&nbsp;</li></a></li>
+						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; <li class="icon solid fa-music" style="color: #ffffff;">&nbsp;</li> </a></li>
+						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp; <li class="icon solid fa-video"style="color: #ffffff;">&nbsp;</li></a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+				<!-- Main page -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<ul class="actions fit" style="margin-top: -4rem;">
+									<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+									<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+									<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+									<li><a href="wgMenu.html" class="button primary fit icon solid fa-wrench">Menu Tools</a></li>
+									<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+								</ul>
+								<br><br>
+								
+									<a class="image lefthead"><img src="images/WizardGrenade/potion1.png"/></a>
+									<a class="image righthead"><img src="images/WizardGrenade/potion2.png"/></a>
+									<h1 style="text-decoration: underline; text-align: center;">Menu Tools</h1>
+								<br>
+								<br>
+
+								<div>
+									<div>
+										<p style = "padding-top: 1.1em;"><a class="image left"><img src="images/WizardGrenade/WG_menu.png" alt="" /></a>
+										
+											Here I want to highlight some non-specific classes or tools I crated to build the menus in the game.
+											I wanted a simple interface, so I chose to represent all settings graphically with integer steps.
+										</p>
+
+										<!-- Setting class -->
+										<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> 
+											class was developed to handle this, having both an integer property (e.g number of Wizards in a team), but with the option to calculate a float value if required; for example the "Music Volume" setting shown in the menu above will have a value of 2/5 = 0.4f.</p>
+										
+											<!-- SpriteMeter class -->
+										<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/SpriteMeter.cs" target="blank">SpriteMeter</a> 
+											class simply prints a number of <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Sprite.cs" target ="blank">Sprite</a> objects to the screen separated by an interval; 
+											the "SetSpriteMeter()" method in <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Generics/Setting.cs" target ="blank">Setting</a> can be used to calculate this interval. I chose to pass the value of the setting directly in the "Draw()" method.</p>
+										
+											<video class = "image right" autoplay loop muted playsinline><source src="video/OptionsLayout.mp4" type="video/mp4"></video>
+											<!-- Option class -->
+										<p>The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class draws the text options out to the screen. 
+											The constructor takes a List&ltstring&gt, and a 'bool' which determines a vertical or single position layout. 
+											
+											The video clip right demonstrates the difference. I created another class called  <a href = "https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/OptionArrows.cs" target="blank">OptionArrows</a> which will measure the length of the selected 'string' and adjust position.
+											The <a href ="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/Menus/Options.cs" target ="blank">Options</a> class also handles changing option with the respective arrow keys (i.e. L/R for single, U/D for vertical) holding the List Index as an integer property.
+										</p>
+										
+									</div>
+								</div>
+
+								<section>
+									<article>
+
+										<div>
+											<div>
+												<h2>Setting Class</h2>
+												<pre ><code style="overflow-y: scroll; height: 40rem;">
+	<pub>public class</pub> <cl>Setting</cl>
+	{
+		<pub>public float</pub> Value { <pub>get</pub>; <pub>private set</pub>; }
+		<pub>public int</pub> IntValue { <pub></pub>; <pub>private set</pub>; }
+		<pub>public int</pub>  MinValue { <pub>get</pub>; <pub>private set</pub>; }
+		<pub>public int</pub>  MaxValue { <pub>get</pub>; <pub>private set</pub>; }
+		<pub>private</pub> <cl>SpriteMeter</cl> _spriteMeter;
+	
+		<pub>public</pub> <cl>Setting</cl>(<pub>int</pub> initialValue, <pub>int</pub> minValue, <pub>int</pub> maxValue)
+		{
+			IntValue = initialValue;
+			MinValue = minValue;
+			MaxValue = maxValue;
+			Value = (<pub>float</pub>)IntValue / (<pub>float</pub>)MaxValue;
+		}
+	
+		...
+	
+		<pub>public void</pub> SetSpriteMeter(<pub>float</pub> maxWidth, <pub>float</pub> spriteScale)
+		{
+			_spriteMeter.Interval = maxWidth / (MaxValue - 1);
+			_spriteMeter.Sprite.SpriteScale = spriteScale;
+		}
+	
+		<pub>public void</pub> SetValue(<pub>int</pub> value)
+		{
+			IntValue = value >= MaxValue ? MaxValue : value $lt= MinValue ? MinValue : value;
+			Value = (<pub>float</pub>)IntValue / (<pub>float</pub>)MaxValue;
+		}
+	
+		<pub>public void</pub> ChangeValue(<pub>int</pub> diff) => SetValue(IntValue + diff);
+	
+		...
+	}
+												</code></pre>
+											</div>
+											<br>
+											NB// "..."  indicates where code was ommitted for brevity
+											<br><br>
+											<div>
+												<h2>SpriteMeter Class</h2>
+											<!-- SpriteMeter code-->
+												<pre><code>
+	<pub>public class</pub> <cl>SpriteMeter</cl>
+	{
+		<pub>public</pub> <cl>Sprite</cl> Sprite { <pub>get</pub>; <pub>set</pub>; }
+		<pub>public float</pub> Interval { <pub>get</pub>; <pub>set</pub>; } = 10f;
+	
+		<pub>public</pub> <cl>SpriteMeter</cl>(<cl>ContentManager</cl> contentManager, <pub>string</pub> fileName)
+		{
+			Sprite = new <cl>Sprite</cl>(contentManager, fileName);
+		}
+	
+		<pub>public void</pub> Draw(<cl>SpriteBatch</cl> spriteBatch, <st>Vector2</st> position, <pub>int</pub> value)
+		{
+			for (<pub>int</pub> i = 0; i &lt value; i++)
+				Sprite.DrawSprite(spriteBatch, new <st>Vector2</st>(position.X + (i * Interval), position.Y));
+		}
+	}
+												</code></pre>
+												<br>
+	
+											</div>
+										</div>
+								</article>
+							</section>
+							<br>
+							<ul class="actions fit">
+								<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+								<li><a href="wgPhysics.html" class="button default fit icon solid fa-atom">Physics</a></li>
+								<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+								<li><a href="wgMenu.html" class="button primary fit icon solid fa-wrench">Menu Tools</a></li>
+								<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+							</ul>
+				</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>Eddie Pace</li><li>Edpacca</li></ul>
+					<ul><a href = https://html5up.net/>Template reworked from HTML5 UP</a></ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/media.js"></script>
+
+	</body>
+</html>

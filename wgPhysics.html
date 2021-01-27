@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Wizard Grenade - Physics </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+				<div id="intro code">
+					<header id="header">
+						<a href="index.html" class="logo icon solid fa-dungeon"> Home</a>
+					</header>
+				</div>
+				<!-- Nav bars -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="index.html">&nbsp; &nbsp; Code &nbsp; &nbsp; <li class="active icon solid fa-code" style="color: #1e252d;">&nbsp;</li></a></li>
+						<li><a href="music.html">&nbsp; &nbsp; Music &nbsp; &nbsp; <li class="icon solid fa-music" style="color: #ffffff;">&nbsp;</li> </a></li>
+						<li><a href="video.html">&nbsp; &nbsp; Video &nbsp; &nbsp; <li class="icon solid fa-video"style="color: #ffffff;">&nbsp;</li></a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/Edpacca" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Main page -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<ul class="actions fit" style="margin-top: -4rem;">
+									<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+									<li><a href="wgPhysics.html" class="button primary fit icon solid fa-atom">Physics</a></li>
+									<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+									<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+									<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+								</ul>
+								<br><br>
+
+									<a class="image lefthead"><img src="images/WizardGrenade/potion1.png"/></a>
+									<a class="image righthead"><img src="images/WizardGrenade/potion2.png"/></a>
+									<h1 style="text-decoration: underline; text-align: center;">Physics</h1>
+								<br>
+								<br>
+
+								<div>
+									<video class = "image right" autoplay loop muted playsinline>
+										<source src="video/Physics.mp4" type="video/mp4" alt ="physics demo">
+									</video>
+										<p>	The physics are what really spawned this project - after replaying <a href="https://www.team17.com/games/worms-2-armageddon/" target="blank"><b>Worms2</b></a> for the first time in at least a decade, the simple act of aiming and timing tricky grenade throws was so satisfying that I wanted to recreate it. Upon achieving this, armed with a modest level of new programming knowledge I thought, “I’ll just make the whole game, it can’t be that much work!” … that thought did not last long, but at least it didn’t deter me.
+											In truth, the physics only needs to approximate a simple mechanical model. For this I created a class called <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a>, which is included in every object that is acted upon by gravity and collides with the map, such as the fireballs or the wizards.
+										</p>
+								</div>
+
+							<section class="special" >
+
+								<article>
+									<h2>GameObject class</h2>
+									<div>
+										<ul class="par">
+											<li>As each <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> is drawn to the screen, it inherits from the Sprite class. In hindsight GameObject could contain a Sprite rather than inherit to reduce coupling between the two.</li>			
+											<li>The <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> constructor takes another class called GameObjectParameters, which includes the essential physical properties: mass, dampingFactor and numberOfCollisionPoints, as well as the parameters required to load the Sprite. The <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> and Sprite class constructors are overloaded to take animation frames for animated sprites. </li>
+										</ul>
+
+										<div class ="row">
+
+											<div class = "col-6">
+												<pre ><code style="overflow-y: scroll; height:25rem;">
+<pub>public class</pub> <cl>GameObjectParameters</cl>
+{
+   <pub>public bool</pub> CanRotate { <pub>get</pub>; <pub>set</pub>; }
+   <pub>public readonly string</pub> fileName;
+   <pub>public readonly int </pub> framesH;
+   <pub>public readonly int </pub> framesV;
+   <pub>public readonly float </pub> mass;
+   <pub>public readonly int </pub> numberOfCollisionPoints;
+   <pub>public readonly float </pub> dampingFactor;
+
+<com>// Empty constructor.</com>
+   <pub>public</pub> <cl>GameObjectParameters</cl>(){}
+
+<com>// Constructor for single frame Sprite.</com>
+   <pub>public</pub> <cl>GameObjectParameters</cl>(<pub>string</pub> setFileName, <pub>float</pub> setMass, <pub>bool</pub> canRotate, <pub>int</pub> setNumberOfCollisionPoints, <pub>float</pub> setDampingFactor)
+   {
+	   fileName = setFileName;
+	   mass = setMass;
+	   CanRotate = canRotate;
+	   numberOfCollisionPoints = setNumberOfCollisionPoints;
+	   dampingFactor = setDampingFactor;
+   }
+
+<com>// Constructor for Sprite with animation frames. </com>
+   <pub>public</pub> <cl>GameObjectParameters</cl>(<pub>string</pub> setFileName, <pub>float</pub> setMass, <pub>bool</pub> canRotate, <pub>int</pub> setNumberOfCollisionPoints, <pub>float</pub> setDampingFactor, <pub>int</pub> setFramesH, <pub>int</pub> setFramesV)
+	   : this (setFileName, setMass, canRotate, setNumberOfCollisionPoints, setDampingFactor)
+   {
+	   framesH = setFramesH;
+	   framesV = setFramesV;
+   }
+}													
+												</code></pre>
+											</div>
+
+											<div class = "col-6">
+												<img class="image fit" src="images/WizardGrenade/physics1.png">
+												<br>
+												<p style="color: black;"><bf>Fig. 1</bf> "polygons" make the collision points for GameObjects. <br> These points can be arranged in a circle or a rectangle.</p>
+											</div>
+										</div>
+									<br>
+
+									<ul class="par">
+										<li>The <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> constructor initialises another class called Polygon with the number of collision points. If 0 is passed, then the corners of the Sprite are picked (like the arrow in <bf>Fig. 1</bf>), else a circle is drawn in points about the centre of the Sprite (Wizard and Fireball). </li>			
+										<li>In essence, <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> makes the position of a Sprite responsive to gravity, and collisions with the map. We control this by modulating the object's 2-dimensional <span class="tooltip"><a>velocity</a> <span class="tooltiptext"> velocity is speed in a given direction, in this case a 2D velocity: (x, y)</span></span> on each game loop, which then acts on the current position. Another class, Space2D contains properties of position, velocity and rotation.</li>
+										<li>Each frame, or loop of the game code, a <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> velocity is influenced by acceleration due to gravity in the direction ‘+y’, which is relative to the object’s mass. <span class="tooltip"><a> The (x, y) vector acceleration due to gravity each frame is then:  (0, GRAVITY * mass),</a> <span class="tooltiptext">For GRAVITY I chose 9.8f which is close to real gravitational acceleration on earth in ms<sup>-2</sup>.</span></span> which is simply added to the current velocity. However, before updating the object’s position we need to check if the new position would make any collision points overlap with the map. To do this, I gave each <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> a separate instance of Space2D for “real space” and “potential space”.</li>
+										<li>The Polygon contains the collision points relative to the object at position (0, 0), and a set of transformed collision points; this only contains <i>half</i> of the points as we only need to check collisions in the direction we are travelling. <span class="tooltip"><a>The transformed points are calculated each frame from the current position and velocity.</a><span class="tooltiptext"> The <i>rotation angle</i> is calculated from the velocity direction, then each collision point is passed through a rotation matrix to get the transformed position</span> </span> In <bf>Fig. 2 </bf> the Wizard is falling straight down, so the collision points are centred around (0, +y).</li>
+										
+									</ul>
+									<div style="margin-bottom: 2rem;">
+										<img class = "image fit" src="images/WizardGrenade/physics2.png">
+										<p style="color:black;"><bf>Fig. 2 </bf> <bf>A</bf> initial velocity in real space. <bf>B</bf> check for collisions in potential space. <bf>C</bf> calculate reflection vector. <bf>D</bf> assign new velocity in real space. </p>
+									</div>
+									<ul class="par">
+										<li>Now, looking at <bf>Fig. 2A</bf> we have a <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> falling with an initial velocity (0, +y). At the beginning of the loop the gravity is applied to the initial velocity, and the potential position is calculated. <bf>Fig. 2B</bf> shows that two of the collision points in potential space are overlapping with the map.</li>
+										<li>The Map is loaded in at the beginning of the game as a 2D 'bool' array for each pixel: <b>true</b> for colour and <b>false</b> for transparent. The x and y floating point values for a given collision point are cast as integers and checked against the 2D map array. If the result at that array index is <b>true</b> then the point is "colliding".</li>
+										<li>As in <bf>Fig. 2B</bf> we draw vectors from all colliding points to the object centre, and sum them which creates a response vector; this is perpendicular to a line which approximates the colliding surface of the map. </li>
+										<li>From this we use the dot-product of initial velocity (v) and normalised response vector (n) to get the reflection vector (r), which becomes the new velocity: <bf><i> r = v - 2( v . n )n</i></bf>. By normalising (n), the magnitude of (r) depends only on the magnitude of (v).</li>
+										<li>The reflection or new velocity is multiplied by a dampingFactor to simulate friction; each <a href="https://github.com/Edpacca/WizardGrenade2/blob/main/WizardGrenade2/GameObjects/GameObject.cs" target="blank">GameObject</a> has a different dampingFactor to allow us to control how bouncy an object is.</li>
+										<li>Finally the new velocity is added to the previous position, and the object is drawn at it’s new position. These ideas for pixel level collision resolution were inspired by an excellent YouTube channel <a href="https://www.youtube.com/channel/UC-yuWVUplUJZvieEligKBkA" target="blank">javidx9</a>.</li>
+										<li>Some objects rotate to the direction they are travelling, in which case the rotation angle is calculated from the new velocity and the object is drawn at this angle. The Wizard however faces downwards, so all Wizards are drawn at the same angle regardless of velocity.</li>
+										<li>GameObjects can have velocities imparted upon them by an explosion or being hit by an arrow. This is all taken into account each frame of the game loop and factors into the final velocity and position, creating a sufficient approximation of classical mechanics.</li>
+									</ul>
+
+
+									</div>
+								</article>
+							</section>
+							<ul class="actions fit">
+								<li><a href="wizardGrenade.html" class="button default fit icon solid fa-chess-rook">Wizard Grenade</a></li>
+								<li><a href="wgPhysics.html" class="button primary fit icon solid fa-atom">Physics</a></li>
+								<li><a href="wgTerrain.html" class="button default fit icon solid fa-mountain">Terrain</a></li>
+								<li><a href="wgMenu.html" class="button default fit icon solid fa-wrench">Menu Tools</a></li>
+								<li><a href="wgArchitecture.html" class="button default fit icon solid fa-university">Architecture</a></li>
+							</ul>
+				</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>Eddie Pace</li><li>Edpacca</li></ul>
+					<ul><a href = https://html5up.net/>Template reworked from HTML5 UP</a></ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/media.js"></script>
+
+	</body>
+</html>
