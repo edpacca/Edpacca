@@ -1,42 +1,41 @@
 <script lang="ts">
-	const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
+    import { get } from "svelte/store";
+    import type { PageData } from "./$types";
+    import { getDirectionFromAngle, getWeatherFromCode } from "./weather";
 
-	// default to edinburgh
-	let location = {
-		latitude: 55.953251,
-		longitude: -3.188267
-	}
+	export let data: PageData;
 
-	let weather;
-
-	const fetchWeather = async (latitude: number, longitude: number) => {
-		const request = `${openMeteoBaseUrl}?latitude=${latitude}&longitude=${longitude}&current_weather=true`
-		const result = await fetch(request);
-		const data = await result.json();
-		console.log(data);
-		return data;		
-	}
-
-	const getWeatherAtLocation = () => {
-		if ("geolocation" in navigator) {
-			navigator.geolocation.getCurrentPosition(position => {
-				location = {
-					latitude: position.coords.latitude,
-					longitude: position.coords.longitude
-				}
-			});
-		} else {
-			console.log("getting weather from edinburgh");
-		}
-		
-		weather = fetchWeather(location.latitude, location.longitude);
-	}
-
-	getWeatherAtLocation();
+	const time = new Date(data.time).toLocaleTimeString();
+	const weather = getWeatherFromCode(data.weathercode);
+	const windDirection = getDirectionFromAngle(data.winddirection);
 </script>
 
-<div>
-	<div>time: position of sun</div>
-	<div>temp: colour</div>
-	<div>code: clear, cloudy, rain, snow, fog, thunder</div>
+<div class="weather-text">
+	<div class="key">Time:</div>
+	<div class="val">{time}</div>
+	<div class="key">Temperature:</div>
+	<div class="val">{data.temperature} °C</div>
+	<div class="key">Weather:</div>
+	<div class="val">{weather}</div>
+	<div class="key">Wind speed:</div>
+	<div class="val">{data.windspeed} km/h</div>
+	<div class="key">Wind direction:</div>
+	<div class="val">{windDirection}</div>
 </div>
+
+<style>
+	.weather-text {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		font-size: 1.3em;
+		column-gap: 0.5em;
+	}
+
+	.key {
+		text-align: right;
+	}
+
+	.val {
+		font-weight: bold;
+	}
+</style>

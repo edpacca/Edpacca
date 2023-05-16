@@ -2,31 +2,34 @@ import type { PageServerLoad } from './$types';
 
 const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 
-const fetchWeather = async (latitude: number, longitude: number) => {
-	const request = `${openMeteoBaseUrl}?latitude=${latitude}&longitude=${longitude}&current_weather=true`
-	return fetch(request)
+// default to edinburgh
+let location = {
+	latitude: 55.953251,
+	longitude: -3.188267
 }
 
-export const load = (async ({ cookies }) => {
+const fetchWeather = async (latitude: number, longitude: number) => {
+	const request = `${openMeteoBaseUrl}?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+	const result = await fetch(request);
+	const data = await result.json();
+	console.log(data);
+	return data;		
+}
 
-	let location = {
-		latitude: 55.953251,
-		longitude: -3.188267
-	}
-
-	if ("geolocation" in navigator) {
-		navigator.geolocation.getCurrentPosition(position => {
+export const load = (async () => {
+	if (typeof window !== "undefined" && "geolocation" in window.navigator) {
+		window.navigator.geolocation.getCurrentPosition(position => {
 			location = {
 				latitude: position.coords.latitude,
 				longitude: position.coords.longitude
 			}
 		});
+	} else {
+		console.log("getting weather from edinburgh");
 	}
-	console.log(location);
-	  
-	const weatherRespose = await fetchWeather(location.latitude, location.longitude)
-	console.log(weatherRespose);
 	
-	return weatherRespose;
+	const weather = await fetchWeather(location.latitude, location.longitude);
+
+	return weather.current_weather ?? undefined;
 }) satisfies PageServerLoad;
 
