@@ -1,19 +1,51 @@
 @import '@fontsource/fira-mono';
 
 :root {
-	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	/* Fonts */
+	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
+
+	/* Colours */
 	--color-bg-0: rgb(100, 120, 140);
 	--color-bg-1: rgb(66, 72, 72);
 	--color-bg-2: rgb(42, 42, 42);
 	--color-theme-1: #00ffd9;
 	--color-theme-2: #40a69e;
-	--color-text: rgb(235, 235, 235);
+
+    --primary: brown;
+    --secondary: burlywood;
+    --default-primary: brown;
+    --default-secondary: burlywood;
+    --white: antiquewhite;
+    --black: rgb(30, 30, 30);
+    --black-50: rgb(0, 0, 0, 0.5);
+    --light-grey: rgb(150, 150, 150);
+    --mid-grey: rgb(85, 85, 85);    
+    --grey: rgb(50, 50, 50);
+    --dark-grey: rgb(37, 38, 39);
+    --super-dark-grey: rgb(19, 19, 19);
+    --dark-grey-90: rgba(37, 38, 39, 0.9);
+    --green: rgb(88, 180, 45);
+    --green-50: rgba(80, 182, 36, 0.5);
+    --dark-green: rgb(35, 77, 17);
+    --red: rgb(220, 15, 45);
+    --red-50: rgba(220, 15, 45, 0.5);
+    --dark-red: rgb(94, 5, 18);
+    --gold: goldenrod;
+    --blue: rgb(58, 42, 146);
+    --light-blue: rgb(88, 80, 156);
+
+	/* Sizes */
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+
+	/* Other */
+	--transition-time: 0.4s;
+} 
+
+:root {
 	font-family: var(--font-body);
-	color: var(--color-text);
+	color: var(--white);
 }
 
 body {
@@ -26,9 +58,7 @@ body {
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 25%, var(--color-bg-2) 50%);
 }
 
-h1,
-h2,
-p {
+h1, h2, p {
 	font-weight: 400;
 }
 
@@ -62,7 +92,7 @@ pre {
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
 	padding: 0.5em;
 	overflow-x: auto;
-	color: var(--color-text);
+	color: var(--white);
 }
 
 .text-column {
