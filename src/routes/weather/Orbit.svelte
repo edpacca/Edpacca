@@ -3,7 +3,7 @@
     
     const hour = time.getHours();
 
-    const solarBody = hour > 6 && hour <= 21 ? "sun" : "moon";
+    const solarBody = hour >= 6 && hour < 21 ? "sun" : "moon";
 </script>
 
 <img src={`/weather/${solarBody}.png`} alt={solarBody}/>
