@@ -38,6 +38,7 @@
 	/* Sizes */
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+	--margin: 12px;
 
 	/* Other */
 	--transition-time: 0.4s;

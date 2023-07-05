@@ -1,5 +1,3 @@
-import { derived } from "svelte/store"
-
 export enum Weather {
     Clear = "Clear",
     Cloudy = "Cloudy",

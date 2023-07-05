@@ -1,18 +1,20 @@
 <script lang="ts">
-    import { get } from "svelte/store";
     import type { PageData } from "./$types";
-    import { getDirectionFromAngle, getWeatherFromCode } from "./weather";
+    import Compass from "./Compass.svelte";
+    import Orbit from "./Orbit.svelte";
+    import Scene from "./Scene.svelte";
+    import { getDirectionFromAngle, getWeatherFromCode } from "./weatherData";
 
 	export let data: PageData;
 
-	const time = new Date(data.time).toLocaleTimeString();
 	const weather = getWeatherFromCode(data.weathercode);
 	const windDirection = getDirectionFromAngle(data.winddirection);
+	const time = new Date(data.time);
 </script>
 
 <div class="weather-text">
 	<div class="key">Time:</div>
-	<div class="val">{time}</div>
+	<div class="val">{time.toLocaleTimeString()}</div>
 	<div class="key">Temperature:</div>
 	<div class="val">{data.temperature} °C</div>
 	<div class="key">Weather:</div>
@@ -21,6 +23,16 @@
 	<div class="val">{data.windspeed} km/h</div>
 	<div class="key">Wind direction:</div>
 	<div class="val">{windDirection}</div>
+</div>
+
+<div class="scene-container">
+	<Orbit time={time}/>
+	<Scene time={time}>
+	</Scene>
+</div>
+
+<div class="compass">
+	<Compass angle={data.winddirection}/>
 </div>
 
 <style>
@@ -37,5 +49,20 @@
 
 	.val {
 		font-weight: bold;
+	}
+
+	.compass {
+		width: 8rem;
+		position: absolute;
+		top: var(--margin);
+		right: var(--margin);
+	}
+	
+	.scene-container {
+		width: 100vw;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
