@@ -17,6 +17,7 @@
     --default-primary: brown;
     --default-secondary: burlywood;
     --white: antiquewhite;
+    --white-50: rgba(250, 235, 215, 0.5);
     --black: rgb(30, 30, 30);
     --black-50: rgb(0, 0, 0, 0.5);
     --light-grey: rgb(150, 150, 150);
