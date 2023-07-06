@@ -1,8 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { timeAsTwelvethFraction, timeNoun } from "./weatherTime";
-    import Orbit from "./Orbit.svelte";
-    import { drawTree, setupOrbit } from "./weatherScene";
+    import { timeNoun } from "./weatherTime";
+    import { drawTree, drawOrbit } from "./weatherScene";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
@@ -27,16 +26,10 @@
                 }
             }
 
-            setupOrbit(
-                ctx, time, 
-                orbitCentreX, orbitCentreY, 
+            drawOrbit(ctx, time, orbitCentreX, orbitCentreY, 
                 orbitRadius, orbitBodyRadius);
-            
-            drawTree(ctx, 320, canvas.height, 120, -Math.PI / 2, 12, 15);
-            drawTree(ctx, 500, canvas.height, 80, -Math.PI / 2, 12, 7);
-            drawTree(ctx, 680, canvas.height, 100, -Math.PI / 2, 12, 15);
+            drawTree(ctx, 120, canvas.height, 100, -Math.PI / 2, 12, 15);
             drawTree(ctx, canvas.width - 400, canvas.height, 90, -Math.PI / 2, 12, 15);
-
             
         }
     })
