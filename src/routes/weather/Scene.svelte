@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import { timeAsTwelvethFraction, timeNoun } from "./weatherTime";
     import Orbit from "./Orbit.svelte";
+    import { drawTree, setupOrbit } from "./weatherScene";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
@@ -26,31 +27,17 @@
                 }
             }
 
-            // orbit
-            // ctx.beginPath();
-            // ctx.arc(
-            //     orbitCentreX,
-            //     orbitCentreY,
-            //     orbitRadius,
-            //     Math.PI, Math.PI * 2, false);
-            // ctx.stroke();
-            const moduloTime = time.getHours() + 6 % 24;
-            const orbitAngle = (((2 * Math.PI / 24) * moduloTime) % Math.PI) - (Math.PI / 2);
-            const orbitLenX = Math.sin(orbitAngle) * orbitRadius;
-            const orbitLenY = Math.cos(orbitAngle) * orbitRadius;
-            const orbitPositionX = orbitCentreX - orbitLenX;
-            const orbitPositionY = orbitCentreY - orbitLenY;
+            setupOrbit(
+                ctx, time, 
+                orbitCentreX, orbitCentreY, 
+                orbitRadius, orbitBodyRadius);
+            
+            drawTree(ctx, 320, canvas.height, 120, -Math.PI / 2, 12, 15);
+            drawTree(ctx, 500, canvas.height, 80, -Math.PI / 2, 12, 7);
+            drawTree(ctx, 680, canvas.height, 100, -Math.PI / 2, 12, 15);
+            drawTree(ctx, canvas.width - 400, canvas.height, 90, -Math.PI / 2, 12, 15);
 
-            // sun or moon
-            ctx.beginPath();
-            ctx.arc(
-                orbitPositionX, 
-                orbitPositionY,
-                orbitBodyRadius,
-                0, 2*Math.PI, false
-            )
-            ctx.strokeStyle = "blue";
-            ctx.stroke();
+            
         }
     })
 </script>
