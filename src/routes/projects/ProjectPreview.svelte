@@ -1,7 +1,5 @@
 <script lang="ts">
-    import { fade } from "svelte/transition";
     import type { Project } from "./projectData";
-
     export let project: Project
     let isHovered = false;
 </script>
