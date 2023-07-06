@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { PageData } from "./$types";
     import Compass from "./Compass.svelte";
-    import Orbit from "./Orbit.svelte";
     import Scene from "./Scene.svelte";
     import { getDirectionFromAngle, getWeatherFromCode } from "./weatherData";
 
@@ -10,6 +9,9 @@
 	const weather = getWeatherFromCode(data.weathercode);
 	const windDirection = getDirectionFromAngle(data.winddirection);
 	const time = new Date(data.time);
+
+	let canvasElement: HTMLCanvasElement;
+
 </script>
 
 <div class="weather-text">
@@ -26,9 +28,7 @@
 </div>
 
 <div class="scene-container">
-	<Orbit time={time}/>
-	<Scene time={time}>
-	</Scene>
+	<Scene time={time}/>
 </div>
 
 <div class="compass">

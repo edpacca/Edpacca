@@ -6,10 +6,14 @@
     const solarBody = hour >= 6 && hour < 21 ? "sun" : "moon";
 </script>
 
-<img src={`/weather/${solarBody}.png`} alt={solarBody}/>
+<circle cx="50" cy="50" r="50" />
+
+<!-- <svg viewBox="0 0 100 100">
+    <use href={`weather/weather.svg#${solarBody}`}/>
+</svg> -->
 
 <style>
-    img {
+    svg {
         width: 124px;
         animation: rotate 10s infinite linear;
     }

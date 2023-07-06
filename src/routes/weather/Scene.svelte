@@ -1,8 +1,19 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
+    import Orbit from "./Orbit.svelte";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
+    let canvas: HTMLCanvasElement;
+    let sunMoon: HTMLImageElement;
+
+    // const solarBody = hour >= 6 && hour < 21 ? "sun" : "moon";
+    const solarBody = "moon";
+
+    onMount(() => {
+
+    })
 </script>
 
 <svelte:head>
@@ -17,62 +28,69 @@
     </style>
 </svelte:head>
 
-<canvas class={backgroundStyle}>
-    <slot/>
-</canvas>
+<svg viewBox={"0 0 100 100"}>
+    <rect/>
+    <Orbit time={time}/>
+</svg>
 
 <style>
-    canvas {
+    svg {
         margin: var(--margin);
         width: 100%;
         height: 100%;
     }
 
+    rect {
+        fill: aliceblue;
+        width: 100%;
+        height: 100%;
+    }
+
     .night {
-        background: var(--night);
+        fill: var(--night);
     }
 
     .dawn {
-        background: linear-gradient(
+        fill: linear-gradient(
             var(--night),
             var(--dawn-dusk)
         );
     }
 
     .sunrise {
-        background: linear-gradient(
+        fill: linear-gradient(
             var(--dawn-dusk)
             var(--sunrise-sunset),
         );
     }
 
     .morning {
-        background: linear-gradient(
+        fill: linear-gradient(
             var(--morning),
             var(--day)
         );
     }
 
     .day {
-        background: var(--day);
+        fill: var(--day);
     }
 
     .evening {
-        background: linear-gradient(
+        fill: linear-gradient(
             var(--day),
             var(--dawn-dusk)
         );
     }
 
     .sunset {
-        background: linear-gradient(
+        fill: linear-gradient(
             var(--dawn-dusk),
             var(--sunrise-sunset)
         );
     }
 
     .dusk {
-        background: linear-gradient(
+        fill: linear-gradient(
             var(--night),
             var(--dawn-dusk)
         );
