@@ -14,7 +14,7 @@
 
 </script>
 
-<div class="weather-text">
+<!-- <div class="weather-text">
 	<div class="key">Time:</div>
 	<div class="val">{time.toLocaleTimeString()}</div>
 	<div class="key">Temperature:</div>
@@ -25,7 +25,7 @@
 	<div class="val">{data.windspeed} km/h</div>
 	<div class="key">Wind direction:</div>
 	<div class="val">{windDirection}</div>
-</div>
+</div> -->
 
 <div class="scene-container">
 	<Scene time={time}/>
@@ -59,8 +59,6 @@
 	}
 	
 	.scene-container {
-		width: 100vw;
-		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;

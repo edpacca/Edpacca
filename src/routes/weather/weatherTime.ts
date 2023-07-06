@@ -38,3 +38,7 @@ export function timeNoun(time: Date): string {
             return "day"
     }
 }
+
+export function timeAsTwelvethFraction(time: Date): number {
+    return time.getHours() + 6 % 12;
+}

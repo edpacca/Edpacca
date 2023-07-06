@@ -13,9 +13,12 @@
 </svg> -->
 
 <style>
-    svg {
+    circle {
         width: 124px;
-        animation: rotate 10s infinite linear;
+        transform-box: fill-box;
+        transform-origin: center;
+        /* animation: rotate 10s infinite linear; */
+
     }
 
     @keyframes rotate {

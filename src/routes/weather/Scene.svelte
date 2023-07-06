@@ -1,20 +1,64 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { timeNoun } from "./weatherTime";
+    import { timeAsTwelvethFraction, timeNoun } from "./weatherTime";
     import Orbit from "./Orbit.svelte";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
     let canvas: HTMLCanvasElement;
-    let sunMoon: HTMLImageElement;
 
-    // const solarBody = hour >= 6 && hour < 21 ? "sun" : "moon";
-    const solarBody = "moon";
+    let testTime = 0;
 
     onMount(() => {
+        canvas.width = window.innerWidth - 24;
+        canvas.height = window.innerHeight - 24;
 
+        const orbitCentreX = canvas.width / 2;
+        const orbitCentreY = canvas.height;
+        const orbitRadius = canvas.height - 100;
+        const orbitBodyRadius = 150;
+
+        const ctx = canvas.getContext("2d");
+        if (ctx) {
+            for (let x = 0; x < canvas.width; x+= 100) {
+                for (let y = 0; y < canvas.height; y+= 100) {
+                    ctx.fillRect(x, y, 3, 3)
+                }
+            }
+
+            // orbit
+            // ctx.beginPath();
+            // ctx.arc(
+            //     orbitCentreX,
+            //     orbitCentreY,
+            //     orbitRadius,
+            //     Math.PI, Math.PI * 2, false);
+            // ctx.stroke();
+            const moduloTime = time.getHours() + 6 % 24;
+            const orbitAngle = (((2 * Math.PI / 24) * moduloTime) % Math.PI) - (Math.PI / 2);
+            const orbitLenX = Math.sin(orbitAngle) * orbitRadius;
+            const orbitLenY = Math.cos(orbitAngle) * orbitRadius;
+            const orbitPositionX = orbitCentreX - orbitLenX;
+            const orbitPositionY = orbitCentreY - orbitLenY;
+
+            // sun or moon
+            ctx.beginPath();
+            ctx.arc(
+                orbitPositionX, 
+                orbitPositionY,
+                orbitBodyRadius,
+                0, 2*Math.PI, false
+            )
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+        }
     })
 </script>
+
+<input type="range" bind:value={testTime} min={0} max={24}/>
+<canvas class={backgroundStyle} bind:this={canvas}>
+
+</canvas>
 
 <svelte:head>
     <style>
@@ -28,16 +72,15 @@
     </style>
 </svelte:head>
 
-<svg viewBox={"0 0 100 100"}>
-    <rect/>
-    <Orbit time={time}/>
-</svg>
-
 <style>
-    svg {
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+    }
+    canvas {
         margin: var(--margin);
-        width: 100%;
-        height: 100%;
     }
 
     rect {
@@ -47,50 +90,50 @@
     }
 
     .night {
-        fill: var(--night);
+        background: var(--night);
     }
 
     .dawn {
-        fill: linear-gradient(
+        background: linear-gradient(
             var(--night),
             var(--dawn-dusk)
         );
     }
 
     .sunrise {
-        fill: linear-gradient(
+        background: linear-gradient(
             var(--dawn-dusk)
             var(--sunrise-sunset),
         );
     }
 
     .morning {
-        fill: linear-gradient(
+        background: linear-gradient(
             var(--morning),
             var(--day)
         );
     }
 
     .day {
-        fill: var(--day);
+        background: var(--day);
     }
 
     .evening {
-        fill: linear-gradient(
+        background: linear-gradient(
             var(--day),
             var(--dawn-dusk)
         );
     }
 
     .sunset {
-        fill: linear-gradient(
+        background: linear-gradient(
             var(--dawn-dusk),
             var(--sunrise-sunset)
         );
     }
 
     .dusk {
-        fill: linear-gradient(
+        background: linear-gradient(
             var(--night),
             var(--dawn-dusk)
         );
