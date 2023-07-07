@@ -1,8 +1,3 @@
-export interface Project {
-    name: string;
-    image: string;
-    description: string;
-}
 
 const defaultIcon = "/icons/ep-logo.svg";
 
