@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { Project } from "./projectData";
-    export let project: Project
+    import type { ProjectSummary } from "./projectTypes";
+    export let project: ProjectSummary
     let isHovered = false;
 </script>
 
