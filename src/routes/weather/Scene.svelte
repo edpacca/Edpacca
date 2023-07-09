@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit } from "./weatherScene";
+    import { drawTree, drawOrbit, drawClouds, drawCloud } from "./weatherScene";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
@@ -16,7 +16,7 @@
         const orbitCentreX = canvas.width / 2;
         const orbitCentreY = canvas.height;
         const orbitRadius = canvas.height - 100;
-        const orbitBodyRadius = 150;
+        const orbitBodyRadius = 100;
 
         const ctx = canvas.getContext("2d");
         if (ctx) {
@@ -28,9 +28,9 @@
 
             drawOrbit(ctx, time, orbitCentreX, orbitCentreY, 
                 orbitRadius, orbitBodyRadius);
-            drawTree(ctx, 120, canvas.height, 100, -Math.PI / 2, 12, 15);
-            drawTree(ctx, canvas.width - 400, canvas.height, 90, -Math.PI / 2, 12, 15);
-            
+            drawTree(ctx, 120, canvas.height, 50, -Math.PI / 2, 12, 15);
+            drawTree(ctx, canvas.width - 400, canvas.height, 40, -Math.PI / 2, 12, 15);
+            drawCloud(ctx, canvas.width / 2, canvas.height / 2, 20)
         }
     })
 </script>

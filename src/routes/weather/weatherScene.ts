@@ -108,15 +108,39 @@ export function drawClouds(context: CanvasRenderingContext2D, direction: number,
 
 }
 
-class Cloud {
+export function drawCloud(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
+  
+  const numberOfBlobs = Math.floor((Math.random() * 35) + 35);
+  console.log(numberOfBlobs);
+  
+  let lastPosX = x;
+  let lastPosY = y;
+  let lastSize = size;
+  let newPosX;
+  let newPosY;
+  let newSize;
 
-  x: number;
-  y: number;
-  size: number;
 
-  constructor(x: number, y: number, size: number) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
+
+  for (let i = 0; i < numberOfBlobs; i++) {
+    const offset = (Math.random() * lastSize * 2) + lastSize;
+    const directionX = Math.random() > 0.5 ? 1 : -1;
+    const directionY = Math.random() > 0.5 ? 1 : -1;
+    newPosX = lastPosX + offset * directionX;
+    newPosY = lastPosY + offset * directionY;
+    newSize = (Math.random() * size) + size;
+    drawCircle(context, newPosX, newPosY, newSize);
   }
+
+
+}
+
+function drawCircle(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
+  context.beginPath();
+  context.arc(x, y, size, 0, Math.PI *2, false);
+  context.strokeStyle = "red";
+  context.stroke();
+  // context.fillStyle = "white"
+  // context.fill();
+  context.closePath();
 }
