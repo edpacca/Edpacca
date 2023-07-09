@@ -1,23 +1,26 @@
 <script lang="ts">
-    import type { ProjectSummary } from "./projectTypes";
-    export let project: ProjectSummary
+    import type { ProjectSummary } from "../../routes/projects/projectTypes";
+    export let post: { title: string, description: string, cover_image: string, url: string }
     let isHovered = false;
+    console.log(post.url);
 </script>
 
-<div class="preview-container"
-    on:mouseenter={() => { isHovered = true; }}
-    on:mouseleave={() => { isHovered = false; }}>
-    <div class="title">{project.name}</div>
-    {#if isHovered}
-        <div class="description">
-            {project.description}
-        </div>
-    {:else}
-        <div class="image">
-            <img src={project.image} alt={project.name}/>
-        </div>
-    {/if}
-</div>
+<a href={post.url}>
+    <div class="preview-container"
+        on:mouseenter={() => { isHovered = true; }}
+        on:mouseleave={() => { isHovered = false; }}>
+        <div class="title">{post.title}</div>
+        {#if isHovered}
+            <div class="description">
+                {post.description}
+            </div>
+        {:else}
+            <div class="image">
+                <img src={`images/${post.cover_image}`} alt={`${post.title} cover image`}/>
+            </div>
+        {/if}
+    </div>
+</a>
 
 
 <style>
@@ -52,6 +55,12 @@
     .title {
         font-weight: bold;
         font-size: 1.5em;
+
+    }
+
+    a {
+        font-style: normal;
+        text-decoration: none;
     }
 
     .description {
