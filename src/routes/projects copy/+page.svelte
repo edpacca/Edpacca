@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { PageData } from "./$types";
-    import ProjectPreview from "../../lib/components/ProjectPreview.svelte";
+    import ProjectPreview from "./ProjectPreview.svelte";
     export let data: PageData;
 </script>
 
