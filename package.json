@@ -34,7 +34,6 @@
 		"glob": "^10.3.1",
 		"rehype": "^11.0.0",
 		"remark": "^13.0.0",
-		"remark-html": "^13.0.1",
-		"svelte-awesome": "^3.2.1"
+		"remark-html": "^13.0.1"
 	}
 }
