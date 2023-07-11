@@ -28,7 +28,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
 	}
 
 	h1 {
@@ -37,5 +36,8 @@
 
 	.posts {
 		margin: 3em;
+		gap: 0.5em;
+		display: flex;
+		flex-direction: column;
 	}
 </style>

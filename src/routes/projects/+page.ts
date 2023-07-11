@@ -1,7 +1,6 @@
 import type { PageLoad } from '../$types';
-import { PROJECTS } from './projectData';
+import { PROJECTS } from '$lib/ts/data/projectData';
 
-export const load = (() => {
-	return { projects: PROJECTS };
-}) satisfies PageLoad;
-
+export const load = (async () => {
+	return { projects: PROJECTS }
+}) satisfies PageLoad

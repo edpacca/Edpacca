@@ -1,60 +1,37 @@
 <script lang="ts">
-    import type { ProjectSummary } from "../../routes/projects/projectTypes";
-    export let project: ProjectSummary
-    let isHovered = false;
+    import FaIcon from "./FaIcon.svelte";
+    export let project: ProjectType;
 </script>
 
-<a href={`/projects/${project.id}`}>
-    <div class="preview-container"
-        on:mouseenter={() => { isHovered = true; }}
-        on:mouseleave={() => { isHovered = false; }}>
-        <div class="title">{project.name}</div>
-        {#if isHovered}
-            <div class="description">
-                {project.description}
-            </div>
-        {:else}
-            <div class="image">
-                <img src={project.image} alt={project.name}/>
-            </div>
+<div class="preview-container">
+    <a href={`/projects/${project.id}`} class="title">
+        {#if project.icon}
+            <FaIcon icon={project.icon}/>
         {/if}
-    </div>
-</a>
-
+        {project.name}
+    </a>
+    {#if project.description}
+        <div class="description">
+            {project.description}
+        </div>
+    {/if}
+</div>
 
 <style>
     .preview-container {
-        border: 2px solid white;
         border-radius: 8px;
-        text-align: center;
+        text-align: left;
         background-color: var(--black-50);
-        transition: var(--transition-time) ease-in-out;
-        height: 15em;
-        cursor: pointer;
         padding: var(--margin);
+        cursor: pointer;
+        transition: var(--transition-time) ease-in-out;
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        align-items: center;
     }
 
     .preview-container:hover {
         background-color: var(--white-50);
-    }
-
-    .image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    img {
-        height: 8em;
-        width: 100%;
-    }
-
-    .title {
-        font-weight: bold;
-        font-size: 1.5em;
-
     }
 
     a {
@@ -62,9 +39,22 @@
         text-decoration: none;
     }
 
-    .description {
-        color: black;
-        margin-top: 1em;
-        font-style: italic;
+    .title {
+        font-weight: bold;
+        font-size: 1.5em;
+        white-space: nowrap;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1.5em 1fr;
     }
+
+    .description {
+        color: grey;
+        font-style: italic;
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
 </style>

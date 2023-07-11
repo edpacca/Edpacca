@@ -4,21 +4,17 @@
     export let data: PageData;
 </script>
 
-<div class="preview-grid">
+<div class="project-list">
     {#each data.projects as project}
-        <div>
-            <ProjectPreview project={project}/>
-        </div>
+        <ProjectPreview project={project}/>
     {/each}
 </div>
 
-
 <style>
-    .preview-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1em;
-        margin: 1em;
-        grid-template-rows: repeat(1fr);
+    .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
     }
 </style>
+
