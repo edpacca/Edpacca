@@ -3,6 +3,7 @@ title: Another post about warhammer
 description: I create an awesome looking, highland themed base for my landspeeder. Specifically I wanted to be able to attach and remove the stand itself separaetly. I used Lego Technic to do this.
 cover_image: flyingbase.jpg
 date: 07-08-23
+projectId: muaythai
 ---
 
 
