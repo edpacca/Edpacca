@@ -9,13 +9,19 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 
-		interface Post {
+		interface PostAttributes {
 			title: string,
 			url: string;
 			date: Date;
 			description: string;
 			cover_image: string;
 			projectId?: string;
+			images?: string[];
+		}
+
+		interface PostData {
+			attributes: PostAttributes,
+			html: any
 		}
 
 		type ProjectType = {
