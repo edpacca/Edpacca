@@ -4,9 +4,10 @@ import fm from "front-matter";
 import remark from "remark";
 import html from "remark-html";
 import rehype from "rehype";
-import rehypePrism from "@mapbox/rehype-prism";
+import { error } from "@sveltejs/kit";
+import { element } from "svelte/internal";
 
-export function importMarkdown(dirPath: string) {
+export function importFiles(dirPath: string) {
     const filenames = glob.sync(`${dirPath}*.md`);
     return filenames.map(path => convertMarkdown(path))
 }
@@ -14,18 +15,63 @@ export function importMarkdown(dirPath: string) {
 export function convertMarkdown(filePath: string) {
     const file = fs.readFileSync(filePath, "utf8");
     const { attributes, body } = fm(file);
-
-    let result = remark().use(html).processSync(body).contents;
-    result = rehype().use(rehypePrism).processSync(result).contents
-    return { path: filePath, attributes, html: result }
+    const result = remark().use(html).processSync(body).contents as string;
+    const parsed = parseImages(result);
+    return {  path: filePath, attributes, html: parsed }
 }
 
-export function convertToPostPreview(object: any): Post {
-    const regex = /(?<=static)(.*)/g
-    const url = object.path.match(regex);
-    return { 
-        url, 
-        date: new Date(object.attributes.date),
-        ...object.attributes
-    };
+export function convertToPostPreview(object: any): PostAttributes {
+    const regex = /(?<=static)(.*)[^.md]/g;
+    try {
+        const url = object.path.match(regex);
+        return { 
+            url, 
+            date: new Date(object.attributes.date),
+            ...object.attributes
+        };
+     } catch(e) {
+        console.log(e);
+        throw error(404, "Errk problem")
+     }
+}
+
+function parseImages(contents: string): string {
+    const imageRegex = /<p>\!\(.*\)(.*)\[(.*)\]<\/p>/g;
+    const pElements = contents.match(imageRegex);
+    const imgElements: string[] = [];
+
+    if (pElements) {
+        pElements.forEach(image => {
+            imgElements.push(parseImageElementP(image));
+        });
+    
+        let parsed = contents;
+    
+        imgElements.forEach((imgElement, i) => {
+            parsed = parsed.replace(pElements[i], imgElement);
+        });
+
+        return parsed;
+    }
+
+    return contents;
+}
+
+function parseImageElementP(pElement: string): string {
+    const altRegex = /!\(.*\)/g;
+    const pathRegex = /\[(.*)\]/g;
+    const classRegex = /#(.*)#/g
+    const alt = parseBlock(altRegex, pElement, [2, -1]);
+    const cssClass = parseBlock(classRegex, pElement, [1, -1]);
+    const path = parseBlock(pathRegex, pElement, [2, -2]);
+    return `<div class="post-image-container ${cssClass}-container"><img class="post-image ${cssClass}" alt=${alt} src="/images/${path}"/></div>`
+}
+
+function parseBlock(regex: RegExp, input: string, slice: [number, number]) {
+    const block = input.match(regex);
+    if (block && block.length > 0){ 
+        return block[0].slice(slice[0], slice[1]);
+    } else {
+        return ""
+    }
 }
