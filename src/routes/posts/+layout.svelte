@@ -6,11 +6,11 @@
 
 <div class="main-container">
     <div class="sidebar">
-            {#each posts as post}
-                <div class="post-info">
-                    <a href={post.url}>{new Date(post.date).toLocaleDateString()}</a>
-                </div>
-            {/each}
+        {#each posts as post}
+            <div class="post-info">
+                <a href={post.url}>{new Date(post.date).toLocaleDateString()}</a>
+            </div>
+        {/each}
     </div>
     <div class="post-container">
         <slot/>
@@ -20,6 +20,7 @@
 <style>
     .post-container {
         margin: var(--margin);
+        position: relative;
     }
 
     .sidebar {

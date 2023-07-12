@@ -1,12 +1,14 @@
 <script lang="ts">
+    import ProjectBackButton from "../../../lib/components/ProjectBackButton.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
     const post = data.post as PostData;
-
     const imageColumns = post.attributes.images ? post.attributes.images.length % 4 : 0;
-    console.log(imageColumns);
 </script>
 
+<div class="back-button">
+    <ProjectBackButton projectId={post.attributes.projectId}/>
+</div>
 <h1>{post.attributes.title}</h1>
 {#if post.attributes.images}
     <div class="image-grid" style={`--cols: ${imageColumns}`}>
@@ -30,5 +32,11 @@
     .grid-image {
         width: 100%;
         max-width: none;
+    }
+
+    .back-button {
+        top:0;
+        left: 0;
+        position: absolute;
     }
 </style>
