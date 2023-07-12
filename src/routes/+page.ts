@@ -1,8 +1,7 @@
-import { convertToPostPreview, importMarkdown } from '../lib/ts/markdown';
+import { getPostPreviewsByDate } from '../lib/ts/posts';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {
-	let postFiles = importMarkdown("static/posts/");
-    let posts = postFiles.map(file => convertToPostPreview(file));
+	const posts = getPostPreviewsByDate("static/posts/");
     return { posts };
 }) satisfies PageLoad

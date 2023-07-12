@@ -2,8 +2,7 @@
     import PostPreview from "../lib/components/PostPreview.svelte";
 	import type { PageData } from "./$types";
     export let data: PageData;
-
-	$: posts = data.posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+	const posts: PostAttributes[] = data.posts;
 </script>
 
 <svelte:head>
