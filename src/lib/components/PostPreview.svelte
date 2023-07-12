@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getProjectData } from "../ts/data/projectData";
     import FaIcon from "./FaIcon.svelte";
-    export let post: Post;
+    export let post: PostAttributes;
     const date = new Date(post.date).toLocaleDateString("en-GB", { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' });
     const project = post.projectId ? getProjectData(post.projectId) : undefined;
     const projectUrl = `/projects/${project?.id}`;
