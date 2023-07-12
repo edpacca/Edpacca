@@ -5,7 +5,7 @@
     export let link: string;
     export let text: string;
 
-    const iconPath = `icons/icons.svg#${icon}`;
+    const iconPath = `/icons/icons.svg#${icon}`;
 </script>
 
 <Tooltip text={text}>
