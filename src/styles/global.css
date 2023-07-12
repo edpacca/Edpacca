@@ -83,7 +83,12 @@ h1 {
 }
 
 h2 {
-	font-size: 1rem;
+	font-size: 1.3rem;
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+	color: var(--color-theme-1);
 }
 
 pre {
@@ -132,4 +137,15 @@ button:focus:not(:focus-visible) {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
+}
+
+img.post-image {
+	max-height: 10em;
+}
+
+.post-image-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
