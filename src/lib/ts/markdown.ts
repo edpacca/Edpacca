@@ -3,11 +3,11 @@ import * as glob from "glob";
 import fm from "front-matter";
 import remark from "remark";
 import html from "remark-html";
-import rehype from "rehype";
 import { error } from "@sveltejs/kit";
-import { element } from "svelte/internal";
 
 export function importFiles(dirPath: string) {
+    //https://joyofcode.xyz/sveltekit-markdown-blog
+    // use this instead
     const filenames = glob.sync(`${dirPath}*.md`);
     return filenames.map(path => convertMarkdown(path))
 }
