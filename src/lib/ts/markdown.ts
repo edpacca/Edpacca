@@ -64,7 +64,8 @@ function parseImageElementP(pElement: string): string {
     const alt = parseBlock(altRegex, pElement, [2, -1]);
     const cssClass = parseBlock(classRegex, pElement, [1, -1]);
     const path = parseBlock(pathRegex, pElement, [2, -2]);
-    return `<div class="post-image-container ${cssClass}-container"><img class="post-image ${cssClass}" alt=${alt} src="/images/${path}"/></div>`
+    const src = path.includes("http") ? path : `/images/${path}`
+    return `<div class="post-image-container ${cssClass}-container"><img class="post-image ${cssClass}" alt=${alt} src="${src}"/></div>`
 }
 
 function parseBlock(regex: RegExp, input: string, slice: [number, number]) {
