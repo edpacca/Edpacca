@@ -4,6 +4,10 @@
     import { postAttributes } from '../store';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
+
+	$: showSidebar = $page.url.pathname !== '/' 
+		&& !$page.url.pathname.startsWith('/projects')
+		&& !$page.url.pathname.startsWith('/weather');
 </script>
 
 <svelte:head>
@@ -18,7 +22,7 @@
 			<slot/>
 		</div>
 	</main>
-	{#if ($page.url.pathname !== '/' && !$page.url.pathname.startsWith('/projects'))}
+	{#if showSidebar}
 		<Sidebar posts={$postAttributes}/>
 	{/if}
 	<Footer/>
