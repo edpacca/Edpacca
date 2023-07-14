@@ -1,3 +1,5 @@
+import { drawCircle } from "$lib/ts/canvas/canvasUtils";
+
 export function drawOrbit(
     context: CanvasRenderingContext2D,
     time: Date,
@@ -120,41 +122,19 @@ export function drawCloud(context: CanvasRenderingContext2D, x: number, y: numbe
   
   console.log(numberOfRows);
 
-  let lastPosX = x;
-  let lastPosY = y;
-  let lastSize = size;
-  let lastRowLength = 4;
+  let rowLength = 4;
+  let newSize = size;
   let newPosX;
   let newPosY;
-  let newSize;
-
+  const cloudColour = "rgba(255, 255, 255, 0.8)";
   for (let cy = 0; cy <= numberOfRows * size; cy += size) {
-    lastRowLength = getRowLength(lastRowLength);
-    console.log(lastRowLength);
-    for (let cx = 0; cx <= lastRowLength * size; cx += size) {
-      const offset = (Math.random() * lastSize * 2) + lastSize;
-      lastSize = getBlobSize();
+    rowLength = getRowLength(rowLength);
+    for (let cx = 0; cx <= rowLength * size; cx += size) {
+      const offset = (Math.random() * newSize * 2) + newSize;
+      newSize = getBlobSize();
       newPosX = cx + x + offset
       newPosY = cy + y
-      drawCircle(context, newPosX, newPosY, lastSize)
+      drawCircle(context, newPosX, newPosY, newSize, undefined, cloudColour)
     }    
   }
-
-
-
-  
-
-
-
-}
-
-function drawCircle(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
-  // console.log(`x: ${x.toFixed(0)}, y: ${y.toFixed(0)}, size: ${size}`)
-  context.beginPath();
-  context.arc(x, y, size, 0, Math.PI *2, false);
-  // context.strokeStyle = "red";
-  // context.stroke();
-  context.fillStyle = "rgba(255, 255, 255, 0.8)"
-  context.fill();
-  context.closePath();
 }
