@@ -3,12 +3,13 @@ import { drawCircle, drawLine } from "$lib/ts/canvas/canvasUtils"
 const ORANGE = "rgb(255, 150, 150)"
 const DARK_ORANGE = "rgb(200, 100, 100)"
 const WHITE = "white";
-const GREY_30 = "rgba(150, 150, 150, 0.3)";
+const GREY = "rgb(50, 50, 50)";
 
 export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: number) {
     
     let startX: number, startY: number, endX: number, endY: number;
-    
+    startX = x;
+    startY = y;
     const HEAD_POINTS: [number, number][] = [
         // top 
         [15, 0],
@@ -28,13 +29,17 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
     ]
 
     const EAR_POINTS: [number, number][] = [
-
+        // top arc
+        [10, -15],
+        [15, -2],
+        [12, 4],
+        [8, 10]
     ]
 
-    drawShape(HEAD_POINTS, 1, GREY_30, GREY_30);
+    drawShape(HEAD_POINTS, true, 2, GREY, GREY);
     reset();
-
-    drawShape(EAR_POINTS, 2, "blue", DARK_ORANGE)
+    startX += 20;
+    drawShape(EAR_POINTS, false, 2, "red", WHITE);
 
     function drawNextLine(xOffset: number, yOffset: number) {
         endX = startX + xOffset;
@@ -48,13 +53,15 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         drawNextLine(xOffset * -1, yOffset);
     }
 
-    function drawShape(points: [number, number][], lineWidth: number, stroke: string, fill?: string) {
-        reset();
+    function drawShape(points: [number, number][], reflect: boolean,
+        lineWidth: number, stroke: string, fill?: string) {
         context.beginPath();
-        context.moveTo(x, y);
+        context.moveTo(startX, startY);
         points.forEach(p => drawNextLine(p[0], p[1]));
-        reset();
-        points.forEach(p => drawReflection(p[0], p[1]));
+        if (reflect) {
+            reset();
+            points.forEach(p => drawReflection(p[0], p[1]));
+        }
         context.closePath();
 
         context.lineCap = 'round';
