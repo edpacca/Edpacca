@@ -110,37 +110,51 @@ export function drawClouds(context: CanvasRenderingContext2D, direction: number,
 
 export function drawCloud(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
   
-  const numberOfBlobs = Math.floor((Math.random() * 35) + 35);
-  console.log(numberOfBlobs);
+  const sizeVarFactor = 0.8;
+  const rowVarFactor = 0.9;
+  const sizeVariance = size * sizeVarFactor;
+  // get random size between 0.75 and 1.5 x provided size
+  const getBlobSize = () => Math.floor((Math.random() * sizeVariance) + sizeVariance);
+  const getRowLength = (middle: number) => Math.floor((Math.random() * middle * rowVarFactor) + (middle * rowVarFactor))
+  const numberOfRows = Math.floor((Math.random() * 3) + 3);
   
+  console.log(numberOfRows);
+
   let lastPosX = x;
   let lastPosY = y;
   let lastSize = size;
+  let lastRowLength = 4;
   let newPosX;
   let newPosY;
   let newSize;
 
-
-
-  for (let i = 0; i < numberOfBlobs; i++) {
-    const offset = (Math.random() * lastSize * 2) + lastSize;
-    const directionX = Math.random() > 0.5 ? 1 : -1;
-    const directionY = Math.random() > 0.5 ? 1 : -1;
-    newPosX = lastPosX + offset * directionX;
-    newPosY = lastPosY + offset * directionY;
-    newSize = (Math.random() * size) + size;
-    drawCircle(context, newPosX, newPosY, newSize);
+  for (let cy = 0; cy <= numberOfRows * size; cy += size) {
+    lastRowLength = getRowLength(lastRowLength);
+    console.log(lastRowLength);
+    for (let cx = 0; cx <= lastRowLength * size; cx += size) {
+      const offset = (Math.random() * lastSize * 2) + lastSize;
+      lastSize = getBlobSize();
+      newPosX = cx + x + offset
+      newPosY = cy + y
+      drawCircle(context, newPosX, newPosY, lastSize)
+    }    
   }
+
+
+
+  
+
 
 
 }
 
 function drawCircle(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
+  // console.log(`x: ${x.toFixed(0)}, y: ${y.toFixed(0)}, size: ${size}`)
   context.beginPath();
   context.arc(x, y, size, 0, Math.PI *2, false);
-  context.strokeStyle = "red";
-  context.stroke();
-  // context.fillStyle = "white"
-  // context.fill();
+  // context.strokeStyle = "red";
+  // context.stroke();
+  context.fillStyle = "rgba(255, 255, 255, 0.8)"
+  context.fill();
   context.closePath();
 }

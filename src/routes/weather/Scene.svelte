@@ -28,8 +28,8 @@
 
             drawOrbit(ctx, time, orbitCentreX, orbitCentreY, 
                 orbitRadius, orbitBodyRadius);
-            drawTree(ctx, 120, canvas.height, 50, -Math.PI / 2, 12, 15);
-            drawTree(ctx, canvas.width - 400, canvas.height, 40, -Math.PI / 2, 12, 15);
+            // drawTree(ctx, 120, canvas.height, 50, -Math.PI / 2, 12, 15);
+            // drawTree(ctx, canvas.width - 400, canvas.height, 40, -Math.PI / 2, 12, 15);
             drawCloud(ctx, canvas.width / 2, canvas.height / 2, 20)
         }
     })
@@ -61,6 +61,8 @@
     }
     canvas {
         margin: var(--margin);
+        width: 100%;
+        height: 100%;
     }
 
     rect {
