@@ -14,10 +14,7 @@ export function drawCircle(context: CanvasRenderingContext2D,
 }
 
 export function drawLine(context: CanvasRenderingContext2D,
-    startX: number, startY: number, endX: number, endY: number, lineWidth: number, stroke: string) {
-    context.moveTo(startX, startY);
-    context.lineCap = 'round';
-    context.lineWidth = lineWidth;
+    startX: number, startY: number, endX: number, endY: number) {
+    context.lineTo(startX, startY);
     context.lineTo(endX, endY);
-    context.strokeStyle = stroke;
 }
