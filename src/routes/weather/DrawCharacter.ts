@@ -9,7 +9,8 @@ const ORANGE_BROWN = "rgb(220, 150, 110)";
 const SHADOW_BROWN = "rgb(120, 80, 20)";
 const DARK_SHADOW_BROWN = "rgb(71, 50, 44)";
 const DARK_GREY = "rgb(50, 50, 50)";
-
+const PINK = "rgb(220, 100, 150)";
+const DARK_PINK = "rgb(150, 50, 100)";
 
 
 export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: number) {
@@ -95,6 +96,15 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [-3, -1]
     ]
 
+    const TONGUE: [number, number][] = [
+        [10, 4],
+        [3, -2],
+        [-1, 10],
+        [-4, 5],
+        [-4, 3],
+        [-4, 0]
+    ]
+
     drawShape(HEAD_POINTS, true, 0, 0, 2, ORANGE_BROWN, ORANGE_BROWN);
     
     reset(0, 10);
@@ -134,9 +144,16 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
     reset(0, 80);
     drawShape(NOSE, true, 0, 80, 2, DARK_GREY, DARK_GREY);
     drawEyes(context, x, y);
-    
+    reset(0, 108);
+    drawShape(TONGUE, true, 0, 108, 2, DARK_PINK, PINK);
+    reset(45, 80);
+    drawFaceLines(context, startX, startY);
 
 
+    function reset(xOffset: number, yOffset: number) {
+        startX = x + xOffset;
+        startY = y + yOffset;
+    }
 
     function drawNextLine(xOffset: number, yOffset: number) {
         endX = startX + xOffset;
@@ -144,10 +161,6 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         drawLine(context, startX, startY, endX, endY);
         startX = endX;
         startY = endY;
-    }
-
-    function drawReflection(xOffset: number, yOffset: number) {
-        drawNextLine(xOffset * -1, yOffset);
     }
 
     function drawShape(points: [number, number][], reflect: boolean,
@@ -170,11 +183,73 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         context.stroke();
     }
 
-    function reset(xOffset: number, yOffset: number) {
-        startX = x + xOffset;
-        startY = y + yOffset;
+    function drawReflection(xOffset: number, yOffset: number) {
+        drawNextLine(xOffset * -1, yOffset);
     }
 }   
+
+function drawFaceLines(context: CanvasRenderingContext2D, x: number, y: number) {
+    context.beginPath();
+    let startX = x;
+    let startY = y;
+    let endX = startX - 5;
+    let endY = startY + 5;
+    context.bezierCurveTo(
+        startX, startY,
+        startX -3, startY -3,
+        endX, endY);
+
+    startX = endX;
+    startY = endY;
+    endX = startX - 25;
+    endY = startY + 25;
+    context.bezierCurveTo(
+        startX, startY,
+        startX, startY + 10,
+        endX, endY);
+
+    startX = endX;
+    startY = endY;
+    endX = startX - 14;
+    endY = startY - 5;
+    context.bezierCurveTo(
+        startX, startY,
+        startX - 10, startY + 2,
+        endX, endY);
+
+    startX = endX;
+    startY = endY;
+    endX = startX - 14;
+    endY = startY + 5;
+    context.bezierCurveTo(
+        startX, startY,
+        startX - 4, startY + 7,
+        endX, endY);
+        
+    startX = endX;
+    startY = endY;
+    endX = startX - 25;
+    endY = startY - 25;
+    context.bezierCurveTo(
+        startX, startY,
+        startX - 25, startY - 15,
+        endX, endY);
+
+    startX = endX;
+    startY = endY;
+    endX = startX - 5;
+    endY = startY - 5;
+    context.bezierCurveTo(
+        startX, startY,
+        startX -2, startY -7,
+        endX, endY);
+
+    context.lineCap = 'round';
+    context.lineWidth = 4;
+    context.strokeStyle = SHADOW_BROWN;
+    context.stroke();
+    context.closePath();
+}
 
 function drawEyes(context: CanvasRenderingContext2D, x: number, y: number) {
     const eyeSize = 17;
