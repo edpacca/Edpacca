@@ -1,8 +1,10 @@
 <script lang="ts">
-    import { getProjectData } from "../ts/data/projectData";
+    import { getProjectData } from "$lib/data/projectData";
+    import type { Post } from "$lib/types";
+    import { formatDate } from "../utils";
     import FaIcon from "./FaIcon.svelte";
-    export let post: PostAttributes;
-    const date = new Date(post.date).toLocaleDateString("en-GB", { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' });
+    export let post: Post;
+    const date = formatDate(post.date);
     const project = post.projectId ? getProjectData(post.projectId) : undefined;
     const projectUrl = `/projects/${project?.id}`;
 </script>
@@ -10,7 +12,7 @@
 
 <div class="post-summary-container">
     <div>{date}</div>
-    <a href={post.url} class="title">{post.title}</a>
+    <a href={post.slug} class="title">{post.title}</a>
     <div class="project-info">
         {#if project}
             <a href={projectUrl}>{project.name}</a>

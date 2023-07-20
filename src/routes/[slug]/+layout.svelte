@@ -1,6 +1,5 @@
 <script lang="ts">
     import Sidebar from "$lib/components/Sidebar.svelte";
-    import { postAttributes } from "../../store";
 </script>
 
 <div class="post-container">

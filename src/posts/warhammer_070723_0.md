@@ -1,6 +1,5 @@
 ---
 title: Creating a modular flying base using Lego
-slug: warhammer-modular-flying-base
 description: I create an awesome looking, highland themed base for my landspeeder. Specifically I wanted to be able to attach and remove the stand itself separaetly. I used Lego Technic to do this.
 coverImage: flyingbase.jpg
 date: 07-07-23

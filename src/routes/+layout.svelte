@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores';
     import Sidebar from '$lib/components/Sidebar.svelte';
-    import { postAttributes } from '../store';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
 
@@ -23,7 +22,7 @@
 		</div>
 	</main>
 	{#if showSidebar}
-		<Sidebar posts={$postAttributes}/>
+		<!-- <Sidebar posts={$postAttributes}/> -->
 	{/if}
 	<Footer/>
 </div>
