@@ -1,6 +1,5 @@
 <script lang="ts">
     import { getProjectData } from "$lib/data/projectData";
-    import type { Post } from "$lib/types";
     import { formatDate } from "../utils";
     import FaIcon from "./FaIcon.svelte";
     export let post: Post;
@@ -42,13 +41,13 @@
     .project-info {
         margin-left: auto;
         right: var(--margin);
-        color: var(--color-theme-2);
+        color: var(--highlight);
         display: flex;
         gap: 1em;
         text-transform: uppercase;
     }
 
     .project-info a {
-        color: var(--color-theme-2);
+        color: var(--highlight);
     }
 </style>

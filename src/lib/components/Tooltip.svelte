@@ -48,7 +48,7 @@
 	.tooltip {
 		position: fixed;
 		z-index: 50;
-		background-color: var(--dark-grey-90);
+		background-color: var(--black-50);
 		color: var(--white);
 		padding: 0.2rem;
 		margin: 0.2rem 0;

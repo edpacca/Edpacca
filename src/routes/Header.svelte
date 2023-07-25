@@ -39,8 +39,6 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--background);
-		background-size: contain;
 	}
 
 	li {
@@ -57,7 +55,11 @@
 		top: 0;
 		left: calc(50% - var(--size));
 		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
+		border-top: var(--size) solid var(--highlight);
+	}
+
+	li[aria-current='page'] a {
+		color: var(--highlight);
 	}
 
 	nav a {
@@ -65,7 +67,7 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 0.5rem;
-		color: var(--color-text);
+		color: var(--primary);
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
@@ -75,6 +77,6 @@
 	}
 
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--highlight);
 	}
 </style>

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { isSidebarVisible } from "../../store";
-    export let posts: PostAttributes[];
+    export let posts: Post[];
     const toggleSidebar = () => {
         console.log("toggled");
         $isSidebarVisible = !$isSidebarVisible;
@@ -12,7 +12,7 @@
     <div class="sidebar">
         {#each posts as post}
             <div class="post-info">
-                <a href={post.url}>{new Date(post.date).toLocaleDateString()}</a>
+                <a href={post.slug}>{new Date(post.date).toLocaleDateString()}</a>
             </div>
         {/each}
     </div>
