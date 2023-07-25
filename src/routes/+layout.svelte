@@ -1,6 +1,8 @@
 <script>
 	import { page } from '$app/stores';
+    import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
     import Sidebar from '$lib/components/Sidebar.svelte';
+    import ThemeSelector from '$lib/components/ThemeSelector.svelte';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
 
@@ -15,6 +17,10 @@
 </svelte:head>
 
 <div class="app">
+	<div class="theme-selectors">
+		<DarkThemeToggle/>
+		<ThemeSelector/>
+	</div>
 	<Header/>
 	<main>
 		<div class:main-margin={!$page.url.pathname.startsWith('/weather')}>
@@ -30,5 +36,14 @@
 <style>
 	.main-margin {
 		margin: 3em;
+	}
+
+	.theme-selectors {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: var(--margin);
+		display: flex;
+		gap: 0.5em;
 	}
 </style>
