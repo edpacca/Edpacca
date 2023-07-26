@@ -1,41 +1,39 @@
 <script lang="ts">
-    import { getProjectData } from "$lib/data/projectData";
     import { formatDate } from "../utils";
-    import FaIcon from "./FaIcon.svelte";
+    import ProjectIconLink from "./ProjectIconLink.svelte";
     export let post: Post;
     const date = formatDate(post.date);
-    const project = post.projectId ? getProjectData(post.projectId) : undefined;
-    const projectUrl = `/projects/${project?.id}`;
 </script>
 
 
 <div class="post-summary-container">
-    <div>{date}</div>
-    <a href={post.slug} class="title">{post.title}</a>
+    <div>
+        <div class="date">{date}</div>
+        <a href={post.slug} class="title nowrap">{post.title}</a>
+    </div>
     <div class="project-info">
-        {#if project}
-            <a href={projectUrl}>{project.name}</a>
-        {/if}
-        {#if project && project.icon}
-            <FaIcon icon={project.icon}/>
-        {/if}
+        <ProjectIconLink projectId={post.projectId}/>
     </div>
 </div>
 
 <style>
     .post-summary-container {
-        display: flex;
-        align-items: center;
-        gap: 1em;
-        border-radius: 8px;
-        background-color: var(--black-50);
+        border-radius: 4px;
+        background-color: var(--grey);
         transition: var(--transition-time) ease-in-out;
         padding: var(--margin);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .title {
-        font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1.5em;
+        text-transform: uppercase;
+    }
+    
+    .date {
+        color: var(--white-50);
     }
 
     .project-info {
@@ -43,11 +41,9 @@
         right: var(--margin);
         color: var(--highlight);
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 1em;
         text-transform: uppercase;
-    }
-
-    .project-info a {
-        color: var(--highlight);
     }
 </style>
