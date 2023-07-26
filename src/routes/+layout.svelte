@@ -35,7 +35,9 @@
 
 <style>
 	.main-margin {
-		margin: 3em;
+		margin-top: 3em;
+		margin-left: 10%;
+		margin-right: 10%;
 	}
 
 	.theme-selectors {
