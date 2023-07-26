@@ -10,18 +10,18 @@
         {/if}
         {project.name}
     </a>
-    {#if project.description}
-        <div class="description">
-            {project.description}
-        </div>
-    {/if}
 </div>
+{#if project.description}
+    <div class="description">
+        {project.description}
+    </div>
+{/if}
 
 <style>
     .preview-container {
-        border-radius: 8px;
+        border-radius: 4px;
         text-align: left;
-        background-color: var(--black-50);
+        background-color: var(--grey);
         padding: var(--margin);
         cursor: pointer;
         transition: var(--transition-time) ease-in-out;
@@ -37,15 +37,18 @@
     a {
         font-style: normal;
         text-decoration: none;
+        text-transform: uppercase;
     }
 
     .title {
-        font-weight: bold;
+        font-weight: 100;
         font-size: 1.5em;
         white-space: nowrap;
         text-align: left;
         display: grid;
         grid-template-columns: 1.5em 1fr;
+        align-items: center;
+        color: var(--highlight);
     }
 
     .description {
