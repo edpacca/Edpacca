@@ -2,12 +2,14 @@
     import { fade } from "svelte/transition";
 	
 	export let text = "";
+	export let isActive = true;
 	
-	const offset = 10;
 	let isHovered = false;
 	let x: number;
 	let y: number;
-
+	
+	const offset = 10;
+	
 	const mouseOver = (event: MouseEvent) => {
 		isHovered = true;
 		x = event.pageX + offset;
@@ -34,7 +36,7 @@
 	<slot/>
 </div>
 
-{#if isHovered}
+{#if isHovered && isActive}
 	<div 
 		style="top: {y}px; left: {x}px;"
 		class="tooltip"
