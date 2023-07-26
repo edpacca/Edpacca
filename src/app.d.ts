@@ -22,8 +22,8 @@ declare global {
 		type ProjectType = {
 			name: string,
 			id: string,
+			icon: string
 			description?: string,
-			icon?: string
 		}
 }
 
