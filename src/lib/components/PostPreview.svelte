@@ -6,10 +6,10 @@
 </script>
 
 
-<div class="post-summary-container">
+<div class="summary-container">
     <div>
         <div class="date">{date}</div>
-        <a href={post.slug} class="title nowrap">{post.title}</a>
+        <a href={`/${post.slug}`} class="title nowrap">{post.title}</a>
     </div>
     <div class="project-info">
         <ProjectIconLink projectId={post.projectId}/>
@@ -17,28 +17,15 @@
 </div>
 
 <style>
-    .post-summary-container {
-        border-radius: 4px;
-        background-color: var(--grey);
-        transition: var(--transition-time) ease-in-out;
-        padding: var(--margin);
+    .summary-container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .title {
-        font-size: 1.5em;
-        text-transform: uppercase;
-    }
-    
-    .date {
-        color: var(--white-50);
-    }
-
     .project-info {
         margin-left: auto;
-        right: var(--margin);
+        margin-right: var(--margin);
         color: var(--highlight);
         display: flex;
         justify-content: center;
