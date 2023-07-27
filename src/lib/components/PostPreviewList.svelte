@@ -1,7 +1,5 @@
 <script lang="ts">
-    import type { Post } from "$lib/types";
     export let posts: Post[];
-	
     import PostPreview from "./PostPreview.svelte";
 </script>
 
