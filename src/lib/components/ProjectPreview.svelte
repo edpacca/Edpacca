@@ -1,31 +1,39 @@
 <script lang="ts">
     import FaIcon from "./FaIcon.svelte";
-    import ProjectIconLink from "./ProjectIconLink.svelte";
     export let project: ProjectType;
-
-    let isExpanded = false;
-
-    const toggleExpanded = () => { 
-        isExpanded = !isExpanded
-    };
+    export let numberOfPosts = 0;
 </script>
 
 <div class="summary-container">
     <div class="icon-title-grid">
-        <ProjectIconLink projectId={project.id} hasTooltip={false} />
+        <FaIcon icon={project.icon} size="1.5em"/>
         <a href={`/projects/${project.id}`} class="title">
             {project.name}
         </a>
+        <div class="post-count">
+            {#if numberOfPosts > 0}
+            {numberOfPosts}
+            <FaIcon icon={"newspaper"}/>
+            {/if}
+        </div>
     </div>
 </div>
 
 <style>
     .icon-title-grid {
         display: grid;
-        grid-template-columns: 2em 1fr;
+        grid-template-columns: 2em 1fr 2em;
         align-items: center;
         justify-content: left;
         gap: 1em;
         color: var(--highlight);
+    }
+
+    .post-count {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3em;
     }
 </style>
