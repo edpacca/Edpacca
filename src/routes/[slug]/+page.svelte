@@ -1,5 +1,6 @@
 <script lang="ts">
     import { formatDate } from "$lib/utils";
+    import ProjectBackButton from "../../lib/components/ProjectBackButton.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
 </script>
@@ -15,10 +16,9 @@
     <!-- Title -->
     <hgroup>
         <h1>{data.meta.title}</h1>
-        <p>Published {formatDate(data.meta.date)}</p>
+        <p class="date">Published {formatDate(data.meta.date)}</p>
+        <ProjectBackButton projectId={data.meta.projectId} />
     </hgroup>
-
-    <!-- Tags -->
 
     <div class="contents">
         <div class="post-image-container">
