@@ -1,14 +1,19 @@
 <script>
 	import { page } from '$app/stores';
+
+	$: isPostPage = 
+		!$page.url.pathname.startsWith('/weather') &&
+		!$page.url.pathname.startsWith('/projects') &&
+		$page.url.pathname !== '/';
 </script>
 
 <header>
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' || $page.url.pathname === '/posts' ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/projects') ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname.startsWith('/projects') || isPostPage ? 'page' : undefined}>
 				<a href="/projects">Projects</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/weather') ? 'page' : undefined}>
@@ -69,7 +74,7 @@
 		padding: 0 0.5rem;
 		color: var(--primary);
 		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
