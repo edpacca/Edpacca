@@ -1,31 +1,57 @@
 <script lang="ts">
     import { getProjectData } from "$lib/data/projectData";
     import FaIcon from "./FaIcon.svelte";
+    import { sineIn } from "svelte/easing";
 
     export let projectId: string | undefined;
     const project = projectId ? getProjectData(projectId) : undefined;
+    let isHovered = false;
+    const grow = (node: HTMLElement) => {
+        return {
+            duration: 100,
+            easing: sineIn,
+            css: (t: number) => `transform: scaleX(${t}); transform-origin: left`
+        }
+    }
+
+    const goToProject = () => {
+        location.href=`/projects/${projectId}`
+    }
 </script>
 
 {#if project}
-    <a href={`/projects/${project.id}`} class="button">
+    <button
+        on:click={goToProject}
+        on:mouseenter={() => {isHovered = true;}}
+        on:mouseleave={() => {isHovered = false;}}>
         <FaIcon icon={"angle-left"}/>
-        <span>
-            {project.name}
-        </span>
+        {#if isHovered}
+            <div class="project-name" transition:grow>{project.name}</div>
+        {/if}
         {#if project.icon}
             <FaIcon icon={project.icon}/>
         {/if}
-    </a>
+    </button>
 {/if}
 
 <style>
-    a.button {
+    button {
         background-color: var(--dark-grey);
         padding: var(--margin);
         border-radius: 6px;
+        color: var(--primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+        transition: var(--transition-time);
+        font: var(--font-body);
+        border: none;
+        height: 2.5em;
     }
 
-    span {
-        margin: 0 0.2em;
+    button:hover {
+        color: var(--highlight);
+        transition: var(--transition-time);
     }
 </style>
