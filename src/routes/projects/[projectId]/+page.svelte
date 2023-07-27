@@ -10,7 +10,7 @@
 </div>
 
 <section>
-    <h2>Posts</h2>
+    <h2>Articles</h2>
     <div class="posts">
         {#each data.posts as post}
             <PostPreview post={post}/>
