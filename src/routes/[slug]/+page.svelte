@@ -1,5 +1,4 @@
 <script lang="ts">
-    import ProjectBackButton from "$lib/components/ProjectBackButton.svelte";
     import { formatDate } from "$lib/utils";
     import type { PageData } from "./$types";
     export let data: PageData;
@@ -20,31 +19,20 @@
     </hgroup>
 
     <!-- Tags -->
-    <div class="project-link">
-        <ProjectBackButton projectId={data.meta.projectId}/>
-    </div>
 
     <div class="contents">
+        <div class="post-image-container">
+            <img src={`images/${data.meta.coverImage}`}
+                alt={data.meta.title}
+                loading="lazy"
+                class="post-cover-image"/>
+        </div>
         <svelte:component this={data.content}/>
     </div>
 </article>
 
 <style>
-    .image-grid {
-        display: grid;
-        grid-template-columns: repeat(var(--cols), calc(100% / var(--cols)));
-        align-items: center;
-        border: 3px solid yellowgreen;
-    }
-
-    .grid-image {
-        width: 100%;
-        max-width: none;
-    }
-
-    .project-link {
-        top:0;
-        left: 0;
-        position: absolute;
+    h1 {
+        text-transform: uppercase;
     }
 </style>
