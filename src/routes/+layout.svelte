@@ -36,8 +36,9 @@
 <style>
 	.main-margin {
 		margin-top: 3em;
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: var(--page-margin);
+		margin-right: var(--page-margin);
+		max-width: var(--page-width);
 	}
 
 	.theme-selectors {
