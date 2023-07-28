@@ -9,7 +9,7 @@
 <div class="summary-container">
     <div>
         <div class="date">{date}</div>
-        <a href={`/${post.slug}`} class="title nowrap">{post.title}</a>
+        <a href={`/${post.slug}`} class="title">{post.title}</a>
     </div>
     <div class="project-info">
         <ProjectIconLink projectId={post.projectId}/>
