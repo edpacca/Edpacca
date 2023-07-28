@@ -18,15 +18,15 @@
 </script>
 
 {#if project}
-    <div class="icon-link-container">
+    <div class="icon-link-container"
+        on:mouseenter={() => { isHovered = true; }}
+        on:mouseleave={() => { isHovered = false; }}>
         {#if isHovered}
             <div class="name-tag" transition:slideIn>
                 {project.name}
             </div>
         {/if}
-        <a href={url}
-            on:mouseenter={() => { isHovered = true; }}
-            on:mouseleave={() => { isHovered = false; }}>
+        <a href={url}>
             <FaIcon icon={project.icon} size="1.5em"/>
         </a>
     </div>
