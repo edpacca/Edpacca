@@ -3,6 +3,8 @@
     import ProjectBackButton from "../../lib/components/ProjectBackButton.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
+
+    const date = formatDate(data.meta.date);
 </script>
 
 <!-- SEO -->
@@ -16,7 +18,7 @@
     <!-- Title -->
     <hgroup>
         <h1>{data.meta.title}</h1>
-        <p class="date">Published {formatDate(data.meta.date)}</p>
+        <p class="date">Published {date}</p>
         <ProjectBackButton projectId={data.meta.projectId} />
     </hgroup>
 
