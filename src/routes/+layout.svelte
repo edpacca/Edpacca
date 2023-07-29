@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
+    import BurgerMenu from '$lib/components/BurgerMenu.svelte';
     import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
-    import Sidebar from '$lib/components/Sidebar.svelte';
     import ThemeSelector from '$lib/components/ThemeSelector.svelte';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
@@ -18,8 +18,12 @@
 
 <div class="app">
 	<div class="theme-selectors">
-		<DarkThemeToggle/>
-		<ThemeSelector/>
+		<BurgerMenu>
+			<div>
+				<DarkThemeToggle/>
+				<ThemeSelector/>
+			</div>
+		</BurgerMenu>
 	</div>
 	<Header/>
 	<main>
