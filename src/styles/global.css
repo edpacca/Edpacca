@@ -4,6 +4,7 @@
 :root {
 	/* Fonts */
 	--font-body: JetBrainsMono, Roboto, Oxygen, Ubuntu, sans-serif;
+	--font-text: Inconsolata, sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 
 	/* Monochromes */
@@ -74,13 +75,14 @@ h1, h2, p {
 
 p {
 	line-height: 1.5;
-	font-size: 1.1em;
+	font-size: 1.3em;
 	font-weight: 200;
+	font-family: var(--font-text);
 }
 
 @media screen and (max-width: 600px) {
 	p {
-		font-size: 1.4em;
+		font-size: 1.5em;
 	}
 }
 
