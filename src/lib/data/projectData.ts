@@ -14,9 +14,14 @@ export const PROJECTS: ProjectType[] = [
         id: "programming",
         icon: "code",
     },
+    {
+        name: "Solo music",
+        id: "solomusic",
+        icon: "music"
+    },
 	{ 
-        name: "Brewing",
-        id: "brewing",
+        name: "Recipes",
+        id: "recipes",
         icon: "beer",
         description: "I started brewing when I moved to Edinburgh aswell, but took a long haiatus until around 2020 when for obvious reasons home hobbies took off again. I brewed mostly IPAs, a few stouts and some other Ales."
     },
@@ -24,11 +29,6 @@ export const PROJECTS: ProjectType[] = [
         name: "Running",
         id: "running",
         icon: "person-running",
-    },
-	{ 
-        name: "Muay Thai",
-        id: "muaythai",
-        icon: "hand-fist",
     },
 	{ 
         name: "Woodwork",
@@ -46,9 +46,5 @@ export const PROJECTS: ProjectType[] = [
         icon: "guitar",
         description: "When I moved to Edinburgh in 2014 I put out an advert on Gumtree looking for musicians to jam with. All I see is an Empty Circle slowly formed off the back of that advert into a band that we were very proud of. We released 3 EPs between 2016 - 2019 and recorded them all ourselves. I created the artwork of course."
     },
-    {
-        name: "Solo music",
-        id: "solomusic",
-        icon: "music"
-    }
+
 ]
