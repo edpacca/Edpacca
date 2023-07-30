@@ -27,5 +27,6 @@
         flex-direction: row;
         column-gap: 1.2rem;
         list-style: none;
+        padding: 0;
     }
 </style>
