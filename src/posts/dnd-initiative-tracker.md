@@ -4,6 +4,6 @@ description: An aesthetic and functional tool for the Dungeon Master to track co
 date: 05/09/2023
 projectId: programming
 published: true
-technologies: [ "Svelte", "Typescript" ]
+technologies: [ Svelte, Typescript ]
 ---
 

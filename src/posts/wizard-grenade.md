@@ -4,5 +4,5 @@ description: My first real programming project, used to learn object oriented pr
 date: 01/4/2021
 projectId: programming
 published: true
-technologies: [ "C#", "XNA" ]
+technologies: [ C#, XNA ]
 ---

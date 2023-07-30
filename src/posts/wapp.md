@@ -4,5 +4,5 @@ description: A full-stack application used for our wedding. React and Redux fron
 date: 07/16/2022
 projectId: programming
 published: true
-technologies: [ "Typescript", "React", "Redux", Express", "MongoDb" ]
+technologies: [ Typescript, React, Redux, Express, MongoDb ]
 ---
