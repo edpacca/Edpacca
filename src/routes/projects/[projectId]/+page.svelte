@@ -2,6 +2,7 @@
     import { page } from "$app/stores";
     import Gallery from "$lib/components/Gallery.svelte";
     import StravaStats from "$lib/components/StravaStats.svelte";
+    import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
     import type { PageData } from "./$types";
@@ -17,6 +18,8 @@
     <Gallery imagePaths={WARHAMMER_GALLERY}/>
 {:else if $page.url.pathname.split("/projects/")[1] === "running"}
     <StravaStats/>
+{:else if $page.url.pathname.split("/projects/")[1] === "programming"}
+    <TechnologySoup technologies={data.posts.flatMap(p => p.technologies ?? [])}/>
 {/if}
 <section>
     <div class="posts">
