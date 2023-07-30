@@ -19,10 +19,9 @@
     <StravaStats/>
 {/if}
 <section>
-    <h2>Articles</h2>
     <div class="posts">
         {#each data.posts as post}
-            <PostPreview post={post}/>
+            <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
         {/each}
     </div>
 </section>
