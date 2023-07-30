@@ -13,10 +13,11 @@ declare global {
 			title: string
 			slug: string
 			description: string
-			coverImage: string
 			date: string
 			projectId: string
 			published: boolean
+			coverImage?: string
+			technologies?: string[]
 		}
 
 		type ProjectType = {
