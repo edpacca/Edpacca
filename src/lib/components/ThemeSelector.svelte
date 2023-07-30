@@ -4,6 +4,7 @@
     import Tooltip from "./Tooltip.svelte";
 
     let isMenuOpen = false;
+    export let callback: () => void;
     const toggleMenu = () => {
         isMenuOpen = !isMenuOpen;
     }
@@ -21,6 +22,7 @@
         setHighlight(theme);
         $currentColourTheme = theme;
         isMenuOpen = false;
+        callback();
     }
 </script>
 

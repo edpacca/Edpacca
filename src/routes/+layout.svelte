@@ -9,6 +9,12 @@
 	$: showSidebar = $page.url.pathname !== '/' 
 		&& !$page.url.pathname.startsWith('/projects')
 		&& !$page.url.pathname.startsWith('/weather');
+
+	let isMenuOpen = false;
+
+	const closeMenu = () => {
+		isMenuOpen = !isMenuOpen;
+	}
 </script>
 
 <svelte:head>
@@ -18,10 +24,10 @@
 
 <div class="app">
 	<div class="theme-selectors">
-		<BurgerMenu>
-			<div>
-				<DarkThemeToggle/>
-				<ThemeSelector/>
+		<BurgerMenu bind:isOpen={isMenuOpen}>
+			<div class="toggle-containers">
+				<DarkThemeToggle callback={closeMenu}/>
+				<ThemeSelector callback={closeMenu}/>
 			</div>
 		</BurgerMenu>
 	</div>
@@ -52,5 +58,9 @@
 		margin: var(--margin);
 		display: flex;
 		gap: 0.5em;
+	}
+
+	.toggle-containers {
+		
 	}
 </style>
