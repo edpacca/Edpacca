@@ -1,6 +1,6 @@
 <script lang="ts">
     import FaIcon from "./FaIcon.svelte";
-    let isOpen = false;
+    export let isOpen = false;
     const toggle = () => { isOpen = !isOpen; console.log("test") };
 </script>
 
@@ -8,5 +8,28 @@
  <FaIcon icon={"bars"}/>
 </button>
 {#if isOpen}
-    <slot/>
+    <div class="burger-menu">
+        <slot/>
+    </div>
 {/if}
+
+<style>
+    button {
+        background: none;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--primary);
+        height: 2em;
+        width: 2em;
+        color: var(--primary);
+        position: absolute;
+    }
+
+    button:hover {
+        background-color: var(--light-grey);
+    }
+
+    .burger-menu {
+        position: absolute;
+        top: 2em;
+    }
+</style>
