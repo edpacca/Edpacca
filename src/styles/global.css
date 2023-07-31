@@ -19,16 +19,23 @@
     --dark-grey: rgb(20, 20, 20);
 
 	/* Themes */
-    --gold: rgb(255, 177, 8);
-	--teal: rgb(18, 235, 152);
-	--sky: rgb(124, 207, 255);
-	--magenta: rgb(248, 55, 119);
+    --gold-bright: rgb(255, 177, 8);
+    --gold-dark: rgb(194, 132, 0);
+	--teal-bright: rgb(18, 235, 152);
+	--teal-dark: rgb(4, 168, 105);
+	--sky-bright: rgb(124, 207, 255);
+	--sky-dark: rgb(6, 123, 190);
+	--magenta-bright: rgb(248, 55, 119);
+	--magenta-dark: rgb(248, 55, 119);
 
 	/* Global Theme */
 	--bg0: var(--grey);
 	--bg1: var(--dark-grey);
 	--primary: var(--white);
-	--highlight: var(--gold);
+	--primary-50: var(--white-50);
+	--secondary: var(--black);
+	--secondary-50: var(--black-50);
+	--highlight: var(--gold-bright);
 
 	/* Sizes */
 	--margin: 12px;
@@ -57,7 +64,7 @@
 
 :root {
 	font-family: var(--font-body);
-	color: var(--white);
+	color: var(--primary);
 }
 
 body {
@@ -119,7 +126,7 @@ pre {
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
 	padding: 0.5em;
 	overflow-x: auto;
-	color: var(--white);
+	color: var(--primary);
 }
 
 .title {
@@ -178,13 +185,13 @@ img.post-cover-image {
 }
 
 .date {
-	color: var(--white-50);
+	color: var(--primary-50);
 }
 
 .summary-container {
 	/* background-color: var(--grey); */
 	padding: var(--margin);
-	border-bottom: 2px solid var(--white-50);
+	border-bottom: 2px solid var(--primary-50);
 }
 
 .relative {
