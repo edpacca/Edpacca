@@ -1,13 +1,10 @@
 <script lang="ts">
     import { setHighlight } from "$lib/theme";
-    import { currentColourTheme } from "../../store";
+    import { currentColourTheme, isUsingDarkTheme } from "../../store";
     import Tooltip from "./Tooltip.svelte";
 
     let isMenuOpen = false;
     export let callback: () => void;
-    const toggleMenu = () => {
-        isMenuOpen = !isMenuOpen;
-    }
 
     const themes = [
         "gold",
@@ -16,7 +13,9 @@
         "magenta"
     ]
 
-    $: filteredThemes = themes.filter(th => th !== $currentColourTheme);
+    const toggleMenu = () => { 
+        isMenuOpen = !isMenuOpen;
+    }
 
     const setTheme = (theme: string) => {
         setHighlight(theme);
@@ -24,12 +23,15 @@
         isMenuOpen = false;
         callback();
     }
+
+    $: themeType = $isUsingDarkTheme ? "bright" : "dark";
+    $: filteredThemes = themes.filter(th => th !== $currentColourTheme);
 </script>
 
 <div class="theme-selector">
     <Tooltip text={"choose theme"}>
         <button 
-            style={`background-color: var(--${$currentColourTheme})`}
+            style={`background-color: var(--${$currentColourTheme}-${themeType})`}
             on:click={toggleMenu}>
         </button>
     </Tooltip>
@@ -38,7 +40,7 @@
             {#each filteredThemes as theme}
                 <li>
                     <button
-                        style={`background-color: var(--${theme})`}
+                        style={`background-color: var(--${theme}-${themeType})`}
                         on:click={() => setTheme(theme)}>
                     </button>
                 </li>
@@ -63,7 +65,7 @@
     }
 
     button:hover {
-        opacity: 0.75;
+        opacity: 0.5;
     }
 
     ul {
