@@ -1,13 +1,18 @@
 <script lang="ts">
-    import { isUsingDarkTheme } from "../../store";
+    import { onMount } from "svelte";
+    import { getDarkTheme, isUsingDarkTheme } from "../../store";
     import FaIcon from "./FaIcon.svelte";
     import { toggleDarkTheme } from "../theme";
+    
     export let callback: () => void;
     const toggle = () => {
-        $isUsingDarkTheme = !$isUsingDarkTheme;
-        toggleDarkTheme($isUsingDarkTheme);
+        toggleDarkTheme(!$isUsingDarkTheme);
         callback();
     }
+
+    onMount(() => {
+        $isUsingDarkTheme = getDarkTheme();
+    });
 </script>
 
 <button on:click={toggle} class={$isUsingDarkTheme ? "dark" :" light"}>
