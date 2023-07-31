@@ -2,13 +2,9 @@
 	import { page } from '$app/stores';
     import BurgerMenu from '$lib/components/BurgerMenu.svelte';
     import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
-    import ThemeSelector from '$lib/components/ThemeSelector.svelte';
+    import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
-
-	$: showSidebar = $page.url.pathname !== '/' 
-		&& !$page.url.pathname.startsWith('/projects')
-		&& !$page.url.pathname.startsWith('/weather');
 
 	let isMenuOpen = false;
 
@@ -37,9 +33,6 @@
 			<slot/>
 		</div>
 	</main>
-	{#if showSidebar}
-		<!-- <Sidebar posts={$postAttributes}/> -->
-	{/if}
 	<Footer/>
 </div>
 
