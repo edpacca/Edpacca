@@ -26,7 +26,7 @@
 	<div class="theme-selectors">
 		<BurgerMenu bind:isOpen={isMenuOpen}>
 			<div class="toggle-containers">
-				<DarkThemeToggle callback={closeMenu}/>
+				<DarkThemeToggle/>
 				<ThemeSelector callback={closeMenu}/>
 			</div>
 		</BurgerMenu>
