@@ -7,6 +7,9 @@ projectId: aisiaec
 published: true
 ---
 
-<iframe width="100%" height="415"
+<iframe 
+    width="100%" height="415" 
+    alt="Fangs live at the village video"
+    title="Fangs live at the village video"
     src="https://www.youtube.com/embed/O7PL8ON3Si0">
 </iframe> 
