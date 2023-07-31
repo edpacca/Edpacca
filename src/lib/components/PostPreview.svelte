@@ -50,8 +50,6 @@
         gap: 1em;
     }
 
-
-
     .project-link-container {
         margin-left: auto;
         margin-right: var(--margin);
