@@ -1,60 +1,39 @@
 <script lang="ts">
     import FaIcon from "./FaIcon.svelte";
     export let project: ProjectType;
+    export let numberOfPosts = 0;
 </script>
 
-<div class="preview-container">
-    <a href={`/projects/${project.id}`} class="title">
-        {#if project.icon}
-            <FaIcon icon={project.icon}/>
-        {/if}
-        {project.name}
-    </a>
-    {#if project.description}
-        <div class="description">
-            {project.description}
+<div class="summary-container">
+    <div class="icon-title-grid">
+        <FaIcon icon={project.icon} size="1.5em"/>
+        <a href={`/projects/${project.id}`} class="title">
+            {project.name}
+        </a>
+        <div class="post-count">
+            {#if numberOfPosts > 0}
+            {numberOfPosts}
+            <FaIcon icon={"newspaper"}/>
+            {/if}
         </div>
-    {/if}
+    </div>
 </div>
 
 <style>
-    .preview-container {
-        border-radius: 8px;
-        text-align: left;
-        background-color: var(--black-50);
-        padding: var(--margin);
-        cursor: pointer;
-        transition: var(--transition-time) ease-in-out;
+    .icon-title-grid {
         display: grid;
-        grid-template-columns: 30% 1fr;
+        grid-template-columns: 2em 1fr 2em;
         align-items: center;
+        justify-content: left;
+        gap: 1em;
+        color: var(--highlight);
     }
 
-    .preview-container:hover {
-        background-color: var(--white-50);
+    .post-count {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3em;
     }
-
-    a {
-        font-style: normal;
-        text-decoration: none;
-    }
-
-    .title {
-        font-weight: bold;
-        font-size: 1.5em;
-        white-space: nowrap;
-        text-align: left;
-        display: grid;
-        grid-template-columns: 1.5em 1fr;
-    }
-
-    .description {
-        color: grey;
-        font-style: italic;
-        text-align: left;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
 </style>

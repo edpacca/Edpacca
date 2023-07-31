@@ -6,7 +6,6 @@
     const researchgateLink = "https://www.researchgate.net/profile/Edward-Pace-2"
 </script>
 
-<hr/>
 <footer>
     <ul>
         <li><IconLink icon={"github"} link={githubLink} text={"Github"}/></li>
@@ -17,12 +16,8 @@
 </footer>
 
 <style>
-    hr {
-        margin: 1rem 10%;
-    }
-
     footer {
-        width: 100%;
+        margin: 5rem 0;
         display: flex;
         justify-content: center;
     }
@@ -32,5 +27,6 @@
         flex-direction: row;
         column-gap: 1.2rem;
         list-style: none;
+        padding: 0;
     }
 </style>

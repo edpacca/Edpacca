@@ -1,63 +1,81 @@
 @import '@fontsource/fira-mono';
+@import 'fonts.css';
 
 :root {
 	/* Fonts */
-	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-body: JetBrainsMono, Roboto, Oxygen, Ubuntu, sans-serif;
+	--font-text: Inconsolata, sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 
-	/* Colours */
-	--color-bg-0: rgb(100, 120, 140);
-	--color-bg-1: rgb(66, 72, 72);
-	--color-bg-2: rgb(42, 42, 42);
-	--color-theme-1: #00ffd9;
-	--color-theme-2: #40a69e;
-
-    --primary: brown;
-    --secondary: burlywood;
-    --default-primary: brown;
-    --default-secondary: burlywood;
-    --white: antiquewhite;
+	/* Monochromes */
+    --white: rgb(250, 235, 215);
     --white-50: rgba(250, 235, 215, 0.5);
-    --black: rgb(30, 30, 30);
+    --black: rgb(0, 0, 0);
     --black-50: rgb(0, 0, 0, 0.5);
+
+    --light-tan: rgb(220, 215, 200);
     --light-grey: rgb(150, 150, 150);
     --mid-grey: rgb(85, 85, 85);    
     --grey: rgb(50, 50, 50);
-    --dark-grey: rgb(37, 38, 39);
-    --super-dark-grey: rgb(19, 19, 19);
-    --dark-grey-90: rgba(37, 38, 39, 0.9);
-    --green: rgb(88, 180, 45);
-    --green-50: rgba(80, 182, 36, 0.5);
-    --dark-green: rgb(35, 77, 17);
-    --red: rgb(220, 15, 45);
-    --red-50: rgba(220, 15, 45, 0.5);
-    --dark-red: rgb(94, 5, 18);
-    --gold: goldenrod;
-    --blue: rgb(58, 42, 146);
-    --light-blue: rgb(88, 80, 156);
+    --dark-grey: rgb(20, 20, 20);
+
+	/* Themes */
+    --gold-bright: rgb(255, 177, 8);
+    --gold-dark: rgb(194, 132, 0);
+	--teal-bright: rgb(18, 235, 152);
+	--teal-dark: rgb(4, 168, 105);
+	--sky-bright: rgb(124, 207, 255);
+	--sky-dark: rgb(6, 123, 190);
+	--magenta-bright: rgb(248, 55, 119);
+	--magenta-dark: rgb(248, 55, 119);
+
+	/* Global Theme */
+	--bg0: var(--dark-grey);
+	--bg1: var(--grey);
+	--primary: var(--white);
+	--secondary: var(--black);
+	--tertiary: var(--dark-grey);
+	--highlight: var(--gold-bright);
+	--primary-50: var(--white-50);
+	--secondary-50: var(--black-50);
 
 	/* Sizes */
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
 	--margin: 12px;
+	--border-radius: 4px;
+	--page-margin: auto;
+	--page-width: 1000px;
+	--image-margin: 10%;
 
 	/* Other */
 	--transition-time: 0.4s;
-} 
+}
+
+@media screen and (max-width: 1200px) {
+	:root {
+		--page-margin: 10%;
+		--page-width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	:root {
+		--page-margin: 1em;
+		--image-margin: 0;
+	}
+}
 
 :root {
 	font-family: var(--font-body);
-	color: var(--white);
+	color: var(--primary);
 }
 
 body {
 	min-height: 100vh;
 	margin: 0;
 	background-attachment: fixed;
-	background-color: var(--color-bg-1);
+	background-color: var(--bg0);
 	background-size: 100vw 100vh;
-	background-image: 
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 25%, var(--color-bg-2) 50%);
+	background-image: linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 25%);
 }
 
 h1, h2, p {
@@ -66,10 +84,19 @@ h1, h2, p {
 
 p {
 	line-height: 1.5;
+	font-size: 1.3em;
+	font-weight: 200;
+	font-family: var(--font-text);
+}
+
+@media screen and (max-width: 600px) {
+	p {
+		font-size: 1.5em;
+	}
 }
 
 a {
-	color: var(--color-theme-1);
+	color: var(--primary);
 	text-decoration: none;
 }
 
@@ -80,15 +107,17 @@ a:hover {
 h1 {
 	font-size: 2rem;
 	text-align: center;
+	font-weight: 100;
+	color: var(--highlight);
 }
 
 h2 {
 	font-size: 1.3rem;
 }
 
-h1, h2, h3, h4 {
+h2, h3, h4 {
 	font-weight: bold;
-	color: var(--color-theme-1);
+	color: var(--highlight);
 }
 
 pre {
@@ -99,53 +128,75 @@ pre {
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
 	padding: 0.5em;
 	overflow-x: auto;
-	color: var(--white);
+	color: var(--primary);
 }
 
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-}
-
-input,
-button {
-	font-size: inherit;
-	font-family: inherit;
-}
-
-button:focus:not(:focus-visible) {
-	outline: none;
-}
-
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
-}
-
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: auto;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
+.title {
+	font-size: 1.5em;
+	text-transform: uppercase;
 }
 
 img.post-image {
-	max-height: 10em;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+
+img.square {
+	width: 50%;
+	height: 50%;
+}
+
+img.post-cover-image {
+	width: 50%;
+	height:50%;
+	border-radius: 4px;
 }
 
 .post-image-container {
-	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 2em var(--image-margin);
+	flex-direction: column;
 }
+
+.image-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+	margin: 2em 0;
+}
+
+@media screen and (max-width: 600px) {
+	.image-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.caption {
+	font-weight: 100;
+	font-style: italic;
+	color: var(--light-grey)
+}
+
+.nowrap {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.date {
+	color: var(--primary-50);
+}
+
+.summary-container {
+	/* background-color: var(--grey); */
+	padding: var(--margin);
+	border-bottom: 2px solid var(--primary-50);
+}
+
+.relative {
+	position: relative;
+}
+

@@ -9,26 +9,22 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 
-		interface PostAttributes {
-			title: string,
-			url: string;
-			date: Date;
-			description: string;
-			cover_image: string;
-			projectId?: string;
-			images?: string[];
-		}
-
-		interface PostData {
-			attributes: PostAttributes,
-			html: any
+		type Post = {
+			title: string
+			slug: string
+			description: string
+			date: string
+			projectId: string
+			published: boolean
+			coverImage?: string
+			technologies?: string[]
 		}
 
 		type ProjectType = {
 			name: string,
 			id: string,
+			icon: string
 			description?: string,
-			icon?: string
 		}
 }
 

@@ -1,52 +1,63 @@
 <script lang="ts">
-    import { getProjectData } from "../ts/data/projectData";
-    import FaIcon from "./FaIcon.svelte";
-    export let post: PostAttributes;
-    const date = new Date(post.date).toLocaleDateString("en-GB", { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' });
-    const project = post.projectId ? getProjectData(post.projectId) : undefined;
-    const projectUrl = `/projects/${project?.id}`;
+    import { formatDate } from "../utils";
+    import PostCoverImage from "./PostCoverImage.svelte";
+    import ProjectIconLink from "./ProjectIconLink.svelte";
+    export let post: Post;
+    export let hasProjectLink = true;
+    export let hasPostImage = false;
+    const date = formatDate(post.date);
+    
 </script>
 
 
-<div class="post-summary-container">
-    <div>{date}</div>
-    <a href={post.url} class="title">{post.title}</a>
-    <div class="project-info">
-        {#if project}
-            <a href={projectUrl}>{project.name}</a>
+<div class="summary-container">
+    <div class="info-container">
+        {#if hasPostImage}
+        <div class="image-container">
+            <PostCoverImage post={post}/>
+        </div>
         {/if}
-        {#if project && project.icon}
-            <FaIcon icon={project.icon}/>
-        {/if}
+        <div>
+            <div class="date">{date}</div>
+            <a href={`/${post.slug}`} class="title">{post.title}</a>
+        </div>
     </div>
+    {#if hasProjectLink}
+    <div class="project-link-container">
+        <ProjectIconLink projectId={post.projectId}/>
+    </div>
+    {/if}
 </div>
 
 <style>
-    .post-summary-container {
+    .summary-container {
         display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container {
+        width: 5em;
+        height: 5em;
+    }
+
+    .info-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        gap: 1em;
+    }
+
+    .project-link-container {
+        margin-left: auto;
+        margin-right: var(--margin);
+        color: var(--highlight);
+        display: flex;
+        justify-content: center;
         align-items: center;
         gap: 1em;
-        border-radius: 8px;
-        background-color: var(--black-50);
-        transition: var(--transition-time) ease-in-out;
-        padding: var(--margin);
-    }
-
-    .title {
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-
-    .project-info {
-        margin-left: auto;
-        right: var(--margin);
-        color: var(--color-theme-2);
-        display: flex;
-        gap: 1em;
         text-transform: uppercase;
-    }
-
-    .project-info a {
-        color: var(--color-theme-2);
     }
 </style>
