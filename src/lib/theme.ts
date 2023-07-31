@@ -11,6 +11,7 @@ export function toggleDarkTheme(darkTheme: boolean) {
             root.style.setProperty("--primary-50", "var(--white-50)");
             root.style.setProperty("--secondary", "var(--black)");
             root.style.setProperty("--secondary-50", "var(--black-50)");
+            root.style.setProperty("--tertiary", "var(--dark-grey)");
             root.style.setProperty("--bg0", "var(--grey)");
             root.style.setProperty("--bg1", "var(--dark-grey)");
             root.style.setProperty(
@@ -20,8 +21,9 @@ export function toggleDarkTheme(darkTheme: boolean) {
             root.style.setProperty("--primary-50", "var(--black-50)");
             root.style.setProperty("--secondary", "var(--white)");
             root.style.setProperty("--secondary-50", "var(--white-50)");
-            root.style.setProperty("--bg0", "var(--white)");
-            root.style.setProperty("--bg1", "var(--dark-white)");
+            root.style.setProperty("--tertiary", "var(--grey)");
+            root.style.setProperty("--bg0", "var(--light-tan)");
+            root.style.setProperty("--bg1", "var(--white)");
             root.style.setProperty(
                 "--highlight", `var(--${get(currentColourTheme)}-dark)`);
         }
