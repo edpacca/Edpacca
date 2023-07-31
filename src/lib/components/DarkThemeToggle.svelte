@@ -2,10 +2,11 @@
     import { isUsingDarkTheme } from "../../store";
     import FaIcon from "./FaIcon.svelte";
     import { toggleDarkTheme } from "../theme";
-    
+    export let callback: () => void;
     const toggle = () => {
         $isUsingDarkTheme = !$isUsingDarkTheme;
         toggleDarkTheme($isUsingDarkTheme);
+        callback();
     }
 </script>
 

@@ -25,8 +25,8 @@
 <div class="app">
 	<div class="theme-selectors">
 		<BurgerMenu bind:isOpen={isMenuOpen}>
-			<div class="toggle-containers">
-				<DarkThemeToggle/>
+			<div class="toggle-container">
+				<DarkThemeToggle callback={closeMenu}/>
 				<ThemeSelector callback={closeMenu}/>
 			</div>
 		</BurgerMenu>
@@ -60,7 +60,9 @@
 		gap: 0.5em;
 	}
 
-	.toggle-containers {
-		
+	.toggle-container {
+		gap: 0.2em;
+		display: flex;
+		flex-direction: column;
 	}
 </style>
