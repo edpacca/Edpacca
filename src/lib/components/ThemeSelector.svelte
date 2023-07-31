@@ -5,7 +5,7 @@
 
     let isMenuOpen = false;
     export let callback: () => void;
-
+    let isHovered = false;
     const themes = [
         "gold",
         "teal",
@@ -26,10 +26,13 @@
 
     $: themeType = $isUsingDarkTheme ? "bright" : "dark";
     $: filteredThemes = themes.filter(th => th !== $currentColourTheme);
+    $: if (isHovered) {
+        isMenuOpen = true;
+    }
 </script>
 
 <div class="theme-selector">
-    <Tooltip text={"choose theme"}>
+    <Tooltip text={"choose theme"} bind:isHovered>
         <button 
             style={`background-color: var(--${$currentColourTheme}-${themeType})`}
             on:click={toggleMenu}>
