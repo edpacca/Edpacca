@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { setHighlight } from "$lib/theme";
-    import { currentColourTheme, isUsingDarkTheme } from "../../store";
+    import { onMount } from "svelte";
+    import { currentColourTheme, getColourTheme, isUsingDarkTheme } from "../../store";
+    import { setColourTheme } from "$lib/theme";
     import Tooltip from "./Tooltip.svelte";
 
     let isMenuOpen = false;
@@ -18,8 +19,7 @@
     }
 
     const setTheme = (theme: string) => {
-        setHighlight(theme);
-        $currentColourTheme = theme;
+        setColourTheme(theme);
         isMenuOpen = false;
         callback();
     }
@@ -29,6 +29,10 @@
     $: if (isHovered) {
         isMenuOpen = true;
     }
+
+    onMount(() => {
+        $currentColourTheme = getColourTheme();
+    });
 </script>
 
 <div class="theme-selector">
