@@ -36,7 +36,7 @@
 
 <style>
     button {
-        background-color: var(--dark-grey);
+        background-color: var(--secondary-50);
         padding: var(--margin);
         border-radius: 6px;
         color: var(--primary);
