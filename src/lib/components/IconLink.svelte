@@ -29,10 +29,10 @@
     svg {
         height: 2rem;
         transition: var(--transition-time);
-        fill: white;
+        fill: var(--primary);
     }
 
     svg:hover {
-        fill: var(--color-theme-2);
+        fill: var(--highlight);
     }
 </style>

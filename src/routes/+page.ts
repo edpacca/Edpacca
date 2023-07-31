@@ -1,7 +1,5 @@
-import { getPostPreviewsByDate } from '../lib/ts/posts';
-import type { PageLoad } from './$types';
-
-export const load = (async () => {
-	const posts = getPostPreviewsByDate("static/posts/");
-    return { posts };
-}) satisfies PageLoad
+export async function load({ fetch }) {
+    const response = await fetch("/api/posts");
+    const posts: Post[] = await response.json();
+    return { posts }
+}
