@@ -4,7 +4,7 @@
 	export let text = "";
 	export let isActive = true;
 	
-	let isHovered = false;
+	export let isHovered = false;
 	let x: number;
 	let y: number;
 	
@@ -50,8 +50,8 @@
 	.tooltip {
 		position: fixed;
 		z-index: 50;
-		background-color: var(--black-50);
-		color: var(--white);
+		background-color: var(--secondary-50);
+		color: var(--primary);
 		padding: 0.2rem;
 		margin: 0.2rem 0;
 		border-radius: 10%;

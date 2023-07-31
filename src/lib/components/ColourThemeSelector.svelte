@@ -1,14 +1,12 @@
 <script lang="ts">
-    import { setHighlight } from "$lib/theme";
-    import { currentColourTheme } from "../../store";
+    import { onMount } from "svelte";
+    import { currentColourTheme, getColourTheme, isUsingDarkTheme } from "../../store";
+    import { setColourTheme } from "$lib/theme";
     import Tooltip from "./Tooltip.svelte";
 
     let isMenuOpen = false;
     export let callback: () => void;
-    const toggleMenu = () => {
-        isMenuOpen = !isMenuOpen;
-    }
-
+    let isHovered = false;
     const themes = [
         "gold",
         "teal",
@@ -16,20 +14,31 @@
         "magenta"
     ]
 
-    $: filteredThemes = themes.filter(th => th !== $currentColourTheme);
+    const toggleMenu = () => { 
+        isMenuOpen = !isMenuOpen;
+    }
 
     const setTheme = (theme: string) => {
-        setHighlight(theme);
-        $currentColourTheme = theme;
+        setColourTheme(theme);
         isMenuOpen = false;
         callback();
     }
+
+    $: themeType = $isUsingDarkTheme ? "bright" : "dark";
+    $: filteredThemes = themes.filter(th => th !== $currentColourTheme);
+    $: if (isHovered) {
+        isMenuOpen = true;
+    }
+
+    onMount(() => {
+        $currentColourTheme = getColourTheme();
+    });
 </script>
 
 <div class="theme-selector">
-    <Tooltip text={"choose theme"}>
+    <Tooltip text={"choose theme"} bind:isHovered>
         <button 
-            style={`background-color: var(--${$currentColourTheme})`}
+            style={`background-color: var(--${$currentColourTheme}-${themeType})`}
             on:click={toggleMenu}>
         </button>
     </Tooltip>
@@ -38,7 +47,7 @@
             {#each filteredThemes as theme}
                 <li>
                     <button
-                        style={`background-color: var(--${theme})`}
+                        style={`background-color: var(--${theme}-${themeType})`}
                         on:click={() => setTheme(theme)}>
                     </button>
                 </li>
@@ -63,7 +72,7 @@
     }
 
     button:hover {
-        opacity: 0.75;
+        opacity: 0.5;
     }
 
     ul {

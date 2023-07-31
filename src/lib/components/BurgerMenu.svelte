@@ -1,7 +1,9 @@
 <script lang="ts">
     import FaIcon from "./FaIcon.svelte";
     export let isOpen = false;
-    const toggle = () => { isOpen = !isOpen; console.log("test") };
+    const toggle = () => { 
+        isOpen = !isOpen;
+    };
 </script>
 
 <button on:click={toggle}>
@@ -25,7 +27,7 @@
     }
 
     button:hover {
-        background-color: var(--light-grey);
+        background-color: var(--primary-50);
     }
 
     .burger-menu {
