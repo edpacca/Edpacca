@@ -4,7 +4,7 @@
 	export let text = "";
 	export let isActive = true;
 	
-	let isHovered = false;
+	export let isHovered = false;
 	let x: number;
 	let y: number;
 	
