@@ -1,7 +1,5 @@
 // See https://kit.svelte.dev/docs/types#app
 
-import type { IconType } from "svelte-awesome/components/Icon.svelte";
-
 // for information about these interfaces
 declare global {
 		// interface Error {}
@@ -17,6 +15,7 @@ declare global {
 			projectId: string
 			published: boolean
 			coverImage?: string
+			icon?: string
 			technologies?: string[]
 		}
 

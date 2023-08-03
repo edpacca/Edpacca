@@ -1,5 +1,6 @@
-const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
+import type { PageServerLoad } from "./$types";
 
+const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 // default to edinburgh
 let location = {
 	latitude: 55.953251,

@@ -1,0 +1,37 @@
+name: Edpacca CI
+run-name: Edpacca PR-${{ github.ref.name }} ${{ github.actor }}
+on: [pull_request]
+
+jobs:
+    edpacca_pr_ci:
+        name: edpacca_pr_ci
+        if: '!github.event.pull_request.draft'
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                ref: ${{ github.head_ref }}
+                fetch-depth: 1
+
+            - name: Set up node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 16
+            
+            - name: Install Dependencies
+              run: npm install
+            
+            - name: Check
+              run: npm run check
+            
+            - name: Lint
+              run: npm run lint
+
+            - name: Test
+              run: npm run test
+
+            - name: Build
+              run: npm run build
+            
