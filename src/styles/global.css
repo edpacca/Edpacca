@@ -96,7 +96,7 @@ p {
 }
 
 a {
-	color: var(--primary);
+	color: var(--highlight);
 	text-decoration: none;
 }
 
@@ -134,6 +134,7 @@ pre {
 .title {
 	font-size: 1.5em;
 	text-transform: uppercase;
+	color: var(--primary);
 }
 
 img.post-image {
@@ -214,4 +215,12 @@ img.post-cover-image {
 	flex-direction: row;
 	gap: 1em;
 	font-size: 2em;
+}
+
+ul {
+	padding-left: 1em;
+}
+
+li {
+	list-style-type: square;
 }
