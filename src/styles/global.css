@@ -200,3 +200,18 @@ img.post-cover-image {
 	position: relative;
 }
 
+.img-bkg {
+	background-color: var(--mid-grey);
+}
+
+.contents-list {
+	color: var(--highlight);
+}
+
+.contents-list li {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 1em;
+	font-size: 2em;
+}
