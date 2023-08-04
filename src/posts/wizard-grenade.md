@@ -8,7 +8,8 @@ published: true
 technologies: [ C#, XNA ]
 ---
 <script>
-    import FaIcon from "../lib/components/FaIcon.svelte"
+    import ContentsList from "../lib/components/ContentsList.svelte";
+	import 
 </script>
 Wizard Grenade was born after challenging myself to recreate Worms2, one of my childhood favourite PC games, using pixel art I had made for another project. The game is developed almost entirely from scratch, composed of 65 classes, running on Monogame, which runs the game-loop and draws the sprite-batch to the screen. The aim was to develop a playable game with a basic physics engine, and destructible terrain, before my arbitrary three-month deadline. I finished on time but couldn't help spending an extra week tweaking aesthetics and scoring a simple theme tune. This project taught me a lot of important lessons about software architecture and object-oriented programming. This page discusses some of these lessons and highlights different aspects of the application.
 
@@ -17,24 +18,14 @@ If there is no link here yet, there will be once I have dockerised the app and g
 <hr/>
 
 ## Contents
-<ul class="contents-list">
-    <li>
-        <FaIcon icon={"magnet"}/>
-        <a href="#physics">Physics</a>
-    </li>
-    <li>
-        <FaIcon icon={"university"}/>
-        <a href="#architecture">Architecture</a>
-    </li>
-    <li>
-        <FaIcon icon={"mountain"}/>
-        <a href="#terrain">Desctructible Terrain</a>
-    </li>
-    <li>
-        <FaIcon icon={"wrench"}/>
-        <a href="#menu">Menu Tools</a>
-    </li>
-</ul>
+<ContentsList contents={
+	[
+		["Physics", "physics", "magnet"],
+		["Architecture", "architecture", "university"],
+		["Terrain", "terrain", "mountina"],
+		["Menu Tools", "menu", "wrench"],
+	]
+}/>
 
 <br/>
 <hr/>
