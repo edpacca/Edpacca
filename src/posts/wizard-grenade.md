@@ -9,7 +9,6 @@ technologies: [ C#, XNA ]
 ---
 <script>
     import ContentsList from "../lib/components/ContentsList.svelte";
-	import 
 </script>
 Wizard Grenade was born after challenging myself to recreate Worms2, one of my childhood favourite PC games, using pixel art I had made for another project. The game is developed almost entirely from scratch, composed of 65 classes, running on Monogame, which runs the game-loop and draws the sprite-batch to the screen. The aim was to develop a playable game with a basic physics engine, and destructible terrain, before my arbitrary three-month deadline. I finished on time but couldn't help spending an extra week tweaking aesthetics and scoring a simple theme tune. This project taught me a lot of important lessons about software architecture and object-oriented programming. This page discusses some of these lessons and highlights different aspects of the application.
 
@@ -22,7 +21,7 @@ If there is no link here yet, there will be once I have dockerised the app and g
 	[
 		["Physics", "physics", "magnet"],
 		["Architecture", "architecture", "university"],
-		["Terrain", "terrain", "mountina"],
+		["Terrain", "terrain", "mountain"],
 		["Menu Tools", "menu", "wrench"],
 	]
 }/>
@@ -45,38 +44,19 @@ The physics are what really spawned this project - after replaying Worms2 for th
 
 - The `GameObject` constructor takes another class called `GameObjectParameters`, which includes the essential physical properties: mass, dampingFactor and numberOfCollisionPoints, as well as the parameters required to load the Sprite. The GameObject and Sprite class constructors are overloaded to take animation frames for animated sprites.
 
-```
+```c#
 public class GameObjectParameters
 {
-   public bool CanRotate { get; set; }
-   public readonly string fileName;
-   public readonly int  framesH;
-   public readonly int  framesV;
-   public readonly float  mass;
-   public readonly int  numberOfCollisionPoints;
-   public readonly float  dampingFactor;
+	public bool CanRotate { get; set; }
+	public readonly string fileName;
+	public readonly int  framesH;
+	public readonly int  framesV;
+	public readonly float  mass;
+	public readonly int  numberOfCollisionPoints;
+	public readonly float  dampingFactor;
 
-// Empty constructor.
-   public GameObjectParameters(){}
-
-// Constructor for single frame Sprite.
-   public GameObjectParameters(string setFileName, float setMass, bool canRotate, int setNumberOfCollisionPoints, float setDampingFactor)
-   {
-	   fileName = setFileName;
-	   mass = setMass;
-	   CanRotate = canRotate;
-	   numberOfCollisionPoints = setNumberOfCollisionPoints;
-	   dampingFactor = setDampingFactor;
-   }
-
-// Constructor for Sprite with animation frames. 
-   public GameObjectParameters(string setFileName, float setMass, bool canRotate, int setNumberOfCollisionPoints, float setDampingFactor, int setFramesH, int setFramesV)
-	   : this (setFileName, setMass, canRotate, setNumberOfCollisionPoints, setDampingFactor)
-   {
-	   framesH = setFramesH;
-	   framesV = setFramesV;
-   }
-}													
+	// constructors
+}
 ```
 
 - The GameObject constructor initialises another class called Polygon with the number of collision points. If 0 is passed, then the corners of the Sprite are picked (like the arrow in Fig. 1), else a circle is drawn in points about the centre of the Sprite (Wizard and Fireball).
@@ -154,7 +134,7 @@ The next aspect of Worms2 to figure out was how to make the terrain destructible
 ## Loading the Data
 The Map class is Lazy initialised, which means it doesn't get instantiated until it is first called in the code. This happens after the user has selected the Map which they want to battle on. I have each file named "map" followed by a number, so the number is what is selected upon loading. The LoadContent function takes the file name and a bool called "isCollidable", and attempts to load the image into a "Texture2D" called _mapTexture. I used a try, catch block for some defensive programming; If the file name does not correspond to an accessible file it will load a deafult file. First the data for each pixel is read contigously from the map Texture2D ("_mapTexture") into a uint[] "_mapPixelColourData", starting at index 0 and running through the whole map. The LoadPixelCollisionData() method then reads this into a 2D bool array, which corresponds to the rows and columns from the contiguous array of colour data. Wherever there is a transparent pixel in the .png file, the colour data is recoreded as '0'. Because each element of the bool[,] is initialised to false, we check if the colour value is != 0, and if so set it to true. 
 
-```
+```c#
 	public sealed class Map
 	{
 		private Map() {}
@@ -211,7 +191,7 @@ A reminder that a GameObject has collision points, which can reference their pos
 
 Now that collisions are handled, it is simply a matter of calling the DeformLevel() method whenever there is an explosion which will change the map. For simplicity these are always circles, which we obtain by iterating through a square area of pixels. To keep things simple on the front end, the thing that is exploding only passes its centre position and the explosion radius. The Map method PositionInArray() calculates the relative position within the 2D bool array. I kept mathematical functions in a Utility class, this one is beautifully named "IsWithinCircleInSquare" which (obviously) checks if a point is within a circle drawn within a square. If it is, then set the corresponding value in the contiguous colour data array to 0, as it is now empty - and updating the bool array to false so that objects will no longer collide with that pixel. Then at the end of DeformLevel() we update the map Texture2D data so that it doesn't show any colour at those points any more. And voila, desctructible, collidable terrain. 
 
-```
+```c#
 public void DeformLevel(int radius, Vector2 position)
 		{
 			int diameter = 2 * radius;
@@ -261,7 +241,8 @@ Here I want to highlight some non-specific classes or tools I crated to build th
 
 The Setting class was developed to handle this, having both an integer property (e.g number of Wizards in a team), but with the option to calculate a float value if required; for example the "Music Volume" setting shown in the menu above will have a value of 2/5 = 0.4f.
 
-```public class Setting
+```c#
+public class Setting
 	{
 		public float Value { get; private set; }
 		public int IntValue { ; private set; }

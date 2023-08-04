@@ -6,7 +6,6 @@
     export let hasProjectLink = true;
     export let hasPostImage = false;
     const date = formatDate(post.date);
-    
 </script>
 
 
