@@ -221,6 +221,10 @@ ul {
 	padding-left: 1em;
 }
 
+pre {
+	tab-size: 4;
+}
+
 li {
 	list-style-type: square;
 }
