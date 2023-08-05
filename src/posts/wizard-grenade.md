@@ -51,8 +51,8 @@ public class GameObjectParameters
 	public readonly string fileName;
 	public readonly int  framesH;
 	public readonly int  framesV;
-	public readonly float  mass;
 	public readonly int  numberOfCollisionPoints;
+	public readonly float  mass;
 	public readonly float  dampingFactor;
 
 	// constructors
@@ -135,53 +135,55 @@ The next aspect of Worms2 to figure out was how to make the terrain destructible
 The Map class is Lazy initialised, which means it doesn't get instantiated until it is first called in the code. This happens after the user has selected the Map which they want to battle on. I have each file named "map" followed by a number, so the number is what is selected upon loading. The LoadContent function takes the file name and a bool called "isCollidable", and attempts to load the image into a "Texture2D" called _mapTexture. I used a try, catch block for some defensive programming; If the file name does not correspond to an accessible file it will load a deafult file. First the data for each pixel is read contigously from the map Texture2D ("_mapTexture") into a uint[] "_mapPixelColourData", starting at index 0 and running through the whole map. The LoadPixelCollisionData() method then reads this into a 2D bool array, which corresponds to the rows and columns from the contiguous array of colour data. Wherever there is a transparent pixel in the .png file, the colour data is recoreded as '0'. Because each element of the bool[,] is initialised to false, we check if the colour value is != 0, and if so set it to true. 
 
 ```c#
-	public sealed class Map
+public sealed class Map
+{
+	private Map() {}
+	private static readonly Lazy<Map> lazyMap = new Lazy<Map>(() => new Map());
+	public static Map Instance { get => lazyMap.Value; }
+
+	public bool[,] MapPixelCollisionData { get; private set; }
+	private uint[] _mapPixelColourData;
+
+	private CollisionManager _collisionManager;
+	private Texture2D _mapTexture;
+	private Vector2 _mapPosition = Vector2.Zero;
+	private readonly string _defaultFileName = @"Maps/Map2";
+
+	public void LoadContent(ContentManager contentManager,
+	string fileName, bool isCollidable)
 	{
-		private Map() {}
-		private static readonly Lazy<Map> lazyMap = new Lazy<Map>(() => new Map());
-		public static Map Instance { get => lazyMap.Value; }
+		try { _mapTexture = contentManager.Load<Texture2D>(fileName); }
+		catch (Exception) { _mapTexture = 
+			contentManager.Load<Texture2D>(_defaultFileName); }
 
-		public bool[,] MapPixelCollisionData { get; private set; }
-		private uint[] _mapPixelColourData;
+		_mapPixelColourData = new uint[_mapTexture.Width * _mapTexture.Height];
+		_mapTexture.GetData(_mapPixelColourData, 0, _mapPixelColourData.Length);
+		MapPixelCollisionData = LoadPixelCollisionData(_mapTexture, _mapPixelColourData);
 
-		private CollisionManager _collisionManager;
-		private Texture2D _mapTexture;
-		private Vector2 _mapPosition = Vector2.Zero;
-		private readonly string _defaultFileName = @"Maps/Map2";
-
-		public void LoadContent(ContentManager contentManager, string fileName, bool isCollidable)
+		if (isCollidable)
 		{
-			try { _mapTexture = contentManager.Load<Texture2D>(fileName); }
-			catch (Exception) { _mapTexture = contentManager.Load<Texture2D>(_defaultFileName); }
+			_collisionManager = CollisionManager.Instance;
+			_collisionManager.InitialiseMapData();
+		}
+	}
 
-			_mapPixelColourData = new uint[_mapTexture.Width * _mapTexture.Height];
-			_mapTexture.GetData(_mapPixelColourData, 0, _mapPixelColourData.Length);
-			MapPixelCollisionData = LoadPixelCollisionData(_mapTexture, _mapPixelColourData);
+	private bool[,] LoadPixelCollisionData(Texture2D texture, uint[] mapData)
+	{
+		if (mapData.Length != texture.Width * texture.Height)
+		throw new ArgumentException("MapData must match the texture data provided");
 
-			if (isCollidable)
+		bool[,] boolArray = new bool[texture.Width, texture.Height];
+
+		for (int x = 0; x < texture.Width; ++x)
+		{
+			for (int y = 0; y < texture.Height; ++y)
 			{
-				_collisionManager = CollisionManager.Instance;
-				_collisionManager.InitialiseMapData();
+				if (mapData[x + y * texture.Width] != 0)
+					boolArray[x, y] = true;
 			}
 		}
-
-		private bool[,] LoadPixelCollisionData(Texture2D texture, uint[] mapData)
-		{
-			if (mapData.Length != texture.Width * texture.Height)
-			throw new ArgumentException("MapData must match the texture data provided");
-
-			bool[,] boolArray = new bool[texture.Width, texture.Height];
-
-			for (int x = 0; x < texture.Width; ++x)
-			{
-				for (int y = 0; y < texture.Height; ++y)
-				{
-					if (mapData[x + y * texture.Width] != 0)
-						boolArray[x, y] = true;
-				}
-			}
-			return boolArray;
-		}
+		return boolArray;
+	}
 
 ```
 
@@ -193,38 +195,53 @@ Now that collisions are handled, it is simply a matter of calling the DeformLeve
 
 ```c#
 public void DeformLevel(int radius, Vector2 position)
-		{
-			int diameter = 2 * radius;
+	{
+		int diameter = 2 * radius;
 
-			for (int x = 0; x < diameter; ++x)
+		for (int x = 0; x < diameter; ++x)
+		{
+			for (int y = 0; y < diameter; ++y)
 			{
-				for (int y = 0; y < diameter; ++y)
+				if (IsPointInBlastArea(radius, position, x, y))
 				{
-					if (IsPointInBlastArea(radius, position, x, y))
-					{
-						_mapPixelColourData[PositionInArray(radius, position, x, y)] = 0;
-						MapPixelCollisionData[ArrayColumn(radius, position, x), ArrayRow(radius, position, y)] = false;
-					}
+					_mapPixelColourData[
+						PositionInArray(radius, position, x, y)] = 0;
+					MapPixelCollisionData[
+						ArrayColumn(radius, position, x), 
+						ArrayRow(radius, position, y)] = false;
 				}
 			}
-			_mapTexture.SetData(_mapPixelColourData);
 		}
-
-		private bool IsPointInBlastArea(int blastRadius, Vector2 blastPosition, int x, int y)
-		{
-			return Utility.IsWithinCircleInSquare(blastRadius, x, y) &&
-				blastPosition.X + x - blastRadius < MapPixelCollisionData.GetLength(0) - 1 &&
-				blastPosition.Y + y - blastRadius < MapPixelCollisionData.GetLength(1) - 1 &&
-				blastPosition.X + x - blastRadius >= 0 &&
-				blastPosition.Y + y - blastRadius >= 0;
-		}
-
-		//...Draw() method ommited for brevity.
-
-		private int PositionInArray(int radius, Vector2 position, int x, int y) => ArrayColumn(radius, position, x) + (ArrayRow(radius, position, y) * _mapTexture.Width);
-		private int ArrayColumn(int radius, Vector2 position, int x) => (int)position.X + x - radius;
-		private int ArrayRow(int radius, Vector2 position, int y) => (int)position.Y + y - radius;
+		_mapTexture.SetData(_mapPixelColourData);
 	}
+
+	private bool IsPointInBlastArea(int blastRadius, Vector2 blastPosition, int x, int y)
+	{
+		return Utility.IsWithinCircleInSquare(blastRadius, x, y) &&
+			blastPosition.X + x - blastRadius < MapPixelCollisionData.GetLength(0) - 1 &&
+			blastPosition.Y + y - blastRadius < MapPixelCollisionData.GetLength(1) - 1 &&
+			blastPosition.X + x - blastRadius >= 0 &&
+			blastPosition.Y + y - blastRadius >= 0;
+	}
+
+	//...Draw() method ommited for brevity.
+
+	private int PositionInArray(int radius, Vector2 position, int x, int y)
+	{
+		ArrayColumn(radius, position, x) 
+			+ (ArrayRow(radius, position, y) * _mapTexture.Width);
+	}
+
+	private int ArrayColumn(int radius, Vector2 position, int x)
+	{ 
+		(int)position.X + x - radius;
+	}
+	
+	private int ArrayRow(int radius, Vector2 position, int y)
+	{ 
+		(int)position.Y + y - radius;
+	}
+}
 ```
 
 This simple but clever idea comes form [this fantastic article](http://web.archive.org/web/20090101215451/http://blog.xna3.com/2007/12/2d-deformable-level.html). I simply changed things to suit my game. I tried to make the code as clean and simple as I could, which is not easy when iterating through multiple for loops.
@@ -243,39 +260,41 @@ The Setting class was developed to handle this, having both an integer property 
 
 ```c#
 public class Setting
+{
+	public float Value { get; private set; }
+	public int IntValue { get; private set; }
+	public int  MinValue { get; private set; }
+	public int  MaxValue { get; private set; }
+	private SpriteMeter _spriteMeter;
+
+	public Setting(int initialValue, int minValue, int maxValue)
 	{
-		public float Value { get; private set; }
-		public int IntValue { ; private set; }
-		public int  MinValue { get; private set; }
-		public int  MaxValue { get; private set; }
-		private SpriteMeter _spriteMeter;
-	
-		public Setting(int initialValue, int minValue, int maxValue)
-		{
-			IntValue = initialValue;
-			MinValue = minValue;
-			MaxValue = maxValue;
-			Value = (float)IntValue / (float)MaxValue;
-		}
-	
-		...
-	
-		public void SetSpriteMeter(float maxWidth, float spriteScale)
-		{
-			_spriteMeter.Interval = maxWidth / (MaxValue - 1);
-			_spriteMeter.Sprite.SpriteScale = spriteScale;
-		}
-	
-		public void SetValue(int value)
-		{
-			IntValue = value >= MaxValue ? MaxValue : value $lt= MinValue ? MinValue : value;
-			Value = (float)IntValue / (float)MaxValue;
-		}
-	
-		public void ChangeValue(int diff) => SetValue(IntValue + diff);
-	
-		...
+		IntValue = initialValue;
+		MinValue = minValue;
+		MaxValue = maxValue;
+		Value = (float)IntValue / (float)MaxValue;
 	}
+
+	...
+
+	public void SetSpriteMeter(float maxWidth, float spriteScale)
+	{
+		_spriteMeter.Interval = maxWidth / (MaxValue - 1);
+		_spriteMeter.Sprite.SpriteScale = spriteScale;
+	}
+
+	public void SetValue(int value)
+	{
+		IntValue = value >= MaxValue 
+			? MaxValue : value $lt= MinValue 
+			? MinValue : value;
+		Value = (float)IntValue / (float)MaxValue;
+	}
+
+	public void ChangeValue(int diff) => SetValue(IntValue + diff);
+
+	...
+}
 ```
 <div class="caption">NB// "..." indicates where code was ommitted for brevity</div>
 
@@ -283,23 +302,24 @@ public class Setting
 
 The SpriteMeter class simply prints a number of Sprite objects to the screen separated by an interval; the "SetSpriteMeter()" method in Setting can be used to calculate this interval. I chose to pass the value of the setting directly in the "Draw()" method.
 
-```
-	public class SpriteMeter
+```c#
+public class SpriteMeter
+{
+	public Sprite Sprite { get; set; }
+	public float Interval { get; set; } = 10f;
+
+	public SpriteMeter(ContentManager contentManager, string fileName)
 	{
-		public Sprite Sprite { get; set; }
-		public float Interval { get; set; } = 10f;
-	
-		public SpriteMeter(ContentManager contentManager, string fileName)
-		{
-			Sprite = new Sprite(contentManager, fileName);
-		}
-	
-		public void Draw(SpriteBatch spriteBatch, Vector2 position, int value)
-		{
-			for (int i = 0; i < value; i++)
-				Sprite.DrawSprite(spriteBatch, new Vector2(position.X + (i * Interval), position.Y));
-		}
+		Sprite = new Sprite(contentManager, fileName);
 	}
+
+	public void Draw(SpriteBatch spriteBatch, Vector2 position, int value)
+	{
+		for (int i = 0; i < value; i++)
+			Sprite.DrawSprite(spriteBatch, 
+				new Vector2(position.X + (i * Interval), position.Y));
+	}
+}
 ```
 
 ## Options Class
