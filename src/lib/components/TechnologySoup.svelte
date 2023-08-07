@@ -10,7 +10,7 @@
     onMount(() => {
         canvas.height = 1000;
         canvas.width = canvas.height * (16 / 9);
-        const wordSoup = new WordSoup(canvas, technologies);
+        const wordSoup = new WordSoup(canvas, technologies.slice(0, 3));
         wordSoup.animate();
     });
 </script>

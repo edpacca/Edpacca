@@ -53,22 +53,19 @@ function getAreaOverlap(r1: Rect, r2: Rect) {
 }
 
 // returns a responseVector
-function resolveCollisions(rect: Rect, velocity: Vector2D, collisionRects: Rect[]) {
+function resolveCollisions(potentialRect: Rect, originalRect: Rect, velocity: Vector2D, collisionRects: Rect[], dampingFactor = 0.57) {
     const sumResponse = new Vector2D(0, 0);
-
     collisionRects.forEach(collisionRect => {
-        if (!checkSame(rect, collisionRect)) {
-            const areaOverlap = getAreaOverlap(rect, collisionRect)
+        if (!checkSame(originalRect, collisionRect)) {
+            const areaOverlap = getAreaOverlap(potentialRect, collisionRect)
             if (areaOverlap) {
                 // get opposite direction to current velocity
                 const xMod = velocity.x > 0 ? -1 : 1;
                 const yMod = velocity.y > 0 ? -1 : 1;
-                const response = new Vector2D(areaOverlap.x * xMod * dampingFactor * 0.002, 
-                    areaOverlap.y * yMod * dampingFactor * 0.002);
+                const response = new Vector2D(areaOverlap.x * xMod * dampingFactor , 
+                    areaOverlap.y * yMod * dampingFactor);
                 sumResponse.add(response);
             }
-        } else {
-            console.log(rect, collisionRect);
         }
     });
 
@@ -76,7 +73,10 @@ function resolveCollisions(rect: Rect, velocity: Vector2D, collisionRects: Rect[
 }
 
 function checkSame(r1: Rect, r2: Rect) {
-    return r1 == r2;
+    return r1.x1 === r2.x1 &&
+        r1.x2 === r2.x2 &&
+        r1.y1 === r2.y1 &&
+        r1.y2 === r2.y2;
 }
 
 function getRandomColor() {
@@ -87,8 +87,7 @@ function getRandomColor() {
 const gravity = new Vector2D(0, 2);
 const dampingFactor = 0.57;
 const minimum = 6.8
-const fontSize = 20;
-
+const fontSize = 84;
 
 export class WordSoup {
 
@@ -103,25 +102,27 @@ export class WordSoup {
         this.ctx.textBaseline = "top";
 
         words.forEach(word => {
-            this.wordBlocks.push(new WordBlock(word, Math.random() * 100 + fontSize, getRandomColor()));
+            this.wordBlocks.push(new WordBlock(word, fontSize, getRandomColor()));
         })
         
         this.wordBlocks.forEach((block, i, blocks) => {
-            block.setRandomPosition(
-                new Vector2D(this.canvas.width, this.canvas.height),
-                getRects(blocks.slice(0, i)));
+            block.position = new Vector2D(i * 200, i * 200);
+
+            // block.setRandomPosition(
+            //     new Vector2D(this.canvas.width, this.canvas.height),
+            //     getRects(blocks.slice(0, i)));
             block.draw(this.ctx);
         });
     }
 
     animate = () => {
-        requestAnimationFrame(this.animate);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         const blockRects = getRects(this.wordBlocks);
         this.wordBlocks.forEach((wordBlock) => {
             this.updateVelocity(wordBlock,  gravity, blockRects);
             wordBlock.draw(this.ctx);
         });
+        requestAnimationFrame(this.animate);
     }
 
     updateVelocity(word: WordBlock, incident: Vector2D, collisionRects: Rect[]) {
@@ -137,25 +138,26 @@ export class WordSoup {
             y2: potentialPos.y + word.height
         }
 
-        const collisionAdjustment = resolveCollisions(potentialRect, word.velocity, collisionRects);
+        const collisionAdjustment = resolveCollisions(potentialRect, word.getRect(), word.velocity, collisionRects);
         word.velocity.add(collisionAdjustment);
 
-        if ((potentialPos.x < 0 || potentialPos.x >= this.canvas.width - word.width)) {
+        if (potentialPos.x < 0 || potentialPos.x >= this.canvas.width - word.width || Math.abs(collisionAdjustment.x) > 0) {
             word.velocity.x = word.velocity.x * -1 * dampingFactor;
             if (Math.abs(word.velocity.x) <= minimum) {
                 word.velocity.x = 0;
             }
         }
 
-        if ((potentialPos.y < 0 || potentialPos.y >= this.canvas.height - word.height)) {
+        if (potentialPos.y < 0 || potentialPos.y >= this.canvas.height - word.height || Math.abs(collisionAdjustment.y) > 0) {
             word.velocity.y = word.velocity.y * -1 * dampingFactor;
             if (Math.abs(word.velocity.y) <= minimum) {
                 word.velocity.y = 0;
             }
         }
-
+        word.velocity.x = 0;
 
         word.position.add(word.velocity);
+        // word.velocity.ZERO();
     }
 }
 
@@ -188,8 +190,11 @@ class WordBlock {
     }
 
     setRandomPosition(bounds: Vector2D, occupiedSpaces: Rect[]) {
-        this.position.x = Math.floor((Math.random() * (bounds.x - this.width)))
-        this.position.y = Math.floor((Math.random() * (bounds.y - this.height)))
+        this.position.x = Math.floor((Math.random() * (bounds.x - this.width)));
+        this.position.y = Math.floor((Math.random() * (bounds.y - this.height)));
+
+        const responseVector = resolveCollisions(this.getRect(), this.getRect(), this.velocity, occupiedSpaces, 1);
+        this.position.add(responseVector);
     }
 
     getRect(): Rect {
