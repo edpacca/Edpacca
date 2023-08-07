@@ -23,8 +23,12 @@ class Vector2D {
     }
 }
 
-
-
+type Rect = {
+    x1: number
+    x2: number
+    y1: number
+    y2: number
+}
 
 const COLORS = [
     "blue",
@@ -35,6 +39,17 @@ const COLORS = [
     "magenta",
     "lime"
 ]
+
+function getRects(wordBlocks: WordBlock[]): Rect[] {
+    return wordBlocks.map(block => block.getRect());
+}
+
+function checkOverlap(r1: Rect, r2: Rect) {
+    return r1.x1 >= r2.x1 && r1.x1 <= r2.x2 && r1.y1 >= r2.y1 && r1.y1 <= r2.y2 ||
+        r1.x2 >= r2.x1 && r1.x2 <= r2.x2 && r1.y1 >= r2.y1 && r1.y1 <= r2.y2 ||
+        r1.x2 >= r2.x1 && r1.x2 <= r2.x2 && r1.y2 >= r2.y1 && r1.y2 <= r2.y2 ||
+        r1.x1 >= r2.x1 && r1.x1 <= r2.x2 && r1.y2 >= r2.y1 && r1.y2 <= r2.y2;
+}
 
 function getRandomColor() {
     const randomIndex = Math.floor(Math.random() * COLORS.length);
@@ -63,10 +78,12 @@ export class WordSoup {
         words.forEach(word => {
             this.wordBlocks.push(new WordBlock(word, fontSize, getRandomColor()));
         })
-
-        this.wordBlocks.forEach(wordBlock => {
-            wordBlock.setRandomPosition(new Vector2D(this.canvas.width, this.canvas.height));
-            wordBlock.draw(this.ctx);
+        
+        this.wordBlocks.forEach((block, i, blocks) => {
+            block.setRandomPosition(
+                new Vector2D(this.canvas.width, this.canvas.height),
+                getRects(blocks.slice(0, i)));
+            block.draw(this.ctx);
         });
     }
 
@@ -130,9 +147,25 @@ class WordBlock {
         ctx.fillText(this.word, this.position.x, this.position.y)
     }
 
-    setRandomPosition(bounds: Vector2D) {
+    setRandomPosition(bounds: Vector2D, occupiedSpaces: Rect[]) {
         this.position.x = Math.floor((Math.random() * (bounds.x - this.width)))
         this.position.y = Math.floor((Math.random() * (bounds.y - this.height)))
+        const rect = this.getRect();
+        for (const space of occupiedSpaces) {
+            if (checkOverlap(rect, space)) {
+                this.setRandomPosition(bounds, occupiedSpaces);
+                break;
+            }
+        }
+    }
+
+    getRect(): Rect {
+        return {
+            x1: this.position.x,
+            x2: this.position.x + this.width,
+            y1: this.position.y,
+            y2: this.position.y + this.height,
+        }
     }
 }
 
