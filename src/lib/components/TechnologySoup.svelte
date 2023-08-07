@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { populateCanvas } from "../techSoup";
 
     export let technologies: string[]
 
@@ -10,14 +11,11 @@
 
     onMount(() => {
         ctx = canvas.getContext("2d");
-        const xGap = canvas.width / technologies.length;
-        const yGap = canvas.height / technologies.length;
-        let x = 10;
-        let y = 10;
-        for (const tech of technologies) {
-            ctx?.fillText(tech, x, y);
-            x += xGap;
-            y += yGap;
+            if (ctx) {
+            ctx.font = "bold 12px 'Fira Mono'";
+            ctx.textAlign = "left";
+            ctx.textBaseline = "top";
+            populateCanvas(canvas, technologies, 12);
         }
     });
 </script>
