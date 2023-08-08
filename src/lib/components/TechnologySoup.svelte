@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { WordSoup } from "../techSoup";
+    import { WordSoup } from "../wordSoup";
 
     export let technologies: string[]
     const techAccumulation: Record<string, number>[] = [];
