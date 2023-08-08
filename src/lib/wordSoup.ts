@@ -81,8 +81,8 @@ export class WordSoup {
         requestAnimationFrame(this.animate);
     }
 
-    updateVelocity(word: WordBlock, collisionRects: Rect[], incident: Vector2D) {
-        word.velocity.add(incident);
+    updateVelocity(word: WordBlock, collisionRects: Rect[], force: Vector2D) {
+        word.velocity.add(force);
 
         const potentialPos = new Vector2D(word.position.x + word.velocity.x, 
             word.position.y + word.velocity.y);
@@ -96,12 +96,14 @@ export class WordSoup {
 
         const response = resolveCollisions(potentialRect, word.getRect(), collisionRects, word.velocity);
         
-        if (!response.isZero()) {
-            response.attenuate(DAMPING_FACTOR, MIN_MAGNITUDE);
-            word.velocity.add(response);
-        }
-
+        let rectangleCollision = false;
         let boundaryCollision = false;
+
+        if (!response.isZero()) {
+            rectangleCollision = true;
+            word.velocity.add(response);
+            word.velocity.attenuate(DAMPING_FACTOR * 1.2, MIN_MAGNITUDE);
+        }
 
         if (potentialPos.x < 0 || potentialPos.x >= this.canvas.width - word.width || Math.abs(response.x) > 0) {
             word.velocity.x = word.velocity.x * -1;
@@ -122,7 +124,6 @@ export class WordSoup {
 }
 
 class WordBlock {
-
     height: number
     width: number
     color: string
@@ -130,10 +131,11 @@ class WordBlock {
     charSize: number;
     velocity: Vector2D;
     position: Vector2D = new Vector2D(0, 0);
+    rotation: number = 0;
 
     constructor(word: string, charSize: number, color: string) {
-        this.height = charSize;
-        this.width = charSize * word.length * 0.6;
+        this.height = charSize + 8;
+        this.width = (charSize * word.length * 0.6) + 8;
         this.color = color
         this.word = word;
         this.charSize = charSize;
@@ -146,7 +148,7 @@ class WordBlock {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
         ctx.fillStyle = "white";
         ctx.font = `bold ${this.charSize}px 'Fira Mono'`;
-        ctx.fillText(this.word, this.position.x, this.position.y);
+        ctx.fillText(this.word, this.position.x + 4, this.position.y + 5);
     }
 
     setRandomPosition(bounds: Vector2D) {
