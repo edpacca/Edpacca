@@ -1,3 +1,5 @@
+import { randomDirection, randomMinMax } from "../utils";
+
 export class Vector2D {
     x: number
     y: number
@@ -10,6 +12,11 @@ export class Vector2D {
     add(vector: Vector2D) {
         this.x += vector.x;
         this.y += vector.y;
+    }
+
+    scale(factor: number) {
+        this.x *= factor;
+        this.y *= factor;
     }
 
     round() {
@@ -47,6 +54,12 @@ export function reflectionVector(incident: Vector2D, normal: Vector2D) {
     const sqrMagnitude = Math.pow(vectorMagnitude(normal), 2);
     const x = incident.x + ((-2 * normal.x * product) / sqrMagnitude);
     const y = incident.y + ((-2 * normal.y * product) / sqrMagnitude);
+    return new Vector2D(x, y);
+}
+
+export function randomVector(min: number, max: number): Vector2D {
+    const x = randomMinMax(min, max) * randomDirection();
+    const y = randomMinMax(min, max) * randomDirection();
     return new Vector2D(x, y);
 }
 
