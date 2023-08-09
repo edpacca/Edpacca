@@ -39,6 +39,10 @@ export class Vector2D {
         this.x = Math.abs(attenuatedX) < minMagnitude ? 0 : attenuatedX;
         this.y = Math.abs(attenuatedY) < minMagnitude ? 0 : attenuatedY;
     }
+
+    reverse() {
+        return new Vector2D(this.x * -1, this.y * -1);
+    }
 }
 
 export function dotProduct(vector1: Vector2D, vector2: Vector2D): number {

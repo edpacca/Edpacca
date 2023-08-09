@@ -1,8 +1,8 @@
-import { resolveCollisions, type Rect } from "./mechanics/rect";
+import { resolveCollisions, type Rect, resolveCollision } from "./mechanics/rect";
 import { Vector2D, randomVector } from "./mechanics/vector";
 
 const GRAVITY = new Vector2D(0, 1);
-const DAMPING_FACTOR = 0.47;
+const DAMPING_FACTOR = 0.3;
 const MIN_MAGNITUDE = 4.8
 const FONT_SIZE = 84;
 
@@ -30,7 +30,7 @@ export class WordSoup {
     wordBlocks: WordBlock[] = [];
     ctx: CanvasRenderingContext2D;
     canvas: HTMLCanvasElement;
-    lastTime: number = 0;
+    counter: number = 0;
     randomForces: boolean = false;
     gravity: Vector2D = GRAVITY;
 
@@ -52,7 +52,7 @@ export class WordSoup {
                 nextPosition.x += lastPlacedBlock.width + (Math.random() * lastPlacedBlock.width);
                 if (nextPosition.x + block.width > canvas.width) {
                     nextPosition.x = 10 + (Math.random() * 10);
-                    nextPosition.y += maxBlockHeight + 10 + (Math.random() * maxBlockHeight)
+                    nextPosition.y += (maxBlockHeight * 2) + 10 + (Math.random() * maxBlockHeight)
                 }
             }
 
@@ -68,9 +68,7 @@ export class WordSoup {
         this.gravity = value;
     }
 
-    animate = (time: number) => {
-        // const deltaT = (time - this.lastTime) / 1000;
-        this.lastTime = time;
+    animate = () => {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         const rects = getRects(this.wordBlocks);
         this.wordBlocks.forEach(block => {
@@ -94,23 +92,22 @@ export class WordSoup {
             y2: potentialPos.y + word.height
         }
 
-        const response = resolveCollisions(potentialRect, word.getRect(), collisionRects, word.velocity);
+        const collision = resolveCollisions(potentialRect, word.getRect(), collisionRects, word.velocity);
         
         let rectangleCollision = false;
         let boundaryCollision = false;
 
-        if (!response.isZero()) {
+        if (collision) {
             rectangleCollision = true;
-            word.velocity.add(response);
-            word.velocity.attenuate(DAMPING_FACTOR * 1.2, MIN_MAGNITUDE);
+            word.velocity.add(collision.response);
         }
 
-        if (potentialPos.x < 0 || potentialPos.x >= this.canvas.width - word.width || Math.abs(response.x) > 0) {
+        if (potentialPos.x < 0 || potentialPos.x >= this.canvas.width - word.width || collision && Math.abs(collision.response.x) > 0) {
             word.velocity.x = word.velocity.x * -1;
             boundaryCollision = true;
         }
 
-        if (potentialPos.y < 0 || potentialPos.y >= this.canvas.height - word.height || Math.abs(response.y) > 0) {
+        if (potentialPos.y < 0 || potentialPos.y >= this.canvas.height - word.height || collision && Math.abs(collision.response.y) > 0) {
             word.velocity.y = word.velocity.y * -1;
             boundaryCollision = true;
         }
@@ -120,6 +117,28 @@ export class WordSoup {
         }
 
         word.position.add(word.velocity);
+
+        if (rectangleCollision && collision) {
+            const response = resolveCollision(word.getRect(), collisionRects[collision.index], word.velocity)
+            if (response) {
+                word.position.add(response);
+            }
+        }
+
+        if (word.position.x < 0) {
+            word.position.x = 1;
+        } 
+        
+        if(word.position.x >= this.canvas.width - word.width) {
+            word.position.x = this.canvas.width - word.width - 1;
+        }
+        
+        if (word.position.y < 0) {
+            word.position.y = 1;
+        }
+        if (word.position.y >= this.canvas.height - word.height) {
+            word.position.y = this.canvas.height - word.height - 1;
+        }
     }
 }
 
@@ -131,11 +150,11 @@ class WordBlock {
     charSize: number;
     velocity: Vector2D;
     position: Vector2D = new Vector2D(0, 0);
-    rotation: number = 0;
+    rotationMomentum: number = 0;
 
     constructor(word: string, charSize: number, color: string) {
         this.height = charSize + 8;
-        this.width = (charSize * word.length * 0.6) + 8;
+        this.width = (charSize * word.length * 0.6) + 16;
         this.color = color
         this.word = word;
         this.charSize = charSize;
@@ -144,11 +163,19 @@ class WordBlock {
 
     draw(ctx: CanvasRenderingContext2D) {
         this.position.round();
+        ctx.beginPath();
+        // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        ctx.roundRect(this.position.x, this.position.y, this.width, this.height, 12);
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
-        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
         ctx.font = `bold ${this.charSize}px 'Fira Mono'`;
-        ctx.fillText(this.word, this.position.x + 4, this.position.y + 5);
+        ctx.fillStyle = "white";
+        ctx.fillText(this.word, this.position.x + 4, this.position.y + 8, this.width);
+        ctx.fill();
+        ctx.closePath();
     }
 
     setRandomPosition(bounds: Vector2D) {

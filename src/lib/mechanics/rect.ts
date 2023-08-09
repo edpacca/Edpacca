@@ -7,7 +7,14 @@ export type Rect = {
     y2: number
 }
 
-export function resolveCollisions(potentialRect: Rect, original: Rect, collisionRects: Rect[], velocity: Vector2D) {
+export type Collision  = {
+    response: Vector2D,
+    index: number
+}
+
+export function resolveCollisions(
+    potentialRect: Rect, originalRect: Rect, 
+    collisionRects: Rect[], velocity: Vector2D): Collision | undefined {
     const points = [
         new Vector2D(potentialRect.x1, potentialRect.y1),
         new Vector2D(potentialRect.x2, potentialRect.y1),
@@ -16,18 +23,36 @@ export function resolveCollisions(potentialRect: Rect, original: Rect, collision
     ]
 
     for (const rect of collisionRects) {
-        if (!checkSame(original, rect)) {
+        if (!checkSame(originalRect, rect)) {
             for (const point of points) {
                 if (isInRect(point, rect)) {
-                    return resolvePointCollision(point, velocity, potentialRect);
+                    return {
+                        response: resolvePointCollision(point, velocity, potentialRect),
+                        index: collisionRects.indexOf(rect)
+                    } 
                 }
             }
         }
     }
-    return ZERO_VECTOR;
+    return undefined;
 }
 
-function isInRect(point: Vector2D, rect: Rect) {
+export function resolveCollision(rect: Rect, collidingRect: Rect, velocity: Vector2D) {
+    const points = [
+        new Vector2D(rect.x1, rect.y1),
+        new Vector2D(rect.x2, rect.y1),
+        new Vector2D(rect.x1, rect.y2),
+        new Vector2D(rect.x2, rect.y2)
+    ]
+    for (const point of points) {
+        if (isInRect(point, rect)) {
+            return resolvePointCollision(point, velocity, rect);
+        }
+    }
+    return undefined;
+}
+
+export function isInRect(point: Vector2D, rect: Rect) {
     return point.x >= rect.x1 && point.x <= rect.x2 && 
         point.y >= rect.y1 && point.y <= rect.y2;
 }
