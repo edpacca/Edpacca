@@ -96,6 +96,10 @@
     <canvas bind:this={canvas}/>
 </div>
 <ControlBar buttons={btns}/>
+<div>
+    <p>Have a play around with the "word soup" widget. The relative sizes of each block approximate the relative amount I have used that language/framework in my projects.</p>
+    <p>If the blocks get stuck try changing the gravity with the sliders or resetting the positions. Unfortunately the "physics engine" is quite simplistic, but I think it results in some interesting behaviour! <a>Read more about the code behind the WordSoup widget here.</a></p>
+</div>
 
 <style>
     canvas {
