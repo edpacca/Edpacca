@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { WordSoup } from "../wordSoup";
+    import ControlBar from "./ControlBar.svelte";
 
     export let technologies: string[]
     const techAccumulation: Record<string, number>[] = [];
@@ -31,15 +32,16 @@
     </div>
     <div class="canvas-range-container">
         <div class="vertical-container">
-            <input type="range" class="vertical"/>
+            <input type="range" class="vertical" orient="vertical"/>
         </div>
         <canvas bind:this={canvas}>
         </canvas>
     </div>
-    <div class="control-bar">
+    <ControlBar/>
+    <!-- <div class="control-bar">
         <button on:click={reset}>Reset</button>
         <button on:click={toggleRandomForces}>Alive</button>
-    </div>
+    </div> -->
 </div>
 
 <style>
@@ -58,6 +60,7 @@
 
     input[type=range].vertical{
         writing-mode: bt-lr; /* IE */
+        appearance: slider-vertical; /* Chromium */
         -webkit-appearance: slider-vertical; /* Chromium */
         width: 8px;
         height: 100%;
