@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { DEFAULT_GRAVITY, WordSoup } from "../wordSoup";
+    import { WordSoup } from "../wordSoup";
     import ControlBar from "./ControlBar.svelte";
     import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
     import { fade } from "svelte/transition";
