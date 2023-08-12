@@ -14,7 +14,7 @@
 
 </script>
 
-<!-- <div class="weather-text">
+<div class="weather-text">
 	<div class="key">Time:</div>
 	<div class="val">{time.toLocaleTimeString()}</div>
 	<div class="key">Temperature:</div>
@@ -25,7 +25,7 @@
 	<div class="val">{data.windspeed} km/h</div>
 	<div class="key">Wind direction:</div>
 	<div class="val">{windDirection}</div>
-</div> -->
+</div>
 
 <div class="scene-container">
 	<Scene time={time}/>
@@ -41,6 +41,12 @@
 		grid-template-columns: auto 1fr;
 		font-size: 1.3em;
 		column-gap: 0.5em;
+		position: absolute;
+		top: 80px;
+		left: var(--margin);
+		background-color: var(--black-50);
+		padding: 0.4em;
+		border-radius: 6px;
 	}
 
 	.key {
@@ -54,7 +60,7 @@
 	.compass {
 		width: 8rem;
 		position: absolute;
-		top: var(--margin);
+		top: 80px;
 		right: var(--margin);
 	}
 	
@@ -62,5 +68,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+		height: 100%;
+
 	}
 </style>

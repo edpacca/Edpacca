@@ -1,4 +1,5 @@
-import type { PageServerLoad } from "./$types";
+import { error } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
 
 const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 // default to edinburgh
@@ -24,11 +25,14 @@ export const load = (async () => {
 			}
 		});
 	} else {
-		console.log("getting weather from edinburgh");
+		console.log("geolocation permissions blocked, getting weather from Edinburgh instead");
 	}
+	try {
+		const weather = await fetchWeather(location.latitude, location.longitude);
 	
-	const weather = await fetchWeather(location.latitude, location.longitude);
-
-	return weather.current_weather ?? undefined;
+		return weather.current_weather ?? undefined;
+	} catch {
+		throw error(404, "Wasn't able to get any weather data.\n\n It's probably raining")
+	}
 }) satisfies PageServerLoad;
 

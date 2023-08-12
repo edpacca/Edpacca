@@ -1,3 +1,5 @@
+import { drawCircle } from "$lib/ts/canvas/canvasUtils";
+
 export function drawOrbit(
     context: CanvasRenderingContext2D,
     time: Date,
@@ -108,15 +110,31 @@ export function drawClouds(context: CanvasRenderingContext2D, direction: number,
 
 }
 
-class Cloud {
+export function drawCloud(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
+  
+  const sizeVarFactor = 0.8;
+  const rowVarFactor = 0.9;
+  const sizeVariance = size * sizeVarFactor;
+  // get random size between 0.75 and 1.5 x provided size
+  const getBlobSize = () => Math.floor((Math.random() * sizeVariance) + sizeVariance);
+  const getRowLength = (middle: number) => Math.floor((Math.random() * middle * rowVarFactor) + (middle * rowVarFactor))
+  const numberOfRows = Math.floor((Math.random() * 3) + 3);
+  
+  console.log(numberOfRows);
 
-  x: number;
-  y: number;
-  size: number;
-
-  constructor(x: number, y: number, size: number) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
+  let rowLength = 4;
+  let newSize = size;
+  let newPosX;
+  let newPosY;
+  const cloudColour = "rgba(255, 255, 255, 0.8)";
+  for (let cy = 0; cy <= numberOfRows * size; cy += size) {
+    rowLength = getRowLength(rowLength);
+    for (let cx = 0; cx <= rowLength * size; cx += size) {
+      const offset = (Math.random() * newSize * 2) + newSize;
+      newSize = getBlobSize();
+      newPosX = cx + x + offset
+      newPosY = cy + y
+      drawCircle(context, newPosX, newPosY, newSize, undefined, cloudColour)
+    }    
   }
 }

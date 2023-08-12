@@ -1,7 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit } from "./weatherScene";
+    import { drawTree, drawOrbit, drawClouds, drawCloud } from "./weatherScene";
+    import { drawCharacter } from "./DrawCharacter";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
@@ -16,26 +17,25 @@
         const orbitCentreX = canvas.width / 2;
         const orbitCentreY = canvas.height;
         const orbitRadius = canvas.height - 100;
-        const orbitBodyRadius = 150;
+        const orbitBodyRadius = 100;
 
         const ctx = canvas.getContext("2d");
         if (ctx) {
-            for (let x = 0; x < canvas.width; x+= 100) {
-                for (let y = 0; y < canvas.height; y+= 100) {
-                    ctx.fillRect(x, y, 3, 3)
-                }
-            }
-
             drawOrbit(ctx, time, orbitCentreX, orbitCentreY, 
                 orbitRadius, orbitBodyRadius);
-            drawTree(ctx, 120, canvas.height, 100, -Math.PI / 2, 12, 15);
-            drawTree(ctx, canvas.width - 400, canvas.height, 90, -Math.PI / 2, 12, 15);
-            
+            drawTree(ctx, 120, canvas.height, 80, -Math.PI / 2, 12, 15);
+            drawTree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2, 12, 15);
+            drawCloud(ctx, 90, 100, 20)
+            drawCloud(ctx, 720, 240, 20)
+            drawCloud(ctx, canvas.width / 2, 100, 20)
+            drawCloud(ctx, canvas.width - 100, 80, 20)
+
+            drawCharacter(ctx, canvas.width / 2, canvas.height - 200)
         }
     })
 </script>
 
-<input type="range" bind:value={testTime} min={0} max={24}/>
+<!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
 <canvas class={backgroundStyle} bind:this={canvas}>
 
 </canvas>
@@ -61,6 +61,12 @@
     }
     canvas {
         margin: var(--margin);
+        width: 100%;
+        height: 100%;
+    }
+
+    .black {
+        background-color: black;
     }
 
     rect {
