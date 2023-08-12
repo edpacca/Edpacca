@@ -1,10 +1,12 @@
+import { LANG_LOGO_COLORS } from "./data/codeLangData";
 import { resolveCollisions, type Rect, resolveCollision } from "./mechanics/rect";
 import { Vector2D, randomVector } from "./mechanics/vector";
 
 export const DEFAULT_GRAVITY = new Vector2D(0, 1);
 const DEFAULT_DAMPING_FACTOR = 0.3;
 const DEFAULT_MIN_MAGNITUDE = 4.8
-const DEFAULT_FONT_SIZE = 84;
+const DEFAULT_FONT_AREA = 1200;
+const DEFAULT_MIN_FONT = 32;
 
 const COLORS = [
     "blue",
@@ -20,9 +22,19 @@ function getRects(wordBlocks: WordBlock[]): Rect[] {
     return wordBlocks.map(block => block.getRect());
 }
 
-function getRandomColor() {
-    const randomIndex = Math.floor(Math.random() * COLORS.length);
-    return COLORS[randomIndex]
+function getColor(technology: string) {
+    if (LANG_LOGO_COLORS[technology]) {
+        return LANG_LOGO_COLORS[technology];
+    } else {
+        const randomIndex = Math.floor(Math.random() * COLORS.length);
+        return COLORS[randomIndex]
+    }
+
+}
+
+function getProportionalFontSize(fontArea: number | undefined, value: number, minFontSize?: number) {
+    const result = ((fontArea ?? DEFAULT_FONT_AREA) * value);
+    return Math.max(result, minFontSize ?? DEFAULT_MIN_FONT);
 }
 
 export class WordSoup {
@@ -35,14 +47,18 @@ export class WordSoup {
     gravity: Vector2D = DEFAULT_GRAVITY;
     dampingFactor: number = DEFAULT_DAMPING_FACTOR;
 
-    constructor(canvas: HTMLCanvasElement, words: string[], fontSize?: number) {
+    constructor(canvas: HTMLCanvasElement, words: Record<string, number>, fontArea?: number, minFontSize?: number) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
         this.ctx.textAlign = "left";
         this.ctx.textBaseline = "top";
 
-        words.forEach(word => {
-            this.wordBlocks.push(new WordBlock(word, fontSize ?? DEFAULT_FONT_SIZE, getRandomColor()));
+        Object.keys(words).forEach(word => {
+            this.wordBlocks.push(
+                new WordBlock(
+                    word,
+                    getProportionalFontSize(fontArea, words[word], minFontSize),
+                    getColor(word)));
         })
         
         let lastPlacedBlock: WordBlock;
