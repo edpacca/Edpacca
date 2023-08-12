@@ -4,29 +4,31 @@
     import ControlBar from "./ControlBar.svelte";
     import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
     import { fade } from "svelte/transition";
+    import FaIcon from "./FaIcon.svelte";
 
-    export let technologies: string[]
-    const techAccumulation: Record<string, number>[] = [];
+    export let technologies: Record<string, number>;
     let canvas: HTMLCanvasElement;
-    // technologies.forEach(t => t in techAccumulation.keys ? techAccumulation += 1 : techAccumulation. )
     let wordSoup: WordSoup;
     let xGravity = 0;
     let yGravity = 0;
     let hasGravity = true;
 
     let screenWidth: number;
+    let isDescriptionOpen = false;
 
     const reset = () => {
-        let fontSize = undefined;
+        let fontArea = undefined;
+        let minFontSize = undefined;
         if (screenWidth > 600) {
             canvas.height = 1000;
             canvas.width = canvas.height * (16 / 9);
         } else {
             canvas.height = 500;
             canvas.width = canvas.height * (4 / 3);
-            fontSize = 32;
+            fontArea = 500;
+            minFontSize = 16;
         }
-        wordSoup = new WordSoup(canvas, technologies, fontSize);
+        wordSoup = new WordSoup(canvas, technologies, fontArea, minFontSize);
         wordSoup.animate();
     }
 
@@ -96,10 +98,28 @@
     <canvas bind:this={canvas}/>
 </div>
 <ControlBar buttons={btns}/>
+
+{#if isDescriptionOpen}
 <div>
-    <p>Have a play around with the "word soup" widget. The relative sizes of each block approximate the relative amount I have used that language/framework in my projects.</p>
-    <p>If the blocks get stuck try changing the gravity with the sliders or resetting the positions. Unfortunately the "physics engine" is quite simplistic, but I think it results in some interesting behaviour! <a>Read more about the code behind the WordSoup widget here.</a></p>
+    <p>I call this the "tech soup" widget. The relative font size of each word represents the number of projects I have worked on that use that language/framework. The data is taken from my github via the API and calculated server-side, with static data added to represent work repos. For example I use python a lot at work, but it doesn't feature heavily in my personal projects (yet!).</p>
+    <p>If the blocks get stuck try changing the gravity with the sliders or resetting the positions. Unfortunately the "physics engine" is quite simplistic, but I think it results in some interesting behaviour! <a>Read more about the code behind the TechnologySoup widget here.</a></p>
 </div>
+<button class="button1" on:click={() => {isDescriptionOpen = false;}}>
+    less
+    <FaIcon icon={"arrow-up"} />
+</button>
+{:else}
+<div class="text-button-container">
+    <p>I call this the "tech soup" widget...</p>
+    <button class="button1" on:click={() => {isDescriptionOpen = true;}}>
+        read more
+        <FaIcon icon={"arrow-down"} />
+    </button>
+</div>
+{/if}
+
+
+
 
 <style>
     canvas {
@@ -183,6 +203,12 @@
         background-color: var(--highlight);
     }
 
+    .text-button-container {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+
     @media screen and (max-width: 600px) {
         input.vertical{
             width: calc(100% * 3 / 4);
@@ -205,6 +231,10 @@
         input[type="range"]::-moz-range-thumb {
             height: 24px;
             width: 24px;
+        }
+
+        .text-button-container {
+            display: block;
         }
     }
 </style>
