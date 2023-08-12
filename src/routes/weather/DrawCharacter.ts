@@ -1,4 +1,4 @@
-import { drawCircle, drawLine } from "$lib/ts/canvas/canvasUtils"
+import { Artist } from "../../Artist";
 
 const AMBER = "rgb(245, 167, 66)";
 const DARK_ORANGE = "rgb(200, 100, 100)";
@@ -15,11 +15,9 @@ const DARK_PINK = "rgb(150, 50, 100)";
 
 export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: number) {
     
-    let startX: number, startY: number, endX: number, endY: number;
-    startX = x;
-    startY = y;
+    const a = new Artist(context, x, y);
 
-    const HEAD_POINTS: [number, number][] = [
+    const HEAD_POINTS: Points = [
         // top 
         [15, 0],
         // ear
@@ -37,7 +35,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [-10, 0]
     ]
 
-    const HEAD_PATCH_POINTS: [number, number][] = [
+    const HEAD_PATCH_POINTS: Points = [
         [10, 0],
         [15, -3],
         [20, 0],
@@ -47,7 +45,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [-20, 0]
     ]
 
-    const RIGHT_EAR_POINTS: [number, number][] = [
+    const RIGHT_EAR_POINTS: Points = [
         // top arc
         [5, -6],
         [4, -2],
@@ -68,7 +66,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [-5, -20]
     ]
 
-    const LEFT_EAR_POINTS: [number, number][] = [
+    const LEFT_EAR_POINTS: Points = [
         // top arc
         [-5, -10],
         [-15, -5],
@@ -86,7 +84,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [5, -10],
     ]
 
-    const NOSE:  [number, number][] = [
+    const NOSE:  Points = [
         [5, 0],
         [6, 5],
         [2, 9],
@@ -96,7 +94,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [-3, -1]
     ]
 
-    const TONGUE: [number, number][] = [
+    const TONGUE: Points = [
         [10, 4],
         [3, -2],
         [-1, 10],
@@ -105,87 +103,49 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
         [-4, 0]
     ]
 
-    drawShape(HEAD_POINTS, true, 0, 0, 2, ORANGE_BROWN, ORANGE_BROWN);
+    a.drawShape(HEAD_POINTS, true, 0, 0, 2, ORANGE_BROWN, ORANGE_BROWN);
     
-    reset(0, 10);
+    a.reset(0, 10);
     context.beginPath();
-    drawNextLine(0, 35);
-    endX = startX + 20;
-    endY = startY + 35;
+    a.drawNextLine(0, 35);
+    a.endX = a.startX + 20;
+    a.endY = a.startY + 35;
     context.bezierCurveTo(
-        startX, startY,
-        startX, startY + 15,
-        endX, endY);
+        a.startX, a.startY,
+        a.startX, a.startY + 15,
+        a.endX, a.endY);
     context.lineCap = 'round';
     context.lineWidth = 4;
     context.strokeStyle = SHADOW_BROWN;
     context.stroke();
     context.closePath();
-    reset(0, 45);
+    a.reset(0, 45);
     context.beginPath();
-    endX = startX - 20;
-    endY = startY + 35;
+    a.endX = a.startX - 20;
+    a.endY = a.startY + 35;
     context.bezierCurveTo(
-        startX, startY,
-        startX, startY + 15,
-        endX, endY);
+        a.startX, a.startY,
+        a.startX, a.startY + 15,
+        a.endX, a.endY);
     context.lineCap = 'round';
     context.lineWidth = 4;
     context.strokeStyle = SHADOW_BROWN;
     context.stroke();
     context.closePath();
 
-    reset(0, 3);
-    drawShape(HEAD_PATCH_POINTS, true, 0, 3, 2, DARK_SHADOW_BROWN, DARK_SHADOW_BROWN);
-    reset(25, -2);
-    drawShape(RIGHT_EAR_POINTS, false, 0, 0, 2, SHADOW_BROWN, SHADOW_BROWN);
-    reset(-25, 0);
-    drawShape(LEFT_EAR_POINTS, false, 0, 0, 2, SHADOW_BROWN, SHADOW_BROWN);
-    reset(0, 80);
-    drawShape(NOSE, true, 0, 80, 2, DARK_GREY, DARK_GREY);
+    a.reset(0, 3);
+    a.drawShape(HEAD_PATCH_POINTS, true, 0, 3, 2, DARK_SHADOW_BROWN, DARK_SHADOW_BROWN);
+    a.reset(25, -2);
+    a.drawShape(RIGHT_EAR_POINTS, false, 0, 0, 2, SHADOW_BROWN, SHADOW_BROWN);
+    a.reset(-25, 0);
+    a.drawShape(LEFT_EAR_POINTS, false, 0, 0, 2, SHADOW_BROWN, SHADOW_BROWN);
+    a.reset(0, 80);
+    a.drawShape(NOSE, true, 0, 80, 2, DARK_GREY, DARK_GREY);
     drawEyes(context, x, y);
-    reset(0, 108);
-    drawShape(TONGUE, true, 0, 108, 2, DARK_PINK, PINK);
-    reset(45, 80);
-    drawFaceLines(context, startX, startY);
-
-
-    function reset(xOffset: number, yOffset: number) {
-        startX = x + xOffset;
-        startY = y + yOffset;
-    }
-
-    function drawNextLine(xOffset: number, yOffset: number) {
-        endX = startX + xOffset;
-        endY = startY + yOffset;
-        drawLine(context, startX, startY, endX, endY);
-        startX = endX;
-        startY = endY;
-    }
-
-    function drawShape(points: [number, number][], reflect: boolean,
-        xOffset: number, yOffset: number,
-        lineWidth: number, stroke: string, fill?: string) {
-        context.beginPath();
-        context.moveTo(startX, startY);
-        points.forEach(p => drawNextLine(p[0], p[1]));
-        if (reflect) {
-            reset(xOffset, yOffset);
-            points.forEach(p => drawReflection(p[0], p[1]));
-        }
-        context.closePath();
-
-        context.lineCap = 'round';
-        context.lineWidth = lineWidth;
-        context.strokeStyle = stroke;
-        if (fill) context.fillStyle = fill;
-        context.fill();
-        context.stroke();
-    }
-
-    function drawReflection(xOffset: number, yOffset: number) {
-        drawNextLine(xOffset * -1, yOffset);
-    }
+    a.reset(0, 108);
+    a.drawShape(TONGUE, true, 0, 108, 2, DARK_PINK, PINK);
+    a.reset(45, 80);
+    drawFaceLines(context, a.startX, a.startY);
 }   
 
 function drawFaceLines(context: CanvasRenderingContext2D, x: number, y: number) {

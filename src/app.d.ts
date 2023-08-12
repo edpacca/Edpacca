@@ -2,29 +2,31 @@
 
 // for information about these interfaces
 declare global {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface Platform {}
+	// interface Error {}
+	// interface Locals {}
+	// interface PageData {}
+	// interface Platform {}
 
-		type Post = {
-			title: string
-			slug: string
-			description: string
-			date: string
-			projectId: string
-			published: boolean
-			coverImage?: string
-			icon?: string
-			technologies?: string[]
-		}
+	type Post = {
+		title: string
+		slug: string
+		description: string
+		date: string
+		projectId: string
+		published: boolean
+		coverImage?: string
+		icon?: string
+		technologies?: string[]
+	}
 
-		type ProjectType = {
-			name: string,
-			id: string,
-			icon: string
-			description?: string,
-		}
+	type ProjectType = {
+		name: string,
+		id: string,
+		icon: string
+		description?: string,
+	}
+
+	type Points = [number, number][]
 }
 
 export {};

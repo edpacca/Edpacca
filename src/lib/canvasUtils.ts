@@ -18,3 +18,4 @@ export function drawLine(context: CanvasRenderingContext2D,
     context.lineTo(startX, startY);
     context.lineTo(endX, endY);
 }
+

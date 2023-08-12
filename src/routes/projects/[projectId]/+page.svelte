@@ -1,6 +1,7 @@
 <script lang=ts>
     import { page } from "$app/stores";
     import Gallery from "$lib/components/Gallery.svelte";
+    import MountainCanvas from "$lib/components/MountainCanvas.svelte";
     import StravaStats from "$lib/components/StravaStats.svelte";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
@@ -17,7 +18,7 @@
 {#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
     <Gallery imagePaths={WARHAMMER_GALLERY}/>
 {:else if $page.url.pathname.split("/projects/")[1] === "running"}
-    <StravaStats/>
+    <MountainCanvas/>
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
     <TechnologySoup technologies={data.posts.flatMap(p => p.technologies ?? [])}/>
 {/if}
