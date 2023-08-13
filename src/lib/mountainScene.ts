@@ -8,14 +8,13 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     const HIGHLIGHT = "#ce8eaa";
 
     const LEFT_HILL: Points = [
-        [0, -height / 2],
-        [width / 1.6, height / 2 ],
-        [0, height / 2]
+        [0, -height * 0.3 ],
+        [width * 0.6, height * 0.3 ],
     ];
 
     const RIGHT_HILL: Points = [
-        [0, -height / 2],
-        [-width / 1.7, height / 2 ],
+        [0, -height * 0.2],
+        [-width * 0.6, height * 0.2 ],
     ];
 
     const MOUNTAIN_SHADOW: Points = [
@@ -36,14 +35,21 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
         [width * 0.1, height * 0.05],
         [-width * 0.1, -height * 0.25],
         [width * 0.08, height * 0.1]
-
     ]
 
+    // Mountain
     a.reset(width/2, height/2 - 30);
     a.drawShape(MOUNTAIN_SHADOW, false, 0, 0, 0, SHADOW, SHADOW);
     a.reset(width/2, height/2 - 30);
     a.drawShape(MOUNTAIN_HIGHLIGHT, false, 0, 0, 0, HIGHLIGHT, HIGHLIGHT);
 
+    // Hills
+    a.reset(0, height);
+    a.drawShape(LEFT_HILL, false, 0, 0, 0, "green", "green")
+    a.reset(width, height);
+    a.drawShape(RIGHT_HILL, false, 0, 0, 0, "lime", "lime")
+
+    // Moon
     drawCircle(ctx, width * 0.5, height * 0.15, width * 0.04, "", "rgb(190, 190, 210)")
     drawCircle(ctx, width * 0.48, height * 0.14, width * 0.04, "", "rgb(38, 42, 71)")
 
