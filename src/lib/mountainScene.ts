@@ -18,13 +18,13 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     ];
 
     const MOUNTAIN_SHADOW: Points = [
-        [-width * 0.5, (height * 0.5) + 30],
+        [-width * 0.5, height * 0.55],
         [width, 0],
-        [-width * 0.5, (-height * 0.5) -30 ],
+        [-width * 0.5, -height * 0.55 ],
     ]
 
     const MOUNTAIN_HIGHLIGHT: Points = [
-        [width * 0.5, (height * 0.5) + 30],
+        [width * 0.5, height * 0.55],
         [-width * 0.5, 0],
         [-width * 0.1, - height * 0.15],
         [width * 0.1, height * 0.05],
@@ -53,4 +53,8 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     drawCircle(ctx, width * 0.5, height * 0.15, width * 0.04, "", "rgb(190, 190, 210)")
     drawCircle(ctx, width * 0.48, height * 0.14, width * 0.04, "", "rgb(38, 42, 71)")
 
+    const adj = width * 0.5;
+    const opp = height * 0.55;
+
+    drawCircle(ctx, adj * percentage, opp, 10, "", "yellow")
 }
