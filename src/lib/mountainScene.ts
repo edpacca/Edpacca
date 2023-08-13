@@ -56,5 +56,5 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     const adj = width * 0.5;
     const opp = height * 0.55;
 
-    drawCircle(ctx, adj * percentage, opp, 10, "", "yellow")
+    drawCircle(ctx, adj * percentage, opp, 10, "", "orange")
 }
