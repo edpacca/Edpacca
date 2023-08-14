@@ -59,6 +59,19 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
         [-width * 0.04, -height * 0.35],
     ]
 
+    function generateTreeLine(): Points {
+        const points: Points = [];
+        let x = 0;
+        let y = height * 0.15;
+        while(x < width) {
+            x += (Math.random() * width * 0.01);
+            y *= -1;
+            y += (Math.random() * height * 0.01);
+            points.push([x, y]);
+        }
+        return points;
+    }
+
     // Mountain
     a.reset(width * 0.5, height * 0.45);
     a.drawShape(MOUNTAIN_SHADOW, false, 0, 0, 0, SHADOW, SHADOW);
@@ -87,9 +100,21 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     a.reset(width * 0.76, height * 0.95);
     a.drawShape(TREE_CONE_RIGHT_LARGER, false, 0, 0, 0, TREE_FILL, TREE_FILL)
 
+    // Trees back
+    a.reset(0, height * 0.7);
+    a.drawShape(generateTreeLine(), false, 0, 0, 0, "pink", "pink");
+
+
     // Moon
-    drawCircle(ctx, width * 0.5, height * 0.15, width * 0.04, "", "rgb(190, 190, 210)")
-    drawCircle(ctx, width * 0.48, height * 0.14, width * 0.04, "", "rgb(38, 42, 71)")
+    // drawCircle(ctx, width * 0.5, height * 0.15, width * 0.04, "", "rgb(190, 190, 210)")
+    // drawCircle(ctx, width * 0.48, height * 0.14, width * 0.04, "", "rgb(38, 42, 71)")
+
+    ctx.beginPath();
+    ctx.arc(width * 0.5, height * 0.15, width * 0.04, 1.7 * Math.PI, 0.8 * Math.PI);
+    // ctx.fillStyle = "white";
+    // ctx.fill();
+    ctx.fillStyle = "white";
+    ctx.fill();
 
     const adj = width * 0.5;
     const opp = height * 0.55;

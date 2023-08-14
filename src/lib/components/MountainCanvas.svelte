@@ -1,7 +1,6 @@
 <script lang="ts">
     import { mountainScene } from "$lib/mountainScene";
     import { onMount } from "svelte";
-    import { drawCharacter } from "../../routes/weather/DrawCharacter";
 
     export let canvas: HTMLCanvasElement;
 
