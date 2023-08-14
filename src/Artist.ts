@@ -14,6 +14,8 @@ export class Artist{
     constructor(context: CanvasRenderingContext2D, x: number, y: number) {
         this.startX = x;
         this.startY = y;
+        this.endX = x;
+        this.endY = y;
         this.rootX = x;
         this.rootY = y;
         this.ctx = context;

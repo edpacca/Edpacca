@@ -21,6 +21,13 @@
 <style>
     canvas {
         background-color: rgb(38, 42, 71);
+        background: linear-gradient(
+            176deg,
+            rgb(23, 27, 51),
+            rgb(38, 42, 71),
+            rgb(94, 80, 117),
+            rgb(163, 116, 139),
+            rgb(234, 176, 156));
         width: 100%;
     }
 </style>

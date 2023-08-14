@@ -6,6 +6,10 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     const a = new Artist(ctx, 0, 0);
     const SHADOW = "#715a74";
     const HIGHLIGHT = "#ce8eaa";
+    const HILL_LEFT_FILL = "rgb(65, 63, 85)";
+    const HILL_RIGHT_FILL = "rgb(74, 75, 96)";
+    const TREE_FILL = "rgb(47, 48, 69)";
+
 
     const LEFT_HILL: Points = [
         [0, -height * 0.3 ],
@@ -37,17 +41,51 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
         [width * 0.08, height * 0.1]
     ]
 
+    const TREE_CONE_LEFT: Points = [
+        [width * 0.07, height * 0.03],
+        [-width * 0.035, -height * 0.25],
+    ]
+    const TREE_CONE_LEFT_SMALLER: Points = [
+        [width * 0.05, height * 0.025],
+        [-width * 0.025, -height * 0.2],
+    ]
+
+    const TREE_CONE_RIGHT: Points = [
+        [width * 0.07, -height * 0.03],
+        [-width * 0.035, -height * 0.25],
+    ]
+    const TREE_CONE_RIGHT_LARGER: Points = [
+        [width * 0.08, -height * 0.025],
+        [-width * 0.04, -height * 0.35],
+    ]
+
     // Mountain
-    a.reset(width/2, height/2 - 30);
+    a.reset(width * 0.5, height * 0.45);
     a.drawShape(MOUNTAIN_SHADOW, false, 0, 0, 0, SHADOW, SHADOW);
-    a.reset(width/2, height/2 - 30);
+    a.reset(width * 0.5, height * 0.45);
     a.drawShape(MOUNTAIN_HIGHLIGHT, false, 0, 0, 0, HIGHLIGHT, HIGHLIGHT);
 
     // Hills
     a.reset(0, height);
-    a.drawShape(LEFT_HILL, false, 0, 0, 0, "green", "green")
+    a.drawShape(LEFT_HILL, false, 0, 0, 0, HILL_LEFT_FILL, HILL_LEFT_FILL)
     a.reset(width, height);
-    a.drawShape(RIGHT_HILL, false, 0, 0, 0, "lime", "lime")
+    a.drawShape(RIGHT_HILL, false, 0, 0, 0, HILL_RIGHT_FILL, HILL_RIGHT_FILL)
+
+    // Trees left
+    a.reset(-width * 0.01, height * 0.72);
+    a.drawShape(TREE_CONE_LEFT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
+    a.reset(width * 0.04, height * 0.80);
+    a.drawShape(TREE_CONE_LEFT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
+    a.reset(width * 0.14, height * 0.88);
+    a.drawShape(TREE_CONE_LEFT_SMALLER, false, 0, 0, 0, TREE_FILL, TREE_FILL)
+    
+    // Trees right
+    a.reset(width * 0.95, height * 0.9);
+    a.drawShape(TREE_CONE_RIGHT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
+    a.reset(width * 0.86, height * 0.86);
+    a.drawShape(TREE_CONE_RIGHT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
+    a.reset(width * 0.76, height * 0.95);
+    a.drawShape(TREE_CONE_RIGHT_LARGER, false, 0, 0, 0, TREE_FILL, TREE_FILL)
 
     // Moon
     drawCircle(ctx, width * 0.5, height * 0.15, width * 0.04, "", "rgb(190, 190, 210)")
@@ -56,5 +94,5 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     const adj = width * 0.5;
     const opp = height * 0.55;
 
-    drawCircle(ctx, adj * percentage, opp, 10, "", "orange")
+    drawCircle(ctx, adj * percentage, opp, 10, "", "orange");
 }
