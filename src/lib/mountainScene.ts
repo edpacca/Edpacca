@@ -60,15 +60,19 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     ]
 
     function generateTreeLine(): Points {
-        const points: Points = [];
+        const points: Points = [
+            [0, -height * 0.1]
+        ];
         let x = 0;
         let y = height * 0.15;
         while(x < width) {
-            x += (Math.random() * width * 0.01);
+            x += (Math.random() * width * 0.001);
             y *= -1;
-            y += (Math.random() * height * 0.01);
+            y += (Math.random() * height * 0.001);
             points.push([x, y]);
         }
+
+        points.push([0, height * 0.1])
         return points;
     }
 
