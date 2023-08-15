@@ -10,6 +10,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     const HILL_LEFT_FILL = "rgb(65, 63, 85)";
     const HILL_RIGHT_FILL = "rgb(74, 75, 96)";
     const TREE_FILL = "rgb(47, 48, 69)";
+    const TREE_LINE = "rgb(61, 62, 84)";
 
 
     const LEFT_HILL: Points = [
@@ -90,10 +91,10 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     a.drawShape(MOUNTAIN_HIGHLIGHT, false, 0, 0, 0, HIGHLIGHT, HIGHLIGHT);
 
     // Trees back
-    a.reset(width * 0.5, height * 0.95)
-    a.drawShape(TREE_LINE_LEFT, false, 0, 0, 0, "pink", "pink");
-    a.reset(width, height * 0.75)
-    a.drawShape(TREE_LINE_RIGHT, false, 0, 0, 0, "pink", "pink");
+    a.reset(width * 0.5, height * 0.96)
+    a.drawShape(TREE_LINE_LEFT, false, 0, 0, 0, TREE_LINE, TREE_LINE);
+    a.reset(width, height * 0.76)
+    a.drawShape(TREE_LINE_RIGHT, false, 0, 0, 0, TREE_LINE, TREE_LINE);
 
     // Hills
     a.reset(0, height);
