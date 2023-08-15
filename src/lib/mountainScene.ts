@@ -1,5 +1,6 @@
 import { Artist } from "../Artist";
 import { drawCircle } from "./canvasUtils";
+import { TREE_LINE_LEFT, TREE_LINE_RIGHT } from "./data/mountainSceneData";
 
 export function mountainScene(ctx: CanvasRenderingContext2D, width: number, height: number, percentage: number) {
 
@@ -59,20 +60,26 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
         [-width * 0.04, -height * 0.35],
     ]
 
+    // eslint-disable-next-line
     function generateTreeLine(): Points {
         const points: Points = [
-            [0, -height * 0.1]
+            // [-width * 0.5, -height* 0.2]
+            [0, height * 0.2],
+            [-width * 0.5, 0],
         ];
+        let absX = 0;
+        let yDirection = 1;
         let x = 0;
-        let y = height * 0.15;
-        while(x < width) {
-            x += (Math.random() * width * 0.001);
-            y *= -1;
-            y += (Math.random() * height * 0.001);
+        let y = 0;
+        while(absX < width * 0.5) {
+            x = Math.random() * width * 0.01;
+            yDirection *= -1;
+            y = yDirection * height * 0.05 * Math.random();
             points.push([x, y]);
+            absX += x;
         }
 
-        points.push([0, height * 0.1])
+        console.log(points);
         return points;
     }
 
@@ -81,6 +88,12 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     a.drawShape(MOUNTAIN_SHADOW, false, 0, 0, 0, SHADOW, SHADOW);
     a.reset(width * 0.5, height * 0.45);
     a.drawShape(MOUNTAIN_HIGHLIGHT, false, 0, 0, 0, HIGHLIGHT, HIGHLIGHT);
+
+    // Trees back
+    a.reset(width * 0.5, height * 0.95)
+    a.drawShape(TREE_LINE_LEFT, false, 0, 0, 0, "pink", "pink");
+    a.reset(width, height * 0.75)
+    a.drawShape(TREE_LINE_RIGHT, false, 0, 0, 0, "pink", "pink");
 
     // Hills
     a.reset(0, height);
@@ -103,11 +116,6 @@ export function mountainScene(ctx: CanvasRenderingContext2D, width: number, heig
     a.drawShape(TREE_CONE_RIGHT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
     a.reset(width * 0.76, height * 0.95);
     a.drawShape(TREE_CONE_RIGHT_LARGER, false, 0, 0, 0, TREE_FILL, TREE_FILL)
-
-    // Trees back
-    a.reset(0, height * 0.7);
-    a.drawShape(generateTreeLine(), false, 0, 0, 0, "pink", "pink");
-
 
     // Moon
     // drawCircle(ctx, width * 0.5, height * 0.15, width * 0.04, "", "rgb(190, 190, 210)")
