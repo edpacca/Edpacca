@@ -228,3 +228,4 @@ export const TREE_LINE_RIGHT: Points = [ [ 0, 80 ],
     [ 3.3, 14 ],
     [ 1.6, -11 ]
 ]
+

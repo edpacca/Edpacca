@@ -36,7 +36,7 @@ export class Artist{
 
     drawShape(points: Points, reflect: boolean,
         xOffset: number, yOffset: number,
-        lineWidth: number, stroke: string, fill?: string) {
+        lineWidth: number, stroke?: string, fill?: string | CanvasGradient) {
         this.ctx.beginPath();
         this.ctx.moveTo(this.startX, this.startY);
         points.forEach(p => this.drawNextLine(p[0], p[1]));
@@ -46,12 +46,16 @@ export class Artist{
         }
         this.ctx.closePath();
 
-        this.ctx.lineCap = 'round';
-        this.ctx.lineWidth = lineWidth;
-        this.ctx.strokeStyle = stroke;
-        if (fill) this.ctx.fillStyle = fill;
-        this.ctx.fill();
-        this.ctx.stroke();
+        if (stroke) {
+            this.ctx.lineCap = 'round';
+            this.ctx.lineWidth = lineWidth;
+            this.ctx.strokeStyle = stroke;
+            this.ctx.stroke();
+        }
+        if (fill) {
+            this.ctx.fillStyle = fill;
+            this.ctx.fill();
+        } 
     }
 
     drawReflection(xOffset: number, yOffset: number) {

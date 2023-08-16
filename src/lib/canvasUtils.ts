@@ -1,5 +1,5 @@
 export function drawCircle(context: CanvasRenderingContext2D,
-    x: number, y: number, radius: number, stroke?: string, fill?: string) {
+    x: number, y: number, radius: number, stroke?: string, fill?: string | CanvasGradient) {
     context.beginPath();
     context.arc(x, y, radius, 0, Math.PI *2, false);
     if (stroke) {
