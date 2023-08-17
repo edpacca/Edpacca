@@ -4,6 +4,7 @@
 
     export let canvas1: HTMLCanvasElement;
     export let canvas2: HTMLCanvasElement;
+    let canvasHeightPx: number;
 
     onMount(() => {
         const ctx1 = canvas1.getContext("2d");
@@ -14,20 +15,31 @@
             canvas2.width = 700;
             canvas2.height = 400;
             mountainScene(ctx1, ctx2, 700, 400, 0.7);
-            
+            const container = document.getElementById(
+                "mountain-canvas-container"
+            );
+            container && 
+                container?.setAttribute(
+                    "style",
+                    `--canvas-height: ${canvas1.clientHeight}px`
+                );
         }
-    })
+
+    });
+
+    
 </script>
 
-<div class="canvas-container">
+<div id="mountain-canvas-container">
     <canvas class="scene-canvas" bind:this={canvas1}/>
     <canvas class="animation-canvas" bind:this={canvas2}/>
 </div>
 
 <style>
-    .canvas-container {
+    #mountain-canvas-container {
         position: relative;
         width: 100%;
+        height: var(--canvas-height);
     }
 
     canvas {

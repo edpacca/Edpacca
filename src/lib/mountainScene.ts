@@ -1,4 +1,3 @@
-import { count } from "console";
 import { Artist } from "../Artist";
 import { drawCircle } from "./canvasUtils";
 import { TREE_LINE_LEFT, TREE_LINE_RIGHT } from "./data/mountainSceneData";
@@ -171,7 +170,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     const adj = width * 0.5;
     const opp = height * 0.55;
     
-    const indicatorRadius = width * 0.1;
+    const indicatorRadius = width * 0.05;
     const indicatorX = adj * percentage;
     const indicatorY = height - (opp * percentage);
 
@@ -184,22 +183,36 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
 
     anCtx.beginPath();
     drawCircle(anCtx, indicatorX, indicatorY, indicatorRadius, undefined, indicatorGradient);
-
+    
     let counter = 0;
+    let degrees = 0;
+    let rad = 0;
+    let chance;
+    const clamp = 50;
     function animate() {
-        counter = counter + 1 % 90;
-        anCtx.clearRect(
-            indicatorX - indicatorRadius, indicatorY - indicatorRadius,
-            indicatorX, indicatorY
-        )
-        indicatorGradient = ctx.createRadialGradient(
-            indicatorX, indicatorY, indicatorRadius * 0.2,
-            indicatorX, indicatorY, indicatorRadius * Math.sin(counter));
-        indicatorGradient.addColorStop(0, "rgb(240, 150, 80)");
-        indicatorGradient.addColorStop(0.4, "rgba(240, 150, 80, 0.3)");
-        indicatorGradient.addColorStop(1, "transparent");
-
-        drawCircle(anCtx, indicatorX, indicatorY, indicatorRadius * Math.sin(counter), undefined, indicatorGradient);
+        counter++;
+        if (counter % 2 === 0) {
+            degrees = (degrees + 1) % (180 - clamp);
+            degrees = Math.max(clamp, degrees);
+            if (degrees === 110) {
+                chance = Math.random();
+                if (chance > 0.4) {
+                    degrees = 70
+                }
+            }
+            rad = degrees * Math.PI / 180;
+            anCtx.clearRect(
+                indicatorX - indicatorRadius, indicatorY - indicatorRadius,
+                indicatorX, indicatorY
+            )
+            indicatorGradient = ctx.createRadialGradient(
+                indicatorX, indicatorY, indicatorRadius * 0.2,
+                indicatorX, indicatorY, indicatorRadius * Math.sin(rad));
+            indicatorGradient.addColorStop(0, "rgb(240, 150, 80)");
+            indicatorGradient.addColorStop(0.3, "rgba(240, 150, 80, 0.3)");
+            indicatorGradient.addColorStop(1, "transparent");
+            drawCircle(anCtx, indicatorX, indicatorY, indicatorRadius, undefined, indicatorGradient);
+        }
         requestAnimationFrame(animate);
     }
 
