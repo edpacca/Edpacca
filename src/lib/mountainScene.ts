@@ -17,6 +17,14 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
         [width * 0.6, height * 0.3 ],
     ];
 
+    // intersection of height*0.3 - width * 0.6, 
+    // widht * 0.5 and height * 0.55
+    // y = mx + c
+    // mountain equation: y = (height * 0.55 / width * 0.5)x
+    // hill equation: y = -(height*0.3 / width * 0.6)x + height * 0.3
+
+
+
     const RIGHT_HILL: Points = [
         [0, -height * 0.2],
         [-width * 0.6, height * 0.2 ],
@@ -166,15 +174,20 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     ctx.fill();
     ctx.closePath();
     
+
     ctx.globalCompositeOperation = 'source-over';
-    const adj = width * 0.5;
-    const opp = height * 0.55;
+    
+    const xIntersect = 0.1875;
+    const yIntersect = 0.79375;
+    const intersection = [xIntersect * width, yIntersect * height];
+    const adj = width * (0.5 - xIntersect);
+    const opp = height * (0.55 - (1 - yIntersect));
     
     const indicatorRadius = width * 0.05;
-    const indicatorX = adj * percentage;
-    const indicatorY = height - (opp * percentage);
+    const indicatorX = (adj * percentage) + intersection[0];
+    const indicatorY = intersection[1] - (opp * percentage);
 
-    let indicatorGradient = ctx.createRadialGradient(
+    let indicatorGradient = anCtx.createRadialGradient(
         indicatorX, indicatorY, indicatorRadius * 0.2,
         indicatorX, indicatorY, indicatorRadius * 0.9)
     indicatorGradient.addColorStop(0, "rgb(240, 150, 80)");

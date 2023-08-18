@@ -4,7 +4,6 @@
 
     export let canvas1: HTMLCanvasElement;
     export let canvas2: HTMLCanvasElement;
-    let canvasHeightPx: number;
 
     onMount(() => {
         const ctx1 = canvas1.getContext("2d");
@@ -14,7 +13,7 @@
             canvas1.height = 400;
             canvas2.width = 700;
             canvas2.height = 400;
-            mountainScene(ctx1, ctx2, 700, 400, 0.7);
+            mountainScene(ctx1, ctx2, 700, 400, 0.5);
             const container = document.getElementById(
                 "mountain-canvas-container"
             );
