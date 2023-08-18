@@ -11,6 +11,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     const HILL_RIGHT_FILL = "rgb(74, 75, 96)";
     const TREE_FILL = "rgb(47, 48, 69)";
     const TREE_LINE = "rgb(71, 82, 104)";
+    const STARS = "rgba(255, 255, 255, 0.2)";
 
     const LEFT_HILL: Points = [
         [0, -height * 0.3 ],
@@ -159,6 +160,25 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     a.reset(width * 0.76, height * 0.95);
     a.drawShape(TREE_CONE_RIGHT_LARGER, false, 0, 0, 0, TREE_FILL, TREE_FILL)
 
+    function drawStar(x: number, y: number, stroke: string) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    drawStar(width * 0.1, height * 0.15, STARS);
+    drawStar(width * 0.23, height * 0.34, STARS);
+    drawStar(width * 0.37, height * 0.17, STARS);
+    drawStar(width * 0.66, height * 0.05, STARS);
+    drawStar(width * 0.13, height * 0.4, STARS);
+    drawStar(width * 0.72, height * 0.53, STARS);
+    drawStar(width * 0.81, height * 0.47, STARS);
+    drawStar(width * 0.92, height * 0.07, STARS);
+
     // Moon
     const radius = width * 0.04;
     const circle1 = [width * 0.5, height * 0.15];
@@ -173,7 +193,6 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     ctx.arc(circle2[0], circle2[1], radius, 0, Math.PI * 2, true);
     ctx.fill();
     ctx.closePath();
-    
 
     ctx.globalCompositeOperation = 'source-over';
     
