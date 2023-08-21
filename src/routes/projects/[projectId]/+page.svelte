@@ -7,6 +7,7 @@
     import PostPreview from "../../../lib/components/PostPreview.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
+
 </script>
 
 <h1>{data.project?.name}</h1>

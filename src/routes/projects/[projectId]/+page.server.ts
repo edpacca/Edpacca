@@ -4,6 +4,7 @@ import { getGhLanguageData, parseLanguageObject } from '../../../lib/githubApi.j
 import { GH_URL, GH_REPO_TOKEN } from "$env/static/private"
 import { dev } from "$app/environment";
 import { STATIC_LANG_DATA } from '../../../lib/data/codeLangData.js';
+import type { PageServerLoad } from './$types.js';
 
 /* eslint-disable */
 export const load = (async ({ fetch, params }) => {
@@ -33,4 +34,4 @@ export const load = (async ({ fetch, params }) => {
     } catch(e) {
         throw error(404, `Hmmm couldn't find ${params.projectId}`)
     }
-})
+}) satisfies PageServerLoad

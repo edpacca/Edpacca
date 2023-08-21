@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { WordSoup } from "../wordSoup";
+    import { WordSoup } from "$lib/wordSoup";
     import ControlBar from "./ControlBar.svelte";
     import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
     import { fade } from "svelte/transition";
@@ -78,7 +78,7 @@
 <svelte:window bind:innerWidth={screenWidth}/>
 <div class="main-container">
     {#if hasGravity}
-        <div transition:fade>
+        <div>
             <div class="grav-values-container">
                 <div>gravity X: {xGravity / 100}</div>
                 <div>gravity y: {yGravity / 100}</div>
@@ -94,7 +94,6 @@
                 min={-100} max={100}
                 bind:value={yGravity}/>
         </div>
-
     {/if}
     <canvas bind:this={canvas}/>
 </div>
@@ -110,17 +109,14 @@
     <FaIcon icon={"arrow-up"} />
 </button>
 {:else}
-<div class="text-button-container">
-    <p>I call this the "tech soup" widget...</p>
-    <button class="button1" on:click={() => {isDescriptionOpen = true;}}>
-        read more
-        <FaIcon icon={"arrow-down"} />
-    </button>
-</div>
+    <div class="text-button-container">
+        <p>I call this the "tech soup" widget...</p>
+        <button class="button1" on:click={() => {isDescriptionOpen = true;}}>
+            read more
+            <FaIcon icon={"arrow-down"} />
+        </button>
+    </div>
 {/if}
-
-
-
 
 <style>
     canvas {
