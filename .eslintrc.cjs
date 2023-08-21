@@ -9,7 +9,6 @@ module.exports = {
         ecmaVersion: 2022,
         sourceType: "module",
         tsconfigRootDir: __dirname,
-        project: ["./tsconfig.json"],
         extraFileExtensions: [".svelte"]
     },
     env: {

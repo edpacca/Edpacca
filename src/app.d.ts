@@ -27,6 +27,10 @@ declare global {
 	}
 
 	type Points = [number, number][]
+
+	type JSONValue = { [x: string]: string }
+
+	interface JSONArray extends Array<JSONValue> { }
 }
 
 export {};

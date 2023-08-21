@@ -5,6 +5,7 @@
     import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
+	import * as config from "$lib/config";
 
 	let isMenuOpen = false;
 
@@ -14,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>{config.title}</title>
 	<meta name="description" content="Eddie Pace's portfolio homepage" />
 </svelte:head>
 

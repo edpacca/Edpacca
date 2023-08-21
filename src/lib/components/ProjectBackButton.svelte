@@ -20,7 +20,7 @@
 </script>
 
 {#if project}
-    <button
+    <button class="button1"
         on:click={goToProject}
         on:mouseenter={() => {isHovered = true;}}
         on:mouseleave={() => {isHovered = false;}}>
@@ -33,25 +33,3 @@
         {/if}
     </button>
 {/if}
-
-<style>
-    button {
-        background-color: var(--secondary-50);
-        padding: var(--margin);
-        border-radius: 6px;
-        color: var(--primary);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5em;
-        transition: var(--transition-time);
-        font: var(--font-body);
-        border: none;
-        height: 2.5em;
-    }
-
-    button:hover {
-        color: var(--highlight);
-        transition: var(--transition-time);
-    }
-</style>

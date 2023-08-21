@@ -1,4 +1,5 @@
 <script>
+    import * as config from "$lib/config";
     import IconLink from "$lib/components/IconLink.svelte";
     const githubLink = "https://github.com/Edpacca"
     const linkedinLink = "https://www.linkedin.com/in/edward-pace-ab88a971/"
@@ -13,6 +14,8 @@
         <li><IconLink icon={"instagram"} link={instagramLink} text={"Instagram"}/></li>
         <li><IconLink icon={"research-gate"} link={researchgateLink} text={"Research-gate"}/></li>
     </ul>
+
+    <p>{config.title} &copy {new Date().getFullYear()}</p>
 </footer>
 
 <style>
@@ -28,5 +31,9 @@
         column-gap: 1.2rem;
         list-style: none;
         padding: 0;
+    }
+
+    li {
+        list-style-type: none;
     }
 </style>

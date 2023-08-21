@@ -96,7 +96,7 @@ p {
 }
 
 a {
-	color: var(--primary);
+	color: var(--highlight);
 	text-decoration: none;
 }
 
@@ -124,16 +124,17 @@ pre {
 	font-size: 16px;
 	font-family: var(--font-mono);
 	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+	border-radius: 4px;
 	padding: 0.5em;
 	overflow-x: auto;
 	color: var(--primary);
+	box-shadow: 0px 0px 6px var(--primary-50)
 }
 
 .title {
 	font-size: 1.5em;
 	text-transform: uppercase;
+	color: var(--primary);
 }
 
 img.post-image {
@@ -147,9 +148,7 @@ img.square {
 	height: 50%;
 }
 
-img.post-cover-image {
-	width: 50%;
-	height:50%;
+img.cover-image {
 	border-radius: 4px;
 }
 
@@ -200,3 +199,56 @@ img.post-cover-image {
 	position: relative;
 }
 
+.img-bkg {
+	background-color: var(--mid-grey);
+}
+
+.contents-list {
+	color: var(--highlight);
+}
+
+.contents-list li {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 1em;
+	font-size: 2em;
+}
+
+ul {
+	padding-left: 1em;
+}
+
+pre {
+	tab-size: 4;
+}
+
+li {
+	list-style-type: square;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button1 {
+	background-color: var(--secondary-50);
+	padding: var(--margin);
+	border-radius: 6px;
+	color: var(--primary);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+	transition: var(--transition-time);
+	font: var(--font-body);
+	border: none;
+	height: 2.5em;
+}
+
+.button1:hover {
+	color: var(--highlight);
+	transition: var(--transition-time);
+}
