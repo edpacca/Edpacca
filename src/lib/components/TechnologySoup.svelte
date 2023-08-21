@@ -28,7 +28,8 @@
             fontArea = 500;
             minFontSize = 16;
         }
-        wordSoup = new WordSoup(canvas, technologies, fontArea, minFontSize);
+        const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+        wordSoup = new WordSoup(canvas, ctx, technologies, fontArea, minFontSize);
         wordSoup.animate();
     }
 

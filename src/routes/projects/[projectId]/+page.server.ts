@@ -15,7 +15,6 @@ export const load = (async ({ fetch, params }) => {
             if (params.projectId === "programming") {
                 if (dev) {
                     ghData = parseLanguageObject(STATIC_LANG_DATA);
-                    console.log(ghData);
                 } else {
                     ghData = await getGhLanguageData(`${GH_URL}/repos`, GH_REPO_TOKEN);
                 }

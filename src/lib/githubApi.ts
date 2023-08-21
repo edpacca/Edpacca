@@ -76,6 +76,5 @@ export function parseLanguageObject(data: Record<string, number>[]): Record<stri
     for (const language of Object.keys(parsed)) {
         parsed[language] = parsed[language] / total;
     }
-    console.log(parsed);
     return parsed;
 }
