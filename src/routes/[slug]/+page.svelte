@@ -23,12 +23,6 @@
     </hgroup>
 
     <div class="contents">
-        <div class="post-image-container">
-            <img src={`images/${data.meta.coverImage}`}
-                alt={data.meta.title}
-                loading="lazy"
-                class="post-cover-image"/>
-        </div>
         <svelte:component this={data.content}/>
     </div>
 </article>

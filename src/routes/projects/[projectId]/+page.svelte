@@ -19,7 +19,10 @@
 {:else if $page.url.pathname.split("/projects/")[1] === "running"}
     <StravaStats/>
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
-    <TechnologySoup technologies={data.posts.flatMap(p => p.technologies ?? [])}/>
+    {#if data.ghData}
+        <TechnologySoup technologies={data.ghData}/>
+
+    {/if}
 {/if}
 <section>
     <div class="posts">
@@ -39,5 +42,9 @@ h1 {
 
 .description {
     margin-bottom: 2em;
+}
+
+section {
+    margin-top: 2em;
 }
 </style>
