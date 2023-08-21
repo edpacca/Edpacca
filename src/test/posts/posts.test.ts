@@ -9,7 +9,7 @@ function testFileExists(filePath: string, warnOnly = false) {
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
             if (warnOnly) {
-                console.warn(`File does not exist for non-published post\n${err}`);
+                console.warn(`File does not exist for non-published post\n${err.message}`);
             } else {
                 throw new Error(err.message);
             }

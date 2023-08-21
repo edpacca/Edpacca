@@ -1,14 +1,12 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit, drawClouds, drawCloud } from "./weatherScene";
+    import { drawTree, drawOrbit, drawCloud } from "./weatherScene";
     import { drawCharacter } from "./DrawCharacter";
     export let time: Date;
 
     const backgroundStyle = timeNoun(time);
     let canvas: HTMLCanvasElement;
-
-    let testTime = 0;
 
     onMount(() => {
         canvas.width = window.innerWidth - 24;
@@ -53,12 +51,6 @@
 </svelte:head>
 
 <style>
-    input {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40%;
-    }
     canvas {
         margin: var(--margin);
         width: 100%;

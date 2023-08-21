@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
+/* eslint-disable */
 const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 // default to edinburgh
 let location = {

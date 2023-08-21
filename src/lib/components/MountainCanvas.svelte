@@ -2,8 +2,8 @@
     import { mountainScene } from "$lib/mountainScene";
     import { onMount } from "svelte";
 
-    export let canvas1: HTMLCanvasElement;
-    export let canvas2: HTMLCanvasElement;
+    let canvas1: HTMLCanvasElement;
+    let canvas2: HTMLCanvasElement;
 
     onMount(() => {
         const ctx1 = canvas1.getContext("2d");

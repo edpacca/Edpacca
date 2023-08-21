@@ -1,10 +1,10 @@
 import { Artist } from "../../Artist";
 
 const AMBER = "rgb(245, 167, 66)";
-const DARK_ORANGE = "rgb(200, 100, 100)";
+// const DARK_ORANGE = "rgb(200, 100, 100)";
 const WHITE = "white";
 const BLACK = "black";
-const GREY = "rgb(50, 50, 50)";
+// const GREY = "rgb(50, 50, 50)";
 const ORANGE_BROWN = "rgb(220, 150, 110)";
 const SHADOW_BROWN = "rgb(120, 80, 20)";
 const DARK_SHADOW_BROWN = "rgb(71, 50, 44)";

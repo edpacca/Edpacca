@@ -9,9 +9,6 @@
 	const weather = getWeatherFromCode(data.weathercode);
 	const windDirection = getDirectionFromAngle(data.winddirection);
 	const time = new Date(data.time);
-
-	let canvasElement: HTMLCanvasElement;
-
 </script>
 
 <div class="weather-text">

@@ -1,11 +1,11 @@
 import { error } from '@sveltejs/kit';
 import { getProjectData } from '../../../lib/data/projectData.js';
-import type { PageServerLoad } from "./$types";
 import { getGhLanguageData, parseLanguageObject } from '../../../lib/githubApi.js';
 import { GH_URL, GH_REPO_TOKEN } from "$env/static/private"
 import { dev } from "$app/environment";
 import { STATIC_LANG_DATA } from '../../../lib/data/codeLangData.js';
 
+/* eslint-disable */
 export const load = (async ({ fetch, params }) => {
     try {
         const response = await fetch("/api/posts");
@@ -34,4 +34,4 @@ export const load = (async ({ fetch, params }) => {
     } catch(e) {
         throw error(404, `Hmmm couldn't find ${params.projectId}`)
     }
-}) satisfies PageServerLoad
+})

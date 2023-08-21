@@ -2,7 +2,6 @@
     import { page } from "$app/stores";
     import Gallery from "$lib/components/Gallery.svelte";
     import MountainCanvas from "$lib/components/MountainCanvas.svelte";
-    import StravaStats from "$lib/components/StravaStats.svelte";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
@@ -22,7 +21,6 @@
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
     {#if data.ghData}
         <TechnologySoup technologies={data.ghData}/>
-
     {/if}
 {/if}
 <section>
