@@ -4,7 +4,7 @@
     import type { PageData } from "./$types";
     export let data: PageData;
 
-    const date = formatDate(data.meta.date);
+    const date: string = formatDate(data.meta.date);
 </script>
 
 <!-- SEO -->
