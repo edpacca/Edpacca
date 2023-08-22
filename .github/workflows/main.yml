@@ -32,8 +32,8 @@ jobs:
             - name: Check
               run: |
                 touch .env
-                echo "GH_URL=https://dummy.com" > .env
-                echo "GH_REPO_TOKEN=123ABC456" > .env
+                echo "GH_URL=https://dummy.com" >> .env
+                echo "GH_REPO_TOKEN=123ABC456" >> .env
                 cat .env
                 npm run check
             
