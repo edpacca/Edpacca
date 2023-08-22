@@ -1,6 +1,12 @@
 name: Edpacca CI
-run-name: Edpacca PR-${{ github.ref.name }} ${{ github.actor }}
-on: [pull_request]
+run-name: ${{ github.head_ref }} ${{ github.sha }}
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
     edpacca_pr_ci:
