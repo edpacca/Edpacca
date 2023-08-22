@@ -3,7 +3,6 @@
     import { WordSoup } from "$lib/wordSoup";
     import ControlBar from "./ControlBar.svelte";
     import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
-    import { fade } from "svelte/transition";
     import FaIcon from "./FaIcon.svelte";
 
     export let technologies: Record<string, number>;
