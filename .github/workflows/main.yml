@@ -24,7 +24,12 @@ jobs:
               run: npm install
             
             - name: Check
-              run: npm run check
+              run: |
+                touch .env
+                echo "GH_URL=https://dummy.com" > .env
+                echo "GH_REPO_TOKEN=123ABC456" > .env
+                cat .env
+                npm run check
             
             - name: Lint
               run: npm run lint
