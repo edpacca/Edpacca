@@ -9,12 +9,9 @@
 	const weather = getWeatherFromCode(data.weathercode);
 	const windDirection = getDirectionFromAngle(data.winddirection);
 	const time = new Date(data.time);
-
-	let canvasElement: HTMLCanvasElement;
-
 </script>
 
-<div class="weather-text">
+<!-- <div class="weather-text">
 	<div class="key">Time:</div>
 	<div class="val">{time.toLocaleTimeString()}</div>
 	<div class="key">Temperature:</div>
@@ -25,15 +22,15 @@
 	<div class="val">{data.windspeed} km/h</div>
 	<div class="key">Wind direction:</div>
 	<div class="val">{windDirection}</div>
-</div>
+</div> -->
 
 <div class="scene-container">
 	<Scene time={time}/>
 </div>
 
-<div class="compass">
+<!-- <div class="compass">
 	<Compass angle={data.winddirection}/>
-</div>
+</div> -->
 
 <style>
 	.weather-text {
