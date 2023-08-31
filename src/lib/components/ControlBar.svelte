@@ -1,74 +1,31 @@
-<script>
-
+<script lang="ts">
+    export let buttons: { fnc: () => void, title: string }[]
 </script>
 
 <div class="control-container">
-    <div class="left panel">
-
-    </div>
-    <div class="front-panel">
-        <div class="controls">
-            <div class="flex-center">
-                <button>Reset</button>
-            </div>
-            <div class="flex-center">
-                <button>Random</button>
-            </div>
-            <div class="flex-center">
-                <button>Off</button>
-            </div>
+        <div class="controls" style={`--num-buttons: ${buttons.length}`}>
+            {#each buttons as btn}
+                <button class="button1" on:click={btn.fnc}>{btn.title}</button>        
+            {/each}
         </div>
-    </div>
-</div>
-<div class="control-container">
-    <div class="left panel">
-
-    </div>
-    <div class="square-panel">
-    </div>
 </div>
 
 <style>
-    .control-container {
-        display: flex;
-        flex-direction: row;
-        width: 102%;
-        position: relative;
-    }
-
-    .front-panel {
-        width: 100%;
-        transform: skew(20deg);
-    }
-
-    .square-panel {
-        background-color: rgb(254, 202, 11);
-        width: 100%;
-        height: 32px;
-    }
-
     .controls {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(var(--num-buttons), 1fr);
         justify-content: center;
         align-items: center;
         padding: 1em;
-        background-color: rgb(254, 202, 11);
-    }
-
-    .panel {
-        width: 5%;
+        gap: 1em;
     }
 
     button {
-        width: 6em;
-        height: 6em;
-        border-radius: 100%;
-        background-color: red;
+        min-width: 4em;
+        box-shadow: 0 0 5px var(--primary-50);
     }
-
-    .left {
-        background-color: rgb(119, 132, 6);
-        transform: translateX(24px);
+    
+    button:hover {
+        box-shadow: 0 0 10px var(--highlight);
     }
 </style>

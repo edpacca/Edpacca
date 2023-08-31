@@ -232,3 +232,23 @@ li {
 	justify-content: center;
 	align-items: center;
 }
+
+.button1 {
+	background-color: var(--secondary-50);
+	padding: var(--margin);
+	border-radius: 6px;
+	color: var(--primary);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+	transition: var(--transition-time);
+	font: var(--font-body);
+	border: none;
+	height: 2.5em;
+}
+
+.button1:hover {
+	color: var(--highlight);
+	transition: var(--transition-time);
+}

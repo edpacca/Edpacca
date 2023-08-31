@@ -1,4 +1,4 @@
-import { dev } from "$app/environment"
+import { dev } from "$app/environment";
 
 export const title = "Edpacca"
 export const description = "Edpacca's domain"

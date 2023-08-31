@@ -25,6 +25,10 @@ declare global {
 			icon: string
 			description?: string,
 		}
+
+		type JSONValue = { [x: string]: string }
+
+		interface JSONArray extends Array<JSONValue> { }
 }
 
 export {};
