@@ -7,7 +7,7 @@ async function stravaGet(url: string, token: string) {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`,
     },
-}
+  }
 );
 }
 

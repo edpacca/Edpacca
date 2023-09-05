@@ -5,6 +5,7 @@
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
+    import RunningPage from "../../../lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
 
@@ -18,7 +19,7 @@
 {#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
     <Gallery imagePaths={WARHAMMER_GALLERY}/>
 {:else if $page.url.pathname.split("/projects/")[1] === "running"}
-    <MountainCanvas/>
+    <RunningPage/>
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
     {#if data.ghData}
         <TechnologySoup technologies={data.ghData}/>
