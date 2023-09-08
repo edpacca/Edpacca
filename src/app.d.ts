@@ -1,34 +1,33 @@
-// See https://kit.svelte.dev/docs/types#app
-
-// for information about these interfaces
 declare global {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface Platform {}
+	// interface Error {}
+	// interface Locals {}
+	// interface PageData {}
+	// interface Platform {}
 
-		type Post = {
-			title: string
-			slug: string
-			description: string
-			date: string
-			projectId: string
-			published: boolean
-			coverImage?: string
-			icon?: string
-			technologies?: string[]
-		}
+	type Post = {
+		title: string
+		slug: string
+		description: string
+		date: string
+		projectId: string
+		published: boolean
+		coverImage?: string
+		icon?: string
+		technologies?: string[]
+	}
 
-		type ProjectType = {
-			name: string,
-			id: string,
-			icon: string
-			description?: string,
-		}
+	type ProjectType = {
+		name: string,
+		id: string,
+		icon: string
+		description?: string,
+	}
 
-		type JSONValue = { [x: string]: string }
+	type Points = [number, number][]
 
-		interface JSONArray extends Array<JSONValue> { }
+	type JSONValue = { [x: string]: string }
+
+	interface JSONArray extends Array<JSONValue> { }
 }
 
 export {};

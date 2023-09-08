@@ -1,9 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { WordSoup } from "../wordSoup";
+    import { WordSoup } from "$lib/wordSoup";
     import ControlBar from "./ControlBar.svelte";
     import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
-    import { fade } from "svelte/transition";
     import FaIcon from "./FaIcon.svelte";
 
     export let technologies: Record<string, number>;
@@ -28,7 +27,8 @@
             fontArea = 500;
             minFontSize = 16;
         }
-        wordSoup = new WordSoup(canvas, technologies, fontArea, minFontSize);
+        const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+        wordSoup = new WordSoup(canvas, ctx, technologies, fontArea, minFontSize);
         wordSoup.animate();
     }
 
@@ -77,7 +77,7 @@
 <svelte:window bind:innerWidth={screenWidth}/>
 <div class="main-container">
     {#if hasGravity}
-        <div transition:fade>
+        <div>
             <div class="grav-values-container">
                 <div>gravity X: {xGravity / 100}</div>
                 <div>gravity y: {yGravity / 100}</div>
@@ -93,7 +93,6 @@
                 min={-100} max={100}
                 bind:value={yGravity}/>
         </div>
-
     {/if}
     <canvas bind:this={canvas}/>
 </div>
@@ -102,24 +101,21 @@
 {#if isDescriptionOpen}
 <div>
     <p>I call this the "tech soup" widget. The relative font size of each word represents the number of projects I have worked on that use that language/framework. The data is taken from my github via the API and calculated server-side, with static data added to represent work repos. For example I use python a lot at work, but it doesn't feature heavily in my personal projects (yet!).</p>
-    <p>If the blocks get stuck try changing the gravity with the sliders or resetting the positions. Unfortunately the "physics engine" is quite simplistic, but I think it results in some interesting behaviour! <a>Read more about the code behind the TechnologySoup widget here.</a></p>
+    <p>If the blocks get stuck try changing the gravity with the sliders or resetting the positions. Unfortunately the "physics engine" is quite simplistic, but I think it results in some interesting behaviour! <a href="/">Read more about the code behind the TechnologySoup widget here.</a></p>
 </div>
 <button class="button1" on:click={() => {isDescriptionOpen = false;}}>
     less
     <FaIcon icon={"arrow-up"} />
 </button>
 {:else}
-<div class="text-button-container">
-    <p>I call this the "tech soup" widget...</p>
-    <button class="button1" on:click={() => {isDescriptionOpen = true;}}>
-        read more
-        <FaIcon icon={"arrow-down"} />
-    </button>
-</div>
+    <div class="text-button-container">
+        <p>I call this the "tech soup" widget...</p>
+        <button class="button1" on:click={() => {isDescriptionOpen = true;}}>
+            read more
+            <FaIcon icon={"arrow-down"} />
+        </button>
+    </div>
 {/if}
-
-
-
 
 <style>
     canvas {

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 enum StorageType {
     DarkTheme = "dark-theme",
     ColourTheme = "colour-theme"
@@ -18,6 +20,7 @@ export function setLocalStorageColourTheme(colourTheme: string) {
 export function getLocalStorageColourTheme(): string {
     return getLocalStorage(StorageType.ColourTheme);
 }
+
 
 function setLocalStorage(name: string, obj: any) {
     try {

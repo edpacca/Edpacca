@@ -1,12 +1,13 @@
 <script lang=ts>
     import { page } from "$app/stores";
     import Gallery from "$lib/components/Gallery.svelte";
-    import StravaStats from "$lib/components/StravaStats.svelte";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
+    import RunningPage from "../../../lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
+
 </script>
 
 <h1>{data.project?.name}</h1>
@@ -17,11 +18,10 @@
 {#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
     <Gallery imagePaths={WARHAMMER_GALLERY}/>
 {:else if $page.url.pathname.split("/projects/")[1] === "running"}
-    <StravaStats/>
+    <RunningPage/>
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
     {#if data.ghData}
         <TechnologySoup technologies={data.ghData}/>
-
     {/if}
 {/if}
 <section>
