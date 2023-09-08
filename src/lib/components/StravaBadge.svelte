@@ -3,13 +3,11 @@
     const profileUrl = `https://strava.com/athletes/${id}`;
 </script>
 
-
 <a href={profileUrl}
     class="strava-badge- strava-badge-follow"
     target="_blank">
     <img src="//badges.strava.com/echelon-sprite-48.png" alt="Strava" />
 </a>
-
 
   <style>
     .strava-badge- { 
