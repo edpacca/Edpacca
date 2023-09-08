@@ -1,7 +1,6 @@
 <script>
     import * as config from "$lib/config";
     import IconLink from "$lib/components/IconLink.svelte";
-    import StravaStats from "$lib/components/StravaBadge.svelte";
     const githubLink = "https://github.com/Edpacca"
     const linkedinLink = "https://www.linkedin.com/in/edward-pace-ab88a971/"
     const instagramLink = "https://www.instagram.com/_edpac_/"

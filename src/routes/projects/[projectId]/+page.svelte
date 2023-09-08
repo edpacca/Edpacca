@@ -1,7 +1,6 @@
 <script lang=ts>
     import { page } from "$app/stores";
     import Gallery from "$lib/components/Gallery.svelte";
-    import MountainCanvas from "$lib/components/MountainCanvas.svelte";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
