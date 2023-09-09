@@ -47,9 +47,9 @@ export class WordSoup {
     gravity: Vector2D = DEFAULT_GRAVITY;
     dampingFactor: number = DEFAULT_DAMPING_FACTOR;
 
-    constructor(canvas: HTMLCanvasElement, words: Record<string, number>, fontArea?: number, minFontSize?: number) {
+    constructor(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D, words: Record<string, number>, fontArea?: number, minFontSize?: number) {
         this.canvas = canvas;
-        this.ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+        this.ctx = context;
         this.ctx.textAlign = "left";
         this.ctx.textBaseline = "top";
 

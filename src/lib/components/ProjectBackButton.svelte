@@ -6,7 +6,7 @@
     export let projectId: string | undefined;
     const project = projectId ? getProjectData(projectId) : undefined;
     let isHovered = false;
-    const grow = (node: HTMLElement) => {
+    const grow = (_node: HTMLElement) => {
         return {
             duration: 100,
             easing: sineIn,

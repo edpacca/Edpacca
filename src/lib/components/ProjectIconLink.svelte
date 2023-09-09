@@ -2,14 +2,14 @@
     import { getProjectData } from "../data/projectData";
     import FaIcon from "./FaIcon.svelte";
     
-    export let projectId;
+    export let projectId: string;
     
     let isHovered = false;
     
     const project = getProjectData(projectId);
     const url = `/projects/${project?.id}`;
 
-    const slideIn = (node: HTMLElement) => {
+    const slideIn = (_node: HTMLElement) => {
         return {
             duration: 100,
             css: (t: number, u: number) => `transform: scaleX(${t}) translateX(${u * 100}%)`

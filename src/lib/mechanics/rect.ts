@@ -1,4 +1,4 @@
-import { Vector2D, ZERO_VECTOR, reflectionVector } from "./vector";
+import { Vector2D, reflectionVector } from "./vector";
 
 export type Rect = {
     x1: number

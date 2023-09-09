@@ -21,7 +21,7 @@ async function extractLanguageData(data: JSONArray, token: string) {
         const collated: Record<string, number>[] = [];
         await Promise.all(urls.map(async(url: string) => {
             const response = await ghGet(url, token);
-            const data = await response.json();
+            const data = await response.json() as Record<string, number>;
             if (data) {
                 collated.push(data);
             }
@@ -35,7 +35,7 @@ async function extractLanguageData(data: JSONArray, token: string) {
 export async function getGhLanguageData(url: string, token: string) {
     try {
         const response = await ghGet(url, token);
-        const data = await response.json();
+        const data = await response.json() as JSONArray;
         const languages = await extractLanguageData(data, token);
         return languages;
     } catch(e) {
@@ -48,7 +48,7 @@ export function parseLanguageObject(data: Record<string, number>[]): Record<stri
     const parsed: Record<string, number> = {}
     for (const languages of data) {
         for (const language of Object.keys(languages)) {
-            let lang = getLangShortName(language);
+            const lang = getLangShortName(language);
             if (parsed[lang]) {
                 // use proportional lines of code intead
                 // parsed[lang] += parsed[key];
@@ -64,7 +64,7 @@ export function parseLanguageObject(data: Record<string, number>[]): Record<stri
     }
 
     for (const language of Object.keys(EXTERNAL_CODE_LANGS)) {
-        let lang = getLangShortName(language);
+        const lang = getLangShortName(language);
         if (parsed[lang]) {
             parsed[lang] += EXTERNAL_CODE_LANGS[language];
         } else {
@@ -76,6 +76,5 @@ export function parseLanguageObject(data: Record<string, number>[]): Record<stri
     for (const language of Object.keys(parsed)) {
         parsed[language] = parsed[language] / total;
     }
-    console.log(parsed);
     return parsed;
 }

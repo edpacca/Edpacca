@@ -9,9 +9,6 @@
 	const weather = getWeatherFromCode(data.weathercode);
 	const windDirection = getDirectionFromAngle(data.winddirection);
 	const time = new Date(data.time);
-
-	let canvasElement: HTMLCanvasElement;
-
 </script>
 
 <div class="weather-text">
@@ -41,6 +38,12 @@
 		grid-template-columns: auto 1fr;
 		font-size: 1.3em;
 		column-gap: 0.5em;
+		position: absolute;
+		top: 80px;
+		left: var(--margin);
+		background-color: var(--black-50);
+		padding: 0.4em;
+		border-radius: 6px;
 	}
 
 	.key {
@@ -54,7 +57,7 @@
 	.compass {
 		width: 8rem;
 		position: absolute;
-		top: var(--margin);
+		top: 80px;
 		right: var(--margin);
 	}
 	
@@ -62,5 +65,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		width: 100%;
+		height: 100%;
+
 	}
 </style>
