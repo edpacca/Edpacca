@@ -9,9 +9,10 @@ on:
     - main
 
 jobs:
-    edpacca_pr_ci:
-        name: edpacca_pr_ci
+    test-build-deploy:
+        name: test build and deploy
         if: '!github.event.pull_request.draft'
+        concurrency: ci-${{github.ref}}
         runs-on: ubuntu-latest
 
         steps:
@@ -49,4 +50,10 @@ jobs:
 
             - name: Build
               run: npm run build
-            
+
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                folder: svelte-kit
+                branch: gh-pages
+        
