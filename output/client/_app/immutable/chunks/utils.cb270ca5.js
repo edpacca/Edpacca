@@ -1,0 +1,1 @@
+function e(t,a="medium",r="en-gb"){return new Intl.DateTimeFormat(r,{dateStyle:a}).format(new Date(t))}function o(t){const a=t.valueOf()-new Date(t.getFullYear(),0,0).valueOf();return Math.floor(a/(1e3*60*60*24))}function f(t,a){return Math.floor(Math.random()*(a-t+1)+t)}function u(){return Math.random()>=.5?1:-1}export{u as a,o as d,e as f,f as r};

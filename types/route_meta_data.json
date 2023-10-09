@@ -1,0 +1,23 @@
+{
+	"/": [
+		"src/routes/+page.ts"
+	],
+	"/api/posts": [
+		"src/routes/api/posts/+server.ts"
+	],
+	"/api/projects/running": [
+		"src/routes/api/projects/running/+server.ts"
+	],
+	"/projects": [
+		"src/routes/projects/+page.ts"
+	],
+	"/projects/[projectId]": [
+		"src/routes/projects/[projectId]/+page.server.ts"
+	],
+	"/weather": [
+		"src/routes/weather/+page.server.ts"
+	],
+	"/[slug]": [
+		"src/routes/[slug]/+page.ts"
+	]
+}
