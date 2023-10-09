@@ -50,10 +50,13 @@ jobs:
 
             - name: Build
               run: npm run build
+            
+            - name: Check again
+              run: ls -la
 
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@v4
               with:
-                folder: svelte-kit
+                folder: .svelte-kit
                 branch: gh-pages
         
