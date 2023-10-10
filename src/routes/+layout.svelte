@@ -9,9 +9,9 @@
 
 	let isMenuOpen = false;
 
-	const closeMenu = () => {
-		isMenuOpen = !isMenuOpen;
-	}
+	// const closeMenu = () => {
+	// 	isMenuOpen = !isMenuOpen;
+	// }
 </script>
 
 <svelte:head>
