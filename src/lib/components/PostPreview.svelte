@@ -6,16 +6,15 @@
     export let hasProjectLink = true;
     export let hasPostImage = false;
     const date = formatDate(post.date);
-    
 </script>
 
 
 <div class="summary-container">
     <div class="info-container">
         {#if hasPostImage}
-        <div class="image-container">
-            <PostCoverImage post={post}/>
-        </div>
+            <div class="image-container">
+                <PostCoverImage post={post}/>
+            </div>
         {/if}
         <div>
             <div class="date">{date}</div>

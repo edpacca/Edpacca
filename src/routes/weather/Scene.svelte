@@ -90,11 +90,6 @@
         background-color: black;
     }
 
-    rect {
-        fill: aliceblue;
-        width: 100%;
-        height: 100%;
-    }
 
     .night {
         background: var(--night);

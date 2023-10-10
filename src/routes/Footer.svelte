@@ -1,4 +1,5 @@
 <script>
+    import * as config from "$lib/config";
     import IconLink from "$lib/components/IconLink.svelte";
     const githubLink = "https://github.com/Edpacca"
     const linkedinLink = "https://www.linkedin.com/in/edward-pace-ab88a971/"
@@ -7,12 +8,15 @@
 </script>
 
 <footer>
-    <ul>
-        <li><IconLink icon={"github"} link={githubLink} text={"Github"}/></li>
-        <li><IconLink icon={"linkedin"} link={linkedinLink} text={"LinkedIn"}/></li>
-        <li><IconLink icon={"instagram"} link={instagramLink} text={"Instagram"}/></li>
-        <li><IconLink icon={"research-gate"} link={researchgateLink} text={"Research-gate"}/></li>
-    </ul>
+    <div>
+        <ul>
+            <li><IconLink icon={"github"} link={githubLink} text={"Github"}/></li>
+            <li><IconLink icon={"linkedin"} link={linkedinLink} text={"LinkedIn"}/></li>
+            <li><IconLink icon={"instagram"} link={instagramLink} text={"Instagram"}/></li>
+            <li><IconLink icon={"research-gate"} link={researchgateLink} text={"Research-gate"}/></li>
+        </ul>
+        <div class="copyright">{config.title} &copy {new Date().getFullYear()}</div>
+    </div>
 </footer>
 
 <style>
@@ -28,5 +32,14 @@
         column-gap: 1.2rem;
         list-style: none;
         padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    .copyright {
+        font-weight: lighter;
+        text-align: center;
     }
 </style>

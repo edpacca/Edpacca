@@ -1,5 +1,6 @@
-import { json } from '@sveltejs/kit'
+import { json } from '@sveltejs/kit';
 
+/* eslint-disable */
 async function getPosts() {
     let posts: Post[] = []
 

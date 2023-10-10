@@ -65,20 +65,16 @@ export function drawTree(context: CanvasRenderingContext2D,
     angle: number,
     depth: number,
     branchWidth: number) {
-    let rand = Math.random;
-
-    let newLength, 
-    newAngle, 
-    newDepth, 
-    maxBranch = 3,
-    endX, endY, 
-    maxAngle = 2 * Math.PI / 6, 
-    subBranches;
+    
+    let newLength, newAngle;
+    const rand = Math.random;
+    const maxAngle = 2 * Math.PI / 6; 
+    const maxBranch = 3;
+    const endX = startX + length * Math.cos(angle);
+    const endY = startY + length * Math.sin(angle);
   
     context.beginPath();
     context.moveTo(startX, startY);
-    endX = startX + length * Math.cos(angle);
-    endY = startY + length * Math.sin(angle);
     context.lineCap = 'round';
     context.lineWidth = branchWidth;
     context.lineTo(endX, endY);
@@ -91,12 +87,12 @@ export function drawTree(context: CanvasRenderingContext2D,
     }
 
     context.stroke();
-    newDepth = depth - 1;
+    const newDepth = depth - 1;
   
     if(!newDepth) {
       return;
     }
-    subBranches = (rand() * (maxBranch - 1)) + 1;
+    const subBranches = (rand() * (maxBranch - 1)) + 1;
     branchWidth *= 0.7;
   
     for (let i = 0; i < subBranches; i++) {
@@ -107,9 +103,9 @@ export function drawTree(context: CanvasRenderingContext2D,
   
 }
 
-export function drawClouds(context: CanvasRenderingContext2D, direction: number, density: number) {
+// export function drawClouds(context: CanvasRenderingContext2D, direction: number, density: number) {
 
-}
+// }
 
 export function drawCloud(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
   const sizeVarFactor = 0.8;

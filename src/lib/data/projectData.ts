@@ -18,12 +18,12 @@ export const PROJECTS: ProjectType[] = [
     { 
         name: "AISIAEC",
         id: "aisiaec",
-        icon: "circle",
+        icon: "music",
         description: "When I moved to Edinburgh in 2014 I put out an advert on Gumtree looking for musicians to jam with. All I see is an Empty Circle slowly formed off the back of that advert into a band that we were very proud of. We released 3 EPs between 2016 - 2019 and recorded them all ourselves. I created the artwork of course."
     },
     {
         name: "Music",
-        id: "solomusic",
+        id: "music",
         icon: "music"
     },
 	{ 
