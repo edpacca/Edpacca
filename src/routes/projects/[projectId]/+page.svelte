@@ -1,6 +1,7 @@
 <script lang=ts>
     import { page } from "$app/stores";
     import Gallery from "$lib/components/Gallery.svelte";
+    import ImageSeries from "$lib/components/ImageSeries.svelte";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import { WARHAMMER_GALLERY } from "$lib/data/galleries";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
@@ -16,7 +17,8 @@
 </div>
 
 {#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
-    <Gallery imagePaths={WARHAMMER_GALLERY}/>
+    <ImageSeries />
+    <!-- <Gallery imagePaths={WARHAMMER_GALLERY}/> -->
 {:else if $page.url.pathname.split("/projects/")[1] === "running"}
     <RunningPage/>
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
