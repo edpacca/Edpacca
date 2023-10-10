@@ -114,9 +114,7 @@ export function drawClouds(context: CanvasRenderingContext2D, direction: number,
 export function drawCloud(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
   const sizeVarFactor = 0.8;
   const rowVarFactor = 0.9;
-  const sizeVariance = size * sizeVarFactor;
   // get random size between 0.75 and 1.5 x provided size
-  const getBlobSize = () => Math.floor((Math.random() * sizeVariance) + sizeVariance);
   const numberOfRows = randIntBetween(3, 6);
   
   let rowLength = 4;
@@ -133,5 +131,19 @@ export function drawCloud(context: CanvasRenderingContext2D, x: number, y: numbe
       newPosY = cy + y
       drawCircle(context, newPosX, newPosY, newSize, undefined, cloudColour)
     }    
+  }
+}
+
+export function curve(context:CanvasRenderingContext2D, x1: number, y: number, size: number) {
+
+  // let yValues = [];
+
+  // const values = [1, 3, 4, 5, 4, 3, 1];
+  // const length = yValues.length
+  for (let x = 0; x < 22; x++) {
+    const xpos = x + x1
+    const ypos = y + (x - 10) * (x - 10)
+
+    drawCircle(context, xpos * 10, ypos, size, undefined, "yellow");
   }
 }

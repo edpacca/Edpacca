@@ -10,7 +10,7 @@ export function randBetween(min: number, max: number) {
 }
 
 export function randIntBetween(min: number, max: number) {
-    return Math.floor(randBetween(min, max));
+    return Math.floor(randBetween(min - 1, max));
 }
 
 export function randVariance(value: number, variance: number) {

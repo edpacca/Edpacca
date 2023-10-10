@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit, drawClouds, drawCloud } from "./weatherScene";
+    import { drawTree, drawOrbit, drawClouds, drawCloud, curve } from "./weatherScene";
     import { drawCharacter } from "./DrawCharacter";
     export let time: Date;
 
@@ -26,7 +26,8 @@
             //     orbitRadius, orbitBodyRadius);
             // drawTree(ctx, 120, canvas.height, 80, -Math.PI / 2, 12, 15);
             // drawTree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2, 12, 15);
-            drawCloud(ctx, 100, 100, cloudSize);
+            // drawCloud(ctx, 100, 100, cloudSize);
+            curve(context, 100, 100, 5);
             // drawCloud(ctx, 750, 100, cloudSize);
             // drawCloud(ctx, 1300, 100, cloudSize);
 
@@ -43,7 +44,8 @@
 
     const regenCloud = () => {
         context.clearRect(0, 0, 1920, 1080);
-        drawCloud(context, 100, 100, cloudSize);
+        // drawCloud(context, 100, 100, cloudSize);
+        curve(context, 100, 100, 5)
     }
 </script>
 
