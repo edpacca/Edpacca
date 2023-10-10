@@ -4,7 +4,7 @@ description: An aesthetic and functional tool for the Dungeon Master to track co
 date: 05/09/2023
 projectId: programming
 coverImage: /dnd-initiative/initiative-icon.svg
-published: true
+published: false
 technologies: [ Svelte, Typescript ]
 ---
 
