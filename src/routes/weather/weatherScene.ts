@@ -1,4 +1,4 @@
-import { drawCircle } from "$lib/ts/canvas/canvasUtils";
+import { drawCircle } from "$lib/canvasUtils";
 import { randBetween, randIntBetween, randVariance } from "$lib/utils";
 
 export function drawOrbit(

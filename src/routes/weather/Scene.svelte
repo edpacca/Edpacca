@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit, drawClouds, drawCloud, curve } from "./weatherScene";
+    import { drawTree, drawOrbit, drawCloud, curve } from "./weatherScene";
     import { drawCharacter } from "./DrawCharacter";
     export let time: Date;
 
