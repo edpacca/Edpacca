@@ -20,14 +20,14 @@
 </svelte:head>
 
 <div class="app">
-	<div class="theme-selectors">
+	<!-- <div class="theme-selectors">
 		<BurgerMenu bind:isOpen={isMenuOpen}>
 			<div class="toggle-container">
 				<DarkThemeToggle callback={closeMenu}/>
 				<ThemeSelector callback={closeMenu}/>
 			</div>
 		</BurgerMenu>
-	</div>
+	</div> -->
 	<Header/>
 	<main>
 		<div class:main-margin={!$page.url.pathname.startsWith('/weather')}>
