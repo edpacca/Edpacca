@@ -1,11 +1,11 @@
 <script>
 	import { page } from '$app/stores';
-    import BurgerMenu from '$lib/components/BurgerMenu.svelte';
-    import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
-    import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
 	import * as config from "$lib/config";
+    // import BurgerMenu from '$lib/components/BurgerMenu.svelte';
+    // import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
+    // import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
 
 	let isMenuOpen = false;
 
