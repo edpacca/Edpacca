@@ -39,6 +39,7 @@
     <div class="image-container" style="height: {imageHeight}px;">
         {#key currentImage}
             <img
+                class="gallery-img"
                 bind:this={img}
                 src={currentImage}
                 alt={title}
@@ -77,7 +78,6 @@
     }
 
     img {
-        border-radius: 20px;
         position: absolute;
         margin-left: auto;
         margin-right: auto;
