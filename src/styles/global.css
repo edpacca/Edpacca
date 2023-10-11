@@ -252,3 +252,7 @@ li {
 	color: var(--highlight);
 	transition: var(--transition-time);
 }
+
+img.gallery-img{
+	border-radius: calc(2 * var(--border-radius));
+}

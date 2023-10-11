@@ -2,6 +2,7 @@
     export let src: string;
     export let alt: string;
     export let isZoomed: boolean = false;
+    export let img: HTMLImageElement;
 </script>
 
 {#if isZoomed}
@@ -11,7 +12,7 @@
 <div class="click-zoom">
     <label>
       <input type="checkbox" bind:checked={isZoomed}>
-      <img {src} {alt} class={$$props.class}/>
+      <img {src} {alt} class={$$props.class} bind:this={img}/>
     </label>
   </div>
 

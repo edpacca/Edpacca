@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import ZoomImage from "../ZoomImage.svelte";
 
     export let src: string;
     export let alt: string;
@@ -12,13 +13,12 @@
 </script>
 
 <div class="post-image-container">
-    <img
+    <ZoomImage
         src={`images/${src}`} 
         alt={alt}
         loading="lazy"
-        class="post-image"
-        bind:this={img}
-        class:square={isSquare}/>
+        class={`post-image ${isSquare ? "square" : ""}`}
+        bind:img={img}/>
     {#if alt}
         <div class="caption">{alt}</div>
     {/if}
