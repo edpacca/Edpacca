@@ -2,17 +2,28 @@
     export let src: string;
     export let alt: string;
     export let isZoomed: boolean = false;
-    export let img: HTMLImageElement;
+    export let img: HTMLImageElement | undefined = undefined;
+    export let dominantDimension: "height" | "width" = "width";
 </script>
 
 {#if isZoomed}
     <div class="dim-filter">
     </div>
 {/if}
-<div class="click-zoom">
+<div
+    class="click-zoom"
+    class:height={dominantDimension === "height"}
+    class:width={dominantDimension === "width"}
+>
     <label>
       <input type="checkbox" bind:checked={isZoomed}>
-      <img {src} {alt} class={$$props.class} bind:this={img}/>
+      <img
+        {src}
+        {alt}
+        class={$$props.class}
+        class:height={dominantDimension === "height"}
+        class:width={dominantDimension === "width"}
+        bind:this={img}/>
     </label>
   </div>
 
@@ -22,8 +33,15 @@
     }
 
     .click-zoom img {
-        width: 100%;
         cursor: zoom-in;
+    }
+
+    .click-zoom img.width {
+        width: 100%;
+    }
+
+    .click-zoom img.height {
+        height: 100%;
     }
 
     .click-zoom input[type=checkbox]:checked~img {
