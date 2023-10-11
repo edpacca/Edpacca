@@ -1,19 +1,12 @@
 <script lang="ts">
-    import { quintOut } from "svelte/easing";
     import { fade } from "svelte/transition";
-    import SeekButtons from "./SeekButtons.svelte";
     import { onMount } from "svelte";
-    let darkBackground = false;
-    let seriesTitle = "highland style warhammer bases image series"
-    let imagePaths = [
-        "/images/warhammer/highland-bases/bases_0.webp",
-        "/images/warhammer/highland-bases/bases_1.webp",
-        "/images/warhammer/highland-bases/bases_2.webp",
-        "/images/warhammer/highland-bases/bases_3.webp",
-        "/images/warhammer/highland-bases/bases_4.webp",
-        "/images/warhammer/highland-bases/bases_5.webp",
-        "/images/warhammer/highland-bases/bases_6.webp"
-    ]
+    import SeekButtons from "./SeekButtons.svelte";
+   
+    export let darkBackground = false;
+    export let title: string;
+    export let imagePaths: string[];
+    export let showIndex = false;
 
     const max = imagePaths.length;
 
@@ -31,44 +24,48 @@
     const next = () => {
         currentIndex = (currentIndex + 1) % max;
     }
-
-    $: currentImage = imagePaths[currentIndex];
-
+    
     onMount(() => {
         if (img) {
             imageHeight = img.clientHeight;
             imageWidth = img.clientWidth;
         }
     });
+
+    $: currentImage = imagePaths[currentIndex];
 </script>
 
-<div class="image-series-container">
+<div class="gallery-container">
     <div class="image-container" style="height: {imageHeight}px;">
         {#key currentImage}
             <img
                 bind:this={img}
                 src={currentImage}
-                alt={seriesTitle}
+                alt={title}
                 transition:fade
                 on:click={next}
                 on:keydown={() => {}}
             />
         {/key}
-        <div
-            class="index" 
-            class:light-font={darkBackground}
-            style="--img-width: {imageWidth}px;">
-            #{currentIndex + 1}
+        {#if showIndex}
+            <div
+                class="index" 
+                class:light-font={darkBackground}
+                style="--img-width: {imageWidth}px;">
+                #{currentIndex + 1}
+            </div>
+        {/if}
+    </div>
+    {#if imagePaths.length > 1}
+        <div class="buttons-container">
+            <SeekButtons onForward={next} onBackward={previous}/>
         </div>
-    </div>
-    <div class="buttons-container">
-        <SeekButtons onForward={next} onBackward={previous}/>
-    </div>
+    {/if}
 </div>
 
 <style>
     
-    .image-series-container {
+    .gallery-container {
         width: 100%;
         flex-direction: column;
         justify-content: center;
