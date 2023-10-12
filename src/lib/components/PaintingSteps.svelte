@@ -7,6 +7,7 @@
     export let paintingSteps: PaintingStep[];
     const imageSrcs: string[] = paintingSteps.map(step => step.imagePath);
     let currentIndex = 0;
+    export let title = "";
 
     const max = paintingSteps.length - 1;
 
@@ -42,7 +43,7 @@
     </div>
     <CarouselGallery
         imagePaths={imageSrcs}
-        title="dark angels armour recipe"
+        title={title}
         bind:currentIndex={currentIndex}
     />
 </div>

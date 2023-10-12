@@ -8,9 +8,19 @@ coverImage: "/warhammer/gallery/devastator-sergeant.webp"
 ---
 
 <script>
-    import DarkAngelsArmour from "../lib/pages/DarkAngelsArmour.svelte"
+    import PaintingTutorial from "../lib/components/PaintingTutorial.svelte";
+    import { DA_ARMOUR_PAINTS } from "../lib/data/paintColourData";
+    import { DA_ARMOUR_RECIPE_STEPS } from "../lib/data/paintingStepsData";
+
+    const coverImage = "images/warhammer/gallery/devastator-sergeant-alpha.webp";
 </script>
+
 
 The classic "Dark Angels Green" paint that GW made back when I started collecting ~2000 was a nice fairly saturated green, whereas the newer "Caliban Green" is a little muted for my taste. It's also quite a cold green and I have ended up with quite a warm scheme for my army. I use Vallejo colours and managed to come up with a simple but effective set of steps for getting an armour colour and feel that I like, without being too fiddly. The Dark Angels accent colour is an off-white cream, which normally is a little too clean for my taste. I have come up with a method for creating a grittier, more parchment like highlight colour that really makes this army feel grimdark. 
 
-<DarkAngelsArmour/>
+<PaintingTutorial
+    paints={DA_ARMOUR_PAINTS}
+    coverImage={coverImage}
+    paintingSteps={DA_ARMOUR_RECIPE_STEPS}
+    alt="Dark angels sergeant"
+    title="Dark angels armour recipe"/> 

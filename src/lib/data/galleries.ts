@@ -1,8 +1,11 @@
-export const HIGHLAND_BASES = [
+export const HIGHLAND_BASES_GALLERY = [
     "/images/warhammer/highland-bases/bases_0.webp",
     "/images/warhammer/highland-bases/bases_1.webp",
     "/images/warhammer/highland-bases/bases_2.webp",
     "/images/warhammer/highland-bases/bases_3.webp",
+    "/images/warhammer/highland-bases/bases_4.webp",
+    "/images/warhammer/highland-bases/bases_5.webp",
+    "/images/warhammer/highland-bases/bases_6.webp",
 ]
 
 export const FLYING_BASE = [

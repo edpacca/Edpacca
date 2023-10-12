@@ -32,9 +32,23 @@
         }
     });
 
+    const onKeyDown = (event: KeyboardEvent) => {
+        switch(event.key) {
+            case "ArrowLeft":
+                previous();
+                break;
+            case "ArrowRight":
+                next();
+                break;
+            default:
+                return;
+        }
+    }
+
     $: currentImage = imagePaths[currentIndex];
 </script>
 
+<svelte:window on:keydown|preventDefault={onKeyDown}/>
 <div class="gallery-container">
     <div class="image-container" style="height: {imageHeight}px;">
         {#key currentImage}

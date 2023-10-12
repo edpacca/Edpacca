@@ -58,6 +58,7 @@
         /* transform: scale(2); */
         cursor: zoom-out;
         padding: 1em;
+        z-index: 10;
     }
 
     .dim-filter {
@@ -67,5 +68,6 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
+        z-index: 9;
     }
 </style>
