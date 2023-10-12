@@ -34,6 +34,7 @@
 
     .click-zoom img {
         cursor: zoom-in;
+        display: block;
     }
 
     .click-zoom img.width {

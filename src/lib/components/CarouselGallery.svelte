@@ -7,10 +7,10 @@
     export let title: string;
     export let imagePaths: string[];
     export let showIndex = false;
+    export let currentIndex = 0;
 
     const max = imagePaths.length;
 
-    let currentIndex = 0;
     let img: HTMLImageElement;
     let imageHeight: number;
     let imageWidth: number;
@@ -84,6 +84,7 @@
         left: 0;
         right: 0;
         text-align: center;
+        width: 100%;
     }
 
     .index {
