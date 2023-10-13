@@ -7,7 +7,7 @@
     // import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
     // import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
 
-	let isMenuOpen = false;
+	// let isMenuOpen = false;
 
 	// const closeMenu = () => {
 	// 	isMenuOpen = !isMenuOpen;
