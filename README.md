@@ -1,4 +1,8 @@
 [![Edpacca CI](https://github.com/Edpacca/Edpacca.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/Edpacca/Edpacca.github.io/actions/workflows/main.yml)
 
-# Personal Portfolio
-A place to share a little info about me, and to collect links and demos for projects that I've finished
+!["a wizard"](/static/images/wizard-grenade/wizard.webp)
+
+# Personal blog and project portfolio
+Made with svelte-kit. I have, and have had, many interests and hobbies over the years; both creative and technical, usually involving wizards. This is where I aim to document some of them.
+
+Deployed at [edpacca.co.uk](https://edpacca.co.uk)
