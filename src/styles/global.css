@@ -249,6 +249,19 @@ li {
 	transition: var(--transition-time);
 }
 
+img.gallery-img{
+	border-radius: calc(2 * var(--border-radius));
+}
+
+.two-col {
+	display: grid;
+	grid-template-columns:  1fr 1fr;
+}
+
+.italic {
+	font-style: italic;
+}
+
 @media screen and (max-width: 600px) {
 	
 	.title {

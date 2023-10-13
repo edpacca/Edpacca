@@ -1,8 +1,7 @@
 <script lang=ts>
     import { page } from "$app/stores";
-    import Gallery from "$lib/components/Gallery.svelte";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
-    import { WARHAMMER_GALLERY } from "$lib/data/galleries";
+    import MiniaturesPage from "$lib/pages/MiniaturesPage.svelte";
     import PostPreview from "../../../lib/components/PostPreview.svelte";
     import RunningPage from "../../../lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
@@ -11,13 +10,16 @@
 </script>
 
 <h1>{data.project?.name}</h1>
+
+{#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
+    <MiniaturesPage/>
+{/if}
+
 <div class="description">
     {data.project?.description ?? ""}
 </div>
 
-{#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
-    <Gallery imagePaths={WARHAMMER_GALLERY}/>
-{:else if $page.url.pathname.split("/projects/")[1] === "running"}
+{#if $page.url.pathname.split("/projects/")[1] === "running"}
     <RunningPage/>
 {:else if $page.url.pathname.split("/projects/")[1] === "programming"}
     {#if data.ghData}
