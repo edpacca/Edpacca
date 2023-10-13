@@ -12,13 +12,11 @@
 <div class="summary-container">
     <div class="info-container">
         {#if hasPostImage}
-            <div class="image-container">
-                <PostCoverImage post={post}/>
-            </div>
+            <PostCoverImage post={post}/>
         {/if}
         <div>
             <div class="date">{date}</div>
-            <a href={`/${post.slug}`} class="title">{post.title}</a>
+            <a href={`/${post.slug}`} class="title two-line-clamp">{post.title}</a>
         </div>
     </div>
     {#if hasProjectLink}
@@ -35,11 +33,6 @@
         align-items: center;
     }
 
-    .image-container {
-        width: 5em;
-        height: 5em;
-    }
-
     .info-container {
         display: flex;
         flex-direction: row;
@@ -47,6 +40,7 @@
         align-items: center;
         margin-right: auto;
         gap: 1em;
+        padding-right: var(--margin);
     }
 
     .project-link-container {

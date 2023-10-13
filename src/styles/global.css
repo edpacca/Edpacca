@@ -89,12 +89,6 @@ p {
 	font-family: var(--font-text);
 }
 
-@media screen and (max-width: 600px) {
-	p {
-		font-size: 1.5em;
-	}
-}
-
 a {
 	color: var(--highlight);
 	text-decoration: none;
@@ -137,6 +131,14 @@ pre {
 	color: var(--primary);
 }
 
+.two-line-clamp {
+	overflow: hidden;
+	display: -webkit-box;
+	line-clamp: 2; 
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
 img.post-image {
 	width: 100%;
 	height: 100%;
@@ -165,12 +167,6 @@ img.cover-image {
 	grid-template-columns: 1fr 1fr;
 	gap: 1em;
 	margin: 2em 0;
-}
-
-@media screen and (max-width: 600px) {
-	.image-grid {
-		grid-template-columns: 1fr;
-	}
 }
 
 .caption {
@@ -264,4 +260,23 @@ img.gallery-img{
 
 .italic {
 	font-style: italic;
+}
+
+@media screen and (max-width: 600px) {
+	
+	.title {
+		font-size: 1.2em;
+	}
+
+	p {
+		font-size: 1.4em;
+	}
+
+	.image-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.debug {
+	border: 1px solid yellow;
 }
