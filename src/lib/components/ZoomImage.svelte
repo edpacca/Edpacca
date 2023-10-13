@@ -4,6 +4,7 @@
     export let isZoomed: boolean = false;
     export let img: HTMLImageElement | undefined = undefined;
     export let dominantDimension: "height" | "width" = "width";
+    export let hoverEnabled = false;
 
     let isHovered = false;
 </script>
@@ -20,7 +21,7 @@
     on:mouseleave={() => { isHovered = false; }}
 >
     <label>
-        {#if isHovered && alt}
+        {#if hoverEnabled && isHovered && alt}
         <div class="label">
             {alt}
         </div>

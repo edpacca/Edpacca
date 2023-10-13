@@ -43,7 +43,12 @@
             {#each columns as column, i}
                 <div class="column">
                     {#each column as image, j}
-                        <ZoomImage src={image.path} class="gallery-img" alt={image.alt ?? ""}/>
+                        <ZoomImage
+                            src={image.path}
+                            class="gallery-img"
+                            alt={image.alt ?? ""}
+                            hoverEnabled={true}
+                        />
                     {/each}
                 </div>
             {/each}
