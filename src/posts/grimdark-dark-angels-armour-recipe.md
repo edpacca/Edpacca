@@ -4,7 +4,7 @@ description: A simple set of steps that I use to paint the armour for the bulk o
 date: 11/10/2023
 projectId: minipainting
 published: true
-coverImage: "/warhammer/gallery/devastator-sergeant.webp"
+icon: paintbrush
 ---
 
 <script>

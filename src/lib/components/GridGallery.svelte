@@ -1,13 +1,13 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import ZoomImage from "./ZoomImage.svelte";
-
-    export let imagePaths: string[];
+    import type { ImageMetadata } from "$lib/data/galleries";
+    export let images: ImageMetadata[];
     export let setNumCols: number | undefined = undefined;
     let numCols: number;
     let screenWidth: number;
-    let columns: string[][] = [];
-    let numImgs = imagePaths.length;
+    let columns: ImageMetadata[][] = [];
+    let numImgs = images.length;
     let imgsPerCol;
 
     function calculateColumns(screenWidth: number) {
@@ -16,14 +16,14 @@
             screenWidth > 400 ? 2 :
             1;
         columns = [];
-        numImgs = imagePaths.length;
+        numImgs = images.length;
         imgsPerCol = Math.ceil(numImgs / numCols);
     
         for (let i = 0; i < numCols; i++) {
             columns.push(
-                imagePaths.slice(
+                images.slice(
                     i * imgsPerCol,
-                    Math.min((i + 1) * imgsPerCol, numImgs - 1)
+                    Math.min((i + 1) * imgsPerCol, numImgs)
                 )
             );
         }
@@ -33,7 +33,7 @@
         calculateColumns(screenWidth);
     });
 
-    $: calculateColumns(screenWidth)
+    $: calculateColumns(screenWidth);
 </script>
 
 <svelte:window bind:innerWidth={screenWidth}/>
@@ -42,8 +42,8 @@
         <div class="column-grid" style="--num-cols: {numCols}">
             {#each columns as column, i}
                 <div class="column">
-                    {#each column as imgSrc, j}
-                        <ZoomImage src={imgSrc} class="gallery-img" alt={`gallery image ${i}`}/>
+                    {#each column as image, j}
+                        <ZoomImage src={image.path} class="gallery-img" alt={image.alt ?? ""}/>
                     {/each}
                 </div>
             {/each}

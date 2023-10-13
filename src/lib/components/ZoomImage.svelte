@@ -1,9 +1,11 @@
 <script lang="ts">
     export let src: string;
-    export let alt: string;
+    export let alt: string = "";
     export let isZoomed: boolean = false;
     export let img: HTMLImageElement | undefined = undefined;
     export let dominantDimension: "height" | "width" = "width";
+
+    let isHovered = false;
 </script>
 
 {#if isZoomed}
@@ -14,17 +16,26 @@
     class="click-zoom"
     class:height={dominantDimension === "height"}
     class:width={dominantDimension === "width"}
+    on:mouseenter={() => { isHovered = true; }}
+    on:mouseleave={() => { isHovered = false; }}
 >
     <label>
-      <input type="checkbox" bind:checked={isZoomed}>
-      <img
-        {src}
-        {alt}
-        class={$$props.class}
-        class:height={dominantDimension === "height"}
-        class:width={dominantDimension === "width"}
-        bind:this={img}/>
+        {#if isHovered && alt}
+        <div class="label">
+            {alt}
+        </div>
+        {/if}
+        <input type="checkbox" bind:checked={isZoomed}>
+        <img
+            {src}
+            alt={alt ? alt : ""}
+            class={$$props.class}
+            class:height={dominantDimension === "height"}
+            class:width={dominantDimension === "width"}
+            bind:this={img}
+        />
     </label>
+
   </div>
 
 <style>
@@ -69,5 +80,13 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
         z-index: 9;
+    }
+
+    .label {
+        position: absolute;
+        color: var(--primary);
+        background-color: var(--black-50);
+        padding: var(--margin);
+        border-radius: 0 0 8px 0;
     }
 </style>

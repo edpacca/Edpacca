@@ -1,3 +1,8 @@
+export interface ImageMetadata {
+    path: string,
+    alt?: string
+}
+
 export const HIGHLAND_BASES_GALLERY = [
     "/images/warhammer/highland-bases/bases_0.webp",
     "/images/warhammer/highland-bases/bases_1.webp",
@@ -36,3 +41,18 @@ export const DA_ARMOUR_GALLERY = [
 
 export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/deathwing-alpha.webp"
 // export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/da-dreadnaught-alpha.webp"
+
+export const MINIATURE_GALLERY: ImageMetadata[] = [
+    {
+        path: "/images/warhammer/gallery/da-dreadnaught.webp",
+        alt: "Classic Dreadnaught"
+    },
+    {
+        path: "/images/warhammer/gallery/deathwing.webp",
+        alt: "Ebay rescued Deathwing Terminators"
+    },
+    {
+        path: "/images/warhammer/gallery/devastator-sergeant.webp",
+        alt: "Devastators Sergeant"
+    }
+]

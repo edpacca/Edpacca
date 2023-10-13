@@ -37,6 +37,7 @@
         grid-template-columns: 4rem 1fr;
         align-items: center;
         gap: 1.5em;
+        margin: 0.5em;
     }
 
     .colour {

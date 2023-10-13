@@ -4,7 +4,7 @@ description: Instructions to make highland themed bases that I use for my Dark A
 date: 10/13/2023
 projectId: minipainting
 published: true
-coverImage: "/warhammer/highland-bases/bases_6.webp"
+icon: paintbrush
 ---
 
 <script>
