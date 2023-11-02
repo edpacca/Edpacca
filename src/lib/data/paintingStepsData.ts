@@ -1,5 +1,5 @@
-import { DA_ARMOUR_GALLERY, HIGHLAND_BASES_GALLERY } from "./galleries";
-import { DA_ARMOUR_PAINTS, HIGHLAND_BASE_PAINTS, type PaintColourType } from "./paintColourData";
+import { DA_ARMOUR_GALLERY, DW_ARMOUR_GALLERY, HIGHLAND_BASES_GALLERY } from "./galleries";
+import { DA_ARMOUR_PAINTS, HIGHLAND_BASE_PAINTS, DW_ARMOUR_PAINTS, type PaintColourType } from "./paintColourData";
 
 export interface PaintingStep {
     paints: PaintColourType[];
@@ -187,4 +187,90 @@ export const HIGHLAND_BASE_STEPS: PaintingStep[] = [
         instructions: HIGHLAND_BASE_INSTRUCTIONS[6],
         imagePath: HIGHLAND_BASES_GALLERY[6]
     }
+]
+
+export const DW_ARMOUR_INSTRUCTIONS: string[][] = [
+    [
+        "We start off from a neutral grey prime from a spraycan with a similarly budget rattlecan zenithal in white. For me though, it didn't do a lot here - it was pretty much a pure white covering!",
+        "The first paint applied is our bone coloured Speedpaint. This is translucent which lets the undercoat shine through. If we used straight grey here it would look a lot more dull.",
+        "The reason I use Speedpaint is because bone/white acrylic paint can get quite chalky due to large pigment sizes, and is therefore hard to apply smoothly. The Speedpaint gives me a smooth even coverage to start from."
+    ],
+    [
+        "Next I wanted to try to get a textured parchment like look to give the armour an ancient feel. I took a cheap synthetic brush and cut the bristles short, to make them stiff and splay out. With this I heavily stippled on the earth brown colour.",
+        "This \"flat earth\" colour has a nice warmth to it that really comes out over the bone base."
+    ],
+    [
+        "I picked out the edges and details on the models with a simple drybrush of a bone white. I have since figured out how to drybrush with smoother results, but you know this attempt actually imparted a really dusty feel - which is kind of what I wanted! They look a bit like they're made of sandstone.",
+    ],
+    [
+        "Now for the real fun part. I applied a coat of satin varnish and then a burnt umber oil wash. I've been experimenting with oil washes and they do a great job of sinking into all those recesess - enhancing all the details on the model.",
+        "If you're unfamiliar with oil-washes - oil paint needs to be diluted with mineral spirits rather than water. The surface tension is lower therefore the paint pulls into all the cracks drawing paint pigment with it. Varnishing the model first also helps this."
+    ],
+    [
+        "Another good reason to varnish a model before an oil wash is to protect the paint underneath. I took a cotton bud dipped in some mineral spirits and wipe most of the oil paint off the raised surfaces of the armour.",
+        "This gets rid of some of the heavy staining and helps lighten up the armour, whilst leaving the darker recesses shaded by the oil wash",
+        "I should have taken a picture at this point, but I got carried away and began highlighting up with a mixture of flat earth and white bone."
+    ],
+    [
+        "I tried to catch the parts of the armour that are naturally going to pick up more light, such as the top of the shoulder pads and the raised part of the curved back-piece.",
+        "This was a good early lesson in painting volumes for me, in particular cylinders and spheres. I didn't spent too long though as this is after all meant to be a quick and easy recipe."
+    ],
+    [
+        "The final step was just to pick out the most prominent parts of the face, and highest edges with pale sand. I could definitely have done a better job even now after an extra few months of painting under my belt, but I'm still really happy with how these look on the tabletop!",
+        "These models were refurbished off of ebay and therefore had many imperfections and things I would avoid if I assembled them myself. At the end of the day, perfection is the enemy of good - so sometimes you just have to enjoy the process! I am going to take a lot more time on my Deathwing Knights, and hopefully they'll end up in the gallery soon."
+    ],
+]
+
+export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
+{
+        paints: [
+            DW_ARMOUR_PAINTS[0]
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[0],
+        imagePath: DW_ARMOUR_GALLERY[0]
+    },
+    {
+        paints: [
+            DW_ARMOUR_PAINTS[1]
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[1],
+        imagePath: DW_ARMOUR_GALLERY[1]
+    },
+    {
+        paints: [
+            DW_ARMOUR_PAINTS[2]
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[2],
+        imagePath: DW_ARMOUR_GALLERY[2]
+    },
+    {
+        paints: [
+            DW_ARMOUR_PAINTS[3]
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[3],
+        imagePath: DW_ARMOUR_GALLERY[4]
+    },
+    {
+        paints: [
+            DW_ARMOUR_PAINTS[1],
+            DW_ARMOUR_PAINTS[2],
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[4],
+        imagePath: DW_ARMOUR_GALLERY[5]
+    },
+    {
+        paints: [
+            DW_ARMOUR_PAINTS[1],
+            DW_ARMOUR_PAINTS[2],
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[5],
+        imagePath: DW_ARMOUR_GALLERY[6]
+    },
+    {
+        paints: [
+            DW_ARMOUR_PAINTS[4],
+        ],
+        instructions: DW_ARMOUR_INSTRUCTIONS[6],
+        imagePath: DW_ARMOUR_GALLERY[7]
+    },
 ]

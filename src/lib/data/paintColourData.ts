@@ -69,11 +69,22 @@ export const PAINT_COLOURS: Record<string, PaintColourType> = {
         range: "",
         code: "#000000",
     },
+    "burnt_umber_oil_wash": {
+        name: "Burnt Umber Oil Wash",
+        range: "",
+        code: "#43301f",
+    },
     "vallejo_brown_iron_oxide_pigment": {
         name: "Brown Iron Oxide",
         range: "Velljo Pigment Powder",
         code: "#7b3a38",
         url: "https://acrylicosvallejo.com/en/product/hobby/pigments-en/brown-iron-oxide-73108/"
+    },
+    "army_painter_pallid_bone_speedpaint": {
+        name: "Pallid Bone",
+        range: "ArmyPainter Speedpaint",
+        code: "#e1cc93",
+        url: "https://www.thearmypainter.com/shop/us/wp2006p"
     },
 }
 
@@ -94,4 +105,12 @@ export const HIGHLAND_BASE_PAINTS = [
     PAINT_COLOURS["black_oil_wash"],
     PAINT_COLOURS["vallejo_flat_earth"],
     PAINT_COLOURS["vallejo_deep_green"],
+]
+
+export const DW_ARMOUR_PAINTS = [
+    PAINT_COLOURS["army_painter_pallid_bone_speedpaint"],
+    PAINT_COLOURS["vallejo_flat_earth"],
+    PAINT_COLOURS["vallejo_bone_white"],
+    PAINT_COLOURS["burnt_umber_oil_wash"],
+    PAINT_COLOURS["vallejo_pale_sand"],
 ]

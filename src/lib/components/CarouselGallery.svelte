@@ -26,10 +26,13 @@
     }
     
     onMount(() => {
-        if (img) {
+        imageHeight = img.clientHeight;
+        imageWidth = img.clientWidth;
+
+        img.addEventListener("load", () => {
             imageHeight = img.clientHeight;
             imageWidth = img.clientWidth;
-        }
+        });
     });
 
     const onKeyDown = (event: KeyboardEvent) => {
@@ -50,7 +53,7 @@
 
 <svelte:window on:keydown|preventDefault={onKeyDown}/>
 <div class="gallery-container">
-    <div class="image-container" style="height: {imageHeight}px;">
+    <div class="image-container" style={`height: ${imageHeight}px`}>
         {#key currentImage}
             <img
                 class="gallery-img"
@@ -61,15 +64,15 @@
                 on:click={next}
                 on:keydown={() => {}}
             />
+            {#if showIndex}
+                <div
+                    class="index" 
+                    class:light-font={darkBackground}
+                    style="--img-width: {imageWidth}px;">
+                    #{currentIndex + 1}
+                </div>
+            {/if}
         {/key}
-        {#if showIndex}
-            <div
-                class="index" 
-                class:light-font={darkBackground}
-                style="--img-width: {imageWidth}px;">
-                #{currentIndex + 1}
-            </div>
-        {/if}
     </div>
     {#if imagePaths.length > 1}
         <div class="buttons-container">
