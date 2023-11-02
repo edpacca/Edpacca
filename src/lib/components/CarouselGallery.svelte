@@ -12,7 +12,6 @@
     const max = imagePaths.length;
 
     let img: HTMLImageElement;
-    let imageContainer: HTMLElement;
     let imageHeight: number;
     let imageWidth: number;
 
