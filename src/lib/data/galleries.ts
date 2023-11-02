@@ -39,6 +39,18 @@ export const DA_ARMOUR_GALLERY = [
     "/images/warhammer/da-armour/da-armour_7.webp",
 ]
 
+export const DW_ARMOUR_GALLERY = [
+    "/images/warhammer/dw-armour/dw-armour_0.webp",
+    "/images/warhammer/dw-armour/dw-armour_1.webp",
+    "/images/warhammer/dw-armour/dw-armour_2.webp",
+    "/images/warhammer/dw-armour/dw-armour_2b.webp",
+    "/images/warhammer/dw-armour/dw-armour_3.webp",
+    "/images/warhammer/dw-armour/dw-armour_4.webp",
+    "/images/warhammer/dw-armour/dw-armour_5.webp",
+    "/images/warhammer/dw-armour/dw-armour_6.webp",
+    "/images/warhammer/dw-armour/dw-armour_7.webp",
+]
+
 export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/deathwing-alpha.webp"
 // export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/da-dreadnaught-alpha.webp"
 
