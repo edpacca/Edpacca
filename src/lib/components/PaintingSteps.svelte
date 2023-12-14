@@ -2,13 +2,14 @@
     import type { PaintingStep } from "$lib/data/paintingStepsData";
     import PaintPalette from "./PaintPalette.svelte";
     export let paintingSteps: PaintingStep[];
+    export let title = "";
 </script>
 
 {#each paintingSteps as paintingStep, i}
 <h2>STEP {i + 1}</h2>
 <div class="instructions">
     <div class="image-container">
-        <img src={paintingStep.imagePath} alt={`painting tutorial ${i+1}`} class="gallery-img"/>
+        <img src={paintingStep.imagePath} alt={`${title} ${i+1}`} class="gallery-img"/>
         <div class="paints">
             <PaintPalette paints={paintingStep.paints}/>
         </div>
