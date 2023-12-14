@@ -5,7 +5,7 @@
 
 <div class="posts">
 	{#each posts as post}
-		<PostPreview post={post} hasPostImage={true}/>
+		<PostPreview post={post} hasPostImage={false}/>
 	{/each}
 </div>
 

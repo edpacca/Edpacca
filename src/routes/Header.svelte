@@ -20,7 +20,7 @@
 				<a href="/weather">Weather</a>
 			</li> -->
 			<li aria-current={$page.url.pathname.startsWith("/cv") ? "page" : undefined}>
-				<a href="/">CV</a>
+				<a href="/cv">CV</a>
 			</li>
 		</ul>
 	</nav>

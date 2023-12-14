@@ -43,7 +43,7 @@
 	--margin: 12px;
 	--border-radius: 4px;
 	--page-margin: auto;
-	--page-width: 1000px;
+	--page-width: 800px;
 	--image-margin: 10%;
 
 	/* Other */
@@ -69,13 +69,22 @@
 	color: var(--primary);
 }
 
+.background {
+	background-image: linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 25%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: var(--bg0);
+	background-size: 100vw 100vh;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	position: fixed;
+}
+
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--bg0);
-	background-size: 100vw 100vh;
-	background-image: linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 25%);
 }
 
 h1, h2, p {
