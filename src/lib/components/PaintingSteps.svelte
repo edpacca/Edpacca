@@ -24,60 +24,57 @@
 
 </script>
 
-<h2>
-    STEP {currentIndex + 1}
-</h2>
-<div class="painting-step-grid">
-    <div class="instructions">
+{#each paintingSteps as paintingStep, i}
+<h2>STEP {i + 1}</h2>
+<div class="instructions">
+    <div class="image-container">
+        <img src={paintingStep.imagePath} alt={`${title} i+1`} class="gallery-img"/>
         <div class="paints">
-            <PaintPalette paints={paintingSteps[currentIndex].paints}/>
-        </div>
-        <div>
-            {#each paintingSteps[currentIndex].instructions as instruction}
-                <p>{instruction}</p>
-            {/each}
-        </div>
-        <div class="seek-buttons-mobile">
-            <SeekButtons onForward={next} onBackward={previous}/>
+            <PaintPalette paints={paintingStep.paints}/>
         </div>
     </div>
-    <CarouselGallery
-        imagePaths={imageSrcs}
-        title={title}
-        bind:currentIndex={currentIndex}
-    />
+    <div>
+        {#each paintingStep.instructions as instruction}
+        <p>{instruction}</p>
+        {/each}
+    </div>
+    <hr/>
 </div>
+{/each}
 
 <style>
-    .painting-step-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 1em;
+    .instructions {
+        width: 100%;
+        margin-bottom: 4em;
     }
     
     .paints {
         display: flex;
-        gap: 1em;
+        gap: 0.25em;
+        flex-direction: column;
     }
 
+    img {
+        width: 100%;
+    }
+    
+    .image-container {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        row-gap: 1em;
+    }
+    
     h2 {
         text-align: center;
         margin: 1em;
     }
-
-    .seek-buttons-mobile {
-        display: none;
-    }
-
-    @media screen and (max-width: 800px) {
-        .painting-step-grid {
-            display: flex;
-            flex-direction: column-reverse;
-        }
-
-        .seek-buttons-mobile {
-            display: flex;
-            justify-content: center;
+    
+    @media screen and (max-width: 600px) {
+        .image-container {
+            max-width: 100%;
         }
     }
 </style>
