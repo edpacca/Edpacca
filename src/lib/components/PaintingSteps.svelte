@@ -1,34 +1,14 @@
 <script lang="ts">
     import type { PaintingStep } from "$lib/data/paintingStepsData";
-    import CarouselGallery from "./CarouselGallery.svelte";
     import PaintPalette from "./PaintPalette.svelte";
-    import SeekButtons from "./SeekButtons.svelte";
-
     export let paintingSteps: PaintingStep[];
-    const imageSrcs: string[] = paintingSteps.map(step => step.imagePath);
-    let currentIndex = 0;
-    export let title = "";
-
-    const max = paintingSteps.length - 1;
-
-    const previous = () => {
-        currentIndex = currentIndex - 1 < 0 
-        ? max -1
-        : currentIndex - 1;
-    }
-    
-    const next = () => {
-        currentIndex = (currentIndex + 1) % max;
-    }
-
-
 </script>
 
 {#each paintingSteps as paintingStep, i}
 <h2>STEP {i + 1}</h2>
 <div class="instructions">
     <div class="image-container">
-        <img src={paintingStep.imagePath} alt={`${title} i+1`} class="gallery-img"/>
+        <img src={paintingStep.imagePath} alt={`painting tutorial ${i+1}`} class="gallery-img"/>
         <div class="paints">
             <PaintPalette paints={paintingStep.paints}/>
         </div>
