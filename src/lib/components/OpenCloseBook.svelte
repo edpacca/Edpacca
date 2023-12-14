@@ -4,9 +4,9 @@
     let closedImg = "book2-closed.webp";
 
     let audio: HTMLAudioElement;
-    const toggle = () => {
+    const toggle = async () => {
         isOpen = !isOpen;
-        audio.play();
+        await audio.play();
     }
 
     $: src = isOpen ? openImg : closedImg;
