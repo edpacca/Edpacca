@@ -260,7 +260,7 @@ export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
         paints: [
             DW_ARMOUR_PAINTS[4],
         ],
-        instructions: DW_ARMOUR_INSTRUCTIONS[6],
+        instructions: DW_ARMOUR_INSTRUCTIONS[5],
         imagePath: DW_ARMOUR_GALLERY[7]
     },
 ]
