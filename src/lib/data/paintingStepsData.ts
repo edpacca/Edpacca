@@ -209,9 +209,7 @@ export const DW_ARMOUR_INSTRUCTIONS: string[][] = [
     [
         "Another good reason to varnish a model before an oil wash is to protect the paint underneath. I took a cotton bud dipped in some mineral spirits and wipe most of the oil paint off the raised surfaces of the armour.",
         "This gets rid of some of the heavy staining and helps lighten up the armour, whilst leaving the darker recesses shaded by the oil wash",
-        "I should have taken a picture at this point, but I got carried away and began highlighting up with a mixture of flat earth and white bone."
-    ],
-    [
+        "I should have taken a picture at this point, but I got carried away and began highlighting up with a mixture of flat earth and white bone.",
         "I tried to catch the parts of the armour that are naturally going to pick up more light, such as the top of the shoulder pads and the raised part of the curved back-piece.",
         "This was a good early lesson in painting volumes for me, in particular cylinders and spheres. I didn't spent too long though as this is after all meant to be a quick and easy recipe."
     ],
@@ -256,21 +254,13 @@ export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
             DW_ARMOUR_PAINTS[2],
         ],
         instructions: DW_ARMOUR_INSTRUCTIONS[4],
-        imagePath: DW_ARMOUR_GALLERY[5]
-    },
-    {
-        paints: [
-            DW_ARMOUR_PAINTS[1],
-            DW_ARMOUR_PAINTS[2],
-        ],
-        instructions: DW_ARMOUR_INSTRUCTIONS[5],
         imagePath: DW_ARMOUR_GALLERY[6]
     },
     {
         paints: [
             DW_ARMOUR_PAINTS[4],
         ],
-        instructions: DW_ARMOUR_INSTRUCTIONS[6],
+        instructions: DW_ARMOUR_INSTRUCTIONS[5],
         imagePath: DW_ARMOUR_GALLERY[7]
     },
 ]

@@ -1,15 +1,14 @@
 <script>
-    import { PUBLIC_STRAVA_CURRENT, PUBLIC_STRAVA_GOAL, PUBLIC_STRAVA_GOAL_YEAR, PUBLIC_STRAVA_LAST_UPDATED, PUBLIC_STRAVA_TARGET } from "$env/static/public";
     import StravaStats from "$lib/components/StravaGoalStats.svelte";
 
-    const current = Number(PUBLIC_STRAVA_CURRENT);
-    const target = Number(PUBLIC_STRAVA_TARGET);
+    const current = Number(10180);
+    const target = Number(10000);
 </script>
 
 <StravaStats
     target={target}
     current={current}
-    goal={PUBLIC_STRAVA_GOAL}
-    goalYear={Number(PUBLIC_STRAVA_GOAL_YEAR)}
-    lastUpdated={PUBLIC_STRAVA_LAST_UPDATED}
+    goal={"10 km elevation"}
+    goalYear={2023}
+    lastUpdated={"11/29/2023"}
 />
