@@ -116,11 +116,16 @@ h1 {
 
 h2 {
 	font-size: 1.3rem;
+	margin-bottom: 0em;
 }
 
 h2, h3, h4 {
 	font-weight: bold;
 	color: var(--highlight);
+}
+
+h2 + p {
+	margin-top: 0em;
 }
 
 pre {

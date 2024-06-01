@@ -15,7 +15,7 @@
     lastUpdated={PUBLIC_STRAVA_LAST_UPDATED}
 />
 <MountainCanvas progress={current / target}/>
-<div class="caption">Scene rendered with HTML Canvas</div>
+<div class="caption">Scene rendered with HTML Canva. The light shows my goal progress.</div>
 
 <style>
     .caption {
