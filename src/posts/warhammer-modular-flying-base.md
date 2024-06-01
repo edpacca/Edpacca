@@ -7,7 +7,7 @@ projectId: minipainting
 published: true
 ---
 
-For me one of the greatest joys of warhammer modelling is making realistic looking terrain and bases for my models. In particular, in my recent revival of an old Dark Angels army from circa 2001 I discovered a cool paint scheme for creating [highland themed bases](highland-themed-warhammer-bases). As part of the revival I pulled apart and remade a Ravenwing Landspeeder, which of course needed a cool base in theme with the rest of the army.
+For me one of the greatest joys of warhammer modelling is making realistic looking terrain and bases for my models. In particular, in my recent revival of an old Dark Angels army from circa 2001 I discovered a cool paint scheme for creating [highland themed bases](highland-themed-bases). As part of the revival I pulled apart and remade a Ravenwing Landspeeder, which of course needed a cool base in theme with the rest of the army.
 
 I've always hated the original flimsy plastic flying bases from games workshop so I decided to try and make something a little sturdier, that could be dismantled easily but would remain rigid and not fall off when moving the model around the battlefield. 
 
