@@ -7,6 +7,13 @@
 }
 
 @font-face {
+    font-family: "DragonHunter";
+    src: url("/fonts/dragon-hunter-font/DragonHunter.otf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
     font-family: "JetBrainsMono";
     src: url("/fonts/JetBrains_Mono/JetBrainsMono-ThinItalic.ttf");
     font-weight: 100;
@@ -143,5 +150,33 @@
     font-family: "JetBrainsMono";
     src: url("/fonts/JetBrains_Mono/JetBrainsMono-ExtraBoldItalic.ttf");
     font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Vecna";
+    src: url("/fonts/vecna-font/Vecna.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Vecna";
+    src: url("/fonts/vecna-font/VecnaBold.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Vecna";
+    src: url("/fonts/vecna-font/VecnaBoldItalic.ttf");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Vecna";
+    src: url("/fonts/vecna-font/VecnaItalic.ttf");
+    font-weight: 400;
     font-style: italic;
 }
