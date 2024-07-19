@@ -8,7 +8,7 @@
 		<h1>Hi</h1>
 	</div>
 	<p>I'm Eddie. Welcome to my corner of the internet.</p>
-	<p>I am a <a href="https://github.com/edpacca">software developer</a> by day, night and the twilight hours. I have had many interests and hobbies over the years, both creative and technical - usually involving wizards. Read about them here.</p>
+	<p>I am a <a href="https://github.com/edpacca">software developer</a> by day, night and the twilight hours. I have had many interests and hobbies over the years, both creative and technical, usually involving wizards. Read about them here. <br/>See <a href="/projects">projects</a> for categorised posts.</p>
 	<p>
 		<OpenCloseBook/>
 	</p>
