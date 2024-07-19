@@ -1,13 +1,13 @@
 ---
-title: A complete song with one occarina
+title: A complete song with one ocarina
 description: I participated in a music challenge to create an entire song from a single instrument.
 date: 06/07/2024
 projectId: music
 icon: wave-square
 published: true
 ---
-# The Cyber-Highwayman's Occarina
-A piece of music made entirely from samples recorded from an occarina. The end result gave me a few vibes including *creepy*, *cyberpunk* and *horse*. The organic windy noises create an eery atmosphere. The horse galloping feeling comes from the triplet feel of the shuffle that I ended up using as a sort of hi-hat, and the "snare" sounds like a hoof *clopping*. So the image conjured in my head was a cloaked highwayman trotting down a ghostly lit, misty road at twilight - except it's somehow cyberpunk. Hence, the Cyber-Highwayman's Occarina.
+# The Cyber-Highwayman's Ocarina
+A piece of music made entirely from samples recorded from an ocarina. The end result gave me a few vibes including *creepy*, *cyberpunk* and *horse*. The organic windy noises create an eery atmosphere. The horse galloping feeling comes from the triplet feel of the shuffle that I ended up using as a sort of hi-hat, and the "snare" sounds like a hoof *clopping*. So the image conjured in my head was a cloaked highwayman trotting down a ghostly lit, misty road at twilight - except it's somehow cyberpunk. Hence, the Cyber-Highwayman's Ocarina.
 
 [Here's a link to the challenge playlist where you can find the song](https://soundcloud.com/sl-music-challenge/sets/slmc0003-one-instrument/s-5m0UdAQlru9?si=fea063b3e90241a69e19aab2ae02df1a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing). I'll put the song on my own soundcloud soon.
 
@@ -19,8 +19,8 @@ I'm still in touch with folks from a previous company I worked for. A small grou
 
 I left the company several years ago but was very touched to be asked to get involved in the *June 2024* music challenge *"one instrument"*. Everything had to be made from a single instrument, but all effects and modulation was on the table... time to get cooking.
 
-## Why Occarina?
-I wanted to create a complete track with drums, bass and lead, so I decided to try to push myself and start withs something really unassuming. Glancing around my room I spied the occarina that my wife bought for me from a trip to Poland. It is very pretty but I've never been able to get anything "nice" out of it, let alone a performance of some kind. I should note that my lovely partner is an incredibly talented flute player and she certainly can make it sound good, but she wasn't there!
+## Why Ocarina?
+I wanted to create a complete track with drums, bass and lead, so I decided to try to push myself and start withs something really unassuming. Glancing around my room I spied the ocarina that my wife bought for me from a trip to Poland. It is very pretty but I've never been able to get anything "nice" out of it, let alone a performance of some kind. I should note that my lovely partner is an incredibly talented flute player and she certainly can make it sound good, but she wasn't there!
 
 This was an opportunity to explore sound design in a deeper way that I have previously. I'm slowly getting into analogue synthesis and it blows my mind how much you can do with a simple waveform. I figured if I can get at least one clean note from this thing then I could make it work.
 
