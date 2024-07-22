@@ -27,10 +27,10 @@ We want to get our vegetable matter to ferment, which means some nice bacteria s
 
 # Steps (Clean hands please)
 ## Chop vegetation
-Chunky. Weigh it all.
+Make it chunky. Weigh it all.
 
 ## Weigh salt
-3-5% of your vegetable weights.
+3-5% of your vegetable weights. e.g. 100g veg -> ~4g salt.
 
 ## Mix in jar
 Veg in. Salt in.
