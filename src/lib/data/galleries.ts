@@ -1,6 +1,7 @@
 export interface ImageMetadata {
     path: string,
-    alt?: string
+    alt?: string,
+    wide?: boolean,
 }
 
 export const HIGHLAND_BASES_GALLERY = [
@@ -51,20 +52,49 @@ export const DW_ARMOUR_GALLERY = [
     "/images/warhammer/dw-armour/dw-armour_7.webp",
 ]
 
-export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/devastator-sergeant-alpha.webp"
-// export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/da-dreadnaught-alpha.webp"
+export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/intercessors-alpha.webp"
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
+    {
+        path: "/images/warhammer/gallery/deathwing2-black.webp",
+        alt: "Ebay rescued Deathwing Terminators",
+        wide: true
+    },
+    {
+        path: "/images/warhammer/gallery/intercessors.webp",
+        alt: "Primaris Intercessors",
+        wide: true
+    },
     {
         path: "/images/warhammer/gallery/da-dreadnaught.webp",
         alt: "Classic Dreadnaught"
     },
     {
-        path: "/images/warhammer/gallery/deathwing.webp",
-        alt: "Ebay rescued Deathwing Terminators"
-    },
-    {
         path: "/images/warhammer/gallery/devastator-sergeant.webp",
         alt: "Devastators Sergeant"
-    }
+    },
+    {
+        path: "/images/warhammer/gallery/lascannons.webp",
+        alt: "Lascannon Devastators"
+    },
+    {
+        path: "/images/warhammer/gallery/deathwing-sergeant-back.webp",
+        alt: "Deathwing Sergeant"
+    },
+    {
+        path: "/images/warhammer/gallery/ravenwing-sergeant.webp",
+        alt: "Ravenwing Sergeant"
+    },
+    {
+        path: "/images/warhammer/gallery/assault-jump-pack-sergeants.webp",
+        alt: "Jump-pack Intercessor Sergeants"
+    },
+    {
+        path: "/images/warhammer/gallery/ezekiel.webp",
+        alt: "Grandmaster Librarian Ezekiel"
+    },
+    {
+        path: "/images/warhammer/gallery/deathwing-sergeant.webp",
+        alt: "Deathwing Sergeant"
+    },
 ]
