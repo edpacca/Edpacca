@@ -7,21 +7,24 @@
     let numCols: number;
     let screenWidth: number;
     let columns: ImageMetadata[][] = [];
-    let numImgs = images.length;
     let imgsPerCol;
 
+    let colImgs = images.filter(i => !i.wide);
+    let wideImgs = images.filter(i => i.wide);
+    let numImgs = colImgs.length;
+
     function calculateColumns(screenWidth: number) {
-        numCols = setNumCols ?? 
+        numCols = setNumCols ??
             screenWidth > 800 ? 3 :
             screenWidth > 400 ? 2 :
             1;
         columns = [];
-        numImgs = images.length;
+        numImgs = colImgs.length;
         imgsPerCol = Math.ceil(numImgs / numCols);
-    
+
         for (let i = 0; i < numCols; i++) {
             columns.push(
-                images.slice(
+                colImgs.slice(
                     i * imgsPerCol,
                     Math.min((i + 1) * imgsPerCol, numImgs)
                 )
@@ -40,6 +43,16 @@
 {#if numCols}
     {#key numCols}
         <div class="column-grid" style="--num-cols: {numCols}">
+            {#each wideImgs as image}
+            <div class="wide-img">
+                <ZoomImage
+                    src={image.path}
+                    class="gallery-img"
+                    alt={image.alt ?? ""}
+                    hoverEnabled={true}
+                />
+            </div>
+            {/each}
             {#each columns as column, i}
                 <div class="column">
                     {#each column as image, j}
@@ -68,4 +81,10 @@
         flex-direction: column;
         gap: var(--margin);
     }
+
+    .wide-img {
+        grid-column: span var(--num-cols);
+        margin-bottom: var(--margin);
+    }
+
 </style>
