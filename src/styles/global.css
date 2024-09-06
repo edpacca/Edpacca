@@ -301,6 +301,9 @@ img.gallery-img{
 		grid-template-columns: 1fr;
 	}
 
+	.hide-mobile {
+		display: none;
+	}
 }
 
 .debug {
