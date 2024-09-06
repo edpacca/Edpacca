@@ -52,7 +52,7 @@ export const DW_ARMOUR_GALLERY = [
     "/images/warhammer/dw-armour/dw-armour_7.webp",
 ]
 
-export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/intercessors-alpha.webp"
+export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/intercessors.webp"
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
     {
