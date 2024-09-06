@@ -2,11 +2,11 @@
 title: The Quest for the perfect shelves
 description: I need some shelves to fit in a specific space, and serve specific purposes.
 date: 04/21/2024
-projectId: woodwork
+projectId: crafting
 published: true
 ---
 
-After moving into a new flat I needed some shelves to go next to my main desk. One always needs a good set of shelves but imagine designing them to perfectly suit your needs... I'm no carpenter but I think I can figure out a way of making exactly what I want, withough requiring many tools, and still getting a nice, high quality finish. 
+After moving into a new flat I needed some shelves to go next to my main desk. One always needs a good set of shelves but imagine designing them to perfectly suit your needs... I'm no carpenter but I think I can figure out a way of making exactly what I want, withough requiring many tools, and still getting a nice, high quality finish.
 
 # The requirements
 I needed the shelves to fit in the gap between my desk and the wall. I spend a lot of time at my desk and like having access to various things I may need, such as recording equipment and hard drives. And since I no longer have a dedicated mini painting space, this desk will also be used for that. The shelving therefore needs to be sufficiently large as to be practical, but I don't want it to make the corner of the room feel too cluttered.
@@ -24,23 +24,23 @@ I needed the shelves to fit in the gap between my desk and the wall. I spend a l
 </div>
 
 ## Heights
-- ***22"*** The bottom shelf would need to be big enough to take my desktop computer. 
-- ***4"*** I wanted a very short shelf to fit my techy flashy boxes such as my external sound cards, and wifi equipment. 
+- ***22"*** The bottom shelf would need to be big enough to take my desktop computer.
+- ***4"*** I wanted a very short shelf to fit my techy flashy boxes such as my external sound cards, and wifi equipment.
 - ***12"*** Then another biggish shelf.
 - ***8"*** Tall enough to easily place and retrieve minis.
 - ***8"*** Enough room to display an army!
 
 Another requirement was minimal tooling required as I didn't own much stuff yet after the move, and obviously things like large table saws were out of the question. I ultimately settled on the simple idea of bolting the levels together via pipes and flanges which I found I could order straight from ol' Jeffy Bezza. These pipes would come in a variety of lengths allowing me to set the shelf spacing to whatever I wanted. Each pipe was threaded at both ends and could have a pair of flanges screwed on, creating a sort of I shape. The flanges each have 3 holes so I can bolt them together through the boards and create a stacked load on each of the 4 corners of the shelves.
 
-What I didn't realise that this was some kind of social media trend at the time but apparently I designed the most basic-bitch home DIY shelves imaginable, but I really liked the design! It looked cool and hopefully was quite easy to pull off in a small apartment. 
+What I didn't realise that this was some kind of social media trend at the time but apparently I designed the most basic-bitch home DIY shelves imaginable, but I really liked the design! It looked cool and hopefully was quite easy to pull off in a small apartment.
 
 # The boards
 ![Oak boards after staining](/woodwork/shelves/boards.webp)
-I bought two 8ft x 30inch boards from HDepot. They cut these into six equal shalves. It doesn't really matter the exact size as long as they're the same. 
+I bought two 8ft x 30inch boards from HDepot. They cut these into six equal shalves. It doesn't really matter the exact size as long as they're the same.
 
-I drilled the holes first which actually required a bit of planning (see below for more details on that). Then I sanded them all down by hand to 240 grit, which didn't actully take that long. 
+I drilled the holes first which actually required a bit of planning (see below for more details on that). Then I sanded them all down by hand to 240 grit, which didn't actully take that long.
 
-One sanded each board got a single coat of walnut stain on each side. This took some coordinating as my balcolny is not big. So with 30min drying times between each step - I stained two at a time, flipping and staining the oppopsite side, then standing while I did the next pair. 
+One sanded each board got a single coat of walnut stain on each side. This took some coordinating as my balcolny is not big. So with 30min drying times between each step - I stained two at a time, flipping and staining the oppopsite side, then standing while I did the next pair.
 
 Then each board got two coats of clear satin polyeurethane varnish with 24h drying time between each. I went for water based because it dries faster. I sanded the boards down between coats. By the time they were done they actually looked great! A lot of work but it was worth it.
 
@@ -57,7 +57,7 @@ After I marked the holes and prepared the boards, I gave each post a coat of 'ha
 
 # Bolting
 ![securing the final bolts](/woodwork/shelves/working.webp)
-As shown above each layer was bolted onto the next one, with 3 bolts pointing down through the structure, and the hex nut screwed onto the underside. This would make sure everything was nice and tight. The idea is to ensure that the vertical load is passed directly through the posts and not onto the boards. 
+As shown above each layer was bolted onto the next one, with 3 bolts pointing down through the structure, and the hex nut screwed onto the underside. This would make sure everything was nice and tight. The idea is to ensure that the vertical load is passed directly through the posts and not onto the boards.
 
 # Cross bracing
 ![stabilising cables](/woodwork/shelves/cross-bracing.webp)
@@ -68,7 +68,7 @@ After assembling the first large layer, my lovely wife who is a structural engin
 # The result
 ![The finished shelves loaded up](/woodwork/shelves/finished-full-shelves.webp)
 
-These shelves are awesome. They're solid, provide enough storage and look pretty cool if I say so myself. I love that I made them exactly to my own requirements and the fact that they look good as well is a bonus. 
+These shelves are awesome. They're solid, provide enough storage and look pretty cool if I say so myself. I love that I made them exactly to my own requirements and the fact that they look good as well is a bonus.
 
 The tech stuff shelf is a particular favourite as these devices often don't want to be stacked up so on larger shelves it can feel like wasted space. I did attach a small usb fan to provide some cooling if it gets too hot. I realise this breaks the crisp aesthetics slightly but I don't mind!
 
@@ -77,6 +77,6 @@ I want to take on more projects like this and dive further into carpentry itself
 An enjoable process though, I feel I gained some experience in a few things which I haven't really done on scale before, such as staining and varnishing the wood.
 
 ## Cost
-The total cost was around $240 CAD (£140) for all the materials. A good chunk of this was the rip off JeffBez price-hiked home-DIY-trending flanges and pipes, which probably could be found cheaper and better quality elsewhere. The nuts and bolts cost a surprising amount too, as did the stain and varnish. 
+The total cost was around $240 CAD (£140) for all the materials. A good chunk of this was the rip off JeffBez price-hiked home-DIY-trending flanges and pipes, which probably could be found cheaper and better quality elsewhere. The nuts and bolts cost a surprising amount too, as did the stain and varnish.
 
-I think this could be done much cheaper but considering what was at my disposal it was okay. For a project which bought me so much joy after a big stressful move it was worth it. And now I have these beautiful shelves which have so far proved incredibly useful! 
+I think this could be done much cheaper but considering what was at my disposal it was okay. For a project which bought me so much joy after a big stressful move it was worth it. And now I have these beautiful shelves which have so far proved incredibly useful!

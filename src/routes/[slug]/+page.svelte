@@ -23,6 +23,18 @@
     </hgroup>
 
     <div class="contents">
+        {#if data.meta.projectId == "programming"}
+        <div class="tech">
+            &lbrace;
+            {#each  data.meta.technologies as tech, i}
+                <span>{tech}{#if i < (data.meta.technologies.length - 1)},&nbsp;{/if}</span>
+            {/each}
+            &rbrace;
+        </div>
+        <p class="description">
+            {data.meta.description}
+        </p>
+        {/if}
         <svelte:component this={data.content}/>
     </div>
 </article>
@@ -30,5 +42,17 @@
 <style>
     h1 {
         text-transform: uppercase;
+    }
+
+    .tech {
+        color: var(--teal-bright);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .description {
+        font-style: italic;
+        padding: 0.5em 2em 2em;
+        margin: 0;
     }
 </style>

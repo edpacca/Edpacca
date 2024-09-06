@@ -12,10 +12,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: var(--margin);
     }
 
     img {
         max-height: 20em;
         max-width: 90vw;
+        border-radius: var(--border-radius);
     }
 </style>

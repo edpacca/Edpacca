@@ -6,9 +6,8 @@
     import BackButton from "$lib/components/BackButton.svelte";
     import RunningPage from "$lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
+    import PinnedPostPreview from "$lib/components/PinnedPostPreview.svelte";
     export let data: PageData;
-
-
 </script>
 
 <h1>{data.project?.name}</h1>
@@ -33,7 +32,14 @@
 <section>
     <div class="posts">
         {#each data.posts as post}
-            <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
+            {#if post.pinned}
+                <PinnedPostPreview post={post} hasPostImage={true}/>
+            {/if}
+        {/each}
+        {#each data.posts as post}
+            {#if !post.pinned}
+                <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
+            {/if}
         {/each}
     </div>
 </section>

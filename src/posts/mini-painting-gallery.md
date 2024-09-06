@@ -5,6 +5,7 @@ date: 10/13/2023
 projectId: minipainting
 published: true
 icon: image
+pinned: true
 ---
 
 <script>

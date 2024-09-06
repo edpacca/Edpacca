@@ -14,6 +14,7 @@ declare global {
 		coverImage?: string
 		icon?: string
 		technologies?: string[]
+		pinned?: boolean
 	}
 
 	type ProjectType = {
