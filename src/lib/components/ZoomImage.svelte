@@ -22,7 +22,7 @@
 >
     <label>
         {#if hoverEnabled && isHovered && alt}
-        <div class="label">
+        <div class="label hide-mobile">
             {alt}
         </div>
         {/if}
