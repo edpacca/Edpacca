@@ -1,9 +1,7 @@
 <script lang="ts">
-    import { formatDate } from "../utils";
     import PostCoverImage from "./PostCoverImage.svelte";
     export let post: Post;
     export let hasPostImage = false;
-    const date = formatDate(post.date);
 </script>
 
 

@@ -3,8 +3,9 @@
     import { getDarkTheme, isUsingDarkTheme } from "../../store";
     import FaIcon from "./FaIcon.svelte";
     import { toggleDarkTheme } from "../theme";
-    
+
     export let callback: () => void;
+
     const toggle = () => {
         toggleDarkTheme(!$isUsingDarkTheme);
         callback();
@@ -29,7 +30,7 @@
     }
 
     .dark:hover {
-        color: var(--highlight); 
+        color: var(--highlight);
     }
 
     .light:hover {
