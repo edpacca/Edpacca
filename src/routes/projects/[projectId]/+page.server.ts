@@ -1,8 +1,8 @@
 import { error } from '@sveltejs/kit';
 import { getProjectData } from '../../../lib/data/projectData.js';
-import { getGhLanguageData, parseLanguageObject } from '../../../lib/githubApi.js';
-import { GH_URL, GH_REPO_TOKEN } from "$env/static/private"
-import { dev } from "$app/environment";
+import { parseLanguageObject } from '../../../lib/githubApi.js';
+// import { GH_URL, GH_REPO_TOKEN } from "$env/static/private"
+// import { dev } from "$app/environment";
 import { STATIC_LANG_DATA } from '../../../lib/data/codeLangData.js';
 import type { PageServerLoad } from './$types.js';
 
@@ -15,11 +15,11 @@ export const load = (async ({ fetch, params }) => {
         let stravaData;
         try {
             if (params.projectId === "programming") {
-                if (dev) {
+                // if (dev) {
                     ghData = parseLanguageObject(STATIC_LANG_DATA);
-                } else {
-                    ghData = await getGhLanguageData(`${GH_URL}/repos`, GH_REPO_TOKEN);
-                }
+                // } else {
+                //     ghData = await getGhLanguageData(`${GH_URL}/repos`, GH_REPO_TOKEN);
+                // }
             }
         } catch (e) {
             console.error(e);
@@ -27,7 +27,7 @@ export const load = (async ({ fetch, params }) => {
         posts = posts.filter(p => p.projectId === params.projectId);
         const project = getProjectData(params.projectId);
 
-        return { 
+        return {
             posts,
             project,
             ghData
