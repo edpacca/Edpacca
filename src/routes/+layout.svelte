@@ -2,10 +2,12 @@
 	import { page } from '$app/stores';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
-	import * as config from "$lib/config";
     // import BurgerMenu from '$lib/components/BurgerMenu.svelte';
     // import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
     // import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
+	import * as config from "$lib/config";
+
+	export const prerender = true;
 
 	// let isMenuOpen = false;
 
@@ -45,7 +47,7 @@
 		max-width: var(--page-width);
 	}
 
-	.theme-selectors {
+	/* .theme-selectors {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -58,5 +60,5 @@
 		gap: 0.2em;
 		display: flex;
 		flex-direction: column;
-	}
+	} */
 </style>
