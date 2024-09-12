@@ -43,6 +43,18 @@
 {#if numCols}
     {#key numCols}
         <div class="column-grid" style="--num-cols: {numCols}">
+            {#each columns as column, i}
+            <div class="column">
+                {#each column as image, j}
+                <ZoomImage
+                src={image.path}
+                class="gallery-img"
+                alt={image.alt ?? ""}
+                hoverEnabled={true}
+                />
+                {/each}
+            </div>
+            {/each}
             {#each wideImgs as image}
             <div class="wide-img">
                 <ZoomImage
@@ -52,18 +64,6 @@
                     hoverEnabled={true}
                 />
             </div>
-            {/each}
-            {#each columns as column, i}
-                <div class="column">
-                    {#each column as image, j}
-                        <ZoomImage
-                            src={image.path}
-                            class="gallery-img"
-                            alt={image.alt ?? ""}
-                            hoverEnabled={true}
-                        />
-                    {/each}
-                </div>
             {/each}
         </div>
     {/key}
