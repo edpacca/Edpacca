@@ -12,8 +12,8 @@ export function applyDarkTheme(darkTheme: boolean) {
             root.style.setProperty("--secondary", "var(--black)");
             root.style.setProperty("--secondary-50", "var(--black-50)");
             root.style.setProperty("--tertiary", "var(--dark-grey)");
-            root.style.setProperty("--bg0", "var(--grey)");
-            root.style.setProperty("--bg1", "var(--dark-grey)");
+            root.style.setProperty("--bg0", "var(--dark-grey)");
+            root.style.setProperty("--bg1", "var(--grey)");
             root.style.setProperty(
                 "--highlight", `var(--${get(currentColourTheme)}-bright)`);
         } else {
