@@ -7,8 +7,10 @@
     export let hoverEnabled = false;
 
     let isHovered = false;
+
 </script>
 
+<svelte:window on:wheel|nonpassive={e => { if(isZoomed) e.preventDefault()}}/>
 {#if isZoomed}
     <div class="dim-filter">
     </div>
