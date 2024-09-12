@@ -1,10 +1,13 @@
 <script lang="ts">
+    import { comparePinnedPosts } from "$lib/utils";
     export let posts: Post[];
     import PostPreview from "./PostPreview.svelte";
+
+	const sortedPosts = posts.sort(comparePinnedPosts);
 </script>
 
 <div class="posts">
-	{#each posts as post}
+	{#each sortedPosts as post}
 		<PostPreview post={post} hasPostImage={false}/>
 	{/each}
 </div>

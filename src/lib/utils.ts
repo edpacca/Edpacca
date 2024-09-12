@@ -17,3 +17,9 @@ export function randomMinMax(min: number, max: number) {
 export function randomDirection(): 1 | -1 {
     return Math.random() >= 0.5 ? 1 : -1;
 }
+
+export function comparePinnedPosts (p1: Post, p2: Post) {
+    return parsePinned(p2.pinned) - parsePinned(p1.pinned);
+}
+
+const parsePinned = (pinned: boolean | undefined) => Number(pinned ?? 0);

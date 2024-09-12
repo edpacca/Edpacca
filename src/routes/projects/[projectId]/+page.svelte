@@ -1,5 +1,6 @@
 <script lang=ts>
     import { page } from "$app/stores";
+    import { comparePinnedPosts } from "$lib/utils";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import MiniaturesPage from "$lib/pages/MiniaturesPage.svelte";
     import PostPreview from "$lib/components/PostPreview.svelte";
@@ -8,10 +9,6 @@
     import type { PageData } from "./$types";
     export let data: PageData;
 
-    const comparePinnedPosts = (p1: Post, p2: Post) => {
-        return parsePinned(p2.pinned) - parsePinned(p1.pinned);
-    }
-    const parsePinned = (pinned: boolean | undefined) => Number(pinned ?? 0);
     const sortedPosts = data.posts.sort(comparePinnedPosts);
 
 </script>
