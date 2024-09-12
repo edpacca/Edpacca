@@ -17,17 +17,25 @@
     });
 </script>
 
-<button on:click={toggle} class={$isUsingDarkTheme ? "dark" :" light"}>
-    <FaIcon icon={$isUsingDarkTheme ? "moon" : "sun"}/>
-</button>
+
+{#if $isUsingDarkTheme}
+    <button on:click={toggle} class="dark">
+        <FaIcon icon={"moon"}/>
+    </button>
+{:else}
+    <button on:click={toggle} class="light">
+        <FaIcon icon={"sun"}/>
+    </button>
+{/if}
 
 <style>
     button {
-        height: 2em;
-        width: 2em;
+        height: 2.5em;
+        width: 2.5em;
         border-radius: 100%;
         border: none;
         transition: var(--transition-time);
+        animation: flipper 300ms ease-out;
     }
 
     .dark:hover {
@@ -46,5 +54,17 @@
     .light {
         background: var(--white);
         color: var(--black);
+    }
+
+    @keyframes flipper {
+        0% {
+            transform: scaleX(1.0);
+        }
+        50% {
+            transform: scaleX(-1.0);
+        }
+        99% {
+            transform: scaleX(1.0);
+        }
     }
 </style>
