@@ -2,7 +2,7 @@
     import { fade } from "svelte/transition";
     import { onMount } from "svelte";
     import SeekButtons from "./SeekButtons.svelte";
-   
+
     export let darkBackground = false;
     export let title: string;
     export let imagePaths: string[];
@@ -16,15 +16,15 @@
     let imageWidth: number;
 
     const previous = () => {
-        currentIndex = currentIndex - 1 < 0 
+        currentIndex = currentIndex - 1 < 0
         ? max -1
         : currentIndex - 1;
     }
-    
+
     const next = () => {
         currentIndex = (currentIndex + 1) % max;
     }
-    
+
     onMount(() => {
         imageHeight = img.clientHeight;
         imageWidth = img.clientWidth;
@@ -53,7 +53,13 @@
 
 <svelte:window on:keydown|preventDefault={onKeyDown}/>
 <div class="gallery-container">
-    <div class="image-container" style={`height: ${imageHeight}px`}>
+    <div
+        class="image-container"
+        style={`height: ${imageHeight}px`}
+        on:click={next}
+        on:keydown={() => {}}
+        role="button"
+        tabindex="0">
         {#key currentImage}
             <img
                 class="gallery-img"
@@ -61,12 +67,10 @@
                 src={currentImage}
                 alt={title}
                 transition:fade
-                on:click={next}
-                on:keydown={() => {}}
             />
             {#if showIndex}
                 <div
-                    class="index" 
+                    class="index"
                     class:light-font={darkBackground}
                     style="--img-width: {imageWidth}px;">
                     #{currentIndex + 1}
@@ -82,14 +86,14 @@
 </div>
 
 <style>
-    
+
     .gallery-container {
         width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    
+
     .image-container {
         position: relative;
     }
