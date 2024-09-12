@@ -14,6 +14,7 @@
     </div>
 {/if}
 <div
+    role="img"
     class="click-zoom"
     class:height={dominantDimension === "height"}
     class:width={dominantDimension === "width"}
@@ -35,7 +36,7 @@
             class:width={dominantDimension === "width"}
             bind:this={img}
         />
-    </label>
+   </label>
 
   </div>
 
