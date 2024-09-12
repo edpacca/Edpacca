@@ -33,7 +33,7 @@ function setLocalStorage(name: string, obj: any) {
 function getLocalStorage(name: string): any {
     try {
         const obj = JSON.parse(localStorage.getItem(name) as string);
-        return obj ? obj : undefined;
+        return obj;
     } catch(e) {
         console.error(`Error retrieving ${name} from local storage: ${e}`)
         return undefined;

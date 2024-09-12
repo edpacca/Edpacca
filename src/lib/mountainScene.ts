@@ -18,7 +18,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
         [width * 0.6, height * 0.3 ],
     ];
 
-    // intersection of height*0.3 - width * 0.6, 
+    // intersection of height*0.3 - width * 0.6,
     // widht * 0.5 and height * 0.55
     // y = mx + c
     // mountain equation: y = (height * 0.55 / width * 0.5)x
@@ -88,7 +88,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
         [0, height * 0.7],
         [-width * 0.5, 0],
     ]
-   
+
     const glowGradient = ctx.createLinearGradient(
         width, height,
         width * 0.95, height * 0.35);
@@ -115,7 +115,6 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
             absX += x;
         }
 
-        console.log(points);
         return points;
     }
 
@@ -151,7 +150,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     a.drawShape(TREE_CONE_LEFT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
     a.reset(width * 0.14, height * 0.88);
     a.drawShape(TREE_CONE_LEFT_SMALLER, false, 0, 0, 0, TREE_FILL, TREE_FILL)
-    
+
     // Trees right
     a.reset(width * 0.95, height * 0.9);
     a.drawShape(TREE_CONE_RIGHT, false, 0, 0, 0, TREE_FILL, TREE_FILL)
@@ -183,11 +182,11 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     const radius = width * 0.04;
     const circle1 = [width * 0.5, height * 0.15];
     const circle2 = [circle1[0] - (radius / 3), circle1[1] - (radius / 3)];
-   
+
     ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.arc(circle1[0], circle1[1], radius, 0, Math.PI * 2, true);
-    ctx.fill();    
+    ctx.fill();
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
     ctx.arc(circle2[0], circle2[1], radius, 0, Math.PI * 2, true);
@@ -195,13 +194,13 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
     ctx.closePath();
 
     ctx.globalCompositeOperation = 'source-over';
-    
+
     const xIntersect = 0.1875;
     const yIntersect = 0.79375;
     const intersection = [xIntersect * width, yIntersect * height];
     const adj = width * (0.5 - xIntersect);
     const opp = height * (0.55 - (1 - yIntersect));
-    
+
     const indicatorRadius = width * 0.05;
     const indicatorX = (adj * percentage) + intersection[0];
     const indicatorY = intersection[1] - (opp * percentage);
@@ -215,7 +214,7 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
 
     anCtx.beginPath();
     drawCircle(anCtx, indicatorX, indicatorY, indicatorRadius, undefined, indicatorGradient);
-    
+
     let counter = 0;
     let degrees = 0;
     let rad = 0;

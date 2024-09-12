@@ -32,7 +32,7 @@ export function drawOrbit(
         }
         context.fillStyle = radialGradient;
         context.arc(
-            orbitPosX, 
+            orbitPosX,
             orbitPosY,
             orbitBodyRadius,
             0, 2*Math.PI, false
@@ -64,20 +64,20 @@ export function drawTree(context: CanvasRenderingContext2D,
     angle: number,
     depth: number,
     branchWidth: number) {
-    
+
     let newLength, newAngle;
     const rand = Math.random;
-    const maxAngle = 2 * Math.PI / 6; 
+    const maxAngle = 2 * Math.PI / 6;
     const maxBranch = 3;
     const endX = startX + length * Math.cos(angle);
     const endY = startY + length * Math.sin(angle);
-  
+
     context.beginPath();
     context.moveTo(startX, startY);
     context.lineCap = 'round';
     context.lineWidth = branchWidth;
     context.lineTo(endX, endY);
-  
+
     if (depth <= 2) {
       context.strokeStyle = `rgb(30, ${(((rand() * 64) + 128) >> 0)}, 0)`;
     }
@@ -87,19 +87,19 @@ export function drawTree(context: CanvasRenderingContext2D,
 
     context.stroke();
     const newDepth = depth - 1;
-  
+
     if(!newDepth) {
       return;
     }
     const subBranches = (rand() * (maxBranch - 1)) + 1;
     branchWidth *= 0.7;
-  
+
     for (let i = 0; i < subBranches; i++) {
         newAngle = angle + rand() * maxAngle - maxAngle * 0.5;
         newLength = length * (0.7 + rand() * 0.3);
         drawTree(context, endX, endY, newLength, newAngle, newDepth, branchWidth);
     }
-  
+
 }
 
 // export function drawClouds(context: CanvasRenderingContext2D, direction: number, density: number) {
@@ -107,7 +107,7 @@ export function drawTree(context: CanvasRenderingContext2D,
 // }
 
 export function drawCloud(context: CanvasRenderingContext2D, x: number, y: number, size: number) {
-  
+
   const sizeVarFactor = 0.8;
   const rowVarFactor = 0.9;
   const sizeVariance = size * sizeVarFactor;
@@ -115,8 +115,6 @@ export function drawCloud(context: CanvasRenderingContext2D, x: number, y: numbe
   const getBlobSize = () => Math.floor((Math.random() * sizeVariance) + sizeVariance);
   const getRowLength = (middle: number) => Math.floor((Math.random() * middle * rowVarFactor) + (middle * rowVarFactor))
   const numberOfRows = Math.floor((Math.random() * 3) + 3);
-  
-  console.log(numberOfRows);
 
   let rowLength = 4;
   let newSize = size;
@@ -131,6 +129,6 @@ export function drawCloud(context: CanvasRenderingContext2D, x: number, y: numbe
       newPosX = cx + x + offset
       newPosY = cy + y
       drawCircle(context, newPosX, newPosY, newSize, undefined, cloudColour)
-    }    
+    }
   }
 }
