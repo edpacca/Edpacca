@@ -1,7 +1,7 @@
 module.exports = {
     parser: "@typescript-eslint/parser",
     extends: [
-        "eslint:recommended",
+        "plugin:svelte/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
     ],
@@ -19,14 +19,13 @@ module.exports = {
     overrides: [
         {
             files: ["*.svelte"],
-            processor: "svelte3/svelte3"
+            parser: "svelte-eslint-parser",
+            parserOptions: {
+                parser: "@typescript-eslint/parser"
+            }
         }
     ],
-    settings: {
-        "svelte3/typescript": true
-    },
-    plugins: [ 
-        "svelte3",
+    plugins: [
         "@typescript-eslint"
     ],
     ignorePatterns: [
