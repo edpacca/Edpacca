@@ -7,6 +7,8 @@
     import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
 	import * as config from "$lib/config";
     import { fly } from 'svelte/transition';
+    import { onMount } from 'svelte';
+    import { setUpThemes } from '../store';
 
 	let isMenuOpen = false;
 
@@ -15,6 +17,10 @@
 			isMenuOpen = !isMenuOpen;
 		}, 2000);
 	}
+
+	onMount(() => {
+		setUpThemes();
+	})
 </script>
 
 <svelte:head>

@@ -4,8 +4,7 @@ import { currentColourTheme, isUsingDarkTheme } from "../store";
 
 const root = browser && document.querySelector(":root") as HTMLElement;
 
-export function toggleDarkTheme(darkTheme: boolean) {
-    isUsingDarkTheme.set(darkTheme);
+export function applyDarkTheme(darkTheme: boolean) {
     if (root) {
         if (darkTheme) {
             root.style.setProperty("--primary", "var(--white)");
@@ -31,8 +30,7 @@ export function toggleDarkTheme(darkTheme: boolean) {
     }
 }
 
-export function setColourTheme(theme: string) {
-    currentColourTheme.set(theme);
+export function applyColourTheme(theme: string) {
     if (root) {
         const themeType = get(isUsingDarkTheme) ? "bright" : "dark";
         root.style.setProperty("--highlight", `var(--${theme}-${themeType})`);
