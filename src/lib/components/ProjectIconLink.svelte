@@ -1,11 +1,11 @@
 <script lang="ts">
     import { getProjectData } from "../data/projectData";
     import FaIcon from "./FaIcon.svelte";
-    
+
     export let projectId: string;
-    
+
     let isHovered = false;
-    
+
     const project = getProjectData(projectId);
     const url = `/projects/${project?.id}`;
 
@@ -19,6 +19,7 @@
 
 {#if project}
     <div class="icon-link-container"
+        role="tooltip"
         on:mouseenter={() => { isHovered = true; }}
         on:mouseleave={() => { isHovered = false; }}>
         {#if isHovered}

@@ -23,6 +23,6 @@ This is the song that was not even a song before we went to the farm. Brendan ha
 
 Without going into too much detail the other track we recorded on *Blackburn Sessions* was Defbones. Named for its excessive use of what we call "the Deftone's chord" (11th). Such a good chord. This one was also very fun to play live as we would get incredibly intense at the end, something becoming a bit of a theme with us.
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5l3WuUULBjhjjDDPWh9ou2?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5l3WuUULBjhjjDDPWh9ou2?utm_source=generator&theme=0" title="blackburn sessions spotify" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 Joe once again knocked it out of the park with this project and did so much work that we are incredibly grateful for. The entire weekend was absolutely magical and featured many fun hangs as well as making music, including Gaz getting obsessed with finding the source of a dripping tap, orchestrating an army of cows and arguing over who would have to sleep in the creepy "someone for sure died in here" room.
