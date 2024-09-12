@@ -3,10 +3,13 @@
     import { currentColourTheme, getColourTheme, isUsingDarkTheme } from "../../store";
     import { setColourTheme } from "$lib/theme";
     import Tooltip from "./Tooltip.svelte";
+    import { fly } from "svelte/transition";
+
+    export let callback: () => void;
 
     let isMenuOpen = false;
-    export let callback: () => void;
     let isHovered = false;
+
     const themes = [
         "gold",
         "teal",
@@ -14,7 +17,7 @@
         "magenta"
     ]
 
-    const toggleMenu = () => { 
+    const toggleMenu = () => {
         isMenuOpen = !isMenuOpen;
     }
 
@@ -25,7 +28,7 @@
     }
 
     $: themeType = $isUsingDarkTheme ? "bright" : "dark";
-    $: filteredThemes = themes.filter(th => th !== $currentColourTheme);
+
     $: if (isHovered) {
         isMenuOpen = true;
     }
@@ -37,15 +40,15 @@
 
 <div class="theme-selector">
     <Tooltip text={"choose theme"} bind:isHovered>
-        <button 
+        <button
             style={`background-color: var(--${$currentColourTheme}-${themeType})`}
             on:click={toggleMenu}>
         </button>
     </Tooltip>
     {#if isMenuOpen}
         <ul>
-            {#each filteredThemes as theme}
-                <li>
+            {#each themes.filter(th => th !== $currentColourTheme) as theme, i}
+                <li transition:fly|global={{delay: i*150, x: -20}}>
                     <button
                         style={`background-color: var(--${theme}-${themeType})`}
                         on:click={() => setTheme(theme)}>
@@ -64,8 +67,8 @@
     }
 
     button {
-        height: 2em;
-        width: 2em;
+        height: 2.5em;
+        width: 2.5em;
         border-radius: 100%;
         border: none;
         transition: var(--transition-time);
@@ -83,8 +86,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		list-style: none;
 	}
+
+    li {
+        list-style-type: none;
+    }
 
     li button {
         opacity: 0.5;
