@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { getDarkTheme, isUsingDarkTheme } from "../../store";
+    import { isUsingDarkTheme } from "../../store";
     import FaIcon from "./FaIcon.svelte";
     import { toggleDarkTheme } from "../theme";
 
@@ -11,10 +10,6 @@
         callback();
     }
 
-    onMount(() => {
-        $isUsingDarkTheme = getDarkTheme();
-
-    });
 </script>
 
 

@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { currentColourTheme, getColourTheme, isUsingDarkTheme } from "../../store";
+    import { currentColourTheme, isUsingDarkTheme } from "../../store";
     import { setColourTheme } from "$lib/theme";
     import Tooltip from "./Tooltip.svelte";
     import { fly } from "svelte/transition";
@@ -33,9 +32,6 @@
         isMenuOpen = true;
     }
 
-    onMount(() => {
-        $currentColourTheme = getColourTheme();
-    });
 </script>
 
 <div class="theme-selector">
