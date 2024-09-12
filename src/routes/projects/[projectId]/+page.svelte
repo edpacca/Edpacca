@@ -9,7 +9,7 @@
     import type { PageData } from "./$types";
     export let data: PageData;
 
-    const sortedPosts = data.posts.sort(comparePinnedPosts);
+    const sortedPosts = data.posts ? data.posts.sort(comparePinnedPosts) : [];
 
 </script>
 
