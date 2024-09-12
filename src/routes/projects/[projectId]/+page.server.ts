@@ -6,13 +6,13 @@ import { parseLanguageObject } from '../../../lib/githubApi.js';
 import { STATIC_LANG_DATA } from '../../../lib/data/codeLangData.js';
 import type { PageServerLoad } from './$types.js';
 
-/* eslint-disable */
+export const prerender = false;
+
 export const load = (async ({ fetch, params }) => {
     try {
         const response = await fetch("/api/posts");
         let posts: Post[] = await response.json();
         let ghData;
-        let stravaData;
         try {
             if (params.projectId === "programming") {
                 // if (dev) {
@@ -32,7 +32,7 @@ export const load = (async ({ fetch, params }) => {
             project,
             ghData
         }
-    } catch(e) {
-        throw error(404, `Hmmm couldn't find ${params.projectId}`)
+    } catch {
+        error(404, `Hmmm couldn't find ${params.projectId}`)
     }
 }) satisfies PageServerLoad
