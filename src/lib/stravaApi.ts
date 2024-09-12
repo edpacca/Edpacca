@@ -15,5 +15,4 @@ export async function getAthleteStats(baseUrl: string, athleteId: string, token:
     const url = `${baseUrl}/${athleteId}/stats`;
     const response = await stravaGet(url, token);
     const data = await response.json() as JSONArray;
-    console.log(data);
 }
