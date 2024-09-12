@@ -58,7 +58,7 @@ describe('post validation', () => {
 
     posts.forEach(post => {
         if (post.coverImage) {
-            const filePath =  `./static/images${post.coverImage}`;
+            const filePath =  `./static/images/${post.coverImage}`;
             test(`cover image '${post.coverImage}' is valid for post: ${post.title}`, () => {
                 expect(() => { testFileExists(filePath, !post.published)}).not.toThrowError();
             });
