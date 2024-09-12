@@ -6,7 +6,7 @@ import shiki from "shiki";
 /** @type {import('@sveltejs/kit').Config} */
 
 /** @type {import('mdsvex').MdsvexOptions} */
-const mdsvexOptions = { 
+const mdsvexOptions = {
 	extensions: [".md"],
 	layout: {
 		_: './src/mdsvex.svelte'
@@ -29,7 +29,6 @@ const config = {
 		vitePreprocess(),
 		mdsvex(mdsvexOptions)
 	],
-
 	kit: {
 		adapter: adapter()
 	}
