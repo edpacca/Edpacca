@@ -8,7 +8,9 @@
 	import * as config from "$lib/config";
     import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
-    import { setUpThemes } from '../store';
+    import { resetThemes, setUpThemes } from '../store';
+    import FaIcon from '$lib/components/FaIcon.svelte';
+    import Tooltip from '$lib/components/Tooltip.svelte';
 
 	let isMenuOpen = false;
 
@@ -20,7 +22,14 @@
 
 	onMount(() => {
 		setUpThemes();
-	})
+	});
+
+	const reset = () => {
+		resetThemes();
+		closeMenu();
+	}
+
+
 </script>
 
 <svelte:head>
@@ -37,6 +46,13 @@
 				</div>
 				<div transition:fly={{delay: 150, x: -30}}>
 					<ThemeSelector callback={closeMenu}/>
+				</div>
+				<div transition:fly={{delay: 300, y: 15}}>
+					<Tooltip text={"Reset to default"}>
+						<button class="reset-button" on:click={reset}>
+							<FaIcon icon={"arrow-rotate-left"}/>
+						</button>
+					</Tooltip>
 				</div>
 			</div>
 		</BurgerMenu>
@@ -72,6 +88,20 @@
 		gap: 0.2em;
 		display: flex;
 		flex-direction: column;
+	}
+
+	.reset-button {
+        height: 2.5em;
+        width: 2.5em;
+        border-radius: 100%;
+        border: none;
+		background-color: var(--secondary-50);
+		color: var(--primary);
+        transition: var(--transition-time);
+	}
+
+	.reset-button:hover {
+		color: var(--highlight);
 	}
 
 	@media screen and (max-width: 600px) {

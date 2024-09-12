@@ -1,6 +1,7 @@
 <script lang="ts">
     import { isUsingDarkTheme } from "../../store";
     import FaIcon from "./FaIcon.svelte";
+    import Tooltip from "./Tooltip.svelte";
 
     export let callback: () => void;
 
@@ -10,16 +11,17 @@
     }
 </script>
 
-
-{#if $isUsingDarkTheme}
+<Tooltip text="Toggle dark theme">
+    {#if $isUsingDarkTheme}
     <button on:click={toggle} class="dark">
         <FaIcon icon={"moon"}/>
     </button>
-{:else}
+    {:else}
     <button on:click={toggle} class="light">
         <FaIcon icon={"sun"}/>
     </button>
-{/if}
+    {/if}
+</Tooltip>
 
 <style>
     button {

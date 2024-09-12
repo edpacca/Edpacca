@@ -34,7 +34,7 @@
 </script>
 
 <div class="theme-selector">
-    <Tooltip text={"choose theme"} bind:isHovered>
+    <Tooltip text={"Set highlight colour"} bind:isHovered>
         <button
             style={`background-color: var(--${$currentColourTheme}-${themeType})`}
             on:click={toggleMenu}>

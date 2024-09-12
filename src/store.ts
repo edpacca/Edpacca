@@ -34,3 +34,8 @@ export function setUpThemes() {
         applyColourTheme(theme);
     });
 }
+
+export function resetThemes() {
+    isUsingDarkTheme.set(defaultDarkTheme);
+    currentColourTheme.set(defaultColourTheme);
+}
