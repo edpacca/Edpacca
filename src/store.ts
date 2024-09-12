@@ -14,10 +14,13 @@ function getColourTheme(): string {
     return getLocalStorageColourTheme() ?? defaultColourTheme;
 }
 
-export const isUsingDarkTheme: Writable<boolean> = writable(getDarkTheme());
-export const currentColourTheme: Writable<string> = writable(getColourTheme());
+export const isUsingDarkTheme: Writable<boolean> = writable(defaultDarkTheme);
+export const currentColourTheme: Writable<string> = writable(defaultColourTheme);
 
 export function setUpThemes() {
+    isUsingDarkTheme.set(getDarkTheme());
+    currentColourTheme.set(getColourTheme());
+
     isUsingDarkTheme.subscribe((value: boolean) => {
         if (browser) {
             setLocalStorageDarkTheme(value);
