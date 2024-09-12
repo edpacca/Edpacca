@@ -7,8 +7,6 @@
     // import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
 	import * as config from "$lib/config";
 
-	export const prerender = true;
-
 	// let isMenuOpen = false;
 
 	// const closeMenu = () => {
