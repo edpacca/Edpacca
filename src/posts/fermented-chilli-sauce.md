@@ -20,7 +20,7 @@ published: true
 - <FaIcon icon="wine-bottle"/> white wine and/or apple cider vinegar
 - (optional) corn starch
 
-![Various chilis I grew!](/cooking/chilis.webp)
+![Various chilis I grew!](cooking/chilis.webp)
 
 # Basic Idea
 We want to get our vegetable matter to ferment, which means some nice bacteria start to break them down, softening and giving a nice flavour. To do this we just suspend them in salt water for a few weeks - A little salt will kill off harmful bacteria, too much salt will kill off our good bacteria. We're basically trying to let things rot in a controlled way. Sounds gross? Trust me it's bloody great. Blue cheese and bread are some of the best things and they come from similar processes.
@@ -44,7 +44,7 @@ I like to slightly fill a sandwich/freezer bag with water and tie it off. Plop i
 ## Keep it secret - keep it safe
 Ideally in the dark, not by a window. A cupboard is fine. Don't poke it. Don't let animals near it. You can smell a bit after the first week and see if you like it. If you do, consider leaving it a touch longer for enhanced fermento tastes. I think 2.5 - 3 weeks is the sweet spot for me. It will develop some cloudy bits as it ferments, this is normal!
 
-![The cloudiness means it's working.](/cooking/chili-jar.webp)
+![The cloudiness means it's working.](cooking/chili-jar.webp)
 
 ## Harvest
 Use a colander or sieve over a big bowl to filter off the chunkys from the brine. KEEP THE BRINE. It's so good. Set it aside.

@@ -195,7 +195,7 @@ class WordBlock {
         ctx.closePath();
 
         ctx.beginPath();
-        ctx.font = `bold ${this.charSize}px 'Fira Mono'`;
+        ctx.font = `bold ${this.charSize}px 'JetBrainsMono'`;
         ctx.fillStyle = "white";
         ctx.fillText(this.word, this.position.x + 4, this.position.y + 8, this.width);
         ctx.fill();

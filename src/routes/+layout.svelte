@@ -2,16 +2,16 @@
 	import { page } from '$app/stores';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
-    // import BurgerMenu from '$lib/components/BurgerMenu.svelte';
-    // import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
-    // import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
+    import BurgerMenu from '$lib/components/BurgerMenu.svelte';
+    import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
+    import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
 	import * as config from "$lib/config";
 
-	// let isMenuOpen = false;
+	let isMenuOpen = false;
 
-	// const closeMenu = () => {
-	// 	isMenuOpen = !isMenuOpen;
-	// }
+	const closeMenu = () => {
+		isMenuOpen = !isMenuOpen;
+	}
 </script>
 
 <svelte:head>
@@ -20,14 +20,14 @@
 </svelte:head>
 
 <div class="app">
-	<!-- <div class="theme-selectors">
+	<div class="theme-selectors">
 		<BurgerMenu bind:isOpen={isMenuOpen}>
 			<div class="toggle-container">
 				<DarkThemeToggle callback={closeMenu}/>
 				<ThemeSelector callback={closeMenu}/>
 			</div>
 		</BurgerMenu>
-	</div> -->
+	</div>
 	<Header/>
 	<main>
 		<div class:main-margin={!$page.url.pathname.startsWith('/weather')}>
@@ -45,7 +45,7 @@
 		max-width: var(--page-width);
 	}
 
-	/* .theme-selectors {
+	.theme-selectors {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -58,5 +58,5 @@
 		gap: 0.2em;
 		display: flex;
 		flex-direction: column;
-	} */
+	}
 </style>

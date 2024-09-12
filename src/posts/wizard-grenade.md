@@ -37,7 +37,7 @@ Getting this game containerised and playable via the browser is on my ever growi
 
 The physics are what really spawned this project - after replaying Worms2 for the first time in at least a decade, the simple act of aiming and timing tricky grenade throws was so satisfying that I wanted to recreate it. Upon achieving this, armed with a modest level of new programming knowledge I thought, “I’ll just make the whole game, it can’t be that much work!” … that thought did not last long, but at least it didn’t deter me. In truth, the physics only needs to approximate a simple mechanical model. For this I created a class called GameObject, which is included in every object that is acted upon by gravity and collides with the map, such as the fireballs or the wizards.
 
-![Fig1. Collision points about different GameObjects](/wizard-grenade/physics1.webp)
+![Fig1. Collision points about different GameObjects](wizard-grenade/physics1.webp)
 
 ## GameObject class
 -  As each `GameObject` is drawn to the screen, it inherits from the `Sprite` class. In hindsight `GameObject` could contain a `Sprite` rather than inherit to reduce coupling between the two.
@@ -96,7 +96,7 @@ public class GameObjectParameters
 
 You might wonder why this project is "WizardGrenade2" on GitHub - For WG1 I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are Singletons which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the StateMachine) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. The free account on LucidChart restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. The basic structure is as follows:
 
-![UML diagram for Wizard Grenade codebase](/wizard-grenade/WG2_UML.webp)
+![UML diagram for Wizard Grenade codebase](wizard-grenade/WG2_UML.webp)
 
 - WGGame is the main game class. This handles the game loop logic, determines whether we are in the menu, running the game, or if the game is paused. It also contains the CameraManager which determines the origin matrix (i.e. drawing UI, menus) and the transform matrix (i.e. in game)
 
@@ -130,7 +130,7 @@ You might wonder why this project is "WizardGrenade2" on GitHub - For WG1 I did 
 
 The next aspect of Worms2 to figure out was how to make the terrain destructible, and react to the weapon explosions but remain collidable. This actually proved fairly simple because the collision physics already takes place at the pixel level. So really this is a discussion of how the Map class works. Now, the Map class is one of the dreaded singletons that I used in the design of this game, because I wanted weapon objects to be able to call the DeformLevel() method without each object requiring a reference to the Map class. The Map class is also referenced by the CollisionManager, which all GameObjects need access to, so this is a singleton too. In my first iteration of the game, I didn't use any singletons but I did have to pass a lot of information up and down through a complex heirarchy of classes, which felt rather messy and coupled everything togther too tightly. I understand that a singleton in essence does the same thing, but I have more experience now. Nonetheless, I will break down the main sections of the Map class and explain how we get destructible terrain.
 
-![A firebomb blowing a chunk out of the map!](/wizard-grenade/WG_Terrain.webp)
+![A firebomb blowing a chunk out of the map!](wizard-grenade/WG_Terrain.webp)
 
 ## Loading the Data
 The Map class is Lazy initialised, which means it doesn't get instantiated until it is first called in the code. This happens after the user has selected the Map which they want to battle on. I have each file named "map" followed by a number, so the number is what is selected upon loading. The LoadContent function takes the file name and a bool called "isCollidable", and attempts to load the image into a "Texture2D" called _mapTexture. I used a try, catch block for some defensive programming; If the file name does not correspond to an accessible file it will load a deafult file. First the data for each pixel is read contigously from the map Texture2D ("_mapTexture") into a uint[] "_mapPixelColourData", starting at index 0 and running through the whole map. The LoadPixelCollisionData() method then reads this into a 2D bool array, which corresponds to the rows and columns from the contiguous array of colour data. Wherever there is a transparent pixel in the .png file, the colour data is recoreded as '0'. Because each element of the bool[,] is initialised to false, we check if the colour value is != 0, and if so set it to true.
@@ -253,7 +253,7 @@ This simple but clever idea comes form [this fantastic article](http://web.archi
 
 Here I want to highlight some non-specific classes or tools I crated to build the menus in the game. I wanted a simple interface, so I chose to represent all settings graphically with integer steps.
 
-![The Wizard Grenade pause menu](/wizard-grenade/WG_menu.webp)
+![The Wizard Grenade pause menu](wizard-grenade/WG_menu.webp)
 
 ## Setting Class
 

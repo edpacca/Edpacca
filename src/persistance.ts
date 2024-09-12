@@ -5,7 +5,7 @@ enum StorageType {
     ColourTheme = "colour-theme"
 }
 
-export function setLocalStorageDarkTheme(darkTheme: boolean) { 
+export function setLocalStorageDarkTheme(darkTheme: boolean) {
     setLocalStorage(StorageType.DarkTheme, darkTheme);
 }
 
@@ -13,7 +13,7 @@ export function getLocalStorageDarkTheme(): boolean {
     return getLocalStorage(StorageType.DarkTheme);
 }
 
-export function setLocalStorageColourTheme(colourTheme: string) { 
+export function setLocalStorageColourTheme(colourTheme: string) {
     setLocalStorage(StorageType.ColourTheme, colourTheme);
 }
 

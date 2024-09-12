@@ -13,7 +13,7 @@ Deployed at: [https://edpacca.github.io/ednd-initiative/](https://edpacca.github
 
  If you're unfaimilar with DnD and curious then I guess [go read this](https://en.wikipedia.org/wiki/Player%27s_Handbook). When playing in-person, I have always found tracking intiative in DnD combat to be too fiddly and complicated.From trying to write everyone's names down in order to tracking the HP of 11 goblins with their own hopes and dreams there's always room for error - not to mention each time you have to scribble things down it pulls you out of any immersive role-play, and often just ends up being indecipherable anyway. Therefore as part of an ongoing project to develop my idealised set of DM tools I present the [Ed 'n Dragons initiative tracker](https://edpacca.github.io/ednd-initiative/).
 
-![A complex combat state being tracked](/dnd-initiative/combat-0.webp)
+![A complex combat state being tracked](dnd-initiative/combat-0.webp)
 
 # The Problems
 

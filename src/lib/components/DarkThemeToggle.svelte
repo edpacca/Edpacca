@@ -13,6 +13,7 @@
 
     onMount(() => {
         $isUsingDarkTheme = getDarkTheme();
+
     });
 </script>
 

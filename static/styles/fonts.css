@@ -180,3 +180,23 @@
     font-weight: 400;
     font-style: italic;
 }
+
+/* Fire Mono */
+@font-face {
+    font-family: "Fira Mono";
+    src: url("/fonts/Fira_Mono/FiraMono-Regular.ttf");
+    font-weight: 400;
+    font-style: "normal";
+}
+@font-face {
+    font-family: "Fira Mono";
+    src: url("/fonts/Fira_Mono/FiraMono-Medium.ttf");
+    font-weight: 500;
+    font-style: "normal";
+}
+@font-face {
+    font-family: "Fira Mono";
+    src: url("/fonts/Fira_Mono/FiraMono-Bold.ttf");
+    font-weight: 700;
+    font-style: "normal";
+}
