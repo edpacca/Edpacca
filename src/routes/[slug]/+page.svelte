@@ -1,10 +1,13 @@
 <script lang="ts">
+    import BackButton from "$lib/components/BackButton.svelte";
+    import { getProjectData } from "$lib/data/projectData";
     import { formatDate } from "$lib/utils";
-    import ProjectBackButton from "../../lib/components/ProjectBackButton.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
 
     const date: string = formatDate(data.meta.date);
+    const projectId = data.meta.projectId ?? ""
+    const project: ProjectType | undefined = getProjectData(projectId);
 </script>
 
 <!-- SEO -->
@@ -19,7 +22,9 @@
     <hgroup>
         <h1>{data.meta.title}</h1>
         <p class="date">Published {date}</p>
-        <ProjectBackButton projectId={data.meta.projectId} />
+        {#if project}
+            <BackButton text={project.name} icon={project.icon} urlRef={`/projects/${projectId}`}/>
+        {/if}
     </hgroup>
 
     <div class="contents">
