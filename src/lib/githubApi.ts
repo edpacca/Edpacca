@@ -27,8 +27,8 @@ async function extractLanguageData(data: JSONArray, token: string) {
             }
         }));
         return parseLanguageObject(collated);
-    } catch (e) {
-        throw error(500, "Error parsing coding language data from github :(")
+    } catch {
+        error(500, "Error parsing coding language data from github")
     }
 }
 
@@ -38,8 +38,8 @@ export async function getGhLanguageData(url: string, token: string) {
         const data = await response.json() as JSONArray;
         const languages = await extractLanguageData(data, token);
         return languages;
-    } catch(e) {
-        throw error(500, "Error retrieving data from github")
+    } catch {
+        error(500, "Error retrieving data from github")
     }
 }
 

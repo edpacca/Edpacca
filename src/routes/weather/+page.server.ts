@@ -1,6 +1,8 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
+export const prerender = false;
+
 /* eslint-disable */
 const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 // default to edinburgh
@@ -14,7 +16,7 @@ const fetchWeather = async (latitude: number, longitude: number) => {
 	const result = await fetch(request);
 	const data = await result.json();
 	console.log(data);
-	return data;		
+	return data;
 }
 
 export const load = (async () => {
@@ -30,7 +32,7 @@ export const load = (async () => {
 	}
 	try {
 		const weather = await fetchWeather(location.latitude, location.longitude);
-	
+
 		return weather.current_weather ?? undefined;
 	} catch {
 		throw error(404, "Wasn't able to get any weather data.\n\n It's probably raining")

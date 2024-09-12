@@ -6,12 +6,12 @@ const defaultDarkTheme = true;
 const defaultColourTheme = "gold";
 
 export function getDarkTheme(): boolean {
-    return getLocalStorageDarkTheme() ?? defaultDarkTheme 
+    return getLocalStorageDarkTheme() ?? defaultDarkTheme
 }
 
 export function getColourTheme(): string {
-    return getLocalStorageColourTheme() ?? defaultColourTheme 
-} 
+    return getLocalStorageColourTheme() ?? defaultColourTheme
+}
 
 export const isUsingDarkTheme: Writable<boolean> = writable(defaultDarkTheme);
 export const currentColourTheme: Writable<string> = writable(defaultColourTheme);

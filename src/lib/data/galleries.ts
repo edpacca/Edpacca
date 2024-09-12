@@ -52,49 +52,51 @@ export const DW_ARMOUR_GALLERY = [
     "/images/warhammer/dw-armour/dw-armour_7.webp",
 ]
 
-export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/intercessors.webp"
+export const MINIATURE_SPOTLIGHT_IMG = "/images/warhammer/gallery/intercessors-alpha.webp"
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
     {
-        path: "/images/warhammer/gallery/deathwing2-black.webp",
+        path: "/images/warhammer/gallery/deathwing2-alpha.webp",
         alt: "Ebay rescued Deathwing Terminators",
         wide: true
     },
     {
-        path: "/images/warhammer/gallery/intercessors.webp",
+        path: "/images/warhammer/gallery/intercessors-alpha.webp",
         alt: "Primaris Intercessors",
         wide: true
     },
     {
-        path: "/images/warhammer/gallery/da-dreadnaught.webp",
+        path: "/images/warhammer/gallery/assault-jump-pack-sergeants-alpha.webp",
+        alt: "Jump-pack Intercessor Sergeants",
+        wide: true
+    },
+    {
+        path: "/images/warhammer/gallery/lascannons-alpha.webp",
+        alt: "Lascannon Devastators",
+        wide: true
+    },
+    {
+        path: "/images/warhammer/gallery/da-dreadnaught-alpha.webp",
         alt: "Classic Dreadnaught"
     },
     {
-        path: "/images/warhammer/gallery/devastator-sergeant.webp",
-        alt: "Devastators Sergeant"
-    },
-    {
-        path: "/images/warhammer/gallery/lascannons.webp",
-        alt: "Lascannon Devastators"
-    },
-    {
-        path: "/images/warhammer/gallery/deathwing-sergeant-back.webp",
-        alt: "Deathwing Sergeant"
-    },
-    {
-        path: "/images/warhammer/gallery/ravenwing-sergeant.webp",
+        path: "/images/warhammer/gallery/ravenwing-sergeant-alpha.webp",
         alt: "Ravenwing Sergeant"
     },
     {
-        path: "/images/warhammer/gallery/assault-jump-pack-sergeants.webp",
-        alt: "Jump-pack Intercessor Sergeants"
-    },
-    {
-        path: "/images/warhammer/gallery/ezekiel.webp",
+        path: "/images/warhammer/gallery/ezekiel-alpha.webp",
         alt: "Grandmaster Librarian Ezekiel"
     },
     {
-        path: "/images/warhammer/gallery/deathwing-sergeant.webp",
+        path: "/images/warhammer/gallery/devastator-sergeant-alpha.webp",
+        alt: "Devastators Sergeant"
+    },
+    {
+        path: "/images/warhammer/gallery/deathwing-sergeant-alpha.webp",
+        alt: "Deathwing Sergeant"
+    },
+    {
+        path: "/images/warhammer/gallery/deathwing-sergeant-back-alpha.webp",
         alt: "Deathwing Sergeant"
     },
 ]

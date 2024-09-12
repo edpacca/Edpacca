@@ -1,4 +1,3 @@
-@import '@fontsource/fira-mono';
 @import 'fonts.css';
 
 :root {
@@ -285,6 +284,13 @@ img.gallery-img{
 
 .italic {
 	font-style: italic;
+}
+
+.anchor {
+	color: transparent;
+	height: 0;
+	width: 0;
+	display: inline-block;
 }
 
 @media screen and (max-width: 600px) {

@@ -10,6 +10,6 @@ export async function load({ params }) {
         }
     } catch (e) {
         console.error(e);
-        throw error(404, `Hmmm couldn't find ${params.slug}`);
+        error(404, `Hmmm couldn't find ${params.slug}`);
     }
 }

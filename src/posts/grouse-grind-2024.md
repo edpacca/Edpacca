@@ -21,4 +21,4 @@ It's late in the year. [Last year's running challenge](running-up-that-hill) was
 
 A simple one this year - run the [Grouse Grind](https://www.grousemountain.com/grousegrind). It's basically an 800m staircase. Last year was an accumulation challenge whereas this one is harder to track, but I think I'll make a few attempts and record roughtly how far I can get up without stopping. There are actaully two routes to the top - I already hiked the [BCMC Trail](https://www.grousemountain.com/BCMC) which is a more rugged, direct ascent through the forest. Similar length, but might be more prone to twist an ankle - although *definitely* more fun that climbing stairs. So we'll see what we end up doing.
 
-<img class="post-image" src="https://dgtzuqphqg23d.cloudfront.net/GftfxOod9R6FXzyDpPa23bapb1S_jrxRoB4o50LTBTc-1536x2048.jpg"/>
+<img class="post-image" alt="BCMC trail" src="https://dgtzuqphqg23d.cloudfront.net/GftfxOod9R6FXzyDpPa23bapb1S_jrxRoB4o50LTBTc-1536x2048.jpg"/>

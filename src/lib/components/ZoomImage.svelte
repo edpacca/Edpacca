@@ -7,13 +7,16 @@
     export let hoverEnabled = false;
 
     let isHovered = false;
+
 </script>
 
+<svelte:window on:wheel|nonpassive={e => { if(isZoomed) e.preventDefault()}}/>
 {#if isZoomed}
     <div class="dim-filter">
     </div>
 {/if}
 <div
+    role="img"
     class="click-zoom"
     class:height={dominantDimension === "height"}
     class:width={dominantDimension === "width"}
@@ -35,7 +38,7 @@
             class:width={dominantDimension === "width"}
             bind:this={img}
         />
-    </label>
+   </label>
 
   </div>
 

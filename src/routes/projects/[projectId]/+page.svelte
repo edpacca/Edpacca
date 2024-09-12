@@ -1,13 +1,16 @@
 <script lang=ts>
     import { page } from "$app/stores";
+    import { comparePinnedPosts } from "$lib/utils";
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import MiniaturesPage from "$lib/pages/MiniaturesPage.svelte";
     import PostPreview from "$lib/components/PostPreview.svelte";
     import BackButton from "$lib/components/BackButton.svelte";
     import RunningPage from "$lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
-    import PinnedPostPreview from "$lib/components/PinnedPostPreview.svelte";
     export let data: PageData;
+
+    const sortedPosts = data.posts ? data.posts.sort(comparePinnedPosts) : [];
+
 </script>
 
 <h1>{data.project?.name}</h1>
@@ -31,15 +34,8 @@
 {/if}
 <section>
     <div class="posts">
-        {#each data.posts as post}
-            {#if post.pinned}
-                <PinnedPostPreview post={post} hasPostImage={true}/>
-            {/if}
-        {/each}
-        {#each data.posts as post}
-            {#if !post.pinned}
-                <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
-            {/if}
+        {#each sortedPosts as post}
+            <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
         {/each}
     </div>
 </section>

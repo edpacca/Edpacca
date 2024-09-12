@@ -1,15 +1,15 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
-	
+
 	export let text = "";
 	export let isActive = true;
-	
+
 	export let isHovered = false;
 	let x: number;
 	let y: number;
-	
+
 	const offset = 10;
-	
+
 	const mouseOver = (event: MouseEvent) => {
 		isHovered = true;
 		x = event.pageX + offset;
@@ -28,6 +28,7 @@
 </script>
 
 <div
+	role="tooltip"
 	on:mouseover={mouseOver}
 	on:mouseleave={mouseLeave}
 	on:mousemove={mouseMove}
@@ -37,7 +38,7 @@
 </div>
 
 {#if isHovered && isActive}
-	<div 
+	<div
 		style="top: {y}px; left: {x}px;"
 		class="tooltip"
 		in:fade={{delay: 800}}>

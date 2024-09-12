@@ -1,9 +1,11 @@
 ---
 title: Lockdown IPA
-description: My not so famous fermented chilli saws.
-date: 05/09/2023
+description: Series of IPAs brewed during the great lockdown of 2020
+date: 06/14/2020
 projectId: recipes
-published: false
+published: true
 icon: beer
 ---
+
+
 
