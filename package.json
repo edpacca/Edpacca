@@ -32,5 +32,9 @@
 	},
 	"dependencies": {
 		"shiki": "^0.14.3"
+	},
+	"engines": {
+		"node": "20.x"
 	}
 }
+
