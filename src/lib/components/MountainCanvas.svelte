@@ -17,16 +17,15 @@
             const container = document.getElementById(
                 "mountain-canvas-container"
             );
-            container && 
-                container?.setAttribute(
-                    "style",
-                    `--canvas-height: ${canvas1.clientHeight}px`
-                );
+            container?.setAttribute(
+                "style",
+                `--canvas-height: ${canvas1.clientHeight}px`
+            );
         }
 
     });
 
-    
+
 </script>
 
 <div id="mountain-canvas-container">
