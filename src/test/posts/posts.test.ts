@@ -2,7 +2,7 @@ import { test, describe, expect } from "vitest";
 import * as fs from "fs";
 import path from "path";
 
-const iconCssPath = path.join(__dirname, "../..", "styles/fontawesome-free-6.4.0-web/css/all.min.css")
+const iconCssPath = path.join(__dirname, "../../../", "static/styles/fontawesome-free-6.4.0-web/css/all.min.css")
 const faIconRegex = /fa-[a-zA-Z0-9-]+/g
 
 function testFileExists(filePath: string, warnOnly = false) {
