@@ -5,6 +5,7 @@
     export let post: Post;
     export let hasProjectLink = true;
     export let hasPostImage = false;
+    const isPinnedPost = post.pinned;
     const date = formatDate(post.date);
 </script>
 
@@ -15,8 +16,10 @@
             <PostCoverImage post={post}/>
         {/if}
         <div>
-            <div class="date">{date}</div>
-            <a href={`/${post.slug}`} class="title two-line-clamp">{post.title}</a>
+            {#if !isPinnedPost}
+                <div class="date">{date}</div>
+            {/if}
+            <a href={`/${post.slug}`} class="title two-line-clamp" class:pinned={isPinnedPost}>{post.title}</a>
         </div>
     </div>
     {#if hasProjectLink}
@@ -27,6 +30,10 @@
 </div>
 
 <style>
+    .pinned {
+        color: var(--highlight);
+    }
+
     .summary-container {
         display: flex;
         justify-content: center;

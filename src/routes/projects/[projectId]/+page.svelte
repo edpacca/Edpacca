@@ -6,8 +6,14 @@
     import BackButton from "$lib/components/BackButton.svelte";
     import RunningPage from "$lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
-    import PinnedPostPreview from "$lib/components/PinnedPostPreview.svelte";
     export let data: PageData;
+
+    const comparePinnedPosts = (p1: Post, p2: Post) => {
+        return parsePinned(p2.pinned) - parsePinned(p1.pinned);
+    }
+    const parsePinned = (pinned: boolean | undefined) => Number(pinned ?? 0);
+    const sortedPosts = data.posts.sort(comparePinnedPosts);
+
 </script>
 
 <h1>{data.project?.name}</h1>
@@ -31,15 +37,8 @@
 {/if}
 <section>
     <div class="posts">
-        {#each data.posts as post}
-            {#if post.pinned}
-                <PinnedPostPreview post={post} hasPostImage={true}/>
-            {/if}
-        {/each}
-        {#each data.posts as post}
-            {#if !post.pinned}
-                <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
-            {/if}
+        {#each sortedPosts as post}
+            <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
         {/each}
     </div>
 </section>
