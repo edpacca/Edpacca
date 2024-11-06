@@ -127,6 +127,11 @@ h2 + p {
 	margin-top: 0em;
 }
 
+li h4 {
+	margin-top: 0.4em;
+	margin-bottom: 0em;
+}
+
 pre {
 	font-size: 16px;
 	font-family: var(--font-mono);
@@ -202,6 +207,10 @@ img.cover-image {
 
 .date {
 	color: var(--primary-50);
+}
+
+.highlight {
+	color: var(--highlight);
 }
 
 .summary-container {

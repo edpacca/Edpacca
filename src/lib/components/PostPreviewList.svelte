@@ -1,5 +1,6 @@
 <script lang="ts">
     import { comparePinnedPosts } from "$lib/utils";
+    import LinkAsPostPreview from "./LinkAsPostPreview.svelte";
     export let posts: Post[];
     import PostPreview from "./PostPreview.svelte";
 
@@ -7,6 +8,7 @@
 </script>
 
 <div class="posts">
+	<LinkAsPostPreview slug={"projects/programming"} title={"Programming Projects"} projectId={"programming"}/>
 	{#each sortedPosts as post}
 		<PostPreview post={post} hasPostImage={false}/>
 	{/each}

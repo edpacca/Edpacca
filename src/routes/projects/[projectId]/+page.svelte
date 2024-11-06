@@ -11,13 +11,14 @@
 
     const sortedPosts = data.posts ? data.posts.sort(comparePinnedPosts) : [];
 
+    $: path = $page.url.pathname
 </script>
 
 <h1>{data.project?.name}</h1>
 <BackButton text={"projects"} urlRef={"/projects"}/>
 
 <br/>
-{#if $page.url.pathname.split("/projects/")[1] === "minipainting"}
+{#if path.split("/projects/")[1] === "minipainting"}
     <MiniaturesPage/>
 {/if}
 
@@ -25,9 +26,9 @@
     {data.project?.description ?? ""}
 </div>
 
-{#if $page.url.pathname.split("/projects/")[1] === "running"}
+{#if path.split("/projects/")[1] === "running"}
     <RunningPage/>
-{:else if $page.url.pathname.split("/projects/")[1] === "programming"}
+{:else if path.split("/projects/")[1] === "programming"}
     {#if data.ghData}
         <TechnologySoup technologies={data.ghData}/>
     {/if}
