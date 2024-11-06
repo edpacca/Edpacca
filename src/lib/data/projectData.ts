@@ -35,7 +35,7 @@ export const PROJECTS: ProjectType[] = [
         name: "Recipes",
         id: "recipes",
         icon: "pepper-hot",
-        description: "I started brewing when I moved to Edinburgh aswell, but took a long haiatus until around 2020 when for obvious reasons home hobbies took off again. I brewed mostly IPAs, a few stouts and some other Ales."
+        description: "I started brewing when I moved to Edinburgh, but took a long haiatus until around 2020 when (for obvious reasons) home hobbies took off again. I brewed mostly IPAs, a few stouts and some other Ales. I also got into making my own Chili sauce and a few other things."
     },
 	{
         name: "Running",
