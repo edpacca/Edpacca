@@ -14,7 +14,7 @@
 
 <div class="post-image-container">
     <ZoomImage
-        src={`images/${src}`}
+        src={`/images/${src}`}
         alt={alt}
         loading="lazy"
         class={`post-image ${isSquare ? "square" : ""}`}
