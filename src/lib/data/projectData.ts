@@ -11,8 +11,8 @@ export const PROJECTS: ProjectType[] = [
       "After falling in love with programming I left behind my life as a high pressure scientist in order to become a software developer. Now I've worked professionally all over the stack, with a number of languages and frameworks, I can safely say that I simply enjoy figuring out problems and finding optimal solutions. My personal projects usually emerge from a need that I have or simply a 'quick experiment' that gets out of hand; a few of my favourites are highlighted here.",
   },
   {
-    name: "Miniature Painting",
-    id: "minipainting",
+    name: "Miniatures",
+    id: "miniatures",
     icon: "paint-brush",
     description:
       "After digging out a bunch of old miniatures I had collected when I was ~10 years old I decided to repaint a few of them. I ended up rekindling the hobby of painting minis again, moving on from the challenges I faced as a 10 year old of simply painting everything neatly and slowly falling in love with the idea of 'painting the light', thinking about contrast and tone, and taking a much more artistic approach to painting these little plastic figures. It's also nice to make things with your hands, without a screen. Here I've documented a few of my endeavours for whoever may be curious.",

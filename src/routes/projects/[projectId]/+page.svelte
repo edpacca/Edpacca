@@ -18,7 +18,7 @@
 <BackButton text={"projects"} urlRef={"/projects"}/>
 
 <br/>
-{#if path.split("/projects/")[1] === "minipainting"}
+{#if path.split("/projects/")[1] === "miniatures"}
     <MiniaturesPage/>
 {/if}
 

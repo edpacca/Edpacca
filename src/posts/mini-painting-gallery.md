@@ -2,7 +2,7 @@
 title: Mini Painting Gallery
 description: A selection of paintjobs that I'm proud of
 date: 10/13/2023
-projectId: minipainting
+projectId: miniatures
 published: true
 icon: image
 pinned: true
