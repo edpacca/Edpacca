@@ -11,8 +11,6 @@ icon: paintbrush
     import PaintingTutorial from "../lib/components/PaintingTutorial.svelte";
     import { HIGHLAND_BASE_PAINTS } from "../lib/data/paintColourData";
     import { HIGHLAND_BASE_STEPS } from "../lib/data/paintingStepsData";
-
-    const coverImage = "images/miniatures/highland-bases/bases_6.webp";
 </script>
 
 ![Highland themed base on my dreadnaught](miniatures/gallery/da-dreadnaught-alpha.webp)
