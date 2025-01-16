@@ -26,3 +26,15 @@ Due to some unexpected life events (and a lack of consistent painting!) I ended 
 Despite the tight deadline, with a few full days dedicated to painting and an all-nighter pulled the day before the event I managed to finish! Overall the process was very enjoyable and I feel like I pushed myself further than I thought I was capable of. I tried really painting light and shadows on the armour for the first time, and pushed the contrast much further than I usually would. I am very pleased with the result! As of writing the models are currently sat in the shop awaiting judgement, an update (and more pictures) will follow soon.
 
 ![The finished entry for Immortal Brush 2024](miniatures/dw-knights/dw-knights-all.webp)
+
+---
+
+## Update
+
+I did not win - but it was really cool to go and see all the entries, and meet a bunch of like minded people who had also been pouring their hearts into their respective projects. Mine was the 88<sup>th</sup> out of 92 I believe, so I was right at the back in the bottom of the case! Not saying that had anything to do with the result, but it certainly was hard to get a proper look at them. Next time I wont be submitting an entry with 2 hours to the deadline... honest!
+
+![Can you spot my knights?](miniatures/dw-knights/immortal-brush-case.webp)
+
+The standard was really good, and I think it was the perfect level for me. I genuinely think my minis stood a chance, but there were some great entries and the winners all thoroughly deserved it! I'll be entering another contest next year, now I know I'm capable of more than I ever thought I was. I'm excited to see where this journey takes me and I'll be setting some higher standards for my paint jobs from now on. If you're getting to a stage in your painting journey where you're thinking of entering a painting contest, I'd highly encourage you to just have a go! Even if you don't win anything you will definitely get something out of trying your absolute best on a piece.
+
+I did actually win a small prize from the raffle which was awesome - the raffle winners got to pick from various swag piles, and I got a metal rack for my paints, an exclusive DnD vampire mini (which I will do a post about one day), and another mini of a guy holding a sword which upon closer inspection appears to be 'Minsc' from Baldur's Gate I!. The little hamster 'Boo' gave it away - this thoroughly pleases me, as I used to play BGI when I was very young on my Dad's PC, and Minsc was always a favourite. So, really, I think I came out a winner in the end.
