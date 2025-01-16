@@ -57,6 +57,11 @@ export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/dw-knights-al
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
   {
+    path: "/images/miniatures/gallery/dw-knights-all-alpha-small.webp",
+    alt: "Deathwing Knights",
+    wide: true,
+  },
+  {
     path: "/images/miniatures/gallery/deathwing2-alpha.webp",
     alt: "Ebay rescued Deathwing Terminators",
     wide: true,
