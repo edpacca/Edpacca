@@ -106,15 +106,19 @@ This recipe is now the standard stone recipe I have been following for my terrai
 - ### Burnt umber / Black oil wash
 - ### Winter blue drybrush
 
-![The painted well, before the oil wash and final drybrush](miniatures/well/well_5.webp)
+![The painted well, before the oil wash](miniatures/well/well_5.webp)
 
 The wooden pieces were left simply with the sepia wash. The real magic of this recipe I think is the mix of cold and warm colours. The final drybrush of winter blue over everything really sets the piece in a cold environment, but the warmer colours of the base just give a bit of depth and ensure the greens and blues are not overpowering.
 
 ## Finishing touches
 
-![The finished well in all it's grimy glory](miniatures/well/well_6.webp)
+![A wet oil wash with the pigment powder applied to the base](miniatures/well/well_6.webp)
 
-The last bit of detail was to add a few grass tufts, and the moss. The tufts are a mixture of cold wintery tufts, dry yellowish tufts and some darker burnt grass tufts. I think a mix of tufts really helps sell that this piece is in a real environment where a variety of vegetation would be present.
+A great way to add some realism and life to a base is pigment powders. I liberally applied [Vallejo Green Earth](https://elementgames.co.uk/paints-hobby-and-scenery/weathering-pigments/vallejo-pigments-green-earth) pigment powder to patches of the base - this gives a super matte and dusty finish, and the colour is just right here: pale, cooler tones.
+
+The next bit of detail was to add a few grass tufts, and the moss. The tufts are a mixture of cold wintery tufts, dry yellowish tufts and some darker burnt grass tufts. I think a mix of tufts really helps sell that this piece is in a real environment where a variety of vegetation would be present.
+
+![The finished well in all it's grimy glory](miniatures/well/well_7.webp)
 
 This is one of the first times playing with [Dirty Down moss effect](https://dirtydown.co.uk/product/water-soluble-paint-moss-effect-small-25ml-pot/) for me, so I was still getting used to it. But my golly it does the job I think. A lot of people seem to have problems with this effect, saying it didn't work or would be very dark. I found that the generally accepted wisdom of shaking the absolute shite out of the bottle, until the mixing ball can be heard rattling and then some more, was absolutely neccessary. This is very thick gloopy stuff. I also mixed it up in the bottle with my brush every time before applying - but the trick I found was not to simply glob on the stuff attached to the brush, but wipe a lot of it off first. So the mixture was homogenous on the brush, but it wasn't overloaded. Then I think applying over brighter surfaces gave a better effect; here that was the drybrushed edges of all the rocks. I tried to get a nice balance without going overboard. Usually if there's moss though, there's quite a lot! The final effect is a super bright and matt mossy effect which I am absolutely in love with.
 
