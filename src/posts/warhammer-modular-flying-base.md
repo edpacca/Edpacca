@@ -62,3 +62,5 @@ After it was dry, the piece was pushed on and the gaps filled with more Polyfill
 Finally once all of that was dry I sprayed the whole thing with enamel coating from a rattle-can to lock everything in and make it more durable.
 
 ![Sand and rocks glued over the texture paste](miniatures/flying-base/lego-flying-base_9.webp)
+
+post to be continued...
