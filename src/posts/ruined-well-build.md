@@ -110,6 +110,8 @@ This recipe is now the standard stone recipe I have been following for my terrai
 
 The wooden pieces were left simply with the sepia wash. The real magic of this recipe I think is the mix of cold and warm colours. The final drybrush of winter blue over everything really sets the piece in a cold environment, but the warmer colours of the base just give a bit of depth and ensure the greens and blues are not overpowering.
 
+The oil wash was quite a bit darker than I'd have liked so I ended up wiping away quite a lot from the surface. On my other stone pieces I actually left it quite late so the oil paint had mostly dried, and the final effect is very dark. On the well I really wanted some of the blues and greens to shine through and give character to the stone, as this was more of a statement piece.
+
 ## Finishing touches
 
 ![A wet oil wash with the pigment powder applied to the base](miniatures/well/well_6.webp)
