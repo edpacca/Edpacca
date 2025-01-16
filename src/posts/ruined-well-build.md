@@ -22,6 +22,8 @@ There are certain scenarios in the book which introduce a bit of flavour to each
 
 In typical fashion I started the build the night before the game, so we actually played with the most basic foam creation. The upside to this was I decided to really take my time after that and just followed my gut with what felt good - and the final product is, _well_, pretty great I think!
 
+![The plucky archer defends the treasure](miniatures/well/well-of-dreams-and-sorrows-1.webp)
+
 ---
 
 # The Build <FaIcon icon="hammer"/>
