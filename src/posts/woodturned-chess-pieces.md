@@ -1,7 +1,7 @@
 ---
 title: Woodturning chess pieces
 description: I once was into the idea of turning a whole chess set. I didn't get very far.
-coverImage: woodwork/bishop.webp
+coverImage: woodwork/bishop/bishop.webp
 date: 09/19/2018
 projectId: crafting
 published: true

@@ -106,3 +106,7 @@ export const MINIATURE_GALLERY: ImageMetadata[] = [
     alt: "Deathwing Sergeant",
   },
 ];
+
+export const ARCHWAY_IMAGES = [
+  "/images/miniatures/"
+]
