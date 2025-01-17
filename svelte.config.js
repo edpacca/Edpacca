@@ -17,7 +17,7 @@ const mdsvexOptions = {
 				theme: "dark-plus",
 				langs: [ "javascript", "c#", "ts" ]
 			})
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang: lang ?? undefined }))
 			return `{@html \`${html}\` }`
 		}
 	}
