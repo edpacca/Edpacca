@@ -35,7 +35,7 @@ export const load = (async () => {
 
 		return weather.current_weather ?? undefined;
 	} catch {
-		throw error(404, "Wasn't able to get any weather data.\n\n It's probably raining")
+		error(404, "Wasn't able to get any weather data.\n\n It's probably raining");
 	}
 }) satisfies PageServerLoad;
 
