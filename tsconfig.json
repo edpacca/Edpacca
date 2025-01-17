@@ -15,10 +15,7 @@
 		"types": [
 			"node",
 			"jest"
-		]
-	},
-	"paths": {
-		"*": ["types/*.d.ts"]
+		],
 	},
 	"include": [
 		".eslintrc.cjs",

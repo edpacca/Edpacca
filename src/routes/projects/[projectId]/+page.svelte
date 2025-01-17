@@ -5,7 +5,6 @@
     import MiniaturesPage from "$lib/pages/MiniaturesPage.svelte";
     import PostPreview from "$lib/components/PostPreview.svelte";
     import BackButton from "$lib/components/BackButton.svelte";
-    import RunningPage from "$lib/pages/RunningPage.svelte";
     import type { PageData } from "./$types";
     export let data: PageData;
 
@@ -26,9 +25,7 @@
     {data.project?.description ?? ""}
 </div>
 
-{#if path.split("/projects/")[1] === "running"}
-    <RunningPage/>
-{:else if path.split("/projects/")[1] === "programming"}
+{#if path.split("/projects/")[1] === "programming"}
     {#if data.ghData}
         <TechnologySoup technologies={data.ghData}/>
     {/if}
