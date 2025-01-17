@@ -1,5 +1,5 @@
-import adapter from "@sveltejs/adapter-auto";
-import { vitePreprocess } from "@sveltejs/kit/vite";
+import adapter from "@sveltejs/adapter-node";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex, escapeSvelte } from "mdsvex";
 import shiki from "shiki";
 
@@ -17,7 +17,7 @@ const mdsvexOptions = {
 				theme: "dark-plus",
 				langs: [ "javascript", "c#", "ts" ]
 			})
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang: lang ?? undefined }))
 			return `{@html \`${html}\` }`
 		}
 	}
@@ -30,7 +30,9 @@ const config = {
 		mdsvex(mdsvexOptions)
 	],
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			out: "build",
+		}),
 	}
 };
 

@@ -7,14 +7,14 @@ published: false
 icon: mountain
 ---
 
-<script>
+<!-- <script>
     import Strava2024Goal from "../lib/components/Strava2024Goal.svelte"
 </script>
 
 <div style="margin-top: 2em;">
 <Strava2024Goal/>
 <hr/>
-</div>
+</div> -->
 
 ## June 2024
 
