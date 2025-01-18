@@ -57,6 +57,10 @@ export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/dw-knights-al
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
   {
+    path: "/images/miniatures/well/well_alpha.webp",
+    alt: "The ruined well",
+  },
+  {
     path: "/images/miniatures/gallery/dw-knights-all-alpha-small.webp",
     alt: "Deathwing Knights",
     wide: true,
@@ -101,8 +105,8 @@ export const MINIATURE_GALLERY: ImageMetadata[] = [
     path: "/images/miniatures/gallery/deathwing-sergeant-alpha.webp",
     alt: "Deathwing Sergeant",
   },
-  {
-    path: "/images/miniatures/gallery/deathwing-sergeant-back-alpha.webp",
-    alt: "Deathwing Sergeant",
-  },
 ];
+
+export const ARCHWAY_IMAGES = [
+  "/images/miniatures/"
+]

@@ -6,11 +6,15 @@
     export let dominantDimension: "height" | "width" = "width";
     export let hoverEnabled = false;
 
+    const minScreenWidth = 600;
+    let screenWidth: number;
+
     let isHovered = false;
 
+    $: preventZoom = screenWidth < minScreenWidth;
 </script>
 
-<svelte:window on:wheel|nonpassive={e => { if(isZoomed) e.preventDefault()}}/>
+<svelte:window on:wheel|nonpassive={e => { if(isZoomed) e.preventDefault()}} bind:innerWidth={screenWidth}/>
 {#if isZoomed}
     <div class="dim-filter">
     </div>
@@ -29,7 +33,7 @@
             {alt}
         </div>
         {/if}
-        <input type="checkbox" bind:checked={isZoomed}>
+        <input type="checkbox" bind:checked={isZoomed} disabled={preventZoom}>
         <img
             {src}
             alt={alt ? alt : ""}
@@ -82,7 +86,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.8);
         z-index: 9;
     }
 

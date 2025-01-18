@@ -22,6 +22,14 @@ declare global {
 		id: string,
 		icon: string
 		description?: string,
+		bonus?: string
+	}
+
+	type DnDMapData = {
+		imgSrc: string,
+		url?: string,
+		name: string,
+		description?: string
 	}
 
 	type Points = [number, number][]

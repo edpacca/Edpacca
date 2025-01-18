@@ -120,6 +120,11 @@ h2 {
   margin-bottom: 0em;
 }
 
+h3 {
+  font-size: 1.1em;
+  margin-bottom: 0em;
+}
+
 h2,
 h3,
 h4 {
@@ -332,4 +337,13 @@ img.gallery-img {
 
 .debug {
   border: 1px solid yellow;
+}
+
+
+.vecna {
+  font-family: Vecna;
+}
+
+.dragon-hunter {
+  font-family: DragonHunter;
 }
