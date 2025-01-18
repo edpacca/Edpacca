@@ -6,6 +6,7 @@
     import PostPreview from "$lib/components/PostPreview.svelte";
     import BackButton from "$lib/components/BackButton.svelte";
     import type { PageData } from "./$types";
+    import DnDPage from "$lib/pages/DnDPage.svelte";
     export let data: PageData;
 
     const sortedPosts = data.posts ? data.posts.sort(comparePinnedPosts) : [];
@@ -13,7 +14,7 @@
     $: path = $page.url.pathname
 </script>
 
-<h1>{data.project?.name}</h1>
+<h1 class:vecna={path.split("/projects/")[1] === "dnd"}>{data.project?.name}</h1>
 <BackButton text={"projects"} urlRef={"/projects"}/>
 
 <br/>
@@ -37,6 +38,11 @@
         {/each}
     </div>
 </section>
+
+{#if path.split("/projects/")[1] === "dnd"}
+    <DnDPage/>
+{/if}
+
 <div class="bonus">
     {data.project?.bonus ?? ""}
 </div>

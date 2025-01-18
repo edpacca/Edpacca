@@ -29,11 +29,12 @@ export const PROJECTS: ProjectType[] = [
     id: "music",
     icon: "music",
   },
-  // {
-  //     name: "Dungeons & Dragons",
-  //     id: "dnd",
-  //     icon: "dice-d20",
-  // },
+  {
+      name: "Dungeons & Dragons",
+      id: "dnd",
+      icon: "dice-d20",
+      description: "One day I want to write up all of my homebrewed D&D campaign materials, but that may warrant an entire website to itself. For now I'll just share some of my favourite maps that I've created."
+  },
   {
     name: "Recipes",
     id: "recipes",

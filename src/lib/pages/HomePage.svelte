@@ -8,7 +8,7 @@
 		<h1>Hi</h1>
 	</div>
 	<p>I'm Eddie. Welcome to my corner of the internet.</p>
-	<p>I have many interests, both creative and technical - usually involving wizards. Over the years I've found it harder to keep track of all my projects, so I decided to document them here. This site was conceived in 2022, so posts dated older than this are written some <em>post factum</em>.</p>
+	<p>I have many interests, both creative and technical - usually involving wizards. Over the years I've found it harder to keep track of all my projects, so I decided to document them here. This site was conceived in 2022, so posts dated older than this are written some time <em>'post factum'</em>.</p>
 	<p>See <a href="/projects">Projects</a> for posts by category.</p>
 	<p>
 		<OpenCloseBook/>

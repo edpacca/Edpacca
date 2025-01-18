@@ -25,6 +25,13 @@ declare global {
 		bonus?: string
 	}
 
+	type DnDMapData = {
+		imgSrc: string,
+		url?: string,
+		name: string,
+		description?: string
+	}
+
 	type Points = [number, number][]
 
 	type JSONValue = { [x: string]: string }
