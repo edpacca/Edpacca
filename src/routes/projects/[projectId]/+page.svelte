@@ -37,6 +37,9 @@
         {/each}
     </div>
 </section>
+<div class="bonus">
+    {data.project?.bonus ?? ""}
+</div>
 
 <style>
 
@@ -48,6 +51,11 @@ h1 {
 
 .description {
     margin-bottom: 2em;
+}
+
+.bonus {
+    margin-top: 2em;
+    font-style: italic;
 }
 
 section {

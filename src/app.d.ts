@@ -22,6 +22,7 @@ declare global {
 		id: string,
 		icon: string
 		description?: string,
+		bonus?: string
 	}
 
 	type Points = [number, number][]

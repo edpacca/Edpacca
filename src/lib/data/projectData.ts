@@ -15,7 +15,8 @@ export const PROJECTS: ProjectType[] = [
     id: "miniatures",
     icon: "paint-brush",
     description:
-      "After digging out a bunch of old miniatures I had collected when I was ~10 years old I decided to repaint a few of them. I ended up rekindling the hobby of painting minis again, moving on from the challenges I faced as a 10 year old of simply painting everything neatly and slowly falling in love with the idea of 'painting the light', thinking about contrast and tone, and taking a much more artistic approach to painting these little plastic figures. It's also nice to make things with your hands, without a screen. Here I've documented a few of my endeavours for whoever may be curious.",
+      "I rekinded the hobby of mini-painting after digging out a bunch of old miniatures that I had collected between the ages of 10 - 14. The challenge back then was simply to paint each section a single colour, as neatly as possible. Now, I have fallen in love with the process of 'painting the light', thinking about contrast and tone, and trying to tell a story with the figures. I am still a long way from being any good, but hopefully the progress is visible across what is documented here.",
+    bonus: "When I was in school, I actually used to make my own Warhammer 'magazine' - an ode to the White Dwarf called 'Black Blade'. I would take photos of my friends' paint jobs, give painting tutorials and write battle reports. I think I released about 5 issues, and would sell them for 20p to cover the printing costs. Unfortunately there are no known surviving copies...",
   },
   // {
   //     name: "AISIAEC",
