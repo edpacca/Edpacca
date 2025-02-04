@@ -52,6 +52,15 @@ export const DW_ARMOUR_GALLERY = [
   "/images/miniatures/dw-armour/dw-armour_7.webp",
 ];
 
+export const DIORAMA_GALLERY = [
+  "/images/miniatures/diorama-strike-at-dawn/diorama-0.webp",
+  "/images/miniatures/diorama-strike-at-dawn/diorama-1.webp",
+  // "/images/miniatures/diorama-strike-at-dawn/diorama-2.webp",
+  "/images/miniatures/diorama-strike-at-dawn/diorama-3.webp",
+  "/images/miniatures/diorama-strike-at-dawn/diorama-4.webp",
+  "/images/miniatures/diorama-strike-at-dawn/diorama-5.webp",
+]
+
 // export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/intercessors-alpha.webp"
 export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/dw-knights-all-alpha-small.webp";
 
