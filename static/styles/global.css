@@ -132,7 +132,7 @@ h4 {
   color: var(--highlight);
 }
 
-h2 + p {
+h2+p {
   margin-top: 0em;
 }
 
