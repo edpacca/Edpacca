@@ -2,6 +2,8 @@
     import FaIcon from "./FaIcon.svelte";
     export let project: ProjectType;
     export let numberOfPosts = 0;
+    export let numberOfAltItem = 0;
+    export let altIcon: string | undefined = undefined;
 </script>
 
 <div class="summary-container">
@@ -12,8 +14,12 @@
         </a>
         <div class="post-count">
             {#if numberOfPosts > 0}
-            {numberOfPosts}
-            <FaIcon icon={"newspaper"}/>
+                {numberOfPosts}
+                <FaIcon icon={"newspaper"}/>
+            {/if}
+            {#if numberOfAltItem && altIcon}
+                {numberOfAltItem}
+                <FaIcon icon={altIcon}/>
             {/if}
         </div>
     </div>
