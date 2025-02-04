@@ -10,16 +10,24 @@ import { DnDMaps } from "$lib/data/dndBattleMapLinks";
     <div class="map-container">
         <div class="map-name">{map.name}</div>
         <div class="map-img-container">
-            <ZoomImage src={map.imgSrc} alt={map.name} hoverEnabled={true}/>
+                {#await fetch(map.imgSrc)}
+                    <FaIcon icon="map"/>
+                    <p>the goblins are looking for this map...</p>
+                {:then v}
+                    <ZoomImage src={map.imgSrc} alt={map.name} hoverEnabled={true}/>
+                    <p class="description">
+                        {map.description ?? ""}
+                    </p>
+                    {#if map.url}
+                        <p>
+                            <a href={map.url} target="_blank">Download <FaIcon icon={"download"}/></a>
+                        </p>
+                    {/if}
+                {:catch}
+                    <FaIcon icon="poo"/>
+                    <strong>The goblins were unable to locate this map...</strong>
+                {/await}
         </div>
-        <p class="description">
-            {map.description ?? ""}
-        </p>
-        {#if map.url}
-            <p>
-                <a href={map.url} target="_blank">Download <FaIcon icon={"download"}/></a>
-            </p>
-        {/if}
     </div>
     <hr/>
 {/each}
