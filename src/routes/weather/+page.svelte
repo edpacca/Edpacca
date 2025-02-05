@@ -15,7 +15,7 @@
 	<Compass angle={data.winddirection}/>
 </div>
 
-<div class="weather-text">
+<!-- <div class="weather-text">
 	<div class="key">Time:</div>
 	<div class="val">{time.toLocaleTimeString()}</div>
 	<div class="key">Temperature:</div>
@@ -26,10 +26,10 @@
 	<div class="val">{data.windspeed} km/h</div>
 	<div class="key">Wind direction:</div>
 	<div class="val">{windDirection}</div>
-</div>
+</div> -->
 
 <div class="scene-container">
-	<Scene time={time}/>
+	<Scene time={time} weather={weather} windspeed={data.windspeed}/>
 </div>
 
 <style>
@@ -55,7 +55,7 @@
 		width: 8rem;
 		margin: auto;
 	}
-	
+
 	.scene-container {
 		display: flex;
 		justify-content: center;

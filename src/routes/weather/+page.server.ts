@@ -35,6 +35,14 @@ export const load = (async () => {
 
 		return weather.current_weather ?? undefined;
 	} catch {
+		return {
+			weathercode: 71,
+			winddirection: 70,
+			time: Date.now(),
+			temperature: 14,
+			windspeed: 25
+
+		}
 		error(404, "Wasn't able to get any weather data.\n\n It's probably raining");
 	}
 }) satisfies PageServerLoad;
