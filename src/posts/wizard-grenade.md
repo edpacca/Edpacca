@@ -2,7 +2,7 @@
 title: Wizard Grenade
 description: My first real programming project, used to learn object oriented programming. Wizard Grenade is complete a video game based on Worms2 where opposing teams of Wizards launch magical projectiles at each other.
 date: 01/4/2021
-coverImage: /wizard-grenade/wizard-grenade-cover.webp
+coverImage: wizard-grenade/wizard-grenade-cover.webp
 projectId: programming
 published: true
 technologies: [ C#, XNA ]
@@ -12,7 +12,7 @@ technologies: [ C#, XNA ]
 </script>
 Wizard Grenade was born after challenging myself to recreate Worms2, one of my childhood favourite PC games, using pixel art I had made for another project. The game is developed almost entirely from scratch, composed of 65 classes, running on Monogame, which runs the game-loop and draws the sprite-batch to the screen. The aim was to develop a playable game with a basic physics engine, and destructible terrain, before my arbitrary three-month deadline. I finished on time but couldn't help spending an extra week tweaking aesthetics and scoring a simple theme tune. This project taught me a lot of important lessons about software architecture and object-oriented programming. This page discusses some of these lessons and highlights different aspects of the application.
 
-If there is no link here yet, there will be once I have dockerised the app and got it hosted somewhere for all to enjoy!
+Getting this game containerised and playable via the browser is on my ever growing todo list!
 <br/>
 <hr/>
 
@@ -29,15 +29,15 @@ If there is no link here yet, there will be once I have dockerised the app and g
 <br/>
 <hr/>
 
-![screenshot of a battle in Wizard Grenade](/wizard-grenade/WG_battle.webp)
+![screenshot of a battle in Wizard Grenade](wizard-grenade/WG_battle.webp)
 
-<a name="physics"></a>
+<a name="physics" class="anchor">Physics</a>
 
 # Physics
 
-The physics are what really spawned this project - after replaying Worms2 for the first time in at least a decade, the simple act of aiming and timing tricky grenade throws was so satisfying that I wanted to recreate it. Upon achieving this, armed with a modest level of new programming knowledge I thought, “I’ll just make the whole game, it can’t be that much work!” … that thought did not last long, but at least it didn’t deter me. In truth, the physics only needs to approximate a simple mechanical model. For this I created a class called GameObject, which is included in every object that is acted upon by gravity and collides with the map, such as the fireballs or the wizards. 
+The physics are what really spawned this project - after replaying Worms2 for the first time in at least a decade, the simple act of aiming and timing tricky grenade throws was so satisfying that I wanted to recreate it. Upon achieving this, armed with a modest level of new programming knowledge I thought, “I’ll just make the whole game, it can’t be that much work!” … that thought did not last long, but at least it didn’t deter me. In truth, the physics only needs to approximate a simple mechanical model. For this I created a class called GameObject, which is included in every object that is acted upon by gravity and collides with the map, such as the fireballs or the wizards.
 
-![Fig1. Collision points about different GameObjects](/wizard-grenade/physics1.webp)
+![Fig1. Collision points about different GameObjects](wizard-grenade/physics1.webp)
 
 ## GameObject class
 -  As each `GameObject` is drawn to the screen, it inherits from the `Sprite` class. In hindsight `GameObject` could contain a `Sprite` rather than inherit to reduce coupling between the two.
@@ -90,13 +90,13 @@ public class GameObjectParameters
 <br/>
 <hr/>
 <br/>
-<a name="architecture"></a>
+<a name="architecture" class="anchor">Architecture</a>
 
 # Architecture
 
-You might wonder why this project is "WizardGrenade2" on GitHub - For WG1 I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are Singletons which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the StateMachine) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. The free account on LucidChart restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. The basic structure is as follows: 
+You might wonder why this project is "WizardGrenade2" on GitHub - For WG1 I did what all green programmers do and got carried away trying to make things work (i.e make fireballs bounce around) and didn't think about the structure of my program. I made the rookie error of having my GameObject class handle everything from physics to drawing to collisions; I essentially packed too much functionality into one class which resulted in a very tightly-coupled application. So I started from scratch with more of a plan. Below is a UML diagram, approximating the architecture of WizardGrenade2. The classes in red are Singletons which I know can be a touchy subject! I decided to use them for classes which would only have a single instance required (such as the StateMachine) and needed to be referenced from multiple different areas of the application - I think I could improve this in the future but this was how I chose to go about it at the time. The free account on LucidChart restricts the number of objects so it isn't complete but gives the idea, as UML diagrams should. The basic structure is as follows:
 
-![UML diagram for Wizard Grenade codebase](/wizard-grenade/WG2_UML.webp)
+![UML diagram for Wizard Grenade codebase](wizard-grenade/WG2_UML.webp)
 
 - WGGame is the main game class. This handles the game loop logic, determines whether we are in the menu, running the game, or if the game is paused. It also contains the CameraManager which determines the origin matrix (i.e. drawing UI, menus) and the transform matrix (i.e. in game)
 
@@ -123,16 +123,17 @@ You might wonder why this project is "WizardGrenade2" on GitHub - For WG1 I did 
 <br/>
 <hr/>
 <br/>
-<a name="terrain"></a>
+
+<a name="terrain" class="anchor">Terrain</a>
 
 # Destructable Terrain
 
 The next aspect of Worms2 to figure out was how to make the terrain destructible, and react to the weapon explosions but remain collidable. This actually proved fairly simple because the collision physics already takes place at the pixel level. So really this is a discussion of how the Map class works. Now, the Map class is one of the dreaded singletons that I used in the design of this game, because I wanted weapon objects to be able to call the DeformLevel() method without each object requiring a reference to the Map class. The Map class is also referenced by the CollisionManager, which all GameObjects need access to, so this is a singleton too. In my first iteration of the game, I didn't use any singletons but I did have to pass a lot of information up and down through a complex heirarchy of classes, which felt rather messy and coupled everything togther too tightly. I understand that a singleton in essence does the same thing, but I have more experience now. Nonetheless, I will break down the main sections of the Map class and explain how we get destructible terrain.
 
-![A firebomb blowing a chunk out of the map!](/wizard-grenade/WG_Terrain.webp)
+![A firebomb blowing a chunk out of the map!](wizard-grenade/WG_Terrain.webp)
 
 ## Loading the Data
-The Map class is Lazy initialised, which means it doesn't get instantiated until it is first called in the code. This happens after the user has selected the Map which they want to battle on. I have each file named "map" followed by a number, so the number is what is selected upon loading. The LoadContent function takes the file name and a bool called "isCollidable", and attempts to load the image into a "Texture2D" called _mapTexture. I used a try, catch block for some defensive programming; If the file name does not correspond to an accessible file it will load a deafult file. First the data for each pixel is read contigously from the map Texture2D ("_mapTexture") into a uint[] "_mapPixelColourData", starting at index 0 and running through the whole map. The LoadPixelCollisionData() method then reads this into a 2D bool array, which corresponds to the rows and columns from the contiguous array of colour data. Wherever there is a transparent pixel in the .png file, the colour data is recoreded as '0'. Because each element of the bool[,] is initialised to false, we check if the colour value is != 0, and if so set it to true. 
+The Map class is Lazy initialised, which means it doesn't get instantiated until it is first called in the code. This happens after the user has selected the Map which they want to battle on. I have each file named "map" followed by a number, so the number is what is selected upon loading. The LoadContent function takes the file name and a bool called "isCollidable", and attempts to load the image into a "Texture2D" called _mapTexture. I used a try, catch block for some defensive programming; If the file name does not correspond to an accessible file it will load a deafult file. First the data for each pixel is read contigously from the map Texture2D ("_mapTexture") into a uint[] "_mapPixelColourData", starting at index 0 and running through the whole map. The LoadPixelCollisionData() method then reads this into a 2D bool array, which corresponds to the rows and columns from the contiguous array of colour data. Wherever there is a transparent pixel in the .png file, the colour data is recoreded as '0'. Because each element of the bool[,] is initialised to false, we check if the colour value is != 0, and if so set it to true.
 
 ```c#
 public sealed class Map
@@ -153,7 +154,7 @@ public sealed class Map
 	string fileName, bool isCollidable)
 	{
 		try { _mapTexture = contentManager.Load<Texture2D>(fileName); }
-		catch (Exception) { _mapTexture = 
+		catch (Exception) { _mapTexture =
 			contentManager.Load<Texture2D>(_defaultFileName); }
 
 		_mapPixelColourData = new uint[_mapTexture.Width * _mapTexture.Height];
@@ -191,7 +192,7 @@ A reminder that a GameObject has collision points, which can reference their pos
 
 ## Updating the Data
 
-Now that collisions are handled, it is simply a matter of calling the DeformLevel() method whenever there is an explosion which will change the map. For simplicity these are always circles, which we obtain by iterating through a square area of pixels. To keep things simple on the front end, the thing that is exploding only passes its centre position and the explosion radius. The Map method PositionInArray() calculates the relative position within the 2D bool array. I kept mathematical functions in a Utility class, this one is beautifully named "IsWithinCircleInSquare" which (obviously) checks if a point is within a circle drawn within a square. If it is, then set the corresponding value in the contiguous colour data array to 0, as it is now empty - and updating the bool array to false so that objects will no longer collide with that pixel. Then at the end of DeformLevel() we update the map Texture2D data so that it doesn't show any colour at those points any more. And voila, desctructible, collidable terrain. 
+Now that collisions are handled, it is simply a matter of calling the DeformLevel() method whenever there is an explosion which will change the map. For simplicity these are always circles, which we obtain by iterating through a square area of pixels. To keep things simple on the front end, the thing that is exploding only passes its centre position and the explosion radius. The Map method PositionInArray() calculates the relative position within the 2D bool array. I kept mathematical functions in a Utility class, this one is beautifully named "IsWithinCircleInSquare" which (obviously) checks if a point is within a circle drawn within a square. If it is, then set the corresponding value in the contiguous colour data array to 0, as it is now empty - and updating the bool array to false so that objects will no longer collide with that pixel. Then at the end of DeformLevel() we update the map Texture2D data so that it doesn't show any colour at those points any more. And voila, desctructible, collidable terrain.
 
 ```c#
 public void DeformLevel(int radius, Vector2 position)
@@ -207,7 +208,7 @@ public void DeformLevel(int radius, Vector2 position)
 					_mapPixelColourData[
 						PositionInArray(radius, position, x, y)] = 0;
 					MapPixelCollisionData[
-						ArrayColumn(radius, position, x), 
+						ArrayColumn(radius, position, x),
 						ArrayRow(radius, position, y)] = false;
 				}
 			}
@@ -228,17 +229,17 @@ public void DeformLevel(int radius, Vector2 position)
 
 	private int PositionInArray(int radius, Vector2 position, int x, int y)
 	{
-		ArrayColumn(radius, position, x) 
+		ArrayColumn(radius, position, x)
 			+ (ArrayRow(radius, position, y) * _mapTexture.Width);
 	}
 
 	private int ArrayColumn(int radius, Vector2 position, int x)
-	{ 
+	{
 		(int)position.X + x - radius;
 	}
-	
+
 	private int ArrayRow(int radius, Vector2 position, int y)
-	{ 
+	{
 		(int)position.Y + y - radius;
 	}
 }
@@ -246,13 +247,13 @@ public void DeformLevel(int radius, Vector2 position)
 
 This simple but clever idea comes form [this fantastic article](http://web.archive.org/web/20090101215451/http://blog.xna3.com/2007/12/2d-deformable-level.html). I simply changed things to suit my game. I tried to make the code as clean and simple as I could, which is not easy when iterating through multiple for loops.
 
-<a name="menu"></a>
+<a name="menu" class="anchor">Menu</a>
 
 # Menu Tools
 
 Here I want to highlight some non-specific classes or tools I crated to build the menus in the game. I wanted a simple interface, so I chose to represent all settings graphically with integer steps.
 
-![The Wizard Grenade pause menu](/wizard-grenade/WG_menu.webp)
+![The Wizard Grenade pause menu](wizard-grenade/WG_menu.webp)
 
 ## Setting Class
 
@@ -285,8 +286,8 @@ public class Setting
 
 	public void SetValue(int value)
 	{
-		IntValue = value >= MaxValue 
-			? MaxValue : value $lt= MinValue 
+		IntValue = value >= MaxValue
+			? MaxValue : value $lt= MinValue
 			? MinValue : value;
 		Value = (float)IntValue / (float)MaxValue;
 	}
@@ -316,7 +317,7 @@ public class SpriteMeter
 	public void Draw(SpriteBatch spriteBatch, Vector2 position, int value)
 	{
 		for (int i = 0; i < value; i++)
-			Sprite.DrawSprite(spriteBatch, 
+			Sprite.DrawSprite(spriteBatch,
 				new Vector2(position.X + (i * Interval), position.Y));
 	}
 }
@@ -324,4 +325,4 @@ public class SpriteMeter
 
 ## Options Class
 
-The Options class draws the text options out to the screen. The constructor takes a List of strings, and a 'bool' which determines a vertical or single position layout. The video clip right demonstrates the difference. I created another class called OptionArrows which will measure the length of the selected 'string' and adjust position. The Options class also handles changing option with the respective arrow keys (i.e. L/R for single, U/D for vertical) holding the List Index as an integer property. 
+The Options class draws the text options out to the screen. The constructor takes a List of strings, and a 'bool' which determines a vertical or single position layout. The video clip right demonstrates the difference. I created another class called OptionArrows which will measure the length of the selected 'string' and adjust position. The Options class also handles changing option with the respective arrow keys (i.e. L/R for single, U/D for vertical) holding the List Index as an integer property.

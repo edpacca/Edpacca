@@ -40,7 +40,7 @@
     const btns = [
         {
             title: "Reset Positions",
-            fnc: () => { 
+            fnc: () => {
                 reset();
                 if (hasGravity) {
                     wordSoup.setGravity(new Vector2D(xGravity / 100, yGravity / 100));
@@ -51,8 +51,8 @@
         },
         {
             title: "Reset Gravity",
-            fnc: () => { 
-                wordSoup.setForces(new Vector2D(0, 1), false);
+            fnc: () => {
+                wordSoup.setForces(new Vector2D(0, 0.2), false);
                 syncGravity();
                 hasGravity = true;
             }
@@ -62,13 +62,15 @@
             fnc: () => {
                 wordSoup.setForces(ZERO_VECTOR, true, 0.1);
                 hasGravity = false;
-            } 
+            }
         }
     ]
 
     onMount(() => {
         reset();
         syncGravity();
+        wordSoup.setForces(ZERO_VECTOR, true, 0.1);
+        hasGravity = false;
     });
 
     $: wordSoup?.setGravity(new Vector2D(xGravity / 100, yGravity / 100));
@@ -100,7 +102,7 @@
 
 {#if isDescriptionOpen}
 <div>
-    <p>I call this the "tech soup" widget. The relative font size of each word represents the number of projects I have worked on that use that language/framework. The data is taken from my github via the API and calculated server-side, with static data added to represent work repos. For example I use python a lot at work, but it doesn't feature heavily in my personal projects (yet!).</p>
+    <p>I call this the "tech soup" widget. The relative font size of each word represents the number of projects I have worked on that use that language/framework. The data is taken from my github repos, with additional data added to represent work repos. For example I use python a lot at work, but it doesn't feature heavily in my personal projects (yet!).</p>
     <p>If the blocks get stuck try changing the gravity with the sliders or resetting the positions. Unfortunately the "physics engine" is quite simplistic, but I think it results in some interesting behaviour! <a href="/">Read more about the code behind the TechnologySoup widget here.</a></p>
 </div>
 <button class="button1" on:click={() => {isDescriptionOpen = false;}}>

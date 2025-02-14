@@ -9,6 +9,7 @@ export async function load({ params }) {
             meta: post.metadata
         }
     } catch (e) {
-        throw error(404, `Hmmm couldn't find ${params.slug}`)
+        console.error(e);
+        error(404, `Hmmm couldn't find ${params.slug}`);
     }
 }

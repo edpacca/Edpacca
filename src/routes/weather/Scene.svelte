@@ -3,7 +3,11 @@
     import { timeNoun } from "./weatherTime";
     import { drawTree, drawOrbit, drawCloud, curve } from "./weatherScene";
     import { drawCharacter } from "./DrawCharacter";
+    import type { Weather } from "./weatherData";
+    import { Rain } from "./rain";
     export let time: Date;
+    export let weather: Weather;
+    export let windspeed: number;
 
     const backgroundStyle = timeNoun(time);
     let canvas: HTMLCanvasElement;
@@ -18,11 +22,11 @@
         const orbitCentreY = canvas.height;
         const orbitRadius = canvas.height - 100;
         const orbitBodyRadius = 100;
-        
+
         const ctx = canvas.getContext("2d");
         if (ctx) {
             context = ctx;
-            // drawOrbit(ctx, time, orbitCentreX, orbitCentreY, 
+            // drawOrbit(ctx, time, orbitCentreX, orbitCentreY,
             //     orbitRadius, orbitBodyRadius);
             // drawTree(ctx, 120, canvas.height, 80, -Math.PI / 2, 12, 15);
             // drawTree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2, 12, 15);
@@ -39,6 +43,10 @@
             // drawCloud(ctx, 750, 800, cloudSize);
             // drawCloud(ctx, 1300, 800, cloudSize);
             // drawCharacter(ctx, canvas.width / 2, canvas.height - 200);
+            const rain = new Rain(ctx, canvas, 15, 0.1, windspeed);
+            rain.animate();
+
+            // drawCharacter(ctx, canvas.width / 2, canvas.height - 200)
         }
     });
 
@@ -50,7 +58,7 @@
 </script>
 
 <!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
-<canvas class={backgroundStyle} bind:this={canvas}>
+<canvas class={"black"} bind:this={canvas}>
 
 </canvas>
 

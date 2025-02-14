@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
-		<link rel="stylesheet" href="/src/styles/global.css"/>
-		<link rel="stylesheet" href="/src/styles/fontawesome-free-6.4.0-web/css/all.min.css"/>
-		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="%sveltekit.assets%/styles/global.css"/>
+		<link rel="stylesheet" href="%sveltekit.assets%/styles/fontawesome-free-6.4.0-web/css/all.min.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script> global = globalThis; </script>
 		%sveltekit.head%
 	</head>
+	<div class="background"></div>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

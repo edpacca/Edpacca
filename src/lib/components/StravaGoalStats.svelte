@@ -27,7 +27,7 @@
             {percentage.toFixed(0)}%
             {#if !goalComplete}
                 <div class="red" class:green={onTrack}>
-                    ({onTrack ? "+" : "-"}{schedule.toFixed(1)}% {onTrack ? "ahead" : "behind"})
+                    ({onTrack ? "+" : ""}{schedule.toFixed(1)}% {onTrack ? "ahead" : "behind"})
                 </div>
             {/if}
         </div>

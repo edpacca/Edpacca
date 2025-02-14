@@ -2,7 +2,7 @@ import { test, describe, expect } from "vitest";
 import * as fs from "fs";
 import path from "path";
 
-const iconCssPath = path.join(__dirname, "../..", "styles/fontawesome-free-6.4.0-web/css/all.min.css")
+const iconCssPath = path.join(__dirname, "../../../", "static/styles/fontawesome-free-6.4.0-web/css/all.min.css")
 const faIconRegex = /fa-[a-zA-Z0-9-]+/g
 
 function testFileExists(filePath: string, warnOnly = false) {
@@ -31,13 +31,13 @@ function getCssIcons(): RegExpMatchArray | null {
 describe('post validation', () => {
     const posts: Post[] = []
     const paths = import.meta.glob("/src/posts/*.md", { eager: true });
-    
+
     for (const path in paths) {
         const file = paths[path];
         const slug = path.split("/").at(-1)?.replace(".md", "");
-        const valid = file &&  
-            typeof file === "object" && 
-            "metadata" in file && 
+        const valid = file &&
+            typeof file === "object" &&
+            "metadata" in file &&
             slug;
 
         test(`post metadata is valid: ${path}`, () => {
@@ -47,7 +47,7 @@ describe('post validation', () => {
         if (valid) {
             const metadata = file.metadata as Omit<Post, "slug">;
             const post = { ...metadata, slug } satisfies Post;
-            post.published && posts.push(post);
+            if (post.published) posts.push(post);
         }
     }
 
@@ -58,7 +58,7 @@ describe('post validation', () => {
 
     posts.forEach(post => {
         if (post.coverImage) {
-            const filePath =  `./static/images${post.coverImage}`;
+            const filePath =  `./static/images/${post.coverImage}`;
             test(`cover image '${post.coverImage}' is valid for post: ${post.title}`, () => {
                 expect(() => { testFileExists(filePath, !post.published)}).not.toThrowError();
             });

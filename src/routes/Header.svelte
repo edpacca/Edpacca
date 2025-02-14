@@ -1,7 +1,7 @@
 <script>
 	import { page } from "$app/stores";
 
-	$: isPostPage = 
+	$: isPostPage =
 		!$page.url.pathname.startsWith("/weather") &&
 		!$page.url.pathname.startsWith("/projects") &&
 		$page.url.pathname !== "/";
@@ -20,7 +20,7 @@
 				<a href="/weather">Weather</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith("/cv") ? "page" : undefined}>
-				<a href="/">CV</a>
+				<a href="https://edpacca.github.io/cv">CV</a>
 			</li>
 		</ul>
 	</nav>

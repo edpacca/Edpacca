@@ -5,7 +5,7 @@ enum StorageType {
     ColourTheme = "colour-theme"
 }
 
-export function setLocalStorageDarkTheme(darkTheme: boolean) { 
+export function setLocalStorageDarkTheme(darkTheme: boolean) {
     setLocalStorage(StorageType.DarkTheme, darkTheme);
 }
 
@@ -13,7 +13,7 @@ export function getLocalStorageDarkTheme(): boolean {
     return getLocalStorage(StorageType.DarkTheme);
 }
 
-export function setLocalStorageColourTheme(colourTheme: string) { 
+export function setLocalStorageColourTheme(colourTheme: string) {
     setLocalStorage(StorageType.ColourTheme, colourTheme);
 }
 
@@ -33,7 +33,7 @@ function setLocalStorage(name: string, obj: any) {
 function getLocalStorage(name: string): any {
     try {
         const obj = JSON.parse(localStorage.getItem(name) as string);
-        return obj ? obj : undefined;
+        return obj;
     } catch(e) {
         console.error(`Error retrieving ${name} from local storage: ${e}`)
         return undefined;

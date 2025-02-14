@@ -11,6 +11,10 @@
 	const time = new Date(data.time);
 </script>
 
+<div class="compass">
+	<Compass angle={data.winddirection}/>
+</div>
+
 <!-- <div class="weather-text">
 	<div class="key">Time:</div>
 	<div class="val">{time.toLocaleTimeString()}</div>
@@ -25,12 +29,8 @@
 </div> -->
 
 <div class="scene-container">
-	<Scene time={time}/>
+	<Scene time={time} weather={weather} windspeed={data.windspeed}/>
 </div>
-
-<!-- <div class="compass">
-	<Compass angle={data.winddirection}/>
-</div> -->
 
 <style>
 	.weather-text {
@@ -38,9 +38,6 @@
 		grid-template-columns: auto 1fr;
 		font-size: 1.3em;
 		column-gap: 0.5em;
-		position: absolute;
-		top: 80px;
-		left: var(--margin);
 		background-color: var(--black-50);
 		padding: 0.4em;
 		border-radius: 6px;
@@ -56,17 +53,28 @@
 
 	.compass {
 		width: 8rem;
-		position: absolute;
-		top: 80px;
-		right: var(--margin);
+		margin: auto;
 	}
-	
+
 	.scene-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
 		height: 100%;
+	}
 
+	@media screen and (min-width: 600px) {
+		.weather-text {
+			position: absolute;
+			top: 80px;
+			left: var(--margin);
+		}
+
+		.compass {
+			position: absolute;
+			top: 80px;
+			right: var(--margin);
+		}
 	}
 </style>

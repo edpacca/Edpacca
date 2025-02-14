@@ -1,6 +1,8 @@
 // import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
+export const prerender = false;
+
 /* eslint-disable */
 const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 // default to edinburgh
@@ -13,7 +15,8 @@ const fetchWeather = async (latitude: number, longitude: number) => {
 	const request = `${openMeteoBaseUrl}?latitude=${latitude}&longitude=${longitude}&current_weather=true`
 	const result = await fetch(request);
 	const data = await result.json();
-	return data;		
+	console.log(data);
+	return data;
 }
 
 export const load = (async () => {
@@ -29,7 +32,7 @@ export const load = (async () => {
 	}
 	try {
 		const weather = await fetchWeather(location.latitude, location.longitude);
-	
+
 		return weather.current_weather ?? undefined;
 	} catch {
 		// throw error(404, "Wasn't able to get any weather data.\n\n It's probably raining");
@@ -45,9 +48,9 @@ export const load = (async () => {
 			  temperature: 16.3,
 			  windspeed: 18.4,
 			  winddirection: 78,
-			  weathercode: 3,
+			  weathercode: 17,
 			  is_day: 1,
-			  time: '2023-08-31T17:00'
+			  time: Date.now()
 			}
 		}
 	}

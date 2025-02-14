@@ -1,35 +1,40 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { getDarkTheme, isUsingDarkTheme } from "../../store";
+    import { isUsingDarkTheme } from "../../store";
     import FaIcon from "./FaIcon.svelte";
-    import { toggleDarkTheme } from "../theme";
-    
+    import Tooltip from "./Tooltip.svelte";
+
     export let callback: () => void;
+
     const toggle = () => {
-        toggleDarkTheme(!$isUsingDarkTheme);
+        $isUsingDarkTheme = !$isUsingDarkTheme;
         callback();
     }
-
-    onMount(() => {
-        $isUsingDarkTheme = getDarkTheme();
-    });
 </script>
 
-<button on:click={toggle} class={$isUsingDarkTheme ? "dark" :" light"}>
-    <FaIcon icon={$isUsingDarkTheme ? "moon" : "sun"}/>
-</button>
+<Tooltip text="Toggle dark theme">
+    {#if $isUsingDarkTheme}
+    <button on:click={toggle} class="dark">
+        <FaIcon icon={"moon"}/>
+    </button>
+    {:else}
+    <button on:click={toggle} class="light">
+        <FaIcon icon={"sun"}/>
+    </button>
+    {/if}
+</Tooltip>
 
 <style>
     button {
-        height: 2em;
-        width: 2em;
+        height: 2.5em;
+        width: 2.5em;
         border-radius: 100%;
         border: none;
         transition: var(--transition-time);
+        animation: flipper 300ms ease-out;
     }
 
     .dark:hover {
-        color: var(--highlight); 
+        color: var(--highlight);
     }
 
     .light:hover {
@@ -44,5 +49,17 @@
     .light {
         background: var(--white);
         color: var(--black);
+    }
+
+    @keyframes flipper {
+        0% {
+            transform: scaleX(1.0);
+        }
+        50% {
+            transform: scaleX(-1.0);
+        }
+        99% {
+            transform: scaleX(1.0);
+        }
     }
 </style>
