@@ -1,15 +1,18 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit, drawCloud, curve } from "./weatherScene";
+    import { drawTree, drawCloud, curve } from "./weatherScene";
     import { drawCharacter } from "./DrawCharacter";
     import type { Weather } from "./weatherData";
     import { Rain } from "./rain";
+    import { Bluebody } from "./bluebody";
+    import { Tree } from "./tree";
     export let time: Date;
     export let weather: Weather;
     export let windspeed: number;
 
-    const backgroundStyle = timeNoun(time);
+    // const backgroundStyle = timeNoun(time);
+    const backgroundStyle = "dusk";
     let canvas: HTMLCanvasElement;
     let context: CanvasRenderingContext2D;
     const cloudSize = 30;
@@ -19,35 +22,33 @@
         canvas.height = 1080;
 
         const orbitCentreX = canvas.width / 2;
-        const orbitCentreY = canvas.height;
-        const orbitRadius = canvas.height - 100;
+        const orbitCentreY = canvas.height * 0.2;
+        const orbitRadius = canvas.height / 2;
         const orbitBodyRadius = 100;
+
+        const trees: Tree[] = [];
 
         const ctx = canvas.getContext("2d");
         if (ctx) {
             context = ctx;
-            // drawOrbit(ctx, time, orbitCentreX, orbitCentreY,
-            //     orbitRadius, orbitBodyRadius);
-            // drawTree(ctx, 120, canvas.height, 80, -Math.PI / 2, 12, 15);
-            // drawTree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2, 12, 15);
-            // drawCloud(ctx, 100, 100, cloudSize);
-            curve(context, 100, 100, 5);
-            // drawCloud(ctx, 750, 100, cloudSize);
-            // drawCloud(ctx, 1300, 100, cloudSize);
+            const rain = new Rain(ctx, canvas, 10, 0.3, windspeed);
+            const bluebody = new Bluebody(ctx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
+            trees.push(new Tree(ctx, 120, canvas.height, 80, -Math.PI / 2));
+            trees.push(new Tree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2));
 
-            // drawCloud(ctx, 100, 450, cloudSize);
-            // drawCloud(ctx, 750, 450, cloudSize);
-            // drawCloud(ctx, 1300, 450, cloudSize);
 
-            // drawCloud(ctx, 100, 800, cloudSize);
-            // drawCloud(ctx, 750, 800, cloudSize);
-            // drawCloud(ctx, 1300, 800, cloudSize);
-            // drawCharacter(ctx, canvas.width / 2, canvas.height - 200);
-            const rain = new Rain(ctx, canvas, 15, 0.1, windspeed);
-            rain.animate();
-
-            // drawCharacter(ctx, canvas.width / 2, canvas.height - 200)
+            const animate = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawCharacter(ctx, canvas.width / 2, canvas.height /2);
+                bluebody.animate();
+                rain.animate();
+                trees.forEach(tree => tree.animate());
+                requestAnimationFrame(animate);
+            }
+            animate();
         }
+
+
     });
 
     const regenCloud = () => {
@@ -58,11 +59,11 @@
 </script>
 
 <!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
-<canvas class={"black"} bind:this={canvas}>
+<canvas class={backgroundStyle} bind:this={canvas}>
 
 </canvas>
 
-<button on:click={regenCloud}>REDRAW</button>
+<!-- <button on:click={regenCloud}>REDRAW</button> -->
 
 <svelte:head>
     <style>

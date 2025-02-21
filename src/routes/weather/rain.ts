@@ -1,6 +1,7 @@
 import { Vector2D } from "$lib/mechanics/vector";
 
-const RAIN_COLOR = "rgb(70, 130, 255)";
+// const RAIN_COLOR = "rgb(70, 130, 255)";
+const RAIN_COLOR = "rgb(90, 140, 210)";
 const DROP_SIZE = 10;
 
 export class Rain {
@@ -35,7 +36,7 @@ export class Rain {
     }
 
     animate = () => {
-        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        // this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
         this.rainDrops.forEach(drop => {
             drop.position.y += this.rainSpeed;
             drop.position.x += this.windSpeed / 10;
@@ -50,7 +51,6 @@ export class Rain {
             }
             drop.draw(this.ctx);
         });
-        requestAnimationFrame(this.animate);
     }
 
 }
@@ -69,6 +69,7 @@ class RainDrop {
 
     draw(context: CanvasRenderingContext2D) {
         context.beginPath()
+        context.fillStyle = RAIN_COLOR;
         context.moveTo(this.position.x, this.position.y);
         context.lineTo(this.position.x - this.size, this.position.y + this.height);
         context.lineTo(this.position.x + this.size, this.position.y + this.height);
