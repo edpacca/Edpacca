@@ -1,67 +1,73 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { timeNoun } from "./weatherTime";
-    import { drawTree, drawCloud, curve } from "./weatherScene";
-    import { drawCharacter } from "./DrawCharacter";
+    import { drawCloud, drawTree } from "./draw/tree";
+    import { drawCharacter } from "./draw/character";
     import type { Weather } from "./weatherData";
-    import { Rain } from "./rain";
-    import { Bluebody } from "./bluebody";
-    import { Tree } from "./tree";
+    import { Rain } from "./draw/rain";
+    import { Bluebody } from "./draw/bluebody";
+  import { Cloud } from "./draw/cloud";
     export let time: Date;
     export let weather: Weather;
     export let windspeed: number;
 
-    // const backgroundStyle = timeNoun(time);
-    const backgroundStyle = "dusk";
-    let canvas: HTMLCanvasElement;
+    const backgroundStyle = timeNoun(time);
+    let animationCanvas: HTMLCanvasElement;
+    let staticCanvas: HTMLCanvasElement;
     let context: CanvasRenderingContext2D;
     const cloudSize = 30;
 
-    onMount(() => {
-        canvas.width = 1920;
-        canvas.height = 1080;
+    const CANVAS_HEIGHT = 920;
+    const CANVAS_WIDTH = 1920;
+    const TREE_DEPTH = 12;
+    const TREE_BRANCH_THICKNESS = 50;
 
-        const orbitCentreX = canvas.width / 2;
-        const orbitCentreY = canvas.height * 0.2;
-        const orbitRadius = canvas.height / 2;
+    onMount(() => {
+        animationCanvas.width = CANVAS_WIDTH;
+        staticCanvas.width = CANVAS_WIDTH;
+        animationCanvas.height = CANVAS_HEIGHT;
+        staticCanvas.height = CANVAS_HEIGHT;
+
+        const orbitCentreX = CANVAS_WIDTH / 2;
+        const orbitCentreY = CANVAS_HEIGHT / 2;
+        const orbitRadius = CANVAS_HEIGHT / 2;
         const orbitBodyRadius = 100;
 
-        const trees: Tree[] = [];
+        const animCtx = animationCanvas.getContext("2d");
+        const staticCtx = staticCanvas.getContext("2d");
+        if (animCtx && staticCtx) {
 
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-            context = ctx;
-            const rain = new Rain(ctx, canvas, 10, 0.3, windspeed);
-            const bluebody = new Bluebody(ctx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
-            trees.push(new Tree(ctx, 120, canvas.height, 80, -Math.PI / 2));
-            trees.push(new Tree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2));
+            const rain = new Rain(animCtx, animationCanvas, 10, 0.3, windspeed);
+            const bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
 
+            drawTree(staticCtx, 120, CANVAS_HEIGHT, 80, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
+            drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
+            drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
+
+            const cloud = new Cloud(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 10);
+
+            bluebody.draw();
 
             const animate = () => {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawCharacter(ctx, canvas.width / 2, canvas.height /2);
-                bluebody.animate();
+                animCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
                 rain.animate();
-                trees.forEach(tree => tree.animate());
                 requestAnimationFrame(animate);
             }
-            animate();
+            // animate();
         }
 
 
     });
 
-    const regenCloud = () => {
-        context.clearRect(0, 0, 1920, 1080);
-        // drawCloud(context, 100, 100, cloudSize);
-        curve(context, 100, 100, 5)
-    }
 </script>
 
-<!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
-<canvas class={backgroundStyle} bind:this={canvas}>
-
-</canvas>
+    <!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
+     <div class="canvas-container">
+         <canvas class={"static-canvas " + backgroundStyle} bind:this={staticCanvas}>
+        </canvas>
+        <canvas bind:this={animationCanvas} class="animation-canvas">
+        </canvas>
+    </div>
 
 <!-- <button on:click={regenCloud}>REDRAW</button> -->
 
@@ -89,10 +95,28 @@
         position: absolute;
         right: 0;
     }
-    canvas {
+
+    .canvas-container {
+        position: relative;
         margin: var(--margin);
         width: 100%;
         height: 100%;
+    }
+
+    canvas {
+        display: block;
+        width: calc(100% - 2*(var(--margin)));
+        top: var(--margin);
+        left: var(--margin);
+        bottom: var(--margin);
+        position: absolute;
+    }
+
+    .static-canvas {
+        z-index: 0;
+    }
+    .animation-canvas {
+        z-index: 1;
     }
 
     .black {
