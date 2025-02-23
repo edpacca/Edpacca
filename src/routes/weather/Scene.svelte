@@ -1,26 +1,34 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { timeNoun } from "./weatherTime";
-    import { drawCloud, drawTree } from "./draw/tree";
+    import { hourNoun, timeNoun } from "./weatherTime";
+    import { drawTree } from "./draw/tree";
     import { drawCharacter } from "./draw/character";
     import type { Weather } from "./weatherData";
     import { Rain } from "./draw/rain";
     import { Bluebody } from "./draw/bluebody";
-  import { Cloud } from "./draw/cloud";
+    import { Cloud } from "./draw/cloud";
+  import { Snow } from "./draw/snow";
     export let time: Date;
     export let weather: Weather;
     export let windspeed: number;
 
+    let testTime: number = 7;
     const backgroundStyle = timeNoun(time);
+    // $: backgroundStyle = hourNoun(testTime);
     let animationCanvas: HTMLCanvasElement;
     let staticCanvas: HTMLCanvasElement;
-    let context: CanvasRenderingContext2D;
+
     const cloudSize = 30;
 
     const CANVAS_HEIGHT = 920;
     const CANVAS_WIDTH = 1920;
+    const CEN_Y = CANVAS_HEIGHT / 2;
+    const CEN_X = CANVAS_WIDTH / 2;
     const TREE_DEPTH = 12;
     const TREE_BRANCH_THICKNESS = 50;
+
+
+    const clouds: Cloud[] = [];
 
     onMount(() => {
         animationCanvas.width = CANVAS_WIDTH;
@@ -37,23 +45,30 @@
         const staticCtx = staticCanvas.getContext("2d");
         if (animCtx && staticCtx) {
 
-            const rain = new Rain(animCtx, animationCanvas, 10, 0.3, windspeed);
-            const bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
+            const rain = new Rain(animCtx, 10, 0.3, windspeed);
+            // const snow = new Snow(animCtx, 4, 0.9, windspeed, 40);
+            // const snow2 = new Snow(animCtx, 2, 0.9, windspeed, 20);
+            // const bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
 
-            drawTree(staticCtx, 120, CANVAS_HEIGHT, 80, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
-            drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
-            drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
+            // drawTree(staticCtx, 120, CANVAS_HEIGHT, 80, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
+            // drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
+            // drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
 
-            const cloud = new Cloud(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 10);
+            // clouds.push(new Cloud(animCtx, CEN_X, 100, 40, 10, 4, "white"));
+            // clouds.push(new Cloud(animCtx, 10, 200, 70, 10, 5, "white"));
+            // clouds.push(new Cloud(animCtx, 50, 150, 80, 10, 6, "white"));
 
-            bluebody.draw();
+            // bluebody.draw();
 
             const animate = () => {
                 animCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-                rain.animate();
+                // rain.animate();
+                // snow.animate();
+                // snow2.animate();
+                // clouds.forEach(cloud => cloud.animate());
                 requestAnimationFrame(animate);
             }
-            // animate();
+            animate();
         }
 
 
@@ -61,7 +76,7 @@
 
 </script>
 
-    <!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
+    <input type="range" bind:value={testTime} min={0} max={24}/>
      <div class="canvas-container">
          <canvas class={"static-canvas " + backgroundStyle} bind:this={staticCanvas}>
         </canvas>
@@ -115,14 +130,10 @@
     .static-canvas {
         z-index: 0;
     }
+
     .animation-canvas {
         z-index: 1;
     }
-
-    .black {
-        background-color: black;
-    }
-
 
     .night {
         background: var(--night);
@@ -137,8 +148,8 @@
 
     .sunrise {
         background: linear-gradient(
-            var(--dawn-dusk)
-            var(--sunrise-sunset),
+            var(--dawn-dusk),
+            var(--sunrise-sunset)
         );
     }
 
