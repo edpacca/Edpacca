@@ -41,15 +41,18 @@ export class Bluebody {
     }
 
     animate = () => {
-          this.ctx.fillStyle = this.radialGradient;
-          this.ctx.arc(
-              this.orbitPosX,
-              this.orbitPosY,
-              this.orbitBodyRadius,
-              0, 2*Math.PI, false
-          );
-          this.ctx.fill();
+      this.draw();
+    }
 
+    draw = () => {
+      this.ctx.fillStyle = this.radialGradient;
+      this.ctx.arc(
+          this.orbitPosX,
+          this.orbitPosY,
+          this.orbitBodyRadius,
+          0, 2*Math.PI, false
+      );
+      this.ctx.fill();
     }
 
 
