@@ -1,4 +1,4 @@
-import { Artist } from "../../Artist";
+import { Artist } from "../../../Artist";
 
 const AMBER = "rgb(245, 167, 66)";
 // const DARK_ORANGE = "rgb(200, 100, 100)";
@@ -14,11 +14,11 @@ const DARK_PINK = "rgb(150, 50, 100)";
 
 
 export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: number) {
-    
+
     const a = new Artist(context, x, y);
 
     const HEAD_POINTS: Points = [
-        // top 
+        // top
         [15, 0],
         // ear
         [15, -5],
@@ -104,7 +104,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
     ]
 
     a.drawShape(HEAD_POINTS, true, 0, 0, 2, ORANGE_BROWN, ORANGE_BROWN);
-    
+
     a.reset(0, 10);
     context.beginPath();
     a.drawNextLine(0, 35);
@@ -146,7 +146,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
     a.drawShape(TONGUE, true, 0, 108, 2, DARK_PINK, PINK);
     a.reset(45, 80);
     drawFaceLines(context, a.startX, a.startY);
-}   
+}
 
 function drawFaceLines(context: CanvasRenderingContext2D, x: number, y: number) {
     context.beginPath();
@@ -185,7 +185,7 @@ function drawFaceLines(context: CanvasRenderingContext2D, x: number, y: number) 
         startX, startY,
         startX - 4, startY + 7,
         endX, endY);
-        
+
     startX = endX;
     startY = endY;
     endX = startX - 25;
@@ -227,7 +227,7 @@ function drawEyes(context: CanvasRenderingContext2D, x: number, y: number) {
     context.arc(x + eyePosX + 2, y + eyeBottomPosy, eyeSize, Math.PI * 2.2, Math.PI * 0.9);
     context.fillStyle = DARK_GREY;
     context.fill();
-    
+
     // Right pupil
     context.beginPath();
     context.arc(x + eyePosX + 2, y + eyeTopPosY - 10, 7, Math.PI * 2, Math.PI * 1.1);

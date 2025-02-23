@@ -1,4 +1,4 @@
-import { error } from '@sveltejs/kit';
+// import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const prerender = false;
@@ -20,22 +20,30 @@ const fetchWeather = async (latitude: number, longitude: number) => {
 }
 
 export const load = (async () => {
-	if (typeof window !== "undefined" && "geolocation" in window.navigator) {
-		window.navigator.geolocation.getCurrentPosition(position => {
-			location = {
-				latitude: position.coords.latitude,
-				longitude: position.coords.longitude
-			}
-		});
-	} else {
-		console.log("geolocation permissions blocked, getting weather from Edinburgh instead");
-	}
+	// if (typeof window !== "undefined" && "geolocation" in window.navigator) {
+	// 	window.navigator.geolocation.getCurrentPosition(position => {
+	// 		location = {
+	// 			latitude: position.coords.latitude,
+	// 			longitude: position.coords.longitude
+	// 		}
+	// 	});
+	// } else {
+	// 	console.log("geolocation permissions blocked, getting weather from Edinburgh instead");
+	// }
 	try {
 		const weather = await fetchWeather(location.latitude, location.longitude);
 
 		return weather.current_weather ?? undefined;
 	} catch {
-		error(404, "Wasn't able to get any weather data.\n\n It's probably raining");
+		// throw error(404, "Wasn't able to get any weather data.\n\n It's probably raining");
+		return {
+			  temperature: 16.3,
+			  windspeed: 18.4,
+			  winddirection: 78,
+			  weathercode: 17,
+			  is_day: 1,
+			  time: Date.now()
+		}
 	}
 }) satisfies PageServerLoad;
 
