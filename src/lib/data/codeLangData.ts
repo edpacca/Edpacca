@@ -18,6 +18,12 @@ export const LANG_LOGO_COLORS: Record<string, string> = {
   "Makefile": "#272727",
 }
 
+export const TECHNOLOGY_ICONS: Record<string, string> = {
+  "Svelte" : "/icons/devicon/svelte/svelte-original.svg",
+  "TypeScript" : "/icons/devicon/typescript/typescript-original.svg",
+  "React" : "/icons/devicon/react/react-original.svg",
+}
+
 export function getLangShortName(fullName: string) {
   switch (fullName) {
     case "Shell":

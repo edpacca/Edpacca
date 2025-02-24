@@ -34,7 +34,7 @@
 <section>
     <div class="posts">
         {#each sortedPosts as post}
-            <PostPreview post={post} hasProjectLink={false} hasPostImage={true}/>
+            <PostPreview post={post} hasProjectLink={false} hasPostImage={true} icons={post.technologies ?? []}/>
         {/each}
     </div>
 </section>
