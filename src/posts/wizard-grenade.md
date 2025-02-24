@@ -5,7 +5,7 @@ date: 01/4/2021
 coverImage: wizard-grenade/wizard-grenade-cover.webp
 projectId: programming
 published: true
-technologies: [ C#, XNA ]
+technologies: [ csharp, XNA ]
 ---
 <script>
     import ContentsList from "../lib/components/ContentsList.svelte";

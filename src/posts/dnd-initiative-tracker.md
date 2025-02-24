@@ -5,7 +5,7 @@ date: 05/09/2023
 projectId: programming
 coverImage: dnd-initiative/initiative-icon.svg
 published: true
-technologies: [ Svelte, Typescript ]
+technologies: [ Svelte, TypeScript ]
 ---
 
 
