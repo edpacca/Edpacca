@@ -8,6 +8,8 @@
     import { Bluebody } from "./draw/bluebody";
     import { Cloud } from "./draw/cloud";
   import { Snow } from "./draw/snow";
+  import { Thunder } from "./draw/thunder";
+  import { randIntBetween } from "$lib/utils";
     export let time: Date;
     export let weather: Weather;
     export let windspeed: number;
@@ -45,7 +47,8 @@
         const staticCtx = staticCanvas.getContext("2d");
         if (animCtx && staticCtx) {
 
-            const rain = new Rain(animCtx, 10, 0.3, windspeed);
+            const rain = new Rain(animCtx, 20, 0.3, windspeed, 10);
+            const rain2 = new Rain(animCtx, 10, 0.8, windspeed, 5);
             // const snow = new Snow(animCtx, 4, 0.9, windspeed, 40);
             // const snow2 = new Snow(animCtx, 2, 0.9, windspeed, 20);
             // const bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
@@ -54,18 +57,21 @@
             // drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
             // drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
 
-            // clouds.push(new Cloud(animCtx, CEN_X, 100, 40, 10, 4, "white"));
-            // clouds.push(new Cloud(animCtx, 10, 200, 70, 10, 5, "white"));
-            // clouds.push(new Cloud(animCtx, 50, 150, 80, 10, 6, "white"));
+            for (let i = 0; i < 10; i++) {
+                clouds.push(new Cloud(animCtx, randIntBetween(0, CANVAS_WIDTH - 100), randIntBetween(0, CEN_Y), randIntBetween(20, 40), randIntBetween(7, 15), windspeed, "gray"));
+            }
 
+            const thunder = new Thunder(animCtx, CANVAS_HEIGHT, CANVAS_WIDTH, 0.5);
             // bluebody.draw();
 
             const animate = () => {
                 animCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-                // rain.animate();
+                rain.animate();
+                rain2.animate();
+                thunder.animate();
                 // snow.animate();
                 // snow2.animate();
-                // clouds.forEach(cloud => cloud.animate());
+                clouds.forEach(cloud => cloud.animate());
                 requestAnimationFrame(animate);
             }
             animate();

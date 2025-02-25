@@ -10,12 +10,13 @@ export class Rain extends Precipitator {
     speed: number,
     density: number,
     windSpeed: number,
+    size: number = DROP_SIZE,
   ) {
-    super(context, speed, density, windSpeed, DROP_SIZE);
+    super(context, speed, density, windSpeed, size);
   }
 
   generateDrop(x: number, y: number): Drop {
-    return new RainDrop(DROP_SIZE, new Vector2D(x, y));
+    return new RainDrop(this.size, new Vector2D(x, y));
   }
 }
 
