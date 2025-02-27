@@ -1,4 +1,3 @@
-import { drawLine, drawLineAtAngle } from "$lib/canvasUtils";
 import { Vector2D } from "$lib/mechanics/vector";
 import { Drop, Precipitator } from "./precipitater";
 
