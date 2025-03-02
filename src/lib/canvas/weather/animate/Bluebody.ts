@@ -4,6 +4,9 @@ export class Bluebody extends Animator {
 	radialGradient: CanvasGradient;
 	orbitPosX: number;
 	orbitPosY: number;
+	orbitCenX: number;
+	orbitCenY: number;
+	orbitRadius: number;
 	orbitBodyRadius: number;
 
 	constructor(
@@ -22,23 +25,36 @@ export class Bluebody extends Animator {
 		//     orbitRadius,
 		//     Math.PI, Math.PI * 2, false);
 		// ctx.stroke();
+		this.orbitPosX = 0;
+		this.orbitPosY = 0;
+		this.orbitCenY = orbitCenY;
+		this.orbitCenX = orbitCenX;
+
+		this.orbitRadius = orbitRadius;
+		this.orbitBodyRadius = orbitBodyRadius;
+		this.updateTime(time);
+		this.radialGradient = context.createRadialGradient(0, 0, 0, 0, 0, 0);
+		this.ctx = context;
+		// sun or moon
+
+		// context.fillRect(orbitPositionX, orbitPositionY, orbitBodyRadius * 2, orbitBodyRadius * 2);
+	}
+
+	updateTime(time: Date) {
 		const hours = time.getHours();
 		const moduloTime = hours + (6 % 24);
 		const orbitAngle = Math.PI - ((((2 * Math.PI) / 24) * moduloTime) % Math.PI) - Math.PI / 2;
-		const orbitLenX = Math.sin(orbitAngle) * orbitRadius;
-		const orbitLenY = Math.cos(orbitAngle) * orbitRadius;
-		this.orbitPosX = orbitCenX - orbitLenX;
-		this.orbitPosY = orbitCenY - orbitLenY;
-		this.orbitBodyRadius = orbitBodyRadius;
-		this.ctx = context;
-		// sun or moon
+		const orbitLenX = Math.sin(orbitAngle) * this.orbitRadius;
+		const orbitLenY = Math.cos(orbitAngle) * this.orbitRadius;
+		this.orbitPosX = this.orbitCenX - orbitLenX;
+		this.orbitPosY = this.orbitCenY - orbitLenY;
 		if (hours >= 6 && hours < 18) {
-			this.radialGradient = this.getSunRadialGradient(context, this.orbitPosX, this.orbitPosY, orbitBodyRadius);
+			this.radialGradient = this.getSunRadialGradient(this.ctx, this.orbitPosX, this.orbitPosY, this.orbitBodyRadius);
 		} else {
-			this.radialGradient = this.getMoonRadialGradient(context, this.orbitPosX, this.orbitPosY, orbitBodyRadius);
+			this.radialGradient = this.getMoonRadialGradient(this.ctx, this.orbitPosX, this.orbitPosY, this.orbitBodyRadius);
 		}
+		this.draw();
 
-		// context.fillRect(orbitPositionX, orbitPositionY, orbitBodyRadius * 2, orbitBodyRadius * 2);
 	}
 
 	animate = () => {
