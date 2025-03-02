@@ -45,7 +45,7 @@ export class Thunder extends Animator {
 	}
 
 	drawFlash() {
-		this.ctx.fillStyle = "black";
+		this.ctx.fillStyle = "white";
 		this.ctx.fillRect(0, 0, this.width, this.height);
 	}
 	drawBlank() {
