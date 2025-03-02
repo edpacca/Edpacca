@@ -9,14 +9,36 @@
 
 	let weather = getWeatherFromCode(data.weathercode);
 	const windDirection = getDirectionFromAngle(data.winddirection);
-	const time = new Date(data.time);
+	let time = new Date(data.time);
+
+	let elapsedTime: number;
+	let frameRate: number;
+
+	let showDiagnostics: boolean = true;
+	let setTime: number = time.getHours();
+
+	$: updateTime(setTime);
+
+	function updateTime(hour: number) {
+		const newTime = time;
+		newTime?.setHours(hour, 0, 0);
+		time = newTime;
+	}
 </script>
 
 <div class="weather controls">
 	<WeatherControls bind:currentWeather={weather} />
+	<div>
+		<input type="range" min="0" max="24" bind:value={setTime} id="settime"/>
+		<label for="settime">{setTime}</label>
+	</div>
+	<div>
+		<label for="fps">diagnostisc</label>
+		<input type="checkbox" id="fps" bind:checked={showDiagnostics}/>
+	</div>
 </div>
 <div class="scene-container">
-	<Scene {time} {weather} windspeed={data.windspeed} />
+	<Scene bind:time={time} {weather} windspeed={data.windspeed} bind:elapsedTime bind:frameRate/>
 	<div class="compass">
 		<Compass angle={data.winddirection} />
 	</div>
@@ -32,6 +54,13 @@
 		<div class="key">Wind direction:</div>
 		<div class="val">{windDirection}</div>
 	</div>
+	{#if showDiagnostics && frameRate}
+		<div class="diagnostics-container">
+			<div>
+				fps: {frameRate?.toFixed(1)}
+			</div>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -65,6 +94,10 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
+	}
+
+	.diagnostics-container {
+		position: absolute;
 	}
 
 	@media screen and (min-width: 600px) {
