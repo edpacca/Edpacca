@@ -33,7 +33,11 @@ export const load = (async () => {
 	try {
 		const weather = await fetchWeather(location.latitude, location.longitude);
 
-		return weather.current_weather ?? undefined;
+		const currentWeather = weather.current_weather ?? undefined;
+		return {
+			...currentWeather,
+			time: Date.now()
+		}
 	} catch {
 		// throw error(404, "Wasn't able to get any weather data.\n\n It's probably raining");
 		return {
