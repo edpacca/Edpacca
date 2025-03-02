@@ -10,11 +10,14 @@
 	export let weather: Weather;
 	export let windspeed: number;
 
-	const backgroundStyle = timeNoun(time);
 
 	let animationCanvas: HTMLCanvasElement;
 	let staticCanvas: HTMLCanvasElement;
 	let controller: WeatherSceneController;
+	let bluebody: Bluebody;
+
+	export let frameRate: number;
+	export let elapsedTime: number;;
 
 	const CANVAS_HEIGHT = 920;
 	const CANVAS_WIDTH = 1920;
@@ -31,14 +34,14 @@
 		staticCanvas.height = CANVAS_HEIGHT;
 
 		const orbitCentreX = CANVAS_WIDTH / 2;
-		const orbitCentreY = CANVAS_HEIGHT / 2;
-		const orbitRadius = CANVAS_HEIGHT / 2;
-		const orbitBodyRadius = 100;
+		const orbitCentreY = CANVAS_HEIGHT * 0.9;
+		const orbitRadius = CANVAS_HEIGHT * 0.9;
+		const orbitBodyRadius = 130;
 
 		const animCtx = animationCanvas.getContext("2d");
 		const staticCtx = staticCanvas.getContext("2d");
 		if (animCtx && staticCtx) {
-			const bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
+			bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
 			drawTree(staticCtx, 120, CANVAS_HEIGHT, 80, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
 			drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
 			drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
@@ -49,11 +52,16 @@
 
 			const animate = () => {
 				controller.animate();
+				frameRate = controller.frameRate.getFrameRate();
+				elapsedTime = controller.frameRate.getElapsedTime();
 				requestAnimationFrame(animate);
 			};
 			animate();
 		}
 	});
+
+	$: bluebody?.updateTime(time);
+	$: backgroundStyle = timeNoun(time);
 </script>
 
 <div class="canvas-container">
