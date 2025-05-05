@@ -47,6 +47,10 @@
   </div>
 
 <style>
+    .click-zoom {
+      width: 100%;
+    }
+
     .click-zoom input[type=checkbox] {
         display: none
     }

@@ -1,114 +1,141 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { timeNoun } from "./weatherTime";
-    import { drawTree, drawOrbit, drawCloud } from "./weatherScene";
-    import { drawCharacter } from "./DrawCharacter";
-    export let time: Date;
+	import { onMount } from "svelte";
+	import { timeNoun } from "$lib/utils";
+	import type { Weather } from "$lib/data/weatherData";
+	import { drawTree } from "$lib/canvas/weather/draw/tree";
+	import { drawCharacter } from "$lib/canvas/weather/draw/character";
+	import { Bluebody } from "$lib/canvas/weather/animate/Bluebody";
+	import { WeatherSceneController } from "./WeatherSceneAnimator";
+	export let time: Date;
+	export let weather: Weather;
+	export let windspeed: number;
 
-    const backgroundStyle = timeNoun(time);
-    let canvas: HTMLCanvasElement;
+	let animationCanvas: HTMLCanvasElement;
+	let staticCanvas: HTMLCanvasElement;
+	let bluebodyCanvas: HTMLCanvasElement;
+	let controller: WeatherSceneController;
+	let bluebody: Bluebody;
 
-    onMount(() => {
-        canvas.width = window.innerWidth - 24;
-        canvas.height = window.innerHeight - 24;
+	export let frameRate: number;
+	export let elapsedTime: number;
 
-        const orbitCentreX = canvas.width / 2;
-        const orbitCentreY = canvas.height;
-        const orbitRadius = canvas.height - 100;
-        const orbitBodyRadius = 100;
+	const CANVAS_HEIGHT = 920;
+	const CANVAS_WIDTH = 1920;
+	const TREE_DEPTH = 12;
+	const TREE_BRANCH_THICKNESS = 50;
 
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-            drawOrbit(ctx, time, orbitCentreX, orbitCentreY, 
-                orbitRadius, orbitBodyRadius);
-            drawTree(ctx, 120, canvas.height, 80, -Math.PI / 2, 12, 15);
-            drawTree(ctx, canvas.width - 400, canvas.height, 60, -Math.PI / 2, 12, 15);
-            drawCloud(ctx, 90, 100, 20)
-            drawCloud(ctx, 720, 240, 20)
-            drawCloud(ctx, canvas.width / 2, 100, 20)
-            drawCloud(ctx, canvas.width - 100, 80, 20)
+	$: controller?.setWeather(weather);
+	$: controller?.setWindspeed(windspeed);
 
-            drawCharacter(ctx, canvas.width / 2, canvas.height - 200)
-        }
-    })
+	onMount(() => {
+		animationCanvas.width = CANVAS_WIDTH;
+		staticCanvas.width = CANVAS_WIDTH;
+		animationCanvas.height = CANVAS_HEIGHT;
+		staticCanvas.height = CANVAS_HEIGHT;
+
+		const orbitCentreX = CANVAS_WIDTH / 2;
+		const orbitCentreY = CANVAS_HEIGHT * 0.9;
+		const orbitRadius = CANVAS_HEIGHT * 0.9;
+		const orbitBodyRadius = 130;
+
+		const animCtx = animationCanvas.getContext("2d");
+		const staticCtx = staticCanvas.getContext("2d");
+		if (animCtx && staticCtx) {
+			bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
+			drawTree(staticCtx, 120, CANVAS_HEIGHT, 80, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
+			drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
+			drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
+
+			bluebody.draw();
+
+			controller = new WeatherSceneController(animCtx, CANVAS_WIDTH, CANVAS_HEIGHT, windspeed, weather);
+
+			const animate = () => {
+				controller.animate();
+				frameRate = controller.frameRate.getFrameRate();
+				elapsedTime = controller.frameRate.getElapsedTime();
+				requestAnimationFrame(animate);
+			};
+			animate();
+		}
+	});
+
+	$: bluebody?.updateTime(time);
+	$: backgroundStyle = timeNoun(time);
 </script>
 
-<!-- <input type="range" bind:value={testTime} min={0} max={24}/> -->
-<canvas class={backgroundStyle} bind:this={canvas}>
-
-</canvas>
+<div class="canvas-container">
+	<canvas class={"static-canvas " + backgroundStyle} bind:this={staticCanvas}> </canvas>
+	<canvas bind:this={bluebodyCanvas} class="animation-canvas"> </canvas>
+	<canvas bind:this={animationCanvas} class="animation-canvas"> </canvas>
+</div>
 
 <svelte:head>
-    <style>
-        :root {
-            --night: rgb(50, 30, 125);
-            --dawn-dusk: rgb(255, 150, 150);
-            --sunrise-sunset: rgb(255, 150, 40);
-            --morning: rgb(160, 160, 160);
-            --day: rgb(0, 170, 255);
-        }
-    </style>
+	<style>
+		:root {
+			--night: rgb(50, 30, 125);
+			--dawn-dusk: rgb(255, 150, 150);
+			--sunrise-sunset: rgb(255, 150, 40);
+			--morning: rgb(160, 160, 160);
+			--day: rgb(0, 170, 255);
+		}
+	</style>
 </svelte:head>
 
 <style>
-    canvas {
-        margin: var(--margin);
-        width: 100%;
-        height: 100%;
-    }
+	.canvas-container {
+		position: relative;
+		margin: var(--margin);
+		width: 100%;
+		height: 100%;
+	}
 
-    .black {
-        background-color: black;
-    }
+	canvas {
+		display: block;
+		width: calc(100% - 2 * (var(--margin)));
+		top: var(--margin);
+		left: var(--margin);
+		bottom: var(--margin);
+		position: absolute;
+	}
 
+	.static-canvas {
+		z-index: 0;
+	}
 
-    .night {
-        background: var(--night);
-    }
+	.animation-canvas {
+		z-index: 1;
+	}
 
-    .dawn {
-        background: linear-gradient(
-            var(--night),
-            var(--dawn-dusk)
-        );
-    }
+	.night {
+		background: var(--night);
+	}
 
-    .sunrise {
-        background: linear-gradient(
-            var(--dawn-dusk)
-            var(--sunrise-sunset),
-        );
-    }
+	.dawn {
+		background: linear-gradient(var(--night), var(--dawn-dusk));
+	}
 
-    .morning {
-        background: linear-gradient(
-            var(--morning),
-            var(--day)
-        );
-    }
+	.sunrise {
+		background: linear-gradient(var(--dawn-dusk), var(--sunrise-sunset));
+	}
 
-    .day {
-        background: var(--day);
-    }
+	.morning {
+		background: linear-gradient(var(--morning), var(--day));
+	}
 
-    .evening {
-        background: linear-gradient(
-            var(--day),
-            var(--dawn-dusk)
-        );
-    }
+	.day {
+		background: var(--day);
+	}
 
-    .sunset {
-        background: linear-gradient(
-            var(--dawn-dusk),
-            var(--sunrise-sunset)
-        );
-    }
+	.evening {
+		background: linear-gradient(var(--day), var(--dawn-dusk));
+	}
 
-    .dusk {
-        background: linear-gradient(
-            var(--night),
-            var(--dawn-dusk)
-        );
-    }
+	.sunset {
+		background: linear-gradient(var(--dawn-dusk), var(--sunrise-sunset));
+	}
+
+	.dusk {
+		background: linear-gradient(var(--night), var(--dawn-dusk));
+	}
 </style>
