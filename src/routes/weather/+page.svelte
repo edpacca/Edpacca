@@ -29,20 +29,22 @@
 <div class="weather controls">
 	<WeatherControls bind:currentWeather={weather} />
 	<div>
-		<input type="range" min="0" max="24" bind:value={setTime} id="settime"/>
+		<input type="range" min="0" max="24" bind:value={setTime} id="settime" />
 		<label for="settime">{setTime}</label>
 	</div>
 	<div>
 		<label for="fps">diagnostisc</label>
-		<input type="checkbox" id="fps" bind:checked={showDiagnostics}/>
+		<input type="checkbox" id="fps" bind:checked={showDiagnostics} />
 	</div>
 </div>
 <div class="scene-container">
-	<Scene bind:time={time} {weather} windspeed={data.windspeed} bind:elapsedTime bind:frameRate/>
+	<Scene bind:time {weather} windspeed={data.windspeed / 3} bind:elapsedTime bind:frameRate />
 	<div class="compass">
 		<Compass angle={data.winddirection} />
 	</div>
 	<div class="weather-text">
+		<div class="key">Latt/Long:</div>
+		<div class="val">{`${data.latitude}, ${data.longitude}`}</div>
 		<div class="key">Time:</div>
 		<div class="val">{time.toLocaleTimeString()}</div>
 		<div class="key">Temperature:</div>

@@ -10,14 +10,14 @@
 	export let weather: Weather;
 	export let windspeed: number;
 
-
 	let animationCanvas: HTMLCanvasElement;
 	let staticCanvas: HTMLCanvasElement;
+	let bluebodyCanvas: HTMLCanvasElement;
 	let controller: WeatherSceneController;
 	let bluebody: Bluebody;
 
 	export let frameRate: number;
-	export let elapsedTime: number;;
+	export let elapsedTime: number;
 
 	const CANVAS_HEIGHT = 920;
 	const CANVAS_WIDTH = 1920;
@@ -66,6 +66,7 @@
 
 <div class="canvas-container">
 	<canvas class={"static-canvas " + backgroundStyle} bind:this={staticCanvas}> </canvas>
+	<canvas bind:this={bluebodyCanvas} class="animation-canvas"> </canvas>
 	<canvas bind:this={animationCanvas} class="animation-canvas"> </canvas>
 </div>
 
