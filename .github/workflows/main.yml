@@ -1,5 +1,5 @@
 name: Edpacca CI
-run-name: ${{ github.head_ref }} ${{ github.sha }}
+run-name: ${{ github.head_ref }}
 on:
   push:
     branches:
@@ -9,8 +9,7 @@ on:
     - main
 
 jobs:
-    edpacca_pr_ci:
-        name: edpacca_pr_ci
+    CI:
         if: '!github.event.pull_request.draft'
         runs-on: ubuntu-latest
 
@@ -30,16 +29,7 @@ jobs:
               run: npm install
 
             - name: Check
-              run: |
-                touch .env
-                echo "GH_URL=https://dummy.com" >> .env
-                echo "GH_REPO_TOKEN=123ABC456" >> .env
-                echo "PUBLIC_STRAVA_CURRENT=7259" >> .env
-                echo "PUBLIC_STRAVA_LAST_UPDATED=09-08-23" >> .env
-                echo "PUBLIC_STRAVA_TARGET=10000" >> .env
-                echo "PUBLIC_STRAVA_GOAL_YEAR=2023" >> .env
-                echo "PUBLIC_STRAVA_GOAL='10km elevation'" >> .env
-                npm run check
+              run: npm run check
 
             - name: Lint
               run: npm run lint

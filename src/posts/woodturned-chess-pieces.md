@@ -11,7 +11,7 @@ At some point, I became obssessed with woodturning. I watched countless videos o
 
 ## The Bishop
 
-![The only image I could find of the bishop](woodwork/bishop/bishop.jpg)
+![The only image I could find of the bishop](woodwork/bishop/bishop.webp)
 
 The one I am the most proud of though is the bishop! This was turned from the leg of a chair and somehow just came out bloody great. It is quite big for a chess piece but I really love how it feels to hold it. A full set at this scale would be really great to try to make. The problem with turning these pieces without a guide is they kind of just happen; I wasn't measuring so I just tried to pull out the form I wanted from the wood, and in this case I think I got lucky and nailed the profile. The scariest bit was cutting the slit in the top, as I really didn't want to damage what I'd made!
 
