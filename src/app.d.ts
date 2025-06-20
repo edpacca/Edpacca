@@ -32,7 +32,8 @@ declare global {
 		description?: string
 	}
 
-	type Points = [number, number][]
+	type Point = [number, number]
+	type Points = Point[]
 
 	type JSONValue = { [x: string]: string }
 

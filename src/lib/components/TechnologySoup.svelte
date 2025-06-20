@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { WordSoup } from "$lib/wordSoup";
+    import { WordSoup } from "$lib/canvas/wordSoup";
     import ControlBar from "./ControlBar.svelte";
     import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
     import FaIcon from "./FaIcon.svelte";
