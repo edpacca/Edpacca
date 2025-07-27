@@ -1,10 +1,8 @@
 <script lang="ts">
-    import { TECHNOLOGY_ICONS } from "$lib/data/codeLangData";
-import { formatDate } from "../utils";
-    import FaIcon from "./FaIcon.svelte";
+    import { formatDate } from "../utils";
     import PostCoverImage from "./PostCoverImage.svelte";
     import ProjectIconLink from "./ProjectIconLink.svelte";
-  import Tooltip from "./Tooltip.svelte";
+    import Tooltip from "./Tooltip.svelte";
     export let post: Post;
     export let hasProjectLink = true;
     export let hasPostImage = false;
@@ -66,7 +64,7 @@ import { formatDate } from "../utils";
         padding-right: var(--margin);
     }
 
-    
+
     .project-link-container {
         margin-left: auto;
         margin-right: var(--margin);
@@ -90,18 +88,28 @@ import { formatDate } from "../utils";
         width: 2em;
         text-align: center;
         line-height: 2em;
-        -webkit-filter: grayscale(1);
-        filter: grayscale(1);
     }
 
     img.invert {
         -webkit-filter: invert(1);
         filter: invert(1);
-    } 
-    
-    img:hover {
-        -webkit-filter: grayscale(0);
-        filter: grayscale(0);
-        color: var(--highlight);
+    }
+
+    @media screen and (max-width: 900px) {
+        img {
+            height: 1.25em;
+            width: 1.25em;
+            line-height: 1.25em;
+        }
+
+        .tech-icons-container {
+            gap: 0.5em;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        img {
+            display: none;
+        }
     }
 </style>

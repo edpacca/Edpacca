@@ -1,8 +1,7 @@
 <script>
     import FaIcon from "$lib/components/FaIcon.svelte";
-import ZoomImage from "$lib/components/ZoomImage.svelte";
-import { DnDMaps } from "$lib/data/dndBattleMapLinks";
-
+    import ZoomImage from "$lib/components/ZoomImage.svelte";
+    import { DnDMaps } from "$lib/data/dndBattleMapLinks";
 </script>
 
 
