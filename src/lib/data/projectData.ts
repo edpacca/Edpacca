@@ -8,7 +8,7 @@ export const PROJECTS: ProjectType[] = [
     id: "programming",
     icon: "code",
     description:
-      "After falling in love with programming I left behind my life as a high pressure scientist in order to become a software developer. Now I've worked professionally all over the stack, with a number of languages and frameworks, I can safely say that I simply enjoy figuring out problems and finding optimal solutions. My personal projects usually emerge from a need that I have or simply a 'quick experiment' that gets out of hand; a few of my favourites are highlighted here.",
+      "Professionally I've worked all over the stack in a number of languages and frameworks. Personal projects usually emerge from a need that I have or simply a 'quick experiment' that gets out of hand; a few of my favourites are highlighted here.",
   },
   {
     name: "Miniatures",
