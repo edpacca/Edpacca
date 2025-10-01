@@ -2,6 +2,7 @@
 	import type { PageData } from "./$types";
 	import ProjectPreview from "../../lib/components/ProjectPreview.svelte";
 	import { DnDMaps } from "$lib/data/dndBattleMapLinks";
+  import BackButton from "$lib/components/BackButton.svelte";
 	export let data: PageData;
 
 	const getNumberOfPosts = (projectId: string): number => {
@@ -12,17 +13,16 @@
 	};
 
 	const getIconName = (projectId: string): string => {
-		if (projectId == "dnd") {
-			return "map";
-		}
-		return "newspaper";
+		return projectId == "dnd" ? "map" : "newspaper"
 	};
 </script>
 
+<BackButton text="Home" icon="home" urlRef="/"/>
+<br/>
 <div class="project-list">
 	{#each data.projects as project}
 		{#if project.id == "dnd"}
-			<ProjectPreview {project} numberOfPosts={getNumberOfPosts(project.id)} numberOfAltItem={DnDMaps.length} altIcon={"map"} />
+			<ProjectPreview {project} numberOfPosts={getNumberOfPosts(project.id)} icon={getIconName(project.id)} />
 		{:else}
 			<ProjectPreview {project} numberOfPosts={getNumberOfPosts(project.id)} />
 		{/if}

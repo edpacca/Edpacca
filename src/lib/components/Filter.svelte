@@ -17,7 +17,7 @@
 		{#each filterItems as filter}
 			<option on:click={() => onFilterChanged(filter.filterTarget)} selected={filter == selectedItem}>
 				{#if filter.icon}
-					<div>{filter.name}</div>
+					{filter.name}
 					<FaIcon icon={filter.icon} />
 				{/if}
 			</option>

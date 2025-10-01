@@ -64,7 +64,7 @@ For some reason, this detail was probably the bit I was most excited about. I th
 
 ## Serendipitous chemistry? <FaIcon icon="flask"/>
 
-Next was one of those serendipitous events that occurs all the time in crafting with little to no planning - I used extra thin super glue to hold the chain in place on the axel, and some dropped down onto the foam walls of the well! This is bad, because CA glue [(cyanoacrylate)](https://en.wikipedia.org/wiki/Cyanoacrylate) <a href="#chemistry" onclick="window.location.href = '#chemistry';">'melts' the XPS foam<sup>1</sup></a>. But the effect was actually perfect as it just so happened to align with where I'd glued the fallen rocks, and it even created some rough texture. The resulting look was as if the wall had been smashed by an errant spell or the blow of a warhammer - awesome!
+Next was one of those serendipitous events that occurs all the time in crafting with little to no planning - I used extra thin super glue to hold the chain in place on the axel, and some dropped down onto the foam walls of the well! This is bad, because CA glue [(cyanoacrylate)](https://en.wikipedia.org/wiki/Cyanoacrylate) <a href="#chemistry">'melts' the XPS foam<sup>1</sup></a>. But the effect was actually perfect as it just so happened to align with where I'd glued the fallen rocks, and it even created some rough texture. The resulting look was as if the wall had been smashed by an errant spell or the blow of a warhammer - awesome!
 
 ![The basing materials start to tie the build together](miniatures/well/well_2.webp)
 
