@@ -57,6 +57,7 @@
         class="image-container"
         style={`height: ${imageHeight}px`}
         on:click={next}
+        on:contextmenu|preventDefault={previous}
         on:keydown={() => {}}
         role="button"
         tabindex="0">
@@ -96,6 +97,7 @@
 
     .image-container {
         position: relative;
+        cursor: pointer;
     }
 
     img {

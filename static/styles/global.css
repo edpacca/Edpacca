@@ -182,8 +182,8 @@ img.post-image {
 }
 
 img.square {
-  width: 50%;
-  height: 50%;
+  width: 75%;
+  height: 7%;
 }
 
 img.cover-image {
@@ -211,10 +211,17 @@ img.cover-image {
   grid-gap: 1em;
 }
 
+.two-three-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 1em;
+}
+
 .caption {
   font-weight: 100;
   font-style: italic;
   color: var(--light-grey);
+  margin-top: 0.5em;
 }
 
 .nowrap {
