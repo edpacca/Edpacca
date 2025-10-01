@@ -177,6 +177,10 @@ img.post-image {
   border-radius: 4px;
 }
 
+.transition-1 {
+  transition: 300ms;
+}
+
 img.square {
   width: 50%;
   height: 50%;
