@@ -1,3 +1,13 @@
+---
+title: Canvas drawing tools
+description: Tools used to aid in drawing to the canvas
+date: 01/01/2023
+projectId: programming
+published: true
+technologies: [Typescript, HTML]
+---
+
+```ts
 import { drawLine } from "$lib/canvasUtils";
 
 export class Artist{
@@ -61,3 +71,5 @@ export class Artist{
         this.drawNextLine(xOffset * -1, yOffset);
     }
 }
+
+```
