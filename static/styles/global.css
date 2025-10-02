@@ -358,3 +358,16 @@ img.gallery-img {
 .dragon-hunter {
   font-family: DragonHunter;
 }
+
+
+.pink {
+  color: var(--magenta-dark);
+}
+
+.white {
+  color: var(--primary);
+}
+
+.bold {
+  font-weight: bold;
+}
