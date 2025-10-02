@@ -4,7 +4,6 @@ description: A build blog for my most involved terrain project to date - a large
 date: 01/18/2025
 projectId: miniatures
 published: true
-pinned: true
 icon: institution
 ---
 <script>
