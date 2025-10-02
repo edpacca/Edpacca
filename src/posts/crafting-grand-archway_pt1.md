@@ -18,7 +18,7 @@ icon: dungeon
 **_my most involved terrain project to date..._**
 ![The finished archway](miniatures/arch/arch_0.webp)
 
-I like to keep <Footnote text="bits of packaging" anchor="hoarding" ref="0"/> that I think have potential as useful crafting materials. One such hoarded item was a squat oblong box, with a square footprint. Not that uncommon but unusual enough for me to hang onto it. The idea to build a four sided archway came from my partner - I liked it as a concept for a piece of terrain because it can allow line of sight through, and can have minis placed both underneath and on top.
+I like to keep <Footnote text="bits of packaging" anchor="hoarding" ref="0"/> that I think have potential as useful crafting materials. One such hoarded item was a squat oblong box, with a square footprint. Not that uncommon but unusual enough for me to hang onto it. The idea initiall came from my partner; to build an open four-sided structure with an archway on each face - I liked it as a concept for a piece of terrain because it can allow line of sight through, and can have minis placed both underneath and on top.
 
 <ImgGrid
     imgs={[
@@ -28,9 +28,11 @@ I like to keep <Footnote text="bits of packaging" anchor="hoarding" ref="0"/> th
     caption="Cardboard box with.. potential"
 />
 
-I decided to make two different arch designs for the piece to introduce some variety.
+I decided to make two different arch designs for the piece to introduce some variety - one design would be shared by the opposing faces.
 
-# Plan
+# Plan <FaIcon icon="pen"/>
+
+**Arches rock** - I have been collecting photos of different gothic archways in the wild, mostly on churches. Something I had never noticed prior to this was how important 'layering' the trim around the archways is to the aesthetic.
 
 <CarouselGallery
     title="Wild Archways"
@@ -41,7 +43,8 @@ I decided to make two different arch designs for the piece to introduce some var
     ]}
     />
 
-**Arches rock** - I have been collecting photos of different gothic archways in the wild, mostly on churches. Something I had never noticed prior to this was how important 'layering' the trim around the archways is to the aesthetic. Some of them can be incredibly over the top but it really works! However, I wanted to give myself the grand look without going overboard so I settled for 3 layers, between square pillars.
+
+Some of the layering seen can be incredibly over the top and it really works! However, I wanted to give myself the grand look without going overboard so I settled for 3 layers, going for simpler, square pillars for the corners. One day we might ge into some more elaborate carvings but it's good to set realistic goals.
 
 <ImgHoverToggle
     src="miniatures/arch/plan/arch_drawing.webp"
@@ -51,12 +54,16 @@ I decided to make two different arch designs for the piece to introduce some var
 
 That's about it as far as planning goes. I had so much fun on this project just following my nose, trying out different approaches. I think one learns a lot this way, and I find it builds momentum. Maintaining motivation is a big part of completing these more ambitious projects. Onto the build!
 
-# Build
+# Build <FaIcon icon="hammer"/>
 
-I started by cutting the arch shapes and then began
+I started by cutting the arch shape out of a piece of card and tracing it on the box itself.
 
 ![Premium](miniatures/arch/build_1/s1_0.webp)
 
+Remembering that layers are everything, I cut out a smaller archway from a flat piece of card and glued this inside the main box - adding some variety and depth to the surface before we even begin to put foam on the piece. I could have just made the foam thinner in these places but I think it also helped as a guideline for the 'exploratory' process that I was undertaking.
+
+## Bricks <FaIcon icon="cubes-stacked"/>
+The brick pillars were roughly measured and cut from 1" insulation foam. All brickage in this project is done in basically the same way - the brick outlines are marked and scored several times with a biro, softening the edges with the rounded tip. Then a balled up piece of tinfoil is used to texture them. So easy!
 
 <ImgGrid
     imgs={[
@@ -64,6 +71,7 @@ I started by cutting the arch shapes and then began
         { path: "images/miniatures/arch/build_1/s2_1.webp" }
     ]}
 />
+
 
 ![Little details make all the difference](miniatures/arch/build_1/s3_0.webp)
 
