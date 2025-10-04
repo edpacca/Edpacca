@@ -9,11 +9,19 @@ icon: mountain
 
 <script>
     import Strava2023Goal from "../lib/components/strava/Strava2023Goal.svelte"
+    import MountainScene from "../lib/components/creative/MountainCanvas.svelte"
 </script>
 
+
+<div style="margin-bottom: -1em;">
+    <MountainScene progress={1.02}/>
+</div>
+
+[custom HTML canvas visual progress tracker](/mountain-scene)
+
 <div style="margin-top: 2em;">
-<Strava2023Goal/>
-<hr/>
+    <Strava2023Goal/>
+    <hr/>
 </div>
 
 ## Jan 2023

@@ -1,6 +1,6 @@
 <script>
     import StravaStats from "$lib/components/strava/StravaGoalStats.svelte";
-
+    import MountainCanvas from "../creative/MountainCanvas.svelte";
     const current = Number(10180);
     const target = Number(10000);
 </script>
