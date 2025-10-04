@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
-    import BurgerMenu from '$lib/components/BurgerMenu.svelte';
+    import BurgerMenu from '$lib/components/utils/BurgerMenu.svelte';
     import DarkThemeToggle from '$lib/components/utils/DarkThemeToggle.svelte';
     import ThemeSelector from '$lib/components/utils/ColourThemeSelector.svelte';
 	import * as config from "$lib/config";

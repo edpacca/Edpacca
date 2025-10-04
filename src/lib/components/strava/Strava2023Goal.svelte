@@ -1,5 +1,5 @@
 <script>
-    import StravaStats from "$lib/pages/StravaGoalStats.svelte";
+    import StravaStats from "$lib/components/strava/StravaGoalStats.svelte";
 
     const current = Number(10180);
     const target = Number(10000);

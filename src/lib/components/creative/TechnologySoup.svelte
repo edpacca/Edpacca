@@ -1,9 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { WordSoup } from "$lib/wordSoup";
-    import ControlBar from "./ControlBar.svelte";
-    import { ZERO_VECTOR, Vector2D } from "../mechanics/vector";
-    import FaIcon from "./FaIcon.svelte";
+    import { WordSoup } from "$lib/canvas/wordSoup";
+    import ControlBar from "$lib/components/utils/ControlBar.svelte";
+    import FaIcon from "$lib/components/utils/FaIcon.svelte";
+    import { ZERO_VECTOR, Vector2D } from "$lib/mechanics/vector";
 
     export let technologies: Record<string, number>;
     let canvas: HTMLCanvasElement;

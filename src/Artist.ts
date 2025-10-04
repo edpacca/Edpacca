@@ -1,4 +1,4 @@
-import { drawLine } from "$lib/canvasUtils";
+import { drawLine } from "$lib/canvas/canvasUtils";
 
 export class Artist{
 

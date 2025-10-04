@@ -1,6 +1,6 @@
-import { LANG_LOGO_COLORS } from "./data/codeLangData";
-import { resolveCollisions, type Rect, resolveCollision } from "./mechanics/rect";
-import { Vector2D, randomVector } from "./mechanics/vector";
+import { LANG_LOGO_COLORS } from "../data/codeLangData";
+import { resolveCollisions, type Rect, resolveCollision } from "../mechanics/rect";
+import { Vector2D, randomVector } from "../mechanics/vector";
 
 export const DEFAULT_GRAVITY = new Vector2D(0, 0.2);
 const DEFAULT_DAMPING_FACTOR = 0.3;

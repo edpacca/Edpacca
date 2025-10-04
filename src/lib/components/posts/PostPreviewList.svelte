@@ -1,8 +1,8 @@
 <script lang="ts">
     import { comparePinnedPosts } from "$lib/utils";
-    import LinkAsPostPreview from "./posts/LinkAsPostPreview.svelte";
-    export let posts: Post[];
+    import LinkAsPostPreview from "./LinkAsPostPreview.svelte";
     import PostPreview from "./PostPreview.svelte";
+    export let posts: Post[];
 
 	const sortedPosts = posts.sort(comparePinnedPosts);
 </script>

@@ -1,7 +1,7 @@
 <script lang="ts">
-    import PaintPalette from "$lib/components/PaintPalette.svelte"
+    import PaintPalette from "$lib/components/painting/PaintPalette.svelte"
     import ZoomImage from "$lib/components/utils/ZoomImage.svelte";
-    import PaintingSteps from "$lib/components/PaintingSteps.svelte";
+    import PaintingSteps from "$lib/components/painting/PaintingSteps.svelte";
     import type { PaintColourType } from "$lib/data/paintColourData";
     import type { PaintingStep } from "$lib/data/paintingStepsData";
 
@@ -26,7 +26,7 @@
 
 <hr/>
 
-<PaintingSteps paintingSteps={paintingSteps} title={title}/> 
+<PaintingSteps paintingSteps={paintingSteps} title={title}/>
 
 <style>
     .grid-container {
@@ -35,7 +35,7 @@
         align-content: center;
         margin: 0 10%;
     }
-    
+
     .paints-container {
         margin: auto;
     }

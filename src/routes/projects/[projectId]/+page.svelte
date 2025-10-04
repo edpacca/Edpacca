@@ -1,9 +1,9 @@
 <script lang=ts>
     import { page } from "$app/stores";
     import { comparePinnedPosts } from "$lib/utils";
-    import TechnologySoup from "$lib/components/TechnologySoup.svelte";
+    import TechnologySoup from "$lib/components/creative/TechnologySoup.svelte";
     import MiniaturesPage from "$lib/pages/MiniaturesPage.svelte";
-    import PostPreview from "$lib/components/PostPreview.svelte";
+    import PostPreview from "$lib/components/posts/PostPreview.svelte";
     import BackButton from "$lib/components/utils/BackButton.svelte";
     import type { PageData } from "./$types";
     import DnDPage from "$lib/pages/DnDPage.svelte";

@@ -1,18 +1,18 @@
 ---
-title: Mountain Scene - Canvas
+title: Mountain Scene - HTML Canvas
 description: A canvas scene used to track my running progress
 date: 01/01/2023
 projectId: programming
+pinned: true
 published: true
 technologies: [Typescript, HTML]
 ---
 
 <script>
-    import MountainCanvas from "../lib/components/creative/MountainCanvas.svelte";
+    import MountainCanvasSandbox from "../lib/components/creative/MountainCanvasSandbox.svelte";
 </script>
 
-
-<MountainCanvas progress={0.5}/>
+<MountainCanvasSandbox/>
 
 ```ts
 import { Artist } from "../Artist";
@@ -34,14 +34,6 @@ export function mountainScene(ctx: CanvasRenderingContext2D, anCtx: CanvasRender
         [0, -height * 0.3 ],
         [width * 0.6, height * 0.3 ],
     ];
-
-    // intersection of height*0.3 - width * 0.6,
-    // widht * 0.5 and height * 0.55
-    // y = mx + c
-    // mountain equation: y = (height * 0.55 / width * 0.5)x
-    // hill equation: y = -(height*0.3 / width * 0.6)x + height * 0.3
-
-
 
     const RIGHT_HILL: Points = [
         [0, -height * 0.2],

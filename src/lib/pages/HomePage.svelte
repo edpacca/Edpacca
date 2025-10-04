@@ -1,5 +1,5 @@
 <script>
-    import OpenCloseBook from "$lib/components/OpenCloseBook.svelte";
+    import OpenCloseBook from "$lib/components/creative/OpenCloseBook.svelte";
 
 </script>
 <section>

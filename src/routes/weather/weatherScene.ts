@@ -1,4 +1,4 @@
-import { drawCircle } from "$lib/canvasUtils";
+import { drawCircle } from "$lib/canvas/canvasUtils";
 
 export function drawOrbit(
     context: CanvasRenderingContext2D,
