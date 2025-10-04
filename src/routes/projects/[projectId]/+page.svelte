@@ -4,7 +4,7 @@
     import TechnologySoup from "$lib/components/TechnologySoup.svelte";
     import MiniaturesPage from "$lib/pages/MiniaturesPage.svelte";
     import PostPreview from "$lib/components/PostPreview.svelte";
-    import BackButton from "$lib/components/BackButton.svelte";
+    import BackButton from "$lib/components/utils/BackButton.svelte";
     import type { PageData } from "./$types";
     import DnDPage from "$lib/pages/DnDPage.svelte";
     export let data: PageData;

@@ -1,6 +1,6 @@
 <script lang="ts">
     import PaintPalette from "$lib/components/PaintPalette.svelte"
-    import ZoomImage from "$lib/components/ZoomImage.svelte";
+    import ZoomImage from "$lib/components/utils/ZoomImage.svelte";
     import PaintingSteps from "$lib/components/PaintingSteps.svelte";
     import type { PaintColourType } from "$lib/data/paintColourData";
     import type { PaintingStep } from "$lib/data/paintingStepsData";

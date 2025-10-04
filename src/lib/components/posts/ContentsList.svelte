@@ -1,6 +1,6 @@
 <script lang="ts">
-    import FaIcon from "./FaIcon.svelte";
-    export let contents: [string, string, string][]; 
+    import FaIcon from "../utils/FaIcon.svelte";
+    export let contents: [string, string, string][];
 </script>
 
 <ul class="contents-list">

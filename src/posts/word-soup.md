@@ -9,7 +9,7 @@ technologies: [Typescript, Svelte]
 
 
 <script>
-    import TechnologySoup from "../lib/components/TechnologySoup.svelte";
+    import TechnologySoup from "../lib/components/creative/TechnologySoup.svelte";
 </script>
 
 <TechnologySoup technologies={[("test", 0.01)]}/>

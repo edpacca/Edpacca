@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { getProjectData } from "../data/projectData";
-    import FaIcon from "./FaIcon.svelte";
+    import { getProjectData } from "../../data/projectData";
+    import FaIcon from "../utils/FaIcon.svelte";
 
     export let projectId: string;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import ZoomImage from "../ZoomImage.svelte";
+    import ZoomImage from "../utils/ZoomImage.svelte";
 
     export let src: string;
     export let alt: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { currentColourTheme, isUsingDarkTheme } from "../../store";
+    import { currentColourTheme, isUsingDarkTheme } from "../../../store";
     import Tooltip from "./Tooltip.svelte";
     import { fly } from "svelte/transition";
 

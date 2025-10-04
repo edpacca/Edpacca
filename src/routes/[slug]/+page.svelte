@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BackButton from "$lib/components/BackButton.svelte";
+    import BackButton from "$lib/components/utils/BackButton.svelte";
     import { getProjectData } from "$lib/data/projectData";
     import { formatDate } from "$lib/utils";
     import type { PageData } from "./$types";

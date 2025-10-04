@@ -8,7 +8,7 @@ technologies: [Typescript, HTML]
 ---
 
 <script>
-    import MountainCanvas from "../lib/components/MountainCanvas.svelte";
+    import MountainCanvas from "../lib/components/creative/MountainCanvas.svelte";
 </script>
 
 

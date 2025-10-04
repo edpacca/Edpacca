@@ -1,6 +1,6 @@
 <script lang="ts">
     import { comparePinnedPosts } from "$lib/utils";
-    import LinkAsPostPreview from "./LinkAsPostPreview.svelte";
+    import LinkAsPostPreview from "./posts/LinkAsPostPreview.svelte";
     export let posts: Post[];
     import PostPreview from "./PostPreview.svelte";
 

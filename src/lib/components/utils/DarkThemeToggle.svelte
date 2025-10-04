@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { isUsingDarkTheme } from "../../store";
+    import { isUsingDarkTheme } from "../../../store";
     import FaIcon from "./FaIcon.svelte";
     import Tooltip from "./Tooltip.svelte";
 

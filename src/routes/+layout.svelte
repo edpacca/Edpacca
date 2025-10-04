@@ -3,14 +3,14 @@
     import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
     import BurgerMenu from '$lib/components/BurgerMenu.svelte';
-    import DarkThemeToggle from '$lib/components/DarkThemeToggle.svelte';
-    import ThemeSelector from '$lib/components/ColourThemeSelector.svelte';
+    import DarkThemeToggle from '$lib/components/utils/DarkThemeToggle.svelte';
+    import ThemeSelector from '$lib/components/utils/ColourThemeSelector.svelte';
 	import * as config from "$lib/config";
     import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
     import { resetThemes, setUpThemes } from '../store';
-    import FaIcon from '$lib/components/FaIcon.svelte';
-    import Tooltip from '$lib/components/Tooltip.svelte';
+    import FaIcon from '$lib/components/utils/FaIcon.svelte';
+    import Tooltip from '$lib/components/utils/Tooltip.svelte';
 
 	let isMenuOpen = false;
 

@@ -8,9 +8,9 @@ icon: bucket
 ---
 
 <script>
-    import PaintingTutorial from "../lib/components/PaintingTutorial.svelte";
-    import FaIcon from "../lib/components/FaIcon.svelte"
-    import Footnote from "../lib/components/Footnote.svelte"
+    import PaintingTutorial from "../lib/components/painting/PaintingTutorial.svelte";
+    import FaIcon from "../lib/components/utils/FaIcon.svelte"
+    import Footnote from "../lib/components/posts/Footnote.svelte"
 </script>
 
 ![The finished well.](miniatures/well/well_alpha.webp)

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ImageMetadata } from "$lib/data/galleries";
-  import ZoomImage from "../ZoomImage.svelte";
+  import ZoomImage from "../utils/ZoomImage.svelte";
 
   export let imgs: ImageMetadata[];
   export let cols: number[] = [1, 1];

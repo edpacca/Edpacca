@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import ZoomImage from "../ZoomImage.svelte";
+    import ZoomImage from "../utils/ZoomImage.svelte";
     import type { ImageMetadata } from "$lib/data/galleries";
     export let images: ImageMetadata[];
     export let setNumCols: number | undefined = undefined;

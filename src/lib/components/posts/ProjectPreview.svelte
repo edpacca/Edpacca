@@ -1,5 +1,5 @@
 <script lang="ts">
-    import FaIcon from "./FaIcon.svelte";
+    import FaIcon from "../utils/FaIcon.svelte";
     export let project: ProjectType;
     export let numberOfPosts = 0;
 </script>
