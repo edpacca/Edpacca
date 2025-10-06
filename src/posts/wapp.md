@@ -5,7 +5,7 @@ date: 07/16/2022
 coverImage: wapp/wapp-logo.webp
 projectId: programming
 published: true
-technologies: [Typescript, React, Redux, Express, MongoDb]
+technologies: [TypeScript, React, Redux, Express, MongoDb]
 ---
 
 Wapp stands for "Wedding App" of course (what were you thinking?!). I decided I needed to test my new programming skills by building a full-stack app that was actually going to be useful. At the time this was probably my most ambitious project to date. I think it took around 4 months to complete, and I made absolutely everything from scratch where possible. I used as few dependencies as possible, but because of React it ended up being huge anyway. It deployed with very few hiccups <!--[(discussed here)](#hiccups)--> and was actually very useful for us wedding hosts, and the guests.

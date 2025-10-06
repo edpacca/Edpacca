@@ -15,7 +15,7 @@
 <button on:click={toggle}>
     <img src={`images/pixel-art/${src}`} alt="book pixel art"/>
 </button>
-<audio src={"audio/effects/map-open.ogg"} bind:this={audio}/>
+<audio src={"audio/effects/map-open.ogg"} bind:this={audio}></audio>
 
 <style>
     button {

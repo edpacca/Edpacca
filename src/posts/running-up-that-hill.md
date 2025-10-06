@@ -2,8 +2,8 @@
 title: Running up that hill
 description: Running 10,000 meters up
 date: 01/01/2023
-projectId: running
 published: true
+projectId: challenges
 icon: mountain
 ---
 
