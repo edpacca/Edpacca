@@ -30,7 +30,7 @@ export const PROJECTS: ProjectType[] = [
     icon: "music",
   },
   {
-      name: "Dungeons & Dragons",
+      name: "D&D",
       id: "dnd",
       icon: "dice-d20",
       description: "One day I want to write up all of my homebrewed D&D campaign materials, but that may warrant an entire website to itself. For now I'll just share some of my favourite maps that I've created."
@@ -40,7 +40,7 @@ export const PROJECTS: ProjectType[] = [
     id: "recipes",
     icon: "pepper-hot",
     description:
-      "I started brewing when I moved to Edinburgh, but took a long haiatus until around 2020 when (for obvious reasons) home hobbies took off again. I brewed mostly IPAs, a few stouts and some other Ales. I also got into making my own Chili sauce and a few other things.",
+      "This category broadly encompasses 'things I've made that are consumable' - namely beer and some fermentation projects but I don't want to limit it to that. I started brewing when I moved to Edinburgh, but took a long haiatus until around 2020 when (for obvious reasons) home hobbies took off again. I brewed mostly IPAs, a few stouts and some other Ales. I also got into making my own Chili sauce and a few other things.",
   },
   // {
   //     name: "Running",
@@ -48,10 +48,16 @@ export const PROJECTS: ProjectType[] = [
   //     icon: "person-running",
   // },
   {
-    name: "Crafting",
+    name: "Big Crafting",
     id: "crafting",
     icon: "hammer",
     description:
       "These posts refer specifically to 'big' crafts - as most of my projects are generally at miniature scale!",
   },
+  {
+    name: "Challenges",
+    id: "challenges",
+    icon: "mountain",
+    description: "This category is unlikely to be a large one - but to hold myself accountable I may occassionally document a physical challenge, such as the hill running I did in 2023."
+  }
 ];

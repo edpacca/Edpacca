@@ -2,7 +2,6 @@
     import { formatDate } from "../utils";
     import PostCoverImage from "./PostCoverImage.svelte";
     import ProjectIconLink from "./ProjectIconLink.svelte";
-    import Tooltip from "./Tooltip.svelte";
     export let post: Post;
     export let hasProjectLink = true;
     export let hasPostImage = false;
@@ -32,12 +31,10 @@
     {#if icons.length > 0}
         <div class="tech-icons-container">
             {#each icons as icon}
-                <Tooltip text={icon} isHovered={true}>
-                    <img
-                        src={`/icons/devicon/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`}
-                        alt={icon}
-                        class:invert={icon == "Express"}/>
-                </Tooltip>
+                <img
+                    src={`/icons/devicon/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`}
+                    alt={icon}
+                    class:invert={icon == "Express"}/>
             {/each}
         </div>
     {/if}
@@ -80,14 +77,15 @@
         align-self: flex-end;
         display: flex;
         flex-direction: row;
+        flex-flow: row-reverse wrap-reverse;
         gap: 1em;
     }
 
     img {
-        height: 2em;
-        width: 2em;
+        height: 1.8em;
+        width: 1.8em;
         text-align: center;
-        line-height: 2em;
+        line-height: 1.8em;
     }
 
     img.invert {
@@ -95,7 +93,7 @@
         filter: invert(1);
     }
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 700px) {
         img {
             height: 1.25em;
             width: 1.25em;
@@ -104,6 +102,8 @@
 
         .tech-icons-container {
             gap: 0.5em;
+            max-width: 4.75em;
+            flex-flow: row-reverse wrap-reverse;
         }
     }
 

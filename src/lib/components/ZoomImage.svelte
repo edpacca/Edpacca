@@ -23,7 +23,7 @@
 {#if isZoomed}
 	<div class="dim-filter"></div>
 {/if}
-<div
+<span
 	role="img"
 	class="click-zoom"
 	class:height={dominantDimension === "height"}
@@ -51,7 +51,7 @@
 			bind:this={img}
 		/>
 	</label>
-</div>
+</span>
 
 <style>
 	.click-zoom {

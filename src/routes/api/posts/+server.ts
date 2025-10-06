@@ -9,9 +9,9 @@ async function getPosts() {
     for (const path in paths) {
         const file = paths[path];
         const slug = path.split("/").at(-1)?.replace(".md", "");
-        const valid = file &&  
-            typeof file === "object" && 
-            "metadata" in file && 
+        const valid = file &&
+            typeof file === "object" &&
+            "metadata" in file &&
             slug;
 
         if (valid) {
@@ -21,7 +21,7 @@ async function getPosts() {
         }
     }
 
-    posts = posts.sort((first, second) => 
+    posts = posts.sort((first, second) =>
         new Date(second.date).getTime() - new Date(first.date).getTime()
     );
 

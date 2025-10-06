@@ -96,7 +96,7 @@
                 bind:value={yGravity}/>
         </div>
     {/if}
-    <canvas bind:this={canvas}/>
+    <canvas bind:this={canvas}></canvas>
 </div>
 <ControlBar buttons={btns}/>
 
