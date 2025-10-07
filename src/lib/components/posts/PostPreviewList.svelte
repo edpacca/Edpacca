@@ -4,6 +4,7 @@
 	export let posts: Post[];
 	import PostPreview from './PostPreview.svelte';
 	import ProjectFilter from '$lib/components/ProjectFilter.svelte';
+	import ProjectPreview from './ProjectPreview.svelte';
 
 	const sortedPosts = posts.sort(comparePinnedPosts);
 
@@ -20,6 +21,9 @@
 	{#each filteredPosts as post (post.slug)}
 		<PostPreview {post} hasPostImage={false} />
 	{/each}
+	{#if filter?.id == "dnd"}
+		<ProjectPreview project={filter} />
+	{/if}
 </div>
 
 <style>
