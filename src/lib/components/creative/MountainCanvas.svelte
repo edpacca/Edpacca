@@ -45,8 +45,8 @@
 </script>
 
 <div id="mountain-canvas-container">
-  <canvas class="scene-canvas" bind:this={canvas1} />
-  <canvas class="animation-canvas" bind:this={canvas2} />
+  <canvas class="scene-canvas" bind:this={canvas1} ></canvas>
+  <canvas class="animation-canvas" bind:this={canvas2} ></canvas>
 </div>
 
 <style>

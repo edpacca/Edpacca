@@ -1,5 +1,5 @@
 <script lang="ts" generics="T extends object">
-	import FaIcon from "./FaIcon.svelte";
+	import FaIcon from "$lib/components/utils/FaIcon.svelte";
 
 	export let onFilterChanged: (subject: T | undefined) => void;
 	export let filterItems: FilterType<T>[];

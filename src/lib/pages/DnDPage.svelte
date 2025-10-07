@@ -1,6 +1,6 @@
 <script>
-    import FaIcon from "$lib/components/FaIcon.svelte";
-    import ZoomImage from "$lib/components/ZoomImage.svelte";
+    import FaIcon from "$lib/components/utils/FaIcon.svelte";
+    import ZoomImage from "$lib/components/utils/ZoomImage.svelte";
     import { DnDMaps } from "$lib/data/dndBattleMapLinks";
 </script>
 
