@@ -3,7 +3,7 @@
 	import { comparePinnedPosts } from '$lib/utils';
 	export let posts: Post[];
 	import PostPreview from './PostPreview.svelte';
-	import Filter from '$lib/components/ProjectFilter.svelte';
+	import ProjectFilter from '$lib/components/ProjectFilter.svelte';
 
 	const sortedPosts = posts.sort(comparePinnedPosts);
 
@@ -15,7 +15,7 @@
 	$: filteredPosts = filter ? sortedPosts.filter((p) => p.projectId == filter?.id) : sortedPosts;
 </script>
 
-<Filter onFilterChanged={onProjectFilterSelected} projects={PROJECTS} />
+<ProjectFilter onFilterChanged={onProjectFilterSelected} projects={PROJECTS} />
 <div class="posts">
 	{#each filteredPosts as post (post.slug)}
 		<PostPreview {post} hasPostImage={false} />
