@@ -12,8 +12,8 @@
                 {#await fetch(map.imgSrc)}
                     <FaIcon icon="map"/>
                     <p>the goblins are looking for this map...</p>
-                {:then v}
-                    <ZoomImage src={map.imgSrc} alt={map.name} hoverEnabled={true}/>
+                {:then result}
+                    <ZoomImage src={result.url} alt={map.name} hoverEnabled={true}/>
                     <p class="description">
                         {map.description ?? ""}
                     </p>

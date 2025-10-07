@@ -7,7 +7,7 @@
     {#each contents as content (content)}
         <li>
             <FaIcon icon={content[2]}/>
-            <a href={`#${content[1]}`}>{[content[0]]}</a>
+            <a href={`#${content[1]}`}>[content[0]]</a>
         </li>
     {/each}
 </ul>

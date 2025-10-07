@@ -9,7 +9,7 @@
     export let lastUpdated: string;
     const percentage = (current / target * 100);
     const schedule = percentage - (dayOfYear(new Date()) / 365 * 100);
-    $: onTrack = schedule >= 0;
+    const onTrack = schedule >= 0;
 
     $: goalComplete = current >= target;
 </script>

@@ -42,7 +42,7 @@ declare global {
 
 	type JSONValue = { [x: string]: string };
 
-	interface JSONArray extends Array<JSONValue> {}
+	type JSONArray = Array<JSONValue>
 }
 
 export {};

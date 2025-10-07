@@ -66,8 +66,16 @@ export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/dw-knights-al
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
   {
+    path: "/images/miniatures/arch/build_1/s6_0.webp",
+    alt: "The Grand Archway"
+  },
+  {
+    path: "/images/miniatures/diorama-strike-at-dawn/diorama-0.webp",
+    alt: "Diorama: Strike at Dawn"
+  },
+  {
     path: "/images/miniatures/well/well_alpha.webp",
-    alt: "The ruined well",
+    alt: "The Ruined Well",
   },
   {
     path: "/images/miniatures/gallery/dw-knights-all-alpha-small.webp",

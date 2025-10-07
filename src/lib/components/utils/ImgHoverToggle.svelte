@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import ZoomImage from "./ZoomImage.svelte";
   import { fade } from "svelte/transition";
 
   export let isHovering = false;
