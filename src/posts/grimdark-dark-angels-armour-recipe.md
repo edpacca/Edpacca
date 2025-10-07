@@ -8,7 +8,7 @@ icon: paintbrush
 ---
 
 <script>
-    import PaintingTutorial from "../lib/components/PaintingTutorial.svelte";
+    import PaintingTutorial from "../lib/components/painting/PaintingTutorial.svelte";
     import { DA_ARMOUR_PAINTS } from "../lib/data/paintColourData";
     import { DA_ARMOUR_RECIPE_STEPS } from "../lib/data/paintingStepsData";
 

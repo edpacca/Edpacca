@@ -1,6 +1,4 @@
 <script lang="ts" generics="T extends object">
-	import FaIcon from "./FaIcon.svelte";
-
 	export let onFilterChanged: (subject: T | undefined) => void;
 	export let filterItems: FilterType<T>[];
 	let selectedItem: T | undefined = undefined;
@@ -9,12 +7,12 @@
 <div class="filter-container">
 	<select class="expandable">
 		<option on:click={() => onFilterChanged(undefined)}></option>
-		{#each filterItems as filter}
-			<option on:click={() => onFilterChanged(filter.filterTarget)} selected={filter == selectedItem}>
-				{#if filter.icon}
-					{filter.name}
-					<!-- <FaIcon icon={filter.icon} /> -->
-				{/if}
+		{#each filterItems as filter (filter.name)}
+			<option
+				on:click={() => onFilterChanged(filter.filterTarget)}
+				selected={filter == selectedItem}
+			>
+				{filter.name}
 			</option>
 		{/each}
 	</select>
@@ -24,19 +22,24 @@
 	.filter-container {
 		display: flex;
 		justify-content: flex-end;
+		position: relative;
 	}
 
 	.expandable {
-		max-width: 2em;
-		transition: 0.4s ease-in-out;
+		max-width: 2.2em;
+		transition: 0.4s ease-out;
+		border-radius: 100%;
+		color: var(--bg1);
 	}
 
-	.expandable:hover, .expandable:focus {
+	.expandable:hover,
+	.expandable:focus {
 		max-width: 15em;
+		border-radius: var(--border-radius);
+		color: var(--highlight);
 	}
 
 	select {
-		border-radius: var(--border-radius);
 		border: none;
 		padding: 0.5rem 1rem 0.5rem 1.1rem;
 		background-color: var(--bg1);
@@ -63,7 +66,8 @@
 			max-width: unset;
 		}
 
-		.expandable:hover, .expandable:focus {
+		.expandable:hover,
+		.expandable:focus {
 			max-width: unset;
 		}
 

@@ -8,7 +8,7 @@ icon: mountain
 ---
 
 <!-- <script>
-    import Strava2024Goal from "../lib/components/Strava2024Goal.svelte"
+    import Strava2024Goal from "../lib/components/strava/Strava2024Goal.svelte"
 </script>
 
 <div style="margin-top: 2em;">

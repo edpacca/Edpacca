@@ -3,39 +3,39 @@ run-name: ${{ github.head_ref }}
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
-    CI:
-        if: '!github.event.pull_request.draft'
-        runs-on: ubuntu-latest
+  CI:
+    if: '!github.event.pull_request.draft'
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                ref: ${{ github.head_ref }}
-                fetch-depth: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 1
 
-            - name: Set up node
-              uses: actions/setup-node@v4
-              with:
-                node-version: 22
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-            - name: Install Dependencies
-              run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-            - name: Check
-              run: npm run check
+      - name: Check
+        run: npm run check
 
-            # - name: Lint
-            #   run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-            - name: Test
-              run: npm run test
+      - name: Test
+        run: npm run test
 
-            - name: Build
-              run: npm run build
+      - name: Build
+        run: npm run build

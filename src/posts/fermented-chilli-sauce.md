@@ -7,7 +7,7 @@ projectId: recipes
 published: true
 ---
  <script>
-    import FaIcon from "../lib/components/FaIcon.svelte"
+    import FaIcon from "../lib/components/utils/FaIcon.svelte"
 </script>
 
 ## Ingredients

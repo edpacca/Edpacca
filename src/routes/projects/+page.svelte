@@ -1,28 +1,32 @@
 <script lang="ts">
-	import type { PageData } from "./$types";
-	import ProjectPreview from "../../lib/components/ProjectPreview.svelte";
-	import { DnDMaps } from "$lib/data/dndBattleMapLinks";
-  import BackButton from "$lib/components/BackButton.svelte";
+	import type { PageData } from './$types';
+	import ProjectPreview from '../../lib/components/posts/ProjectPreview.svelte';
+	import { DnDMaps } from '$lib/data/dndBattleMapLinks';
+	import BackButton from '$lib/components/utils/BackButton.svelte';
 	export let data: PageData;
 
 	const getNumberOfPosts = (projectId: string): number => {
-		if (projectId == "dnd") {
+		if (projectId == 'dnd') {
 			return DnDMaps.length;
 		}
 		return data.posts.filter((p) => p.projectId === projectId).length;
 	};
 
 	const getIconName = (projectId: string): string => {
-		return projectId == "dnd" ? "map" : "newspaper"
+		return projectId == 'dnd' ? 'map' : 'newspaper';
 	};
 </script>
 
-<BackButton text="Home" icon="home" urlRef="/"/>
-<br/>
+<BackButton text="Home" icon="home" urlRef="/" />
+<br />
 <div class="project-list">
-	{#each data.projects as project}
-		{#if project.id == "dnd"}
-			<ProjectPreview {project} numberOfPosts={getNumberOfPosts(project.id)} icon={getIconName(project.id)} />
+	{#each data.projects as project (project.id)}
+		{#if project.id == 'dnd'}
+			<ProjectPreview
+				{project}
+				numberOfPosts={getNumberOfPosts(project.id)}
+				icon={getIconName(project.id)}
+			/>
 		{:else}
 			<ProjectPreview {project} numberOfPosts={getNumberOfPosts(project.id)} />
 		{/if}

@@ -1,15 +1,15 @@
-import { error } from "@sveltejs/kit"
+import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
-    try {
-        const post = await import(`../../posts/${params.slug}.md`);
+	try {
+		const post = await import(`../../posts/${params.slug}.md`);
 
-        return {
-            content: post.default,
-            meta: post.metadata
-        }
-    } catch (e) {
-        console.error(e);
-        error(404, `Hmmm couldn't find ${params.slug}`);
-    }
+		return {
+			content: post.default,
+			meta: post.metadata
+		};
+	} catch (e) {
+		console.error(e);
+		error(404, `Hmmm couldn't find ${params.slug}`);
+	}
 }

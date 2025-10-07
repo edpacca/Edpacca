@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { PageData } from "./$types";
-    import Compass from "./Compass.svelte";
-    import Scene from "./Scene.svelte";
-    import { getDirectionFromAngle, getWeatherFromCode } from "./weatherData";
+	import type { PageData } from './$types';
+	import Compass from './Compass.svelte';
+	import Scene from './Scene.svelte';
+	import { getDirectionFromAngle, getWeatherFromCode } from './weatherData';
 
 	export let data: PageData;
 
@@ -12,7 +12,7 @@
 </script>
 
 <div class="compass">
-	<Compass angle={data.winddirection}/>
+	<Compass angle={data.winddirection} />
 </div>
 
 <div class="weather-text">
@@ -29,7 +29,7 @@
 </div>
 
 <div class="scene-container">
-	<Scene time={time}/>
+	<Scene {time} />
 </div>
 
 <style>
@@ -55,7 +55,7 @@
 		width: 8rem;
 		margin: auto;
 	}
-	
+
 	.scene-container {
 		display: flex;
 		justify-content: center;

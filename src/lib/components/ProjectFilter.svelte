@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Filter from "./Filter.svelte";
+	import Filter from './Filter.svelte';
 
 	export let onFilterChanged: (project: ProjectType | undefined) => void;
 	export let projects: ProjectType[];
@@ -8,7 +8,7 @@
 		return {
 			name: p.name,
 			icon: p.icon,
-			filterTarget: p,
+			filterTarget: p
 		};
 	});
 </script>

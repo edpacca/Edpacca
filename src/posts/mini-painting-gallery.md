@@ -9,7 +9,7 @@ pinned: true
 ---
 
 <script>
-    import GridGallery from "../lib/components/GridGallery.svelte";
+    import GridGallery from "../lib/components/layout/GridGallery.svelte";
     import { MINIATURE_GALLERY } from "../lib/data/galleries.ts";
 
 </script>
