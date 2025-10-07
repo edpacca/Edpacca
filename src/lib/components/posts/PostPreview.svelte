@@ -5,6 +5,7 @@
     export let post: Post;
     export let hasProjectLink = true;
     export let hasPostImage = false;
+    export let icons: string[] = [];
     const isPinnedPost = post.pinned;
     const date = formatDate(post.date);
 </script>
@@ -26,6 +27,16 @@
     <div class="project-link-container">
         <ProjectIconLink projectId={post.projectId}/>
     </div>
+    {/if}
+    {#if icons.length > 0}
+        <div class="tech-icons-container">
+            {#each icons as icon}
+                <img
+                    src={`/icons/devicon/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`}
+                    alt={icon}
+                    class:invert={icon == "Express"}/>
+            {/each}
+        </div>
     {/if}
 </div>
 
@@ -50,6 +61,7 @@
         padding-right: var(--margin);
     }
 
+
     .project-link-container {
         margin-left: auto;
         margin-right: var(--margin);
@@ -59,5 +71,45 @@
         align-items: center;
         gap: 1em;
         text-transform: uppercase;
+    }
+
+    .tech-icons-container {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        flex-flow: row-reverse wrap-reverse;
+        gap: 1em;
+    }
+
+    img {
+        height: 1.8em;
+        width: 1.8em;
+        text-align: center;
+        line-height: 1.8em;
+    }
+
+    img.invert {
+        -webkit-filter: invert(1);
+        filter: invert(1);
+    }
+
+    @media screen and (max-width: 700px) {
+        img {
+            height: 1.25em;
+            width: 1.25em;
+            line-height: 1.25em;
+        }
+
+        .tech-icons-container {
+            gap: 0.5em;
+            max-width: 4.75em;
+            flex-flow: row-reverse wrap-reverse;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        img {
+            display: none;
+        }
     }
 </style>

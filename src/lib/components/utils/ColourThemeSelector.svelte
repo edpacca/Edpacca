@@ -36,6 +36,7 @@
 <div class="theme-selector">
     <Tooltip text={"Set highlight colour"} bind:isHovered>
         <button
+            title="open theme menu"
             style={`background-color: var(--${$currentColourTheme}-${themeType})`}
             on:click={toggleMenu}>
         </button>
@@ -45,6 +46,7 @@
             {#each themes.filter(th => th !== $currentColourTheme) as theme, i}
                 <li transition:fly|global={{delay: i*150, x: -20}}>
                     <button
+                        title={`select theme ${theme}`}
                         style={`background-color: var(--${theme}-${themeType})`}
                         on:click={() => setTheme(theme)}>
                     </button>

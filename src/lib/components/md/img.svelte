@@ -12,7 +12,7 @@
     });
 </script>
 
-<div class="post-image-container">
+<span class="post-image-container">
     <ZoomImage
         src={`/images/${src}`}
         alt={alt}
@@ -20,6 +20,6 @@
         class={`post-image ${isSquare ? "square" : ""}`}
         bind:img={img}/>
     {#if alt}
-        <div class="caption">{alt}</div>
+        <span class="caption">{alt}</span>
     {/if}
-</div>
+</span>

@@ -1,28 +1,48 @@
 import adapter from "@sveltejs/adapter-node";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex, escapeSvelte } from "mdsvex";
-import shiki from "shiki";
+import { createHighlighter, bundledThemes, bundledLanguages }from "shiki";
 
-/** @type {import('@sveltejs/kit').Config} */
+const codeTheme = "catppuccin-mocha";
+
+const highlighter = await createHighlighter({
+	themes: [
+		bundledThemes[codeTheme]
+	],
+	langs: [
+		bundledLanguages.cs,
+		bundledLanguages.javascript,
+		bundledLanguages.typescript,
+		bundledLanguages.python
+		]
+})
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: [".md"],
+	smartypants: {
+		quotes: true,
+		ellipses: true,
+		dashes: true
+	},
 	layout: {
-		_: './src/mdsvex.svelte'
+		_: `${import.meta.dirname}/src/mdsvex.svelte`
 	},
 	highlight: {
 		highlighter: async (code, lang = "text") => {
-			const highlighter = await shiki.getHighlighter({
-				theme: "dark-plus",
-				langs: [ "javascript", "c#", "ts" ]
-			})
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang: lang ?? undefined }))
+			const html = escapeSvelte(highlighter.codeToHtml(
+				code,
+				{
+					lang: lang ?? "text",
+					theme: codeTheme
+				})
+			)
 			return `{@html \`${html}\` }`
 		}
 	}
 };
 
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: [ ".svelte", ".md" ],
 	preprocess: [
@@ -30,9 +50,7 @@ const config = {
 		mdsvex(mdsvexOptions)
 	],
 	kit: {
-		adapter: adapter({
-			out: "build",
-		}),
+		adapter: adapter(),
 	}
 };
 

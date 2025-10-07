@@ -10,3 +10,16 @@ node_modules
 .output
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+static/icons/devicon/
+
+# Svelte, Typescript, csharp, XNA, Lua, React, Redux, Express, MongoDb
+!static/icons/devicon/svelte/
+!static/icons/devicon/typescript/
+!static/icons/devicon/csharp/
+!static/icons/devicon/xna/
+!static/icons/devicon/lua/
+!static/icons/devicon/react/
+!static/icons/devicon/redux/
+!static/icons/devicon/express/
+!static/icons/devicon/mongodb/

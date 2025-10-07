@@ -2,8 +2,7 @@
     import BackButton from "$lib/components/utils/BackButton.svelte";
     import { getProjectData } from "$lib/data/projectData";
     import { formatDate } from "$lib/utils";
-    import type { PageData } from "./$types";
-    export let data: PageData;
+	let { data } = $props()
 
     const date: string = formatDate(data.meta.date);
     const projectId = data.meta.projectId ?? ""
@@ -40,7 +39,7 @@
             {data.meta.description}
         </p>
         {/if}
-        <svelte:component this={data.content}/>
+        <data.content/>
     </div>
 </article>
 

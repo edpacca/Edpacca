@@ -5,11 +5,13 @@ date: 01/4/2021
 coverImage: wizard-grenade/wizard-grenade-cover.webp
 projectId: programming
 published: true
-technologies: [ C#, XNA ]
+technologies: [ csharp, XNA ]
 ---
+
 <script>
     import ContentsList from "../lib/components/posts/ContentsList.svelte";
 </script>
+
 Wizard Grenade was born after challenging myself to recreate Worms2, one of my childhood favourite PC games, using pixel art I had made for another project. The game is developed almost entirely from scratch, composed of 65 classes, running on Monogame, which runs the game-loop and draws the sprite-batch to the screen. The aim was to develop a playable game with a basic physics engine, and destructible terrain, before my arbitrary three-month deadline. I finished on time but couldn't help spending an extra week tweaking aesthetics and scoring a simple theme tune. This project taught me a lot of important lessons about software architecture and object-oriented programming. This page discusses some of these lessons and highlights different aspects of the application.
 
 Getting this game containerised and playable via the browser is on my ever growing todo list!

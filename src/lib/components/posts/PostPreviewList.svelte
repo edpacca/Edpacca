@@ -1,16 +1,26 @@
 <script lang="ts">
-    import { comparePinnedPosts } from "$lib/utils";
-    import LinkAsPostPreview from "./LinkAsPostPreview.svelte";
-    import PostPreview from "./PostPreview.svelte";
-    export let posts: Post[];
+	import { PROJECTS } from "$lib/data/projectData";
+	import { comparePinnedPosts } from "$lib/utils";
+	import LinkAsPostPreview from "./LinkAsPostPreview.svelte";
+	export let posts: Post[];
+	import PostPreview from "./PostPreview.svelte";
+	import ProjectFilter from "./ProjectFilter.svelte";
 
 	const sortedPosts = posts.sort(comparePinnedPosts);
+
+	let filter: ProjectType | undefined = undefined;
+	const onProjectFilterSelected = (project: ProjectType | undefined) => {
+		filter = project;
+	};
+
+	$: filteredPosts = filter ? sortedPosts.filter((p) => p.projectId == filter?.id) : sortedPosts;
 </script>
 
+<ProjectFilter onFilterChanged={onProjectFilterSelected} projects={PROJECTS} />
 <div class="posts">
-	<LinkAsPostPreview slug={"projects/programming"} title={"Programming Projects"} projectId={"programming"}/>
-	{#each sortedPosts as post}
-		<PostPreview post={post} hasPostImage={false}/>
+	<!-- <LinkAsPostPreview slug={"projects/programming"} title={"Programming Projects"} projectId={"programming"} /> -->
+	{#each filteredPosts as post}
+		<PostPreview {post} hasPostImage={false} />
 	{/each}
 </div>
 
