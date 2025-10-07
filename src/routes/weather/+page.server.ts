@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 
 export const prerender = false;
 
-/* eslint-disable */
+ 
 const openMeteoBaseUrl = "https://api.open-meteo.com/v1/forecast"
 // default to edinburgh
 let location = {

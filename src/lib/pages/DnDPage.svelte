@@ -19,7 +19,7 @@
                     </p>
                     {#if map.url}
                         <p>
-                            <a href={map.url} target="_blank">Download <FaIcon icon={"download"}/></a>
+                            <a href={map.url} target="_blank">Download <FaIcon icon="download"/></a>
                         </p>
                     {/if}
                 {:catch}

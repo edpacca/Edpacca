@@ -7,7 +7,7 @@
 </script>
 
 <button on:click={toggle}>
- <FaIcon icon={"bars"}/>
+ <FaIcon icon="bars"/>
 </button>
 {#if isOpen}
     <div class="burger-menu">

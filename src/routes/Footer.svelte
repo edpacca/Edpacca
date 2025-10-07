@@ -10,10 +10,10 @@
 <footer>
     <div>
         <ul>
-            <li><IconLink icon={"github"} link={githubLink} text={"Github"}/></li>
-            <li><IconLink icon={"linkedin"} link={linkedinLink} text={"LinkedIn"}/></li>
-            <li><IconLink icon={"instagram"} link={instagramLink} text={"Instagram"}/></li>
-            <li><IconLink icon={"research-gate"} link={researchgateLink} text={"Research-gate"}/></li>
+            <li><IconLink icon="github" link={githubLink} text="Github"/></li>
+            <li><IconLink icon="linkedin" link={linkedinLink} text="LinkedIn"/></li>
+            <li><IconLink icon="instagram" link={instagramLink} text="Instagram"/></li>
+            <li><IconLink icon="research-gate" link={researchgateLink} text="Research-gate"/></li>
         </ul>
         <div class="copyright">{config.title} &copy {new Date().getFullYear()}</div>
     </div>

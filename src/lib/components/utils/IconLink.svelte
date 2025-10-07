@@ -13,7 +13,7 @@
         <!-- <img src={iconPath} alt={`${icon} icon`}/> -->
         <svg
             class={$$props.class}
-            viewBox={"0 0 100 100"}>
+            viewBox="0 0 100 100">
             <use href={iconPath}/>
         </svg>
     </a>

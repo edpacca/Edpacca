@@ -14,11 +14,11 @@
 <Tooltip text="Toggle dark theme">
     {#if $isUsingDarkTheme}
     <button on:click={toggle} class="dark">
-        <FaIcon icon={"moon"}/>
+        <FaIcon icon="moon"/>
     </button>
     {:else}
     <button on:click={toggle} class="light">
-        <FaIcon icon={"sun"}/>
+        <FaIcon icon="sun"/>
     </button>
     {/if}
 </Tooltip>

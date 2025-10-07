@@ -4,7 +4,7 @@
 </script>
 <section>
 	<div class="text-over">
-		<img class="wizard" src={"images/wizard-grenade/wizard.webp"} alt="wizard pixel art"/>
+		<img class="wizard" src="images/wizard-grenade/wizard.webp" alt="wizard pixel art"/>
 		<h1>Hi</h1>
 	</div>
 	<p>I'm Eddie. Welcome to my corner of the internet.</p>

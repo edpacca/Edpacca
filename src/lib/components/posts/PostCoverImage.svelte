@@ -11,7 +11,7 @@
             <FaIcon icon={post.icon}/>
         </div>
     {:else}
-        <img class="cover-image" src={"/images/default-cover.webp"} alt={`${post.title} cover image`}/>
+        <img class="cover-image" src="/images/default-cover.webp" alt={`${post.title} cover image`}/>
     {/if}
 </div>
 

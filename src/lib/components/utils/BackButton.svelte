@@ -13,7 +13,7 @@
 on:mouseenter={() => {isHovered = true;}}
 on:mouseleave={() => {isHovered = false;}}>
     <button class="button1">
-        <FaIcon icon={"angle-left"}/>
+        <FaIcon icon="angle-left"/>
         {#if isHovered}
             <div class="project-name" transition:grow>{text}</div>
         {/if}

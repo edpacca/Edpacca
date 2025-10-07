@@ -107,14 +107,14 @@
 </div>
 <button class="button1" on:click={() => {isDescriptionOpen = false;}}>
     less
-    <FaIcon icon={"arrow-up"} />
+    <FaIcon icon="arrow-up" />
 </button>
 {:else}
     <div class="text-button-container">
         <p>I call this the "tech soup" widget...</p>
         <button class="button1" on:click={() => {isDescriptionOpen = true;}}>
             read more
-            <FaIcon icon={"arrow-down"} />
+            <FaIcon icon="arrow-down" />
         </button>
     </div>
 {/if}

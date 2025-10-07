@@ -7,10 +7,10 @@
 </script>
 <div class="seek-button-container">
     <button on:click={onBackward}>
-        <FaIcon icon={"caret-left"}/>
+        <FaIcon icon="caret-left"/>
     </button>
     <button on:click={onForward}>
-        <FaIcon icon={"caret-right"}/>
+        <FaIcon icon="caret-right"/>
     </button>
 </div>
 

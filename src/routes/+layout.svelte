@@ -48,9 +48,9 @@
 					<ThemeSelector callback={closeMenu}/>
 				</div>
 				<div transition:fly={{delay: 300, y: 15}}>
-					<Tooltip text={"Reset to default"}>
+					<Tooltip text="Reset to default">
 						<button class="reset-button" on:click={reset}>
-							<FaIcon icon={"arrow-rotate-left"}/>
+							<FaIcon icon="arrow-rotate-left"/>
 						</button>
 					</Tooltip>
 				</div>
