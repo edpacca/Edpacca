@@ -30,7 +30,7 @@
         {#if data.meta.projectId == "programming"}
         <div class="tech">
             &lbrace;
-            {#each  data.meta.technologies as tech, i}
+            {#each  data.meta.technologies as tech, i (tech)}
                 <span>{tech}{#if i < (data.meta.technologies.length - 1)},&nbsp;{/if}</span>
             {/each}
             &rbrace;

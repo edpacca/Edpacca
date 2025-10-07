@@ -20,7 +20,7 @@
 <BackButton text="Home" icon="home" urlRef="/" />
 <br />
 <div class="project-list">
-    {#each data.projects as project}
+    {#each data.projects as project(project.id)}
         {#if project.id == "dnd"}
             <ProjectPreview
                 {project}

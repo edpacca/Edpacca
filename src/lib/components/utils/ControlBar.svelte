@@ -4,8 +4,8 @@
 
 <div class="control-container">
         <div class="controls" style={`--num-buttons: ${buttons.length}`}>
-            {#each buttons as btn}
-                <button class="button1" on:click={btn.fnc}>{btn.title}</button>        
+            {#each buttons as btn (btn.title)}
+                <button class="button1" on:click={btn.fnc}>{btn.title}</button>
             {/each}
         </div>
 </div>
@@ -24,7 +24,7 @@
         min-width: 4em;
         box-shadow: 0 0 5px var(--primary-50);
     }
-    
+
     button:hover {
         box-shadow: 0 0 10px var(--highlight);
     }

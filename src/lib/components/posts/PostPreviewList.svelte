@@ -17,7 +17,7 @@
 
 <Filter onFilterChanged={onProjectFilterSelected} projects={PROJECTS} />
 <div class="posts">
-	{#each filteredPosts as post}
+	{#each filteredPosts as post (post.slug)}
 		<PostPreview {post} hasPostImage={false} />
 	{/each}
 </div>

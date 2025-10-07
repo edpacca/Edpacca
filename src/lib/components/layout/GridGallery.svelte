@@ -43,9 +43,9 @@
 {#if numCols}
     {#key numCols}
         <div class="column-grid" style="--num-cols: {numCols}">
-            {#each columns as column}
+            {#each columns as column (column)}
                 <div class="column">
-                    {#each column as image}
+                    {#each column as image (image.path)}
                         <ZoomImage
                             src={image.path}
                             class="gallery-img"
@@ -55,7 +55,7 @@
                     {/each}
                 </div>
             {/each}
-            {#each wideImgs as image}
+            {#each wideImgs as image (image.path)}
                 <div class="wide-img">
                     <ZoomImage
                         src={image.path}

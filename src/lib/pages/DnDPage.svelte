@@ -5,7 +5,7 @@
 </script>
 
 
-{#each DnDMaps as map}
+{#each DnDMaps as map (map.name)}
     <div class="map-container">
         <div class="map-name">{map.name}</div>
         <div class="map-img-container">
