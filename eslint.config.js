@@ -27,10 +27,11 @@ export default defineConfig(
 			'no-undef': 'off',
 			'svelte/no-navigation-without-resolve': 'off',
 			'@typescript-eslint/no-unused-vars': [
-            'error', {
-                'argsIgnorePattern': '^_'
-            }
-        ],
+				'error',
+				{
+					argsIgnorePattern: '^_'
+				}
+			]
 		}
 	},
 	{

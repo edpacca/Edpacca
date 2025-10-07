@@ -12,21 +12,9 @@
 		"target": "esnext",
 		"module": "esnext",
 		"moduleResolution": "Node",
-		"types": [
-			"node",
-			"jest"
-		],
+		"types": ["node", "jest"]
 	},
-	"include": [
-		".eslintrc.cjs",
-		"vite.config.ts",
-		"src/**/*",
-		".svelte-kit/ambient.d.ts"
-	],
-	"exclude": [
-		"node_modules",
-	],
-	"plugins": [
-		"babel-plugin-transform-import-meta"
-	]
+	"include": [".eslintrc.cjs", "vite.config.ts", "src/**/*", ".svelte-kit/ambient.d.ts"],
+	"exclude": ["node_modules"],
+	"plugins": ["babel-plugin-transform-import-meta"]
 }

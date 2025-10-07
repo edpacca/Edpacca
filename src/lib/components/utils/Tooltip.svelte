@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { fade } from "svelte/transition";
+	import { fade } from 'svelte/transition';
 
-	export let text = "";
+	export let text = '';
 	export let isActive = true;
 
 	export let isHovered = false;
@@ -14,17 +14,16 @@
 		isHovered = true;
 		x = event.pageX + offset;
 		y = event.pageY + offset;
-	}
+	};
 
 	const mouseMove = (event: MouseEvent) => {
 		x = event.pageX + offset;
 		y = event.pageY + offset;
-	}
+	};
 
 	const mouseLeave = () => {
 		isHovered = false;
-	}
-
+	};
 </script>
 
 <div
@@ -32,20 +31,19 @@
 	on:mouseover={mouseOver}
 	on:mouseleave={mouseLeave}
 	on:mousemove={mouseMove}
-	on:focus={() => { isHovered = true; }}
-	on:focusout={mouseLeave}>
-	<slot/>
+	on:focus={() => {
+		isHovered = true;
+	}}
+	on:focusout={mouseLeave}
+>
+	<slot />
 </div>
 
 {#if isHovered && isActive}
-	<div
-		style="top: {y}px; left: {x}px;"
-		class="tooltip"
-		in:fade={{delay: 800}}>
+	<div style="top: {y}px; left: {x}px;" class="tooltip" in:fade={{ delay: 800 }}>
 		{text}
 	</div>
 {/if}
-
 
 <style>
 	.tooltip {

@@ -1,9 +1,9 @@
 <script lang="ts">
 	export let src: string;
-	export let alt: string = "";
+	export let alt: string = '';
 	export let isZoomed: boolean = false;
 	export let img: HTMLImageElement | undefined = undefined;
-	export let dominantDimension: "height" | "width" = "width";
+	export let dominantDimension: 'height' | 'width' = 'width';
 	export let hoverEnabled = false;
 
 	const minScreenWidth = 600;
@@ -26,8 +26,8 @@
 <span
 	role="img"
 	class="click-zoom"
-	class:height={dominantDimension === "height"}
-	class:width={dominantDimension === "width"}
+	class:height={dominantDimension === 'height'}
+	class:width={dominantDimension === 'width'}
 	on:mouseenter={() => {
 		isHovered = true;
 	}}
@@ -44,10 +44,10 @@
 		<input type="checkbox" bind:checked={isZoomed} disabled={preventZoom} />
 		<img
 			{src}
-			alt={alt ? alt : ""}
+			alt={alt ? alt : ''}
 			class={$$props.class}
-			class:height={dominantDimension === "height"}
-			class:width={dominantDimension === "width"}
+			class:height={dominantDimension === 'height'}
+			class:width={dominantDimension === 'width'}
 			bind:this={img}
 		/>
 	</label>
@@ -58,7 +58,7 @@
 		width: 100%;
 	}
 
-	.click-zoom input[type="checkbox"] {
+	.click-zoom input[type='checkbox'] {
 		display: none;
 	}
 
@@ -75,7 +75,7 @@
 		height: 100%;
 	}
 
-	.click-zoom input[type="checkbox"]:checked ~ img {
+	.click-zoom input[type='checkbox']:checked ~ img {
 		position: fixed;
 		top: 0;
 		left: 0;

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import FaIcon from "$lib/components/utils/FaIcon.svelte";
+	import FaIcon from '$lib/components/utils/FaIcon.svelte';
 	export let project: ProjectType;
 	export let numberOfPosts = 0;
-	export let icon: string = "newspaper";
+	export let icon: string = 'newspaper';
 </script>
 
 <div class="summary-container">
@@ -14,7 +14,7 @@
 		<div class="post-count">
 			{#if numberOfPosts > 0}
 				{numberOfPosts}
-				<FaIcon icon={icon} />
+				<FaIcon {icon} />
 			{/if}
 		</div>
 	</div>

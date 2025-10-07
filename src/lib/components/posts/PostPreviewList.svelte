@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { PROJECTS } from "$lib/data/projectData";
-	import { comparePinnedPosts } from "$lib/utils";
+	import { PROJECTS } from '$lib/data/projectData';
+	import { comparePinnedPosts } from '$lib/utils';
 	export let posts: Post[];
-	import PostPreview from "./PostPreview.svelte";
-	import Filter from "$lib/components/ProjectFilter.svelte";
+	import PostPreview from './PostPreview.svelte';
+	import Filter from '$lib/components/ProjectFilter.svelte';
 
 	const sortedPosts = posts.sort(comparePinnedPosts);
 

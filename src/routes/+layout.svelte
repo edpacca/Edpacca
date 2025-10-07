@@ -1,16 +1,16 @@
 <script>
 	import { page } from '$app/stores';
-    import Footer from './Footer.svelte';
+	import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
-    import BurgerMenu from '$lib/components/utils/BurgerMenu.svelte';
-    import DarkThemeToggle from '$lib/components/utils/DarkThemeToggle.svelte';
-    import ThemeSelector from '$lib/components/utils/ColourThemeSelector.svelte';
-	import * as config from "$lib/config";
-    import { fly } from 'svelte/transition';
-    import { onMount } from 'svelte';
-    import { resetThemes, setUpThemes } from '../store';
-    import FaIcon from '$lib/components/utils/FaIcon.svelte';
-    import Tooltip from '$lib/components/utils/Tooltip.svelte';
+	import BurgerMenu from '$lib/components/utils/BurgerMenu.svelte';
+	import DarkThemeToggle from '$lib/components/utils/DarkThemeToggle.svelte';
+	import ThemeSelector from '$lib/components/utils/ColourThemeSelector.svelte';
+	import * as config from '$lib/config';
+	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import { resetThemes, setUpThemes } from '../store';
+	import FaIcon from '$lib/components/utils/FaIcon.svelte';
+	import Tooltip from '$lib/components/utils/Tooltip.svelte';
 
 	let isMenuOpen = false;
 
@@ -18,7 +18,7 @@
 		setTimeout(() => {
 			isMenuOpen = !isMenuOpen;
 		}, 2000);
-	}
+	};
 
 	onMount(() => {
 		setUpThemes();
@@ -27,9 +27,7 @@
 	const reset = () => {
 		resetThemes();
 		closeMenu();
-	}
-
-
+	};
 </script>
 
 <svelte:head>
@@ -40,30 +38,30 @@
 <div class="app">
 	<div class="theme-selectors">
 		<BurgerMenu bind:isOpen={isMenuOpen}>
-			<div class="toggle-container" >
-				<div transition:fly={{y: -15}}>
-					<DarkThemeToggle callback={closeMenu}/>
+			<div class="toggle-container">
+				<div transition:fly={{ y: -15 }}>
+					<DarkThemeToggle callback={closeMenu} />
 				</div>
-				<div transition:fly={{delay: 150, x: -30}}>
-					<ThemeSelector callback={closeMenu}/>
+				<div transition:fly={{ delay: 150, x: -30 }}>
+					<ThemeSelector callback={closeMenu} />
 				</div>
-				<div transition:fly={{delay: 300, y: 15}}>
+				<div transition:fly={{ delay: 300, y: 15 }}>
 					<Tooltip text="Reset to default">
 						<button class="reset-button" on:click={reset}>
-							<FaIcon icon="arrow-rotate-left"/>
+							<FaIcon icon="arrow-rotate-left" />
 						</button>
 					</Tooltip>
 				</div>
 			</div>
 		</BurgerMenu>
 	</div>
-	<Header/>
+	<Header />
 	<main>
 		<div class:main-margin={!$page.url.pathname.startsWith('/weather')}>
-			<slot/>
+			<slot />
 		</div>
 	</main>
-	<Footer/>
+	<Footer />
 </div>
 
 <style>
@@ -91,13 +89,13 @@
 	}
 
 	.reset-button {
-        height: 2.5em;
-        width: 2.5em;
-        border-radius: 100%;
-        border: none;
+		height: 2.5em;
+		width: 2.5em;
+		border-radius: 100%;
+		border: none;
 		background-color: var(--secondary-50);
 		color: var(--primary);
-        transition: var(--transition-time);
+		transition: var(--transition-time);
 	}
 
 	.reset-button:hover {
@@ -105,8 +103,8 @@
 	}
 
 	@media screen and (max-width: 600px) {
-        .toggle-container {
+		.toggle-container {
 			flex-direction: row;
-        }
-    }
+		}
+	}
 </style>

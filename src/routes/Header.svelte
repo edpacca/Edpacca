@@ -1,25 +1,27 @@
 <script>
-	import { page } from "$app/stores";
+	import { page } from '$app/stores';
 
 	$: isPostPage =
-		!$page.url.pathname.startsWith("/weather") &&
-		!$page.url.pathname.startsWith("/projects") &&
-		$page.url.pathname !== "/";
+		!$page.url.pathname.startsWith('/weather') &&
+		!$page.url.pathname.startsWith('/projects') &&
+		$page.url.pathname !== '/';
 </script>
 
 <header>
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith("/projects") || isPostPage ? "page" : undefined}>
+			<li
+				aria-current={$page.url.pathname.startsWith('/projects') || isPostPage ? 'page' : undefined}
+			>
 				<a href="/projects">Projects</a>
 			</li>
 			<!-- <li aria-current={$page.url.pathname.startsWith("/weather") ? "page" : undefined}>
 				<a href="/weather">Weather</a>
 			</li> -->
-			<li aria-current={$page.url.pathname.startsWith("/cv") ? "page" : undefined}>
+			<li aria-current={$page.url.pathname.startsWith('/cv') ? 'page' : undefined}>
 				<a href="https://edpacca.github.io/cv">CV</a>
 			</li>
 		</ul>
@@ -52,7 +54,7 @@
 	li {
 		position: relative;
 		height: 100%;
-        list-style-type: none;
+		list-style-type: none;
 	}
 
 	li[aria-current='page']::before {

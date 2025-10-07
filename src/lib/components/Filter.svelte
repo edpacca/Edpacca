@@ -8,7 +8,10 @@
 	<select class="expandable">
 		<option on:click={() => onFilterChanged(undefined)}></option>
 		{#each filterItems as filter (filter.name)}
-			<option on:click={() => onFilterChanged(filter.filterTarget)} selected={filter == selectedItem}>
+			<option
+				on:click={() => onFilterChanged(filter.filterTarget)}
+				selected={filter == selectedItem}
+			>
 				{filter.name}
 			</option>
 		{/each}
@@ -22,12 +25,6 @@
 		position: relative;
 	}
 
-	.icon-container {
-		position: absolute;
-		right: 0.8em;
-		top: 0.5em;
-	}
-
 	.expandable {
 		max-width: 2.2em;
 		transition: 0.4s ease-out;
@@ -35,7 +32,8 @@
 		color: var(--bg1);
 	}
 
-	.expandable:hover, .expandable:focus {
+	.expandable:hover,
+	.expandable:focus {
 		max-width: 15em;
 		border-radius: var(--border-radius);
 		color: var(--highlight);
@@ -68,7 +66,8 @@
 			max-width: unset;
 		}
 
-		.expandable:hover, .expandable:focus {
+		.expandable:hover,
+		.expandable:focus {
 			max-width: unset;
 		}
 
