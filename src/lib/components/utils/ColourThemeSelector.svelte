@@ -43,7 +43,7 @@
     </Tooltip>
     {#if isMenuOpen}
         <ul>
-            {#each themes.filter(th => th !== $currentColourTheme) as theme, i}
+            {#each themes.filter(th => th !== $currentColourTheme) as theme, i (theme)}
                 <li transition:fly|global={{delay: i*150, x: -20}}>
                     <button
                         title={`select theme ${theme}`}

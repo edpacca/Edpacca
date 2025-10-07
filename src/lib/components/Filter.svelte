@@ -9,7 +9,7 @@
 <div class="filter-container">
 	<select class="expandable">
 		<option on:click={() => onFilterChanged(undefined)}></option>
-		{#each filterItems as filter}
+		{#each filterItems as filter (filter.name)}
 			<option on:click={() => onFilterChanged(filter.filterTarget)} selected={filter == selectedItem}>
 				{#if filter.icon}
 					{filter.name}

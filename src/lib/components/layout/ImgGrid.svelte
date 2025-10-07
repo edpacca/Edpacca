@@ -17,7 +17,7 @@
     class="img-grid"
     style={`grid-template-columns: ${gridTemplateColumns};`}
   >
-    {#each imgs as img}
+    {#each imgs as img (img.path)}
       <ZoomImage class="post-image" src={img.path} alt={img.alt ?? ""} />
     {/each}
   </div>

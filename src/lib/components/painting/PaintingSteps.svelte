@@ -5,7 +5,7 @@
     export let title = "";
 </script>
 
-{#each paintingSteps as paintingStep, i}
+{#each paintingSteps as paintingStep, i (paintingStep)}
 <h2>STEP {i + 1}</h2>
 <div class="instructions">
     <div class="image-container">
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div>
-        {#each paintingStep.instructions as instruction}
+        {#each paintingStep.instructions as instruction (instruction)}
         <p>{instruction}</p>
         {/each}
     </div>
@@ -28,7 +28,7 @@
         width: 100%;
         margin-bottom: 4em;
     }
-    
+
     .paints {
         display: flex;
         gap: 0.25em;
@@ -38,7 +38,7 @@
     img {
         width: 100%;
     }
-    
+
     .image-container {
         max-width: 500px;
         display: flex;
@@ -47,12 +47,12 @@
         margin: auto;
         row-gap: 1em;
     }
-    
+
     h2 {
         text-align: center;
         margin: 1em;
     }
-    
+
     @media screen and (max-width: 600px) {
         .image-container {
             max-width: 100%;

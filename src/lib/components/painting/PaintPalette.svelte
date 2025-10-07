@@ -4,6 +4,6 @@
     export let paints: PaintColourType[];
 </script>
 
-{#each paints as paint}
+{#each paints as paint (paint)}
     <PaintColour paint={paint}/>
 {/each}

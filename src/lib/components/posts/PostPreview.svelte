@@ -30,7 +30,7 @@
     {/if}
     {#if icons.length > 0}
         <div class="tech-icons-container">
-            {#each icons as icon}
+            {#each icons as icon (icon)}
                 <img
                     src={`/icons/devicon/${icon.toLowerCase()}/${icon.toLowerCase()}-original.svg`}
                     alt={icon}

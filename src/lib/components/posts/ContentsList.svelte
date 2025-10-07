@@ -4,7 +4,7 @@
 </script>
 
 <ul class="contents-list">
-    {#each contents as content}
+    {#each contents as content (content)}
         <li>
             <FaIcon icon={content[2]}/>
             <a href={`#${content[1]}`}>{[content[0]]}</a>
