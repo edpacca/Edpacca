@@ -37,6 +37,7 @@
   --highlight: var(--gold-bright);
   --primary-50: var(--white-50);
   --secondary-50: var(--black-50);
+  --caption: var(--light-grey);
 
   /* Sizes */
   --margin: 12px;
@@ -220,7 +221,7 @@ img.cover-image {
 .caption {
   font-weight: 100;
   font-style: italic;
-  color: var(--light-grey);
+  color: var(--caption);
   margin-top: 0.5em;
 }
 
