@@ -7,7 +7,7 @@
 	export let selectedItem: FilterType<T> | undefined = undefined;
 </script>
 
-<div class="filter-container">
+<div class="filter__container">
 	<select
 		class="expandable"
 		bind:value={selectedItem}
@@ -21,20 +21,20 @@
 		{/each}
 	</select>
 	{#if selectedIcon}
-		<div class="icon-container">
+		<div class="icon__container">
 			<FaIcon icon={selectedIcon} />
 		</div>
 	{/if}
 </div>
 
 <style>
-	.filter-container {
+	.filter__container {
 		display: flex;
 		justify-content: flex-end;
 		position: relative;
 	}
 
-	.icon-container {
+	.icon__container {
 		position: absolute;
 		transition: 0.4s ease-out;
 		transition-delay: 0.2s;
@@ -44,8 +44,8 @@
 		pointer-events: none;
 	}
 
-	.expandable:hover + .icon-container,
-	.expandable:focus + .icon-container {
+	.expandable:hover + .icon__container,
+	.expandable:focus + .icon__container {
 		display: none;
 	}
 
@@ -105,7 +105,7 @@
 			width: 100%;
 		}
 
-		.icon-container {
+		.icon__container {
 			display: none;
 		}
 	}

@@ -38,7 +38,7 @@
 <div class="app">
 	<div class="theme-selectors">
 		<BurgerMenu bind:isOpen={isMenuOpen}>
-			<div class="toggle-container">
+			<div class="toggle__container">
 				<div transition:fly={{ y: -15 }}>
 					<DarkThemeToggle callback={closeMenu} />
 				</div>
@@ -81,7 +81,7 @@
 		gap: 0.5em;
 	}
 
-	.toggle-container {
+	.toggle__container {
 		margin-top: 0.5em;
 		gap: 0.2em;
 		display: flex;
@@ -103,7 +103,7 @@
 	}
 
 	@media screen and (max-width: 600px) {
-		.toggle-container {
+		.toggle__container {
 			flex-direction: row;
 		}
 	}

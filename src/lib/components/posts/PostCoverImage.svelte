@@ -3,7 +3,7 @@
 	export let post: Post;
 </script>
 
-<div class="image-container">
+<div class="image__container">
 	{#if post.coverImage}
 		<img class="cover-image" src={`/images/${post.coverImage}`} alt={`${post.title} cover image`} />
 	{:else if post.icon}
@@ -22,7 +22,7 @@
 		object-fit: cover;
 	}
 
-	.image-container,
+	.image__container,
 	.cover-icon {
 		height: 5rem;
 		width: 5rem;
@@ -37,7 +37,7 @@
 	}
 
 	@media screen and (max-width: 600px) {
-		.image-container,
+		.image__container,
 		.cover-icon {
 			width: 4rem;
 			height: 4rem;

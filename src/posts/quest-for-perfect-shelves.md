@@ -13,11 +13,11 @@ I needed the shelves to fit in the gap between my desk and the wall. I spend a l
 
 
 <div class="one-two-grid">
-    <div class="post-image-container">
+    <div class="post-image__container">
         <img alt="The plan" src="/images/woodwork/shelves/shelf-plan-white.svg" class="post-image" />
         <div class="caption">The plan</div>
     </div>
-    <div class="post-image-container">
+    <div class="post-image__container">
         <img alt="The finished shelves" src="/images/woodwork/shelves/finished-shelves.webp" class="post-image" />
         <div class="caption">The finished shelves</div>
     </div>

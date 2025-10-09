@@ -12,7 +12,7 @@
 	});
 </script>
 
-<span class="post-image-container">
+<span class="post-image__container">
 	<ZoomImage
 		src={`/images/${src}`}
 		{alt}

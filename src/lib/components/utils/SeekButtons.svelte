@@ -5,7 +5,7 @@
 	export let onBackward: () => void;
 </script>
 
-<div class="seek-button-container">
+<div class="seek-button__container">
 	<button on:click={onBackward}>
 		<FaIcon icon="caret-left" />
 	</button>

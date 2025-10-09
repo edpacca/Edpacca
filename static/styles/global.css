@@ -190,7 +190,7 @@ img.cover-image {
   border-radius: 4px;
 }
 
-.post-image-container {
+.post-image__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,7 +238,7 @@ img.cover-image {
   color: var(--highlight);
 }
 
-.summary-container {
+.summary__container {
   /* background-color: var(--grey); */
   padding: var(--margin);
   border-bottom: 2px solid var(--primary-50);
