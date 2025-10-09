@@ -15,7 +15,15 @@ declare global {
 		icon?: string;
 		technologies?: string[];
 		pinned?: boolean;
+		dev?: boolean;
+		previous: PostMeta;
+		next: PostMeta;
 	};
+
+	type PostMeta = {
+		title?: string;
+		slug: string;
+	}
 
 	type ProjectType = {
 		name: string;

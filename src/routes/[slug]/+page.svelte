@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PostSeriesNavigation from '$lib/components/posts/PostSeriesNavigation.svelte';
 	import BackButton from '$lib/components/utils/BackButton.svelte';
 	import { getProjectData } from '$lib/data/projectData';
 	import { formatDate } from '$lib/utils';
@@ -24,6 +25,12 @@
 		{#if project}
 			<BackButton text={project.name} icon={project.icon} urlRef={`/projects/${projectId}`} />
 		{/if}
+		{#if data.meta.previous || data.meta.next}
+			<PostSeriesNavigation
+				previous={data.meta.previous ?? undefined}
+				next={data.meta.next ?? undefined}
+			/>
+		{/if}
 	</hgroup>
 
 	<div class="contents">
@@ -43,6 +50,12 @@
 		{/if}
 		<data.content />
 	</div>
+	{#if data.meta.previous || data.meta.next}
+		<PostSeriesNavigation
+			previous={data.meta.previous ?? undefined}
+			next={data.meta.next ?? undefined}
+		/>
+	{/if}
 </article>
 
 <style>
