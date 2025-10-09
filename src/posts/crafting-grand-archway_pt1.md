@@ -50,7 +50,7 @@ Some of the layering seen can be incredibly over the top and it really works! Ho
 <ImgHoverToggle
     src="miniatures/arch/plan/arch_drawing.webp"
     srcHover="miniatures/arch/plan/arch_parchment.webp"
-    alt="design for arch 1"
+    alt="design for arch 1. (hover/click to toggle!)"
 />
 
 That's about it as far as planning goes. I had so much fun on this project just following my nose, trying out different approaches. I think one learns a lot this way, and I find it builds momentum. Maintaining motivation is a big part of completing these more ambitious projects. Onto the build!
