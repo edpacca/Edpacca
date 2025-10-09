@@ -5,6 +5,7 @@ date: 10/05/2025
 projectId: miniatures
 published: true
 icon: institution
+next: { slug: "crafting-grand-archway_pt2", title: "Part II" }
 ---
 <script>
     import ImgHoverToggle from "../lib/components/utils/ImgHoverToggle.svelte";
@@ -14,11 +15,9 @@ icon: institution
     import ImgGrid from "../lib/components/layout/ImgGrid.svelte";
 </script>
 
+![The finished first side](miniatures/arch/painting/p8_0.webp)
+
 **_my most involved terrain project to date... <FaIcon icon="institution"/> _**
-
-- **[Part II](/crafting-grand-archway_pt2)**
-
-![The finished archway](miniatures/arch/arch_0.webp)
 
 I like to keep <Footnote text="bits of packaging" anchor="hoarding" ref="1"/> that I think have potential as useful crafting materials. One such hoarded item was a squat oblong box, with a square footprint. Not that uncommon but unusual enough for me to hang onto it. The idea initially came from my partner; to build an open four-sided structure with an archway on each face - I liked it as a concept for a piece of terrain because it can allow line of sight through, and can have minis placed both underneath and on top.
 
@@ -181,8 +180,6 @@ I was using offcuts for the second layer bricks, so I had to slice a few down af
 And with that the second side ended up going on a lot more easily than the first. I can't say the symmetry was all there but I was (and still am) so pleased with the final result.
 
 Nonetheless the effort undertaken to get this far was significant, and I decided to rest on my laurels for a bit. I had this half done piece sat by my desk for a few weeks just looking at me while I built up the courage to work on the [next two sides](/crafting-grand-archway_pt2).
-
-**[Read part II...](/crafting-grand-archway_pt2)**
 
 <hr/>
 
