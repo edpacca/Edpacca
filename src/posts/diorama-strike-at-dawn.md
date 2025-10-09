@@ -3,7 +3,8 @@ title: First Diorama - Strike at Dawn
 description: I made a miniature diorama for a good friend of mine.
 date: 01/13/2025
 projectId: miniatures
-published: true
+# published: true
+dev: true
 icon: umbrella-beach
 ---
 

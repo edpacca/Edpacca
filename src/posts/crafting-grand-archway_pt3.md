@@ -6,6 +6,8 @@ projectId: miniatures
 published: false
 dev: true
 icon: institution
+previous: { slug: "crafting-grand-archway_pt2", title: "Part II" }
+next: { slug: "crafting-grand-archway_pt4", title: "Part IV" }
 ---
 <script>
     import ImgHoverToggle from "../lib/components/utils/ImgHoverToggle.svelte";
@@ -13,16 +15,5 @@ icon: institution
     import Footnote from "../lib/components/posts/Footnote.svelte";
     import CarouselGallery from "../lib/components/layout/CarouselGallery.svelte";
     import ImgGrid from "../lib/components/layout/ImgGrid.svelte";
-    import ContentsList from "../lib/components/posts/ContentsList.svelte";
 </script>
-
-<ContentsList
-    isInternal={false}
-    contents={
-        [
-            ["Part I", "crafting-grand-archway_pt1", "hammer"],
-            ["Part II", "crafting-grand-archway_pt2", "hammer"],
-            ["Part IV", "crafting-grand-archway_pt4", "paintbrush"],
-        ]
-}/>
 

@@ -47,7 +47,7 @@
   --image-margin: 10%;
 
   /* Other */
-  --transition-time: 0.4s;
+  --productive-transition: 170ms ease-out;
 }
 
 @media screen and (max-width: 1200px) {
@@ -184,7 +184,7 @@ img.post-image {
 
 img.square {
   width: 75%;
-  height: 7%;
+  height: 75%;
 }
 
 img.cover-image {
@@ -292,7 +292,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-  transition: var(--transition-time);
+  transition: var(--productive-transition);
   font: var(--font-body);
   border: none;
   height: 2.5em;
@@ -300,7 +300,6 @@ li {
 
 .button1:hover {
   color: var(--highlight);
-  transition: var(--transition-time);
 }
 
 img.gallery-img {

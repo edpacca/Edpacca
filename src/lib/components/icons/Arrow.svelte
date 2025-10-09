@@ -4,8 +4,4 @@
     .left {
         transform: rotate(180deg);
     }
-
-    .highlight {
-        fill: var(--highlight);
-    }
 </style>

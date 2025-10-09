@@ -8,7 +8,7 @@
     {#if previous}
         <a href={`/${previous.slug}`}>
             <span class="arrow__container">
-                <Arrow class="left highlight"/>
+                <Arrow class="left"/>
             </span>
             {previous.title ?? ""}
         </a>
@@ -20,7 +20,7 @@
         <a href={`/${next.slug}`}>
             {next.title ?? ""}
             <span class="arrow__container">
-                <Arrow class="highlight"/>
+                <Arrow/>
             </span>
         </a>
     {:else}
@@ -44,6 +44,15 @@
         flex-direction: row;
         align-items: center;
         gap: 1rem;
+        fill: var(--primary);
+        color: var(--primary);
+        transition: var(--productive-transition);
+    }
+
+    a:hover {
+        text-decoration: none;
+        fill: var(--highlight);
+        color: var(--highlight);
     }
 
     .arrow__container {

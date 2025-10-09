@@ -14,7 +14,7 @@
 		};
 	});
 
-	$: selectedIcon = selectedItem?.icon ?? "xmark";
+	$: selectedIcon = selectedItem?.icon ?? "filter";
 
 </script>
 

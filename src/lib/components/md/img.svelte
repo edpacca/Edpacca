@@ -8,7 +8,7 @@
 	let isSquare = false;
 
 	onMount(() => {
-		isSquare = img?.height === img?.width;
+		isSquare = img?.height.toFixed(0) === img?.width.toFixed(0);
 	});
 </script>
 

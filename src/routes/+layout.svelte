@@ -95,7 +95,7 @@
 		border: none;
 		background-color: var(--secondary-50);
 		color: var(--primary);
-		transition: var(--transition-time);
+		transition: var(--productive-transition);
 	}
 
 	.reset-button:hover {

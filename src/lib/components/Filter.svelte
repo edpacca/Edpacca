@@ -36,11 +36,11 @@
 
 	.icon__container {
 		position: absolute;
-		transition: 0.4s ease-out;
+		transition: var(--productive-transition);
 		transition-delay: 0.2s;
 		color: var(--light-grey);
 		font-size: 1.5em;
-		padding: 0.5rem 1rem 0.5rem 1.1rem;
+		padding: 0.5rem 1rem 0.5rem 1rem;
 		pointer-events: none;
 	}
 
@@ -51,7 +51,7 @@
 
 	.expandable {
 		max-width: 2.2em;
-		transition: 0.4s ease-out;
+		transition: var(--productive-transition);
 		border-radius: var(--border-radius);
 		color: var(--bg1);
 		opacity: 0.5;
@@ -66,7 +66,7 @@
 
 	select {
 		border: none;
-		padding: 0.5rem 1rem 0.5rem 1.1rem;
+		padding: 0.5rem 1rem 0.5rem 1rem;
 		background-color: var(--bg1);
 		color: var(--highlight);
 		font-size: 1.5rem;

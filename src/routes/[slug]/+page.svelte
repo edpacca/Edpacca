@@ -23,7 +23,7 @@
 		<h1>{data.meta.title}</h1>
 		<p class="date">Published {date}</p>
 		{#if project}
-			<BackButton text={project.name} icon={project.icon} urlRef={`/projects/${projectId}`} />
+			<BackButton text={project.name} icon={project.icon} urlRef={`/projects/${projectId}`} showBackArrow={false} />
 		{/if}
 		{#if data.meta.previous || data.meta.next}
 			<PostSeriesNavigation
