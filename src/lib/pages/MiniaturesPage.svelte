@@ -2,12 +2,12 @@
 	import { MINIATURE_SPOTLIGHT_IMG } from '$lib/data/galleries';
 </script>
 
-<div class="spotlight-image-container">
+<div class="spotlight-image__container">
 	<img src={MINIATURE_SPOTLIGHT_IMG} alt="miniature spotlight" />
 </div>
 
 <style>
-	.spotlight-image-container {
+	.spotlight-image__container {
 		width: 100%;
 		display: flex;
 		justify-content: center;

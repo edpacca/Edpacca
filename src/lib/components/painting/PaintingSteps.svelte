@@ -8,7 +8,7 @@
 {#each paintingSteps as paintingStep, i (paintingStep)}
 	<h2>STEP {i + 1}</h2>
 	<div class="instructions">
-		<div class="image-container">
+		<div class="image__container">
 			<img src={paintingStep.imagePath} alt={`${title} ${i + 1}`} class="gallery-img" />
 			<div class="paints">
 				<PaintPalette paints={paintingStep.paints} />
@@ -39,7 +39,7 @@
 		width: 100%;
 	}
 
-	.image-container {
+	.image__container {
 		max-width: 500px;
 		display: flex;
 		flex-direction: column;
@@ -54,7 +54,7 @@
 	}
 
 	@media screen and (max-width: 600px) {
-		.image-container {
+		.image__container {
 			max-width: 100%;
 		}
 	}

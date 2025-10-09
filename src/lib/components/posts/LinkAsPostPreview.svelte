@@ -5,14 +5,14 @@
 	export let projectId: string | undefined = undefined;
 </script>
 
-<div class="summary-container">
-	<div class="info-container">
+<div class="summary__container">
+	<div class="info__container">
 		<div>
 			<a data-sveltekit-reload href={`/${slug}`} class="title two-line-clamp pinned">{title}</a>
 		</div>
 	</div>
 	{#if projectId}
-		<div class="project-link-container">
+		<div class="project-link__container">
 			<ProjectIconLink {projectId} />
 		</div>
 	{/if}
@@ -23,13 +23,13 @@
 		color: var(--highlight);
 	}
 
-	.summary-container {
+	.summary__container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 
-	.info-container {
+	.info__container {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -39,7 +39,7 @@
 		padding-right: var(--margin);
 	}
 
-	.project-link-container {
+	.project-link__container {
 		margin-left: auto;
 		margin-right: var(--margin);
 		color: var(--highlight);

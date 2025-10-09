@@ -5,9 +5,9 @@
 </script>
 
 {#each DnDMaps as map (map.name)}
-	<div class="map-container">
+	<div class="map__container">
 		<div class="map-name">{map.name}</div>
-		<div class="map-img-container">
+		<div class="map-img__container">
 			{#await fetch(map.imgSrc)}
 				<FaIcon icon="map" />
 				<p>the goblins are looking for this map...</p>
@@ -42,11 +42,11 @@
 		font-style: italic;
 	}
 
-	.map-img-container {
+	.map-img__container {
 		margin: 0.75em 0;
 	}
 
-	.map-container {
+	.map__container {
 		margin: 1em;
 	}
 

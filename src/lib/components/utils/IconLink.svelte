@@ -26,7 +26,7 @@
 	}
 	svg {
 		height: 2rem;
-		transition: var(--transition-time);
+		transition: var(--productive-transition);
 		fill: var(--primary);
 	}
 

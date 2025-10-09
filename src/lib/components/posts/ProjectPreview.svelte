@@ -5,7 +5,7 @@
 	export let icon: string = 'newspaper';
 </script>
 
-<div class="summary-container">
+<div class="summary__container">
 	<div class="icon-title-grid">
 		<FaIcon icon={project.icon} size="1.5em" />
 		<a href={`/projects/${project.id}`} class="title">

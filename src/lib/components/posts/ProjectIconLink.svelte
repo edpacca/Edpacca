@@ -19,7 +19,7 @@
 
 {#if project}
 	<div
-		class="icon-link-container"
+		class="icon-link__container"
 		role="tooltip"
 		on:mouseenter={() => {
 			isHovered = true;
@@ -40,7 +40,7 @@
 {/if}
 
 <style>
-	.icon-link-container {
+	.icon-link__container {
 		position: relative;
 		display: flex;
 		justify-content: center;

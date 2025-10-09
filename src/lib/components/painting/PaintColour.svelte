@@ -3,7 +3,7 @@
 	export let paint: PaintColourType;
 </script>
 
-<div class="colour-container">
+<div class="colour__container">
 	<div class="colour" style="--fill-colour: {paint.code}"></div>
 	{#if paint.url}
 		<a href={paint.url} class="details">
@@ -31,7 +31,7 @@
 </div>
 
 <style>
-	.colour-container {
+	.colour__container {
 		display: grid;
 		grid-template-columns: 4rem 1fr;
 		align-items: center;

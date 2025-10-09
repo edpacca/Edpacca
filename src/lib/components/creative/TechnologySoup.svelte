@@ -77,10 +77,10 @@
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
-<div class="main-container">
+<div class="main__container">
 	{#if hasGravity}
 		<div>
-			<div class="grav-values-container">
+			<div class="grav-values__container">
 				<div>gravity X: {xGravity / 100}</div>
 				<div>gravity y: {yGravity / 100}</div>
 			</div>
@@ -118,7 +118,7 @@
 		<FaIcon icon="arrow-up" />
 	</button>
 {:else}
-	<div class="text-button-container">
+	<div class="text-button__container">
 		<p>I call this the "tech soup" widget...</p>
 		<button
 			class="button1"
@@ -141,13 +141,13 @@
 		box-shadow: 0 0 10px var(--primary-50);
 	}
 
-	.grav-values-container {
+	.grav-values__container {
 		position: absolute;
 		top: var(--margin);
 		left: var(--margin);
 	}
 
-	.main-container {
+	.main__container {
 		width: 100%;
 		position: relative;
 	}
@@ -214,7 +214,7 @@
 		background-color: var(--highlight);
 	}
 
-	.text-button-container {
+	.text-button__container {
 		display: flex;
 		gap: 1em;
 		align-items: center;
@@ -244,7 +244,7 @@
 			width: 24px;
 		}
 
-		.text-button-container {
+		.text-button__container {
 			display: block;
 		}
 	}
