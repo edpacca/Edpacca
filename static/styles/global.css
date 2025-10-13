@@ -371,3 +371,17 @@ img.gallery-img {
 .bold {
   font-weight: bold;
 }
+
+.italic {
+  font-style: italic;
+}
+
+hr {
+  margin: 1rem;
+}
+
+
+hr.footer {
+  margin: 2rem 1rem;
+  color: var(--highlight);
+}

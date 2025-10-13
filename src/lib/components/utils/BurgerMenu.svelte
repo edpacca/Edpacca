@@ -1,14 +1,14 @@
 <script lang="ts">
 	import FaIcon from './FaIcon.svelte';
 	export let isOpen = false;
-	export let icon = "bars";
+	export let icon = 'bars';
 	const toggle = () => {
 		isOpen = !isOpen;
 	};
 </script>
 
 <button on:click={toggle}>
-	<FaIcon icon={icon} />
+	<FaIcon {icon} />
 </button>
 {#if isOpen}
 	<div class="burger-menu">

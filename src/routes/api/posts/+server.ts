@@ -16,7 +16,6 @@ async function getPosts() {
 			const metadata = file.metadata as Omit<Post, 'slug'>;
 			const post = { ...metadata, slug } satisfies Post;
 			(post.published || (metadata.dev && isDev)) && posts.push(post);
-
 		}
 	}
 

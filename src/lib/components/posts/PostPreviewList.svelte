@@ -21,7 +21,7 @@
 	{#each filteredPosts as post (post.slug)}
 		<PostPreview {post} hasPostImage={false} />
 	{/each}
-	{#if filter?.id == "dnd"}
+	{#if filter?.id == 'dnd'}
 		<ProjectPreview project={filter} />
 	{/if}
 </div>

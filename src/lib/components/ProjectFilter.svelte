@@ -14,8 +14,7 @@
 		};
 	});
 
-	$: selectedIcon = selectedItem?.icon ?? "filter";
-
+	$: selectedIcon = selectedItem?.icon ?? 'filter';
 </script>
 
-<Filter {onFilterChanged} filterItems={projectFilters} selectedIcon={selectedIcon} bind:selectedItem/>
+<Filter {onFilterChanged} filterItems={projectFilters} {selectedIcon} bind:selectedItem />

@@ -5,21 +5,29 @@ date: 10/05/2025
 projectId: miniatures
 published: true
 icon: institution
-next: { slug: "crafting-grand-archway_pt2", title: "Part II" }
+next:
+    slug: "crafting-grand-archway_pt2"
+    title: "Part II"
+footnotes:
+    - ref: "1"
+      title: "hoarding"
+      titleIcon: "cubes"
+      text: "A key skill of any terrain crafter is identifying 'potentially useful' pieces of rubbish/garbage/trash. However, if living with a partner, you must also become proficient in convinving _them_ that there is some use for it. The problem is you just don't know exactly what it could be yet...
 ---
 <script>
     import ImgHoverToggle from "../lib/components/utils/ImgHoverToggle.svelte";
     import FaIcon from "../lib/components/utils/FaIcon.svelte";
-    import Footnote from "../lib/components/posts/Footnote.svelte";
+    import FootnoteRef from "../lib/components/posts/FootnoteRef.svelte";
     import CarouselGallery from "../lib/components/layout/CarouselGallery.svelte";
     import ImgGrid from "../lib/components/layout/ImgGrid.svelte";
 </script>
+
 
 ![The finished first side](miniatures/arch/painting/p8_0.webp)
 
 **_my most involved terrain project to date... <FaIcon icon="institution"/> _**
 
-I like to keep <Footnote text="bits of packaging" anchor="hoarding" ref="1"/> that I think have potential as useful crafting materials. One such hoarded item was a squat oblong box, with a square footprint. Not that uncommon but unusual enough for me to hang onto it. The idea initially came from my partner; to build an open four-sided structure with an archway on each face - I liked it as a concept for a piece of terrain because it can allow line of sight through, and can have minis placed both underneath and on top.
+I like to keep <FootnoteRef text="bits of packaging" anchor="hoarding" ref="1"/> that I think have potential as useful crafting materials. One such hoarded item was a squat oblong box, with a square footprint. Not that uncommon but unusual enough for me to hang onto it. The idea initially came from my partner; to build an open four-sided structure with an archway on each face - I liked it as a concept for a piece of terrain because it can allow line of sight through, and can have minis placed both underneath and on top.
 
 <ImgGrid
     imgs={[
@@ -180,10 +188,4 @@ I was using offcuts for the second layer bricks, so I had to slice a few down af
 And with that the second side ended up going on a lot more easily than the first. I can't say the symmetry was all there but I was (and still am) so pleased with the final result.
 
 Nonetheless the effort undertaken to get this far was significant, and I decided to rest on my laurels for a bit. I had this half done piece sat by my desk for a few weeks just looking at me while I built up the courage to work on the [next two sides](/crafting-grand-archway_pt2).
-
-<hr/>
-
-### <a name="hoarding">Hoarding<sup>1</sup></a> <FaIcon icon="cubes"/>
-
-**A key skill of any terrain crafter is identifying _'potentially useful'_ pieces of rubbish/garbage/trash. However, if living with a partner, you must also become proficient in convinving _them_ that there is some use for it. The problem is you just don't know exactly what it could be yet...**
 

@@ -44,7 +44,16 @@ const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		csp: {
+			directives: {
+				'script-src': ['self']
+			},
+			reportOnly: {
+				'script-src': ['self'],
+				'report-uri': ['/']
+			}
+		}
 	}
 };
 

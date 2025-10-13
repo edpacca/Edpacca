@@ -19,10 +19,12 @@
 			{#if !isPinnedPost}
 				<div class="date">{date}</div>
 			{/if}
-			<a href={`/${post.slug}`}
+			<a
+				href={`/${post.slug}`}
 				class="title two-line-clamp"
 				class:pinned={isPinnedPost}
-				class:dev={post.dev}>
+				class:dev={post.dev}
+			>
 				{post.title}
 			</a>
 		</div>

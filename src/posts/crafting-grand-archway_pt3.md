@@ -12,7 +12,7 @@ next: { slug: "crafting-grand-archway_pt4", title: "Part IV" }
 <script>
     import ImgHoverToggle from "../lib/components/utils/ImgHoverToggle.svelte";
     import FaIcon from "../lib/components/utils/FaIcon.svelte";
-    import Footnote from "../lib/components/posts/Footnote.svelte";
+    import FootnoteRef from "../lib/components/posts/FootnoteRef.svelte";
     import CarouselGallery from "../lib/components/layout/CarouselGallery.svelte";
     import ImgGrid from "../lib/components/layout/ImgGrid.svelte";
 </script>

@@ -16,14 +16,23 @@ declare global {
 		technologies?: string[];
 		pinned?: boolean;
 		dev?: boolean;
-		previous: PostMeta;
-		next: PostMeta;
+		previous?: PostMeta;
+		next?: PostMeta;
+		footnotes?: FootnoteMeta[];
 	};
 
 	type PostMeta = {
 		title?: string;
 		slug: string;
-	}
+	};
+
+	type FootnoteMeta = {
+		ref: string;
+		anchor: string;
+		text: string;
+		title?: string;
+		titleIcon?: string;
+	};
 
 	type ProjectType = {
 		name: string;
