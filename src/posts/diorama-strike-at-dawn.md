@@ -8,7 +8,7 @@ icon: umbrella-beach
 ---
 
 <script>
-    import CarouselGallery from "../lib/components/CarouselGallery.svelte";
+    import CarouselGallery from "../lib/components/layout/CarouselGallery.svelte";
     import { DIORAMA_GALLERY } from "../lib/data/galleries.ts";
 </script>
 

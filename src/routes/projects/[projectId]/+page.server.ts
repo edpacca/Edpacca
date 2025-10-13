@@ -9,30 +9,30 @@ import type { PageServerLoad } from './$types.js';
 export const prerender = false;
 
 export const load = (async ({ fetch, params }) => {
-    try {
-        const response = await fetch("/api/posts");
-        let posts: Post[] = await response.json();
-        let ghData;
-        try {
-            if (params.projectId === "programming") {
-                // if (dev) {
-                    ghData = parseLanguageObject(STATIC_LANG_DATA);
-                // } else {
-                //     ghData = await getGhLanguageData(`${GH_URL}/repos`, GH_REPO_TOKEN);
-                // }
-            }
-        } catch (e) {
-            console.error(e);
-        }
-        posts = posts.filter(p => p.projectId === params.projectId);
-        const project = getProjectData(params.projectId);
+	try {
+		const response = await fetch('/api/posts');
+		let posts: Post[] = await response.json();
+		let ghData;
+		try {
+			if (params.projectId === 'programming') {
+				// if (dev) {
+				ghData = parseLanguageObject(STATIC_LANG_DATA);
+				// } else {
+				//     ghData = await getGhLanguageData(`${GH_URL}/repos`, GH_REPO_TOKEN);
+				// }
+			}
+		} catch (e) {
+			console.error(e);
+		}
+		posts = posts.filter((p) => p.projectId === params.projectId);
+		const project = getProjectData(params.projectId);
 
-        return {
-            posts,
-            project,
-            ghData
-        }
-    } catch {
-        error(404, `Hmmm couldn't find ${params.projectId}`)
-    }
-}) satisfies PageServerLoad
+		return {
+			posts,
+			project,
+			ghData
+		};
+	} catch {
+		error(404, `Hmmm couldn't find ${params.projectId}`);
+	}
+}) satisfies PageServerLoad;

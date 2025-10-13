@@ -7,7 +7,7 @@ published: true
 icon: beer
 ---
  <script>
-    import FaIcon from "../lib/components/FaIcon.svelte"
+    import FaIcon from "../lib/components/utils/FaIcon.svelte"
 </script>
 
 

@@ -1,11 +1,10 @@
 <div class="post-container">
-    <slot/>
+	<slot />
 </div>
 
 <style>
-    .post-container {
-        position: relative;
-        margin: var(--margin);
-    }
+	.post-container {
+		position: relative;
+		margin: var(--margin);
+	}
 </style>
-

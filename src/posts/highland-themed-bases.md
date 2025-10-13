@@ -8,7 +8,7 @@ icon: paintbrush
 ---
 
 <script>
-    import PaintingTutorial from "../lib/components/PaintingTutorial.svelte";
+    import PaintingTutorial from "../lib/components/painting/PaintingTutorial.svelte";
     import { HIGHLAND_BASE_PAINTS } from "../lib/data/paintColourData";
     import { HIGHLAND_BASE_STEPS } from "../lib/data/paintingStepsData";
 </script>
