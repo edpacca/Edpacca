@@ -1,10 +1,9 @@
 ---
 title: Grand Archway - part II
 description: A build blog for my most involved terrain project to date - a large stone archway.
-date: 10/09/2025
+date: 10/13/2025
 projectId: miniatures
-published: false
-dev: true
+published: true
 icon: institution
 previous:
     slug: "crafting-grand-archway_pt1"

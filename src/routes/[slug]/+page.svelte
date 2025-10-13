@@ -6,7 +6,6 @@
 	import { formatDate } from '$lib/utils';
 	let { data } = $props();
 
-	const date: string = formatDate(data.meta.date);
 	const projectId = data.meta.projectId ?? '';
 	const project: ProjectType | undefined = getProjectData(projectId);
 </script>
@@ -22,7 +21,7 @@
 	<!-- Title -->
 	<hgroup>
 		<h1>{data.meta.title}</h1>
-		<p class="date">Published {date}</p>
+		<p class="date">Published {formatDate(data.meta.date)}</p>
 		{#if project}
 			<BackButton
 				text={project.name}

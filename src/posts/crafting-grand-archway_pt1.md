@@ -12,7 +12,7 @@ footnotes:
     - ref: "1"
       title: "hoarding"
       titleIcon: "cubes"
-      text: "A key skill of any terrain crafter is identifying 'potentially useful' pieces of rubbish/garbage/trash. However, if living with a partner, you must also become proficient in convinving _them_ that there is some use for it. The problem is you just don't know exactly what it could be yet...
+      text: "A key skill of any terrain crafter is identifying 'potentially useful' pieces of rubbish/garbage/trash. However, if living with a partner, you must also become proficient in convinving _them_ that there is some use for it. The problem is you just don't know exactly what it could be yet..."
 ---
 <script>
     import ImgHoverToggle from "../lib/components/utils/ImgHoverToggle.svelte";
