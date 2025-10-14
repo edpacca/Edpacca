@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { sanitizeScriptTags } from '$lib/utils';
+    import { sanitizeScriptTags } from '$lib/utils';
     import FaIcon from '../utils/FaIcon.svelte';
 	export let footnote: FootnoteMeta;
 </script>
 
 <div class="footnote__container">
     <!-- svelte-ignore a11y_missing_attribute -->
-    <a name={footnote.anchor}>
+    <a id={footnote.anchor}>
         {#if footnote.title}
             <h3>
                 {footnote.title}
@@ -19,6 +19,7 @@
             <sup>{footnote.ref}</sup>
         {/if}
     </a>
+    <!-- eslint-disable svelte/no-at-html-tags -->
     <span class="italic">{@html sanitizeScriptTags(footnote.text)}</span>
 </div>
 
