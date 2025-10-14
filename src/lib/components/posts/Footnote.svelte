@@ -1,5 +1,6 @@
 <script lang="ts">
-	import FaIcon from '../utils/FaIcon.svelte';
+	import { sanitizeScriptTags } from '$lib/utils';
+    import FaIcon from '../utils/FaIcon.svelte';
 	export let footnote: FootnoteMeta;
 </script>
 
@@ -18,7 +19,7 @@
             <sup>{footnote.ref}</sup>
         {/if}
     </a>
-    <span class="italic">{@html footnote.text}</span>
+    <span class="italic">{@html sanitizeScriptTags(footnote.text)}</span>
 </div>
 
 <style>

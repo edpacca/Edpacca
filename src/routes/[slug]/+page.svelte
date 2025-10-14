@@ -65,7 +65,7 @@
 	{/if}
 	{#if data.meta.footnotes}
 		<hr class="footer" />
-		{#each data.meta.footnotes as footnote}
+		{#each data.meta.footnotes as footnote (footnote)}
 			<Footnote {footnote} />
 		{/each}
 	{/if}

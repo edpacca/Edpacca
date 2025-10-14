@@ -37,3 +37,7 @@ export const grow = (_node: HTMLElement) => {
 		css: (t: number) => `transform: scaleX(${t}); transform-origin: left`
 	};
 };
+
+export const sanitizeScriptTags = (text: string) => {
+	return text.replaceAll("<script>", "").replaceAll("</script>", "");
+}

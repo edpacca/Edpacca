@@ -9,11 +9,13 @@
 
 <table>
 	<thead>
-		<th>Word</th>
-		<th>Magnitude</th>
+		<tr>
+			<th>Word</th>
+			<th>Magnitude</th>
+		</tr>
 	</thead>
 	<tbody>
-		{#each Object.values(wordMagnitudes.entries) as wordMagnitude}
+		{#each Object.values(wordMagnitudes.entries) as wordMagnitude (wordMagnitude)}
 			<tr>
 				<td>{wordMagnitude.key()}</td>
 				<td>{wordMagnitudes[wordMagnitude.key()]}</td>
