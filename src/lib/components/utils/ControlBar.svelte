@@ -2,7 +2,7 @@
 	export let buttons: { fnc: () => void; title: string }[];
 </script>
 
-<div class="control-container">
+<div class="control__container">
 	<div class="controls" style={`--num-buttons: ${buttons.length}`}>
 		{#each buttons as btn (btn.title)}
 			<button class="button1" on:click={btn.fnc}>{btn.title}</button>

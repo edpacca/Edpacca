@@ -28,7 +28,7 @@
 	<div class="val">{windDirection}</div>
 </div>
 
-<div class="scene-container">
+<div class="scene__container">
 	<Scene {time} />
 </div>
 
@@ -56,7 +56,7 @@
 		margin: auto;
 	}
 
-	.scene-container {
+	.scene__container {
 		display: flex;
 		justify-content: center;
 		align-items: center;

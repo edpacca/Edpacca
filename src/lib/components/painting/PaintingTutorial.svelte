@@ -13,9 +13,9 @@
 </script>
 
 <p>The paints:</p>
-<div class="grid-container">
+<div class="grid__container">
 	{#if coverImage}
-		<div class="paints-container">
+		<div class="paints__container">
 			<PaintPalette {paints} />
 		</div>
 		<ZoomImage src={coverImage} {alt} class="gallery-img" />
@@ -29,19 +29,19 @@
 <PaintingSteps {paintingSteps} {title} />
 
 <style>
-	.grid-container {
+	.grid__container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		align-content: center;
 		margin: 0 10%;
 	}
 
-	.paints-container {
+	.paints__container {
 		margin: auto;
 	}
 
 	@media screen and (max-width: 900px) {
-		.grid-container {
+		.grid__container {
 			grid-template-columns: 1fr;
 			margin: 0;
 		}

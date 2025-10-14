@@ -1,4 +1,4 @@
-import { sineIn } from 'svelte/easing';
+import { cubicOut } from 'svelte/easing';
 
 type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
 
@@ -32,8 +32,12 @@ const parsePinned = (pinned: boolean | undefined) => Number(pinned ?? 0);
 
 export const grow = (_node: HTMLElement) => {
 	return {
-		duration: 100,
-		easing: sineIn,
+		duration: 150,
+		easing: cubicOut,
 		css: (t: number) => `transform: scaleX(${t}); transform-origin: left`
 	};
 };
+
+export const sanitizeScriptTags = (text: string) => {
+	return text.replaceAll("<script>", "").replaceAll("</script>", "");
+}

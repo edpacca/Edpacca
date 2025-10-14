@@ -22,7 +22,7 @@
 	on:click={() => (isToggled = !isToggled)}
 	on:mouseover={() => (isHovering = true)}
 	on:mouseleave={() => (isHovering = false)}
-	class="post-image-container"
+	class="post-image__container"
 	role="img"
 >
 	<img

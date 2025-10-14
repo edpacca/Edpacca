@@ -14,10 +14,10 @@
 	$: goalComplete = current >= target;
 </script>
 
-<div class="running-header-container">
+<div class="running-header__container">
 	<div>
 		<div>{goalYear} Goal: {goal}</div>
-		<div class="score-badge-container">
+		<div class="score-badge__container">
 			<div class="big-score">{current}m</div>
 			<div class="badge">
 				<StravaBadge />
@@ -58,13 +58,13 @@
 		gap: 0.5em;
 	}
 
-	.running-header-container {
+	.running-header__container {
 		margin-bottom: 1em;
 		display: grid;
 		grid-template-columns: auto 1fr;
 	}
 
-	.score-badge-container {
+	.score-badge__container {
 		display: flex;
 		justify-content: center;
 		align-items: center;

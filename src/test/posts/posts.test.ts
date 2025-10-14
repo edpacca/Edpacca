@@ -72,3 +72,7 @@ describe('post validation', () => {
 		}
 	});
 });
+
+// describe('post gets sanitized', () => {
+
+// })

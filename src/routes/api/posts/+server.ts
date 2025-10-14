@@ -5,6 +5,7 @@ async function getPosts() {
 	let posts: Post[] = [];
 
 	const paths = import.meta.glob('/src/posts/*.md', { eager: true });
+	var isDev = import.meta.env.DEV;
 
 	for (const path in paths) {
 		const file = paths[path];
@@ -14,7 +15,7 @@ async function getPosts() {
 		if (valid) {
 			const metadata = file.metadata as Omit<Post, 'slug'>;
 			const post = { ...metadata, slug } satisfies Post;
-			post.published && posts.push(post);
+			(post.published || (metadata.dev && isDev)) && posts.push(post);
 		}
 	}
 

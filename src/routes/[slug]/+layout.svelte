@@ -1,9 +1,9 @@
-<div class="post-container">
+<div class="post__container">
 	<slot />
 </div>
 
 <style>
-	.post-container {
+	.post__container {
 		position: relative;
 		margin: var(--margin);
 	}

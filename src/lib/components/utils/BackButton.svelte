@@ -5,6 +5,7 @@
 	export let text: string;
 	export let urlRef: string | undefined = undefined;
 	export let icon: string | undefined = undefined;
+	export let showBackArrow: boolean = true;
 	let isHovered = false;
 </script>
 
@@ -18,7 +19,9 @@
 	}}
 >
 	<button class="button1">
-		<FaIcon icon="angle-left" />
+		{#if showBackArrow}
+			<FaIcon icon="angle-left" />
+		{/if}
 		{#if isHovered}
 			<div class="project-name" transition:grow>{text}</div>
 		{/if}

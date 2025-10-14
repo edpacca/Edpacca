@@ -1,10 +1,11 @@
 <script lang="ts">
+	import Footnote from '$lib/components/posts/Footnote.svelte';
+	import PostSeriesNavigation from '$lib/components/posts/PostSeriesNavigation.svelte';
 	import BackButton from '$lib/components/utils/BackButton.svelte';
 	import { getProjectData } from '$lib/data/projectData';
 	import { formatDate } from '$lib/utils';
 	let { data } = $props();
 
-	const date: string = formatDate(data.meta.date);
 	const projectId = data.meta.projectId ?? '';
 	const project: ProjectType | undefined = getProjectData(projectId);
 </script>
@@ -20,9 +21,20 @@
 	<!-- Title -->
 	<hgroup>
 		<h1>{data.meta.title}</h1>
-		<p class="date">Published {date}</p>
+		<p class="date">Published {formatDate(data.meta.date)}</p>
 		{#if project}
-			<BackButton text={project.name} icon={project.icon} urlRef={`/projects/${projectId}`} />
+			<BackButton
+				text={project.name}
+				icon={project.icon}
+				urlRef={`/projects/${projectId}`}
+				showBackArrow={false}
+			/>
+		{/if}
+		{#if data.meta.previous || data.meta.next}
+			<PostSeriesNavigation
+				previous={data.meta.previous ?? undefined}
+				next={data.meta.next ?? undefined}
+			/>
 		{/if}
 	</hgroup>
 
@@ -43,6 +55,20 @@
 		{/if}
 		<data.content />
 	</div>
+	{#if data.meta.previous || data.meta.next}
+		<div class="post-nav-footer__container">
+			<PostSeriesNavigation
+				previous={data.meta.previous ?? undefined}
+				next={data.meta.next ?? undefined}
+			/>
+		</div>
+	{/if}
+	{#if data.meta.footnotes}
+		<hr class="footer" />
+		{#each data.meta.footnotes as footnote (footnote)}
+			<Footnote {footnote} />
+		{/each}
+	{/if}
 </article>
 
 <style>
@@ -60,5 +86,9 @@
 		font-style: italic;
 		padding: 0.5em 2em 2em;
 		margin: 0;
+	}
+
+	.post-nav-footer__container {
+		margin: 4rem 0 2rem;
 	}
 </style>

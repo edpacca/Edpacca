@@ -37,6 +37,7 @@
   --highlight: var(--gold-bright);
   --primary-50: var(--white-50);
   --secondary-50: var(--black-50);
+  --caption: var(--light-grey);
 
   /* Sizes */
   --margin: 12px;
@@ -46,7 +47,7 @@
   --image-margin: 10%;
 
   /* Other */
-  --transition-time: 0.4s;
+  --productive-transition: 170ms ease-out;
 }
 
 @media screen and (max-width: 1200px) {
@@ -183,14 +184,14 @@ img.post-image {
 
 img.square {
   width: 75%;
-  height: 7%;
+  height: 75%;
 }
 
 img.cover-image {
   border-radius: 4px;
 }
 
-.post-image-container {
+.post-image__container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -220,7 +221,7 @@ img.cover-image {
 .caption {
   font-weight: 100;
   font-style: italic;
-  color: var(--light-grey);
+  color: var(--caption);
   margin-top: 0.5em;
 }
 
@@ -238,7 +239,7 @@ img.cover-image {
   color: var(--highlight);
 }
 
-.summary-container {
+.summary__container {
   /* background-color: var(--grey); */
   padding: var(--margin);
   border-bottom: 2px solid var(--primary-50);
@@ -291,7 +292,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 0.5em;
-  transition: var(--transition-time);
+  transition: var(--productive-transition);
   font: var(--font-body);
   border: none;
   height: 2.5em;
@@ -299,7 +300,6 @@ li {
 
 .button1:hover {
   color: var(--highlight);
-  transition: var(--transition-time);
 }
 
 img.gallery-img {
@@ -370,4 +370,18 @@ img.gallery-img {
 
 .bold {
   font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+hr {
+  margin: 1rem;
+}
+
+
+hr.footer {
+  margin: 2rem 1rem;
+  color: var(--highlight);
 }

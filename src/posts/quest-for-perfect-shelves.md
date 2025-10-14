@@ -4,7 +4,14 @@ description: I need some shelves to fit in a specific space, and serve specific 
 date: 04/21/2024
 projectId: crafting
 published: true
+footnotes:
+    - ref: "1"
+      anchor: "jeffy"
+      text: "Jeffy B, Jay-Bay, Yeff Bo-zo, Heffe zebos"
 ---
+<script>
+    import FootnoteRef from "../lib/components/posts/FootnoteRef.svelte";
+</script>
 
 After moving into a new flat I needed some shelves to go next to my main desk. One always needs a good set of shelves but imagine designing them to perfectly suit your needs... I'm no carpenter but I think I can figure out a way of making exactly what I want, withough requiring many tools, and still getting a nice, high quality finish.
 
@@ -13,11 +20,11 @@ I needed the shelves to fit in the gap between my desk and the wall. I spend a l
 
 
 <div class="one-two-grid">
-    <div class="post-image-container">
+    <div class="post-image__container">
         <img alt="The plan" src="/images/woodwork/shelves/shelf-plan-white.svg" class="post-image" />
         <div class="caption">The plan</div>
     </div>
-    <div class="post-image-container">
+    <div class="post-image__container">
         <img alt="The finished shelves" src="/images/woodwork/shelves/finished-shelves.webp" class="post-image" />
         <div class="caption">The finished shelves</div>
     </div>
@@ -30,7 +37,7 @@ I needed the shelves to fit in the gap between my desk and the wall. I spend a l
 - ***8"*** Tall enough to easily place and retrieve minis.
 - ***8"*** Enough room to display an army!
 
-Another requirement was minimal tooling required as I didn't own much stuff yet after the move, and obviously things like large table saws were out of the question. I ultimately settled on the simple idea of bolting the levels together via pipes and flanges which I found I could order straight from ol' Jeffy Bezza. These pipes would come in a variety of lengths allowing me to set the shelf spacing to whatever I wanted. Each pipe was threaded at both ends and could have a pair of flanges screwed on, creating a sort of I shape. The flanges each have 3 holes so I can bolt them together through the boards and create a stacked load on each of the 4 corners of the shelves.
+Another requirement was minimal tooling required as I didn't own much stuff yet after the move, and obviously things like large table saws were out of the question. I ultimately settled on the simple idea of bolting the levels together via pipes and flanges which I found I could order straight from ol' Jeffy Bezza<FootnoteRef ref="1" anchor="jeffy"/>. These pipes would come in a variety of lengths allowing me to set the shelf spacing to whatever I wanted. Each pipe was threaded at both ends and could have a pair of flanges screwed on, creating a sort of **I** shape. The flanges each have 3 holes so I can bolt them together through the boards and create a stacked load on each of the 4 corners of the shelves.
 
 What I didn't realise that this was some kind of social media trend at the time but apparently I designed the most basic-bitch home DIY shelves imaginable, but I really liked the design! It looked cool and hopefully was quite easy to pull off in a small apartment.
 

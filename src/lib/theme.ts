@@ -14,6 +14,7 @@ export function applyDarkTheme(darkTheme: boolean) {
 			root.style.setProperty('--tertiary', 'var(--dark-grey)');
 			root.style.setProperty('--bg0', 'var(--dark-grey)');
 			root.style.setProperty('--bg1', 'var(--grey)');
+			root.style.setProperty('--caption', 'var(--light-grey)');
 			root.style.setProperty('--highlight', `var(--${get(currentColourTheme)}-bright)`);
 		} else {
 			root.style.setProperty('--primary', 'var(--black)');
@@ -23,6 +24,7 @@ export function applyDarkTheme(darkTheme: boolean) {
 			root.style.setProperty('--tertiary', 'var(--grey)');
 			root.style.setProperty('--bg0', 'var(--light-tan)');
 			root.style.setProperty('--bg1', 'var(--white)');
+			root.style.setProperty('--caption', 'var(--dark-grey)');
 			root.style.setProperty('--highlight', `var(--${get(currentColourTheme)}-dark)`);
 		}
 	}

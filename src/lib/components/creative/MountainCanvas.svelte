@@ -32,7 +32,7 @@
 
 			// canvases are position: absolute; so they float on top of other elements
 			// set height of container to canvases to push other elements down
-			const container = document.getElementById('mountain-canvas-container');
+			const container = document.getElementById('mountain-canvas__container');
 			container?.setAttribute('style', `--canvas-height: ${canvas1.clientHeight}px`);
 		}
 	});
@@ -40,13 +40,13 @@
 	$: mountainScene?.setAnimationSceneValues(progress);
 </script>
 
-<div id="mountain-canvas-container">
+<div id="mountain-canvas__container">
 	<canvas class="scene-canvas" bind:this={canvas1}></canvas>
 	<canvas class="animation-canvas" bind:this={canvas2}></canvas>
 </div>
 
 <style>
-	#mountain-canvas-container {
+	#mountain-canvas__container {
 		position: relative;
 		width: 100%;
 		height: var(--canvas-height);

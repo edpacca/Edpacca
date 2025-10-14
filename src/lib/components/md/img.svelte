@@ -8,11 +8,11 @@
 	let isSquare = false;
 
 	onMount(() => {
-		isSquare = img?.height === img?.width;
+		isSquare = img?.height.toFixed(0) === img?.width.toFixed(0);
 	});
 </script>
 
-<span class="post-image-container">
+<span class="post-image__container">
 	<ZoomImage
 		src={`/images/${src}`}
 		{alt}

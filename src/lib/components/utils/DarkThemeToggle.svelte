@@ -29,7 +29,7 @@
 		width: 2.5em;
 		border-radius: 100%;
 		border: none;
-		transition: var(--transition-time);
+		transition: var(--productive-transition);
 		animation: flipper 300ms ease-out;
 	}
 

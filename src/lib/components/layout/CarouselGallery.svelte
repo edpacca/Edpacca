@@ -50,9 +50,9 @@
 </script>
 
 <svelte:window on:keydown|preventDefault={onKeyDown} />
-<div class="gallery-container">
+<div class="gallery__container">
 	<div
-		class="image-container"
+		class="image__container"
 		style={`height: ${imageHeight}px`}
 		on:click={next}
 		on:contextmenu|preventDefault={previous}
@@ -70,21 +70,21 @@
 		{/key}
 	</div>
 	{#if imagePaths.length > 1}
-		<div class="buttons-container">
+		<div class="buttons__container">
 			<SeekButtons onForward={next} onBackward={previous} />
 		</div>
 	{/if}
 </div>
 
 <style>
-	.gallery-container {
+	.gallery__container {
 		width: 100%;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
 
-	.image-container {
+	.image__container {
 		position: relative;
 		cursor: pointer;
 	}
@@ -116,7 +116,7 @@
 		color: var(--primary);
 	}
 
-	.buttons-container {
+	.buttons__container {
 		width: 100%;
 		display: flex;
 		justify-content: center;
