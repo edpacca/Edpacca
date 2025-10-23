@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils';
+	import { formatDate } from '$lib/utils/date';
 	import PostCoverImage from './PostCoverImage.svelte';
 	import ProjectIconLink from './ProjectIconLink.svelte';
 	export let post: Post;

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { sanitizeScriptTags } from '$lib/utils';
+    import { sanitizeScriptTags } from '$lib/utils/parse';
     import FaIcon from '../utils/FaIcon.svelte';
 	export let footnote: FootnoteMeta;
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import StravaBadge from '$lib/components/strava/StravaBadge.svelte';
-	import { dayOfYear, formatDate } from '$lib/utils';
+	import { dayOfYear, formatDate } from '$lib/utils/date';
 
 	export let target: number;
 	export let current: number;

@@ -1,4 +1,4 @@
-import { randomDirection, randomMinMax } from '../utils';
+import { randomDirection, randomMinMax } from '$lib/utils/maths';
 
 export class Vector2D {
 	x: number;
