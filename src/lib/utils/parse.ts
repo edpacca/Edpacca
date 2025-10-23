@@ -1,5 +1,7 @@
+const scriptTagRegex = /<(\/)?[ ]*[sS][cC][rR][iI][pP][tT][^>]*>/g
+
 export function sanitizeScriptTags (text: string) {
-	return text.replaceAll("<script>", "").replaceAll("</script>", "");
+	return text.replaceAll(scriptTagRegex, "");
 }
 
 export function parsePostFile (file: unknown, path: string): Post | undefined {
