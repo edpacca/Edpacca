@@ -5,7 +5,7 @@ date: 10/09/2023
 projectId: programming
 published: false
 dev: true
-technologies: [Typescript, HTML]
+technologies: [HTML5, Typescript]
 ---
 
 <script>

@@ -5,7 +5,7 @@ date: 01/01/2023
 projectId: programming
 published: false
 dev: true
-technologies: [Typescript, HTML]
+technologies: [Typescript, HTML5]
 ---
 
 ```ts
