@@ -5,13 +5,20 @@
 	export let filterItems: FilterType<T>[];
 	export let selectedIcon: string | undefined = undefined;
 	export let selectedItem: FilterType<T> | undefined = undefined;
+	let select: HTMLSelectElement;
+
+	const onChanged = (subject: T | undefined) => {
+		onFilterChanged(subject);
+		select.blur();
+	}
 </script>
 
 <div class="filter__container">
 	<select
 		class="expandable"
+		bind:this={select}
 		bind:value={selectedItem}
-		on:change={() => onFilterChanged(selectedItem?.filterTarget ?? undefined)}
+		on:change={() => onChanged(selectedItem?.filterTarget ?? undefined)}
 	>
 		<option value={undefined}></option>
 		{#each filterItems as filter (filter.name)}
@@ -40,7 +47,7 @@
 		transition-delay: 0.2s;
 		color: var(--light-grey);
 		font-size: 1.5em;
-		padding: 0.5rem 1rem 0.5rem 1rem;
+		padding: 0.6rem 0.9rem;
 		pointer-events: none;
 	}
 
