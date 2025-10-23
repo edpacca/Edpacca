@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { comparePinnedPosts } from '$lib/utils';
+	import { comparePinnedPosts } from '$lib/utils/post';
 	import TechnologySoup from '$lib/components/creative/TechnologySoup.svelte';
 	import MiniaturesPage from '$lib/pages/MiniaturesPage.svelte';
 	import PostPreview from '$lib/components/posts/PostPreview.svelte';

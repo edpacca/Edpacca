@@ -3,7 +3,7 @@
 	import PostSeriesNavigation from '$lib/components/posts/PostSeriesNavigation.svelte';
 	import BackButton from '$lib/components/utils/BackButton.svelte';
 	import { getProjectData } from '$lib/data/projectData';
-	import { formatDate } from '$lib/utils';
+	import { formatDate } from '$lib/utils/date';
 	let { data } = $props();
 
 	const projectId = data.meta.projectId ?? '';

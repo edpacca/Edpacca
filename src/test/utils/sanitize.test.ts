@@ -1,4 +1,4 @@
-import { sanitizeScriptTags } from '$lib/utils';
+import { sanitizeScriptTags } from '$lib/utils/parse';
 import { test, describe, expect } from 'vitest';
 
 describe('santize', () => {
