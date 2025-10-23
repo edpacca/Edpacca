@@ -13,7 +13,7 @@ const inputs = [
 	'<SCRIPT   >malicious code!</  SCRIPT  >',
 ]
 
-describe('santize', () => {
+describe('santizes script tags', () => {
 	inputs.forEach(input => {
 		const output = sanitizeScriptTags(input);
 		const expectedOutput = 'malicious code!';

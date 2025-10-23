@@ -1,0 +1,35 @@
+[
+    {
+        "title": "Test",
+        "slug": "a-valid-slug",
+        "description": "A valid description",
+        "published": true,
+        "date": "01/04/2021"
+    },
+    {
+        "title": "Testing a longer title",
+        "slug": "a-valid-slug",
+        "description": "A valid description",
+        "published": false,
+        "date": "01/04/2021"
+    },
+    {
+        "title": "Test",
+        "slug": "a-valid-slug",
+        "description": "A valid description",
+        "published": true,
+        "date": "01/04/2021",
+        "icon": "path-to-icon.svg"
+    },
+    {
+        "title": "Testing a longer title",
+        "slug": "a-valid-slug",
+        "description": "A valid description",
+        "published": false,
+        "date": "01/04/2021",
+        "technologies": [
+            "tech1",
+            "tech2"
+        ]
+    }
+]
