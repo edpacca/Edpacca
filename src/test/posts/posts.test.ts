@@ -1,6 +1,7 @@
 import { test, describe, expect } from 'vitest';
 import * as fs from 'fs';
 import path from 'path';
+import { parsePostFile } from '$lib/utils/parse';
 
 const iconCssPath = path.join(
 	__dirname,
@@ -38,18 +39,12 @@ describe('post validation', () => {
 
 	for (const path in paths) {
 		const file = paths[path];
-		const slug = path.split('/').at(-1)?.replace('.md', '');
-		const valid = file && typeof file === 'object' && 'metadata' in file && slug;
+		const post = parsePostFile(file, path);
 
 		test(`post metadata is valid: ${path}`, () => {
-			expect(valid).toBeTruthy();
+			expect(post).toBeTruthy();
 		});
-
-		if (valid) {
-			const metadata = file.metadata as Omit<Post, 'slug'>;
-			const post = { ...metadata, slug } satisfies Post;
-			if (post.published) posts.push(post);
-		}
+		if (post && (post.published || (post.dev ?? false))) posts.push(post);
 	}
 
 	const icons = getCssIcons();
