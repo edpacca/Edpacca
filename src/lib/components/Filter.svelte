@@ -1,4 +1,5 @@
 <script lang="ts" generics="T extends object">
+	import { fade } from 'svelte/transition';
 	import FaIcon from './utils/FaIcon.svelte';
 	import Tooltip from './utils/Tooltip.svelte';
 
@@ -21,7 +22,7 @@
 
 <div class="filter__container">
 	{#if selectedItem}
-		<div class="clear-btn__container">
+		<div class="clear-btn__container" transition:fade>
 			<Tooltip text="clear filter">
 				<button class="clear-btn" on:click={clear}><FaIcon icon="close" /></button>
 			</Tooltip>
@@ -43,7 +44,7 @@
 		{/each}
 	</select>
 	{#if selectedIcon}
-		<div class="icon__container">
+		<div class="icon__container" class:hide={selectedItem == undefined}>
 			<FaIcon icon={selectedIcon} />
 		</div>
 	{/if}
@@ -163,7 +164,28 @@
 		}
 
 		.icon__container {
+			right: 1rem;
+			margin-inline: auto;
+			padding-top: 0.5rem;
+		}
+
+		.icon__container.hide {
 			display: none;
 		}
+
+		label {
+			left: 0;
+			right: 0;
+			margin-inline: auto;
+			margin-top: 0.9rem;
+			width: fit-content;
+			text-wrap: nowrap;
+		}
+
+		.expandable:hover + .icon__container:not(.hide) {
+			color: var(--highlight);
+			display: block;
+		}
+
 	}
 </style>
