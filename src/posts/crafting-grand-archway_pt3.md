@@ -56,8 +56,11 @@ I started out really simple wih a thick slab of 1" pink insulaion foam and marke
 I felt really good glueing this slab onto the top of the build. If I had more hands I'd have taken a photo of the amount of hot glue I used as it was plentiful. I applied the glue to the upside-down slab and then pressed the upside down arch onto it. I found this way gave me more visibility for aligning things evenly - and I ensured I applied it quickly so I had a little bit of time to move the two pieces perfectly into place before the glue set. Insulation foam (as the name might suggest) actually does keep your glue hotter for a little bit longer which made this step a bit easier.
 
 ![Kind of feels like a cake at this stage.](miniatures/arch/build_3/s25_0.webp)
+
+I then started defining the 'bricks' on sides to
+
+![I think they call it 'eyeballing'  the measurements...](miniatures/arch/build_3/s27_0.webp)
 ![](miniatures/arch/build_3/s26_0.webp)
-![](miniatures/arch/build_3/s27_0.webp)
 ![](miniatures/arch/build_3/s28_0.webp)
 ![](miniatures/arch/build_3/s28_1.webp)
 ![](miniatures/arch/build_3/s28_2.webp)
