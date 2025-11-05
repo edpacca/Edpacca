@@ -1,4 +1,4 @@
-import { randRangeRGBString } from "$lib/utils";
+import { randRangeRGBString } from "$lib/utils/colour";
 
 // inspired by
 // https://github.com/PavlyukVadim/amadev/blob/master/RecursiveTree/script.js

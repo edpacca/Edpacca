@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { timeNoun } from "$lib/utils";
+	import { timeNoun } from "$lib/utils/time";
 	import type { Weather } from "$lib/data/weatherData";
 	import { drawTree } from "$lib/canvas/weather/draw/tree";
 	import { drawCharacter } from "$lib/canvas/weather/draw/character";

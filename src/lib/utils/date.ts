@@ -13,3 +13,4 @@ export function dayOfYear(date: Date) {
 	const diff = date.valueOf() - new Date(date.getFullYear(), 0, 0).valueOf();
 	return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
+
