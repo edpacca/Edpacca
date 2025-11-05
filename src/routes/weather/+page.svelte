@@ -1,9 +1,9 @@
 <script lang="ts">
-	import WeatherControls from "$lib/components/weather/WeatherControls.svelte";
+	import WeatherControls from "$lib/components/creative/weather/WeatherControls.svelte";
 	import type { PageData } from "./$types";
 	import Compass from "./Compass.svelte";
 	import Scene from "./Scene.svelte";
-	import { getDirectionFromAngle, getWeatherFromCode } from "../../lib/data/weatherData";
+	import { getDirectionFromAngle, getWeatherFromCode } from "$lib/data/weatherData";
 
 	export let data: PageData;
 
