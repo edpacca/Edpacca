@@ -8,6 +8,8 @@ export class Bluebody extends Animator {
 	orbitCenY: number;
 	orbitRadius: number;
 	orbitBodyRadius: number;
+	canvasWidth: number;
+	canvasHeight: number;
 
 	constructor(
 		context: CanvasRenderingContext2D,
@@ -16,8 +18,12 @@ export class Bluebody extends Animator {
 		orbitCenY: number,
 		orbitRadius: number,
 		orbitBodyRadius: number,
+		canvasWidth: number,
+		canvasHeight: number,
 	) {
 		super(context);
+		this.canvasHeight = canvasHeight;
+		this.canvasWidth = canvasWidth;
 		// ctx.beginPath();
 		// ctx.arc(
 		//     orbitCentreX,
@@ -48,6 +54,9 @@ export class Bluebody extends Animator {
 		const orbitLenY = Math.cos(orbitAngle) * this.orbitRadius;
 		this.orbitPosX = this.orbitCenX - orbitLenX;
 		this.orbitPosY = this.orbitCenY - orbitLenY;
+
+		this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
+
 		if (hours >= 6 && hours < 18) {
 			this.radialGradient = this.getSunRadialGradient(this.ctx, this.orbitPosX, this.orbitPosY, this.orbitBodyRadius);
 		} else {

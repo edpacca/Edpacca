@@ -27,11 +27,15 @@
 	$: controller?.setWeather(weather);
 	$: controller?.setWindspeed(windspeed);
 
+	const setCanavsDims = (canvas: HTMLCanvasElement) => {
+		canvas.width = CANVAS_WIDTH;
+		canvas.height = CANVAS_HEIGHT;
+	}
+
 	onMount(() => {
-		animationCanvas.width = CANVAS_WIDTH;
-		staticCanvas.width = CANVAS_WIDTH;
-		animationCanvas.height = CANVAS_HEIGHT;
-		staticCanvas.height = CANVAS_HEIGHT;
+		setCanavsDims(animationCanvas);
+		setCanavsDims(staticCanvas);
+		setCanavsDims(bluebodyCanvas);
 
 		const orbitCentreX = CANVAS_WIDTH / 2;
 		const orbitCentreY = CANVAS_HEIGHT * 0.9;
@@ -40,8 +44,9 @@
 
 		const animCtx = animationCanvas.getContext("2d");
 		const staticCtx = staticCanvas.getContext("2d");
-		if (animCtx && staticCtx) {
-			bluebody = new Bluebody(staticCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius);
+		const bluebodyCtx = bluebodyCanvas.getContext("2d");
+		if (animCtx && staticCtx && bluebodyCtx) {
+			bluebody = new Bluebody(bluebodyCtx, time, orbitCentreX, orbitCentreY, orbitRadius, orbitBodyRadius, CANVAS_WIDTH, CANVAS_HEIGHT);
 			drawTree(staticCtx, 120, CANVAS_HEIGHT, 80, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
 			drawTree(staticCtx, CANVAS_WIDTH - 400, CANVAS_HEIGHT, 60, -Math.PI / 2, TREE_DEPTH, TREE_BRANCH_THICKNESS);
 			drawCharacter(staticCtx, CANVAS_WIDTH / 2, CANVAS_HEIGHT * 0.8);
