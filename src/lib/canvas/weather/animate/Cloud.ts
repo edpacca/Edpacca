@@ -1,6 +1,6 @@
 import { Animator } from "$lib/canvas/Animator";
 import { Vector2D } from "$lib/mechanics/vector";
-import { randBetween } from "$lib/utils";
+import { randBetween } from "$lib/utils/maths";
 
 const TWO_PI = Math.PI * 2;
 const ORB_SIZE_VARIANCE = [0.8, 1.2];

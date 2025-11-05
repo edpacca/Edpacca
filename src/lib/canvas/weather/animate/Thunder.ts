@@ -1,5 +1,5 @@
 import { Animator } from "$lib/canvas/Animator";
-import { randIntBetween } from "$lib/utils";
+import { randIntBetween } from "$lib/utils/maths";
 
 export class Thunder extends Animator {
 	frequency: number;

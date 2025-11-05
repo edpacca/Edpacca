@@ -4,7 +4,7 @@ import { Rain } from "$lib/canvas/weather/animate/Rain";
 import { Snow } from "$lib/canvas/weather/animate/Snow";
 import { Thunder } from "$lib/canvas/weather/animate/Thunder";
 import { FrameRate } from "$lib/canvas/weather/animate/utils";
-import { randIntBetween } from "$lib/utils";
+import { randIntBetween } from "$lib/utils/maths";
 import { Weather } from "../../lib/data/weatherData";
 
 export class WeatherSceneController extends Animator {
