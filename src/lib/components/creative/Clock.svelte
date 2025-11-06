@@ -35,7 +35,7 @@
 		timeMinutes = (timeMinutes + 1) % 60;
 	}
 	const subtractMinute = () => {
-		timeMinutes = (timeMinutes - 1) % -60;
+		timeMinutes = timeMinutes <= 0 ? 59 : timeMinutes - 1;
 	}
 </script>
 
@@ -50,7 +50,7 @@
 				min="00"
 				max="24"
 				bind:value={timeHours}
-				on:keyup={(e) => enforceMinMax(hourInput, timeHours)}
+				on:change={(e) => enforceMinMax(hourInput, timeHours)}
 			/>
 			<span>:</span>
 			<input
@@ -60,7 +60,7 @@
 				min="00"
 				max="59"
 				bind:value={timeMinutes}
-				on:keyup={(e) => enforceMinMax(minuteInput, timeMinutes)}
+				on:change={(e) => enforceMinMax(minuteInput, timeMinutes)}
 			/>
 		</div>
 		<button class="spinner" on:click={subtractMinute}><FaIcon icon="caret-down"/></button>

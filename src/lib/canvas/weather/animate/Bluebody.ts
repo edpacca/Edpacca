@@ -48,8 +48,13 @@ export class Bluebody extends Animator {
 
 	updateTime(time: Date) {
 		const hours = time.getHours();
-		const moduloTime = hours + (6 % 24);
+		const minutes = time.getMinutes();
+
+		const decimal = hours + (minutes / 60);
+		const moduloTime = decimal + (6 % 24);
 		const orbitAngle = Math.PI - ((((2 * Math.PI) / 24) * moduloTime) % Math.PI) - Math.PI / 2;
+
+
 		const orbitLenX = Math.sin(orbitAngle) * this.orbitRadius;
 		const orbitLenY = Math.cos(orbitAngle) * this.orbitRadius;
 		this.orbitPosX = this.orbitCenX - orbitLenX;
