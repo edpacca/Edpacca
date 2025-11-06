@@ -4,6 +4,7 @@
 	import Compass from "./Compass.svelte";
 	import Scene from "./Scene.svelte";
 	import { getDirectionFromAngle, getWeatherFromCode } from "$lib/data/weatherData";
+	import Clock from "$lib/components/creative/Clock.svelte";
 
 	export let data: PageData;
 
@@ -15,22 +16,24 @@
 	let frameRate: number;
 
 	let showDiagnostics: boolean = true;
-	let setTime: number = time.getHours();
+	let setHours: number = time.getHours();
+	let setMinutes: number = time.getMinutes();
 
-	$: updateTime(setTime);
+	$: updateTime(setHours, setMinutes);
 
-	function updateTime(hour: number) {
+	function updateTime(hour: number, minutes: number) {
 		const newTime = time;
-		newTime?.setHours(hour, 0, 0);
+		newTime?.setHours(hour, minutes, 0);
 		time = newTime;
 	}
 </script>
 
 <div class="weather controls">
 	<WeatherControls bind:currentWeather={weather} />
+	<Clock bind:timeHours={setHours} bind:timeMinutes={setMinutes}/>
 	<div>
-		<input type="range" min="0" max="24" bind:value={setTime} id="settime" />
-		<label for="settime">{setTime}</label>
+		<input type="range" min="0" max="24" bind:value={setHours} id="settime" />
+		<label for="settime">{setHours}</label>
 	</div>
 	<div>
 		<label for="fps">diagnostisc</label>
