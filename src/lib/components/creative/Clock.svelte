@@ -37,6 +37,18 @@
 	const subtractMinute = () => {
 		timeMinutes = timeMinutes <= 0 ? 59 : timeMinutes - 1;
 	}
+
+	let intervalId: undefined | NodeJS.Timeout = undefined;
+	const mouseDown = (fnc: () => {}) => {
+		if (!intervalId) {
+			intervalId = setInterval(fnc, 100);
+		}
+	}
+
+	const mouseup = () => {
+		clearInterval(intervalId);
+		intervalId = undefined;
+	}
 </script>
 
 <div class="clock__container">
