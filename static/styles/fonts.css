@@ -200,3 +200,15 @@
     font-weight: 700;
     font-style: "normal";
 }
+
+/* Silkscreen */
+@font-face {
+    font-family: "Silkscreen";
+    src: url("/fonts/Silkscreen/Silkscreen-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Silkscreen";
+    src: url("/fonts/Silkscreen/Silkscreen-Bold.ttf");
+    font-weight: 700;
+}
