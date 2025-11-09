@@ -23,9 +23,8 @@
 
 <style>
 	.button-row {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-		grid-auto-columns: min-content;
-		margin: auto;
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
 	}
 </style>

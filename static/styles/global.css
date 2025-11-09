@@ -9,8 +9,10 @@
   /* Monochromes */
   --white: rgb(250, 235, 215);
   --white-50: rgba(250, 235, 215, 0.5);
+  --white-25: rgba(250, 235, 215, 0.25);
   --black: rgb(0, 0, 0);
   --black-50: rgb(0, 0, 0, 0.5);
+  --black-25: rgb(0, 0, 0, 0.25);
 
   --light-tan: rgb(220, 215, 200);
   --light-grey: rgb(150, 150, 150);
@@ -20,7 +22,7 @@
 
   /* Themes */
   --gold-bright: rgb(255, 177, 8);
-  --gold-dark: rgb(194, 132, 0);
+  --gold-dark: rgb(155, 107, 3);
   --teal-bright: rgb(18, 235, 152);
   --teal-dark: rgb(4, 168, 105);
   --sky-bright: rgb(124, 207, 255);
@@ -35,8 +37,11 @@
   --secondary: var(--black);
   --tertiary: var(--dark-grey);
   --highlight: var(--gold-bright);
+  --highlight-inverse: var(--gold-dark);
   --primary-50: var(--white-50);
+  --primary-25: var(--white-25);
   --secondary-50: var(--black-50);
+  --secondary-25: var(--black-25);
   --caption: var(--light-grey);
 
   /* Sizes */

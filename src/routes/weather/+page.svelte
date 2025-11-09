@@ -4,7 +4,7 @@
 	import Compass from "./Compass.svelte";
 	import Scene from "./Scene.svelte";
 	import { getDirectionFromAngle, getWeatherFromCode } from "$lib/data/weatherData";
-	import Clock from "$lib/components/creative/Clock.svelte";
+	import Clock from "$lib/components/creative/clock/Clock.svelte";
 
 	export let data: PageData;
 
@@ -28,17 +28,15 @@
 	}
 </script>
 
-<div class="weather controls">
+<div class="controls__container">
 	<WeatherControls bind:currentWeather={weather} />
 	<Clock bind:timeHours={setHours} bind:timeMinutes={setMinutes}/>
-	<div>
-		<input type="range" min="0" max="24" bind:value={setHours} id="settime" />
-		<label for="settime">{setHours}</label>
-	</div>
-	<div>
-		<label for="fps">diagnostisc</label>
-		<input type="checkbox" id="fps" bind:checked={showDiagnostics} />
-	</div>
+	{#if import.meta.env.DEV}
+		<div>
+			<label for="fps">diagnostics</label>
+			<input type="checkbox" id="fps" bind:checked={showDiagnostics} />
+		</div>
+	{/if}
 </div>
 <div class="scene-container">
 	<Scene bind:time {weather} windspeed={data.windspeed / 3} bind:elapsedTime bind:frameRate />
@@ -77,6 +75,14 @@
 		background-color: var(--black-50);
 		padding: 0.4em;
 		border-radius: 6px;
+	}
+
+	.controls__container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
 	}
 
 	.key {
