@@ -8,6 +8,9 @@ dev: true
 icon: institution
 previous: { slug: "crafting-grand-archway_pt2", title: "Part II" }
 next: { slug: "crafting-grand-archway_pt4", title: "Part IV" }
+footnotes:
+    - ref: "1"
+      text: "It turns out the protective coats of paint was quite sticky making it difficult to remove the tiles without causing damage. In hindsight there aren't really many situations where a different patterned tile would make that much of a difference I suppose!"
 ---
 <script>
     import ImgHoverToggle from "../lib/components/utils/ImgHoverToggle.svelte";
@@ -57,19 +60,53 @@ I felt really good glueing this slab onto the top of the build. If I had more ha
 
 ![Kind of feels like a cake at this stage.](miniatures/arch/build_3/s25_0.webp)
 
-I then started defining the 'bricks' on sides to
+I then started adding definition to the strips of foam on the eges, giving them impression they were great slabs. After making a pig's ear of the first one, I measured out the marks on the other sides. Fortunately, mistakes are somewhat easily covered up at this stage with more grout.
 
-![I think they call it 'eyeballing'  the measurements...](miniatures/arch/build_3/s27_0.webp)
-![](miniatures/arch/build_3/s26_0.webp)
-![](miniatures/arch/build_3/s28_0.webp)
-![](miniatures/arch/build_3/s28_1.webp)
-![](miniatures/arch/build_3/s28_2.webp)
-![](miniatures/arch/build_3/s29_0.webp)
-![](miniatures/arch/build_3/s30_0.webp)
-![](miniatures/arch/build_3/s30_1.webp)
-![](miniatures/arch/build_3/s31_0.webp)
-![](miniatures/arch/build_3/s32_0.webp)
-![](miniatures/arch/build_3/s33_0.webp)
-![](miniatures/arch/build_3/s33_1.webp)
-![](miniatures/arch/build_3/s34_0.webp)
-![](miniatures/arch/build_3/s34_1.webp)
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/arch/build_3/s27_0.webp" },
+        { path: "images/miniatures/arch/build_3/s29_0.webp" }
+    ]}
+    caption="Sometimes eyeballing isn't the best approach! Easily fixed though.",
+/>
+
+The next step was to start building some decorative corner pieces to hang down, slightly framing the arches. Without a solid plan for this I just tried a few configurations and though some simple variation in height would make for an interesting design. A further layer with some thinner 'L' shaped bits completed the look. A little bit of tin-foil texturing and these additions really added a depth to the piece that I was very pleased with.
+
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/arch/build_3/s28_0.webp" },
+        { path: "images/miniatures/arch/build_3/s28_2.webp" }
+    ]}
+    caption="Simple, but effective."
+/>
+
+To complete the look I added a further thin strip, a lip, around the whole edge of the roof. The idea here was that I could then build up a rim allowing me to place four of my dungeon tiles on the top - with a snug fit I could then swap them out at any point <FootnoteRef text="for different tiles" anchor="hoarding" ref="1"/>, if I so wished.
+
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/arch/build_3/s30_1.webp" },
+        { path: "images/miniatures/arch/build_3/s31_0.webp" }
+    ]}
+    caption="When it comes to (pseudo)gothic architecture, one can never have enough layers"
+/>
+
+![Measuring out with my existing tiles](miniatures/arch/build_3/s32_0.webp)
+
+I decided that it would be best to cut out a square shape from a single sheet rather than trying to line up 4 seperate pieces - the thought process being that the corners would look cleaner. This also meant the height was the thickness of the foam sheet - which means the tiles will stand slightly proud, whilst being held securely in place. A nice aesthetic touch in my opinion.
+
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/arch/build_3/s33_0.webp" },
+        { path: "images/miniatures/arch/build_3/s33_1.webp" }
+    ]}
+    caption="Could I have been more accurate? I suppose so."
+/>
+
+I decided to cut a tighter 1/2" grid on the tiles and added a circle, which felt a little bit wizardy without going overboard. Although I do have plans for various tile sets with glyphs and summoning circles in the future!
+
+![Four removable 3 inch tiles with a 1/2 inch grid](miniatures/arch/build_3/s34_0.webp)
+
+And with that, the build was complete! At this point the thing had already grown far beyond my wildest expectations for a simple archway. A thoroughly rewarding project. Now to get some paint on that thing!
+
+![The completed build, ready for paint](miniatures/arch/build_3/s34_1.webp)
+
