@@ -85,7 +85,31 @@ export const PAINT_COLOURS: Record<string, PaintColourType> = {
 		range: 'ArmyPainter Speedpaint',
 		code: '#e1cc93',
 		url: 'https://www.thearmypainter.com/shop/us/wp2006p'
-	}
+	},
+	folk_art_craft_paint_1: {
+		name: "folkart1",
+		range: "FolkArt Acrylic Craft Paint",
+		code: '#1b9c96',
+		url: 'https://shopfolkart.com/'
+	},
+	folk_art_craft_paint_2: {
+		name: "folkart2",
+		range: "FolkArt Acrylic Craft Paint",
+		code: '#1b9c96',
+		url: 'https://shopfolkart.com/'
+	},
+	folk_art_craft_paint_3: {
+		name: "folkart3",
+		range: "FolkArt Acrylic Craft Paint",
+		code: '#1b9c96',
+		url: 'https://shopfolkart.com/'
+	},
+	folk_art_craft_paint_4: {
+		name: "folkart4",
+		range: "FolkArt Acrylic Craft Paint",
+		code: '#1b9c96',
+		url: 'https://shopfolkart.com/'
+	},
 };
 
 export const DA_ARMOUR_PAINTS = [
@@ -113,4 +137,11 @@ export const DW_ARMOUR_PAINTS = [
 	PAINT_COLOURS['vallejo_bone_white'],
 	PAINT_COLOURS['burnt_umber_oil_wash'],
 	PAINT_COLOURS['vallejo_pale_sand']
+];
+
+export const ARCH_CRAFT_PAINTS = [
+	PAINT_COLOURS['folk_art_craft_paint_1'],
+	PAINT_COLOURS['folk_art_craft_paint_2'],
+	PAINT_COLOURS['folk_art_craft_paint_3'],
+	PAINT_COLOURS['folk_art_craft_paint_4'],
 ];

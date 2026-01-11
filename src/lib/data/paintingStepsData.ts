@@ -1,9 +1,10 @@
-import { DA_ARMOUR_GALLERY, DW_ARMOUR_GALLERY, HIGHLAND_BASES_GALLERY } from './galleries';
+import { ARCHWAY_PAINTING_GALLERY, DA_ARMOUR_GALLERY, DW_ARMOUR_GALLERY, HIGHLAND_BASES_GALLERY } from './galleries';
 import {
 	DA_ARMOUR_PAINTS,
 	HIGHLAND_BASE_PAINTS,
 	DW_ARMOUR_PAINTS,
-	type PaintColourType
+	type PaintColourType,
+	ARCH_CRAFT_PAINTS
 } from './paintColourData';
 
 export interface PaintingStep {
@@ -193,6 +194,27 @@ export const DW_ARMOUR_INSTRUCTIONS: string[][] = [
 	]
 ];
 
+export const ARCH_PAINTING_INSTRUCTIONS: string[][] = [
+	[
+		"Paint it",
+	],
+	[
+		"Paint it",
+	],
+	[
+		"Paint it",
+	],
+	[
+		"Paint it",
+	],
+	[
+		"Paint it",
+	],
+	[
+		"Paint it",
+	],
+]
+
 export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
 	{
 		paints: [DW_ARMOUR_PAINTS[0]],
@@ -225,3 +247,47 @@ export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
 		imagePath: DW_ARMOUR_GALLERY[7]
 	}
 ];
+
+export const ARCHWAY_RECIPE_STEPS: PaintingStep[] = [
+	{
+		paints: [ARCH_CRAFT_PAINTS[0]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[0],
+		imagePath: ARCHWAY_PAINTING_GALLERY[0]
+	},
+	{
+		paints: [ARCH_CRAFT_PAINTS[1]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[1],
+		imagePath: ARCHWAY_PAINTING_GALLERY[1]
+	},
+		{
+		paints: [ARCH_CRAFT_PAINTS[2]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[2],
+		imagePath: ARCHWAY_PAINTING_GALLERY[2]
+	},
+		{
+		paints: [ARCH_CRAFT_PAINTS[3]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[3],
+		imagePath: ARCHWAY_PAINTING_GALLERY[3]
+	},
+	{
+		paints: [ARCH_CRAFT_PAINTS[0]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[0],
+		imagePath: ARCHWAY_PAINTING_GALLERY[4]
+	},
+	{
+		paints: [ARCH_CRAFT_PAINTS[1]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[1],
+		imagePath: ARCHWAY_PAINTING_GALLERY[5]
+	},
+		{
+		paints: [ARCH_CRAFT_PAINTS[2]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[2],
+		imagePath: ARCHWAY_PAINTING_GALLERY[6]
+	},
+		{
+		paints: [ARCH_CRAFT_PAINTS[3]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[3],
+		imagePath: ARCHWAY_PAINTING_GALLERY[7]
+	},
+
+]

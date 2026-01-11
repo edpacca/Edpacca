@@ -61,6 +61,17 @@ export const DIORAMA_GALLERY = [
 	'/images/miniatures/diorama-strike-at-dawn/diorama-5.webp'
 ];
 
+export const ARCHWAY_PAINTING_GALLERY = [
+	'/images/miniatures/arch/painting/p4_0.webp',
+	'/images/miniatures/arch/painting/p4_1.webp',
+	'/images/miniatures/arch/painting/p4_2.webp',
+	'/images/miniatures/arch/painting/p4_3_p6.webp',
+	'/images/miniatures/arch/painting/p5_0.webp',
+	'/images/miniatures/arch/painting/p5_1.webp',
+	'/images/miniatures/arch/painting/p7_0.webp',
+	'/images/miniatures/arch/painting/p8_0.webp'
+];
+
 // export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/intercessors-alpha.webp"
 export const MINIATURE_SPOTLIGHT_IMG = '/images/miniatures/gallery/dw-knights-all-alpha-small.webp';
 
