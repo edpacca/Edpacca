@@ -86,42 +86,36 @@ export const PAINT_COLOURS: Record<string, PaintColourType> = {
 		code: '#e1cc93',
 		url: 'https://www.thearmypainter.com/shop/us/wp2006p'
 	},
-	folk_art_craft_paint_1: {
-		name: "folkart1",
-		range: "FolkArt Acrylic Craft Paint",
-		code: '#1b9c96',
-		url: 'https://shopfolkart.com/'
+	black: {
+		name: "Black",
+		code: "#000000",
+		range: "acrylic craft paint"
 	},
-	folk_art_craft_paint_2: {
-		name: "folkart2",
-		range: "FolkArt Acrylic Craft Paint",
-		code: '#1b9c96',
-		url: 'https://shopfolkart.com/'
+	white: {
+		name: "White acrylic",
+		code: "#ffffff",
+		range: "acrylic craft paint"
 	},
-	folk_art_craft_paint_3: {
-		name: "folkart3",
-		range: "FolkArt Acrylic Craft Paint",
-		code: '#1b9c96',
-		url: 'https://shopfolkart.com/'
+	graphite: {
+		name: "graphite acrylic",
+		range: "acrylic craft paint",
+		code: '#2a2a2aff',
 	},
-	folk_art_craft_paint_4: {
-		name: "folkart4",
-		range: "FolkArt Acrylic Craft Paint",
-		code: '#1b9c96',
-		url: 'https://shopfolkart.com/'
+	folk_art_bleu_sarcelle: {
+		name: "Bleu Sarcelle",
+		range: "FolkArt Matte craft paint",
+		code: '#008080',
 	},
-	folk_art_craft_paint_5: {
-		name: "folkart4",
-		range: "FolkArt Acrylic Craft Paint",
-		code: '#1b9c96',
-		url: 'https://shopfolkart.com/'
+	americana_thicket: {
+		name: "Thicket",
+		range: "DecoArt Americana craft paint",
+		code: '#4f776eff',
 	},
-	folk_art_craft_paint_6: {
-		name: "folkart4",
-		range: "FolkArt Acrylic Craft Paint",
-		code: '#1b9c96',
-		url: 'https://shopfolkart.com/'
-	},
+	americana_winter_blue: {
+		name: "Winter Blue",
+		range: "DecoArt Americana craft paint",
+		code: '#9ebacf',
+	}
 };
 
 export const DA_ARMOUR_PAINTS = [
@@ -152,10 +146,11 @@ export const DW_ARMOUR_PAINTS = [
 ];
 
 export const ARCH_CRAFT_PAINTS = [
-	PAINT_COLOURS['folk_art_craft_paint_1'],
-	PAINT_COLOURS['folk_art_craft_paint_2'],
-	PAINT_COLOURS['folk_art_craft_paint_3'],
-	PAINT_COLOURS['folk_art_craft_paint_4'],
-	PAINT_COLOURS['folk_art_craft_paint_5'],
-	PAINT_COLOURS['folk_art_craft_paint_6'],
+	PAINT_COLOURS['black'],
+	PAINT_COLOURS['white'],
+	PAINT_COLOURS['graphite'],
+	PAINT_COLOURS['folk_art_bleu_sarcelle'],
+	PAINT_COLOURS['americana_thicket'],
+	PAINT_COLOURS['americana_winter_blue'],
+	PAINT_COLOURS['black_oil_wash'],
 ];

@@ -37,8 +37,11 @@ The top of the thing took a lot more layers before it was looking nice and smoot
     alt="Archway terrain piece"
     title="Archway painting recipe"/>
 
+And there you go. The piece was finally finished. It took a lot longer than I thought, but I learned a ton and the hours sunk were well worth it. When life feels like a lot, having a hobby that takes you to another world is such a blessing. So next time you're having a rough week, I'd highly recommend making a miniature gothic foam archway from scratch... does wonders.
 
 ![View from the top.](miniatures/arch/painting/p7_0.webp)
+
+The piece is nice and weighty due the unspeakable amount of hot glue used to attach all the foam bricks. It's an odd size in the 28mm scale though, but then again all my recent foam creations are slightly oversized. I am going with the idea that my frozen city that I am crafting for playing [FrostGrave](https://www.ospreypublishing.com/us/discover/gaming-resources/frostgrave-stargrave/) was once lived in by giants, who mysteriously vanished and left the place frozen in the ice - only now, a millenia later, beginning to thaw.
 
 <ImgGrid
     imgs={[
