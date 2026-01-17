@@ -69,7 +69,10 @@ export const ARCHWAY_PAINTING_GALLERY = [
 	'/images/miniatures/arch/painting/p5_0.webp',
 	'/images/miniatures/arch/painting/p5_1.webp',
 	'/images/miniatures/arch/painting/p7_0.webp',
-	'/images/miniatures/arch/painting/p8_0.webp'
+	'/images/miniatures/arch/painting/p8_0.webp',
+	'/images/miniatures/arch/painting/p8_1.webp',
+	'/images/miniatures/arch/painting/p8_2.webp',
+	'/images/miniatures/arch/painting/p8_3.webp'
 ];
 
 // export const MINIATURE_SPOTLIGHT_IMG = "/images/miniatures/gallery/intercessors-alpha.webp"

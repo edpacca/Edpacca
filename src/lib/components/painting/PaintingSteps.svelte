@@ -1,15 +1,25 @@
 <script lang="ts">
 	import type { PaintingStep } from '$lib/data/paintingStepsData';
+	import CarouselGallery from '../layout/CarouselGallery.svelte';
 	import PaintPalette from './PaintPalette.svelte';
 	export let paintingSteps: PaintingStep[];
 	export let title = '';
+
+	const showCarousel = (imgPaths: undefined | string[]) => imgPaths && imgPaths.length > 0
 </script>
 
 {#each paintingSteps as paintingStep, i (paintingStep)}
 	<h2>STEP {i + 1}</h2>
 	<div class="instructions">
 		<div class="image__container">
-			<img src={paintingStep.imagePath} alt={`${title} ${i + 1}`} class="gallery-img" />
+			{#if showCarousel(paintingStep.carouselImagePaths)}
+				<CarouselGallery
+					imagePaths={paintingStep.carouselImagePaths!}
+					title={title}
+				/>
+			{:else}
+				<img src={paintingStep.imagePath} alt={`${title} ${i + 1}`} class="gallery-img" />
+			{/if}
 			<div class="paints">
 				<PaintPalette paints={paintingStep.paints} />
 			</div>

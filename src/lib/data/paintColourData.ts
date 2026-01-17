@@ -110,6 +110,18 @@ export const PAINT_COLOURS: Record<string, PaintColourType> = {
 		code: '#1b9c96',
 		url: 'https://shopfolkart.com/'
 	},
+	folk_art_craft_paint_5: {
+		name: "folkart4",
+		range: "FolkArt Acrylic Craft Paint",
+		code: '#1b9c96',
+		url: 'https://shopfolkart.com/'
+	},
+	folk_art_craft_paint_6: {
+		name: "folkart4",
+		range: "FolkArt Acrylic Craft Paint",
+		code: '#1b9c96',
+		url: 'https://shopfolkart.com/'
+	},
 };
 
 export const DA_ARMOUR_PAINTS = [
@@ -144,4 +156,6 @@ export const ARCH_CRAFT_PAINTS = [
 	PAINT_COLOURS['folk_art_craft_paint_2'],
 	PAINT_COLOURS['folk_art_craft_paint_3'],
 	PAINT_COLOURS['folk_art_craft_paint_4'],
+	PAINT_COLOURS['folk_art_craft_paint_5'],
+	PAINT_COLOURS['folk_art_craft_paint_6'],
 ];

@@ -11,6 +11,7 @@ export interface PaintingStep {
 	paints: PaintColourType[];
 	instructions: string[];
 	imagePath: string;
+	carouselImagePaths?: string[];
 }
 
 const DA_ARMOUR_INSTRUCTIONS: string[][] = [
@@ -259,35 +260,34 @@ export const ARCHWAY_RECIPE_STEPS: PaintingStep[] = [
 		instructions: ARCH_PAINTING_INSTRUCTIONS[1],
 		imagePath: ARCHWAY_PAINTING_GALLERY[1]
 	},
-		{
+	{
 		paints: [ARCH_CRAFT_PAINTS[2]],
 		instructions: ARCH_PAINTING_INSTRUCTIONS[2],
 		imagePath: ARCHWAY_PAINTING_GALLERY[2]
 	},
-		{
+	{
 		paints: [ARCH_CRAFT_PAINTS[3]],
 		instructions: ARCH_PAINTING_INSTRUCTIONS[3],
 		imagePath: ARCHWAY_PAINTING_GALLERY[3]
 	},
 	{
-		paints: [ARCH_CRAFT_PAINTS[0]],
-		instructions: ARCH_PAINTING_INSTRUCTIONS[0],
-		imagePath: ARCHWAY_PAINTING_GALLERY[4]
+		paints: [ARCH_CRAFT_PAINTS[4]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[4],
+		imagePath: ARCHWAY_PAINTING_GALLERY[4],
+		carouselImagePaths: [
+			ARCHWAY_PAINTING_GALLERY[4],
+			ARCHWAY_PAINTING_GALLERY[5]
+		]
 	},
 	{
-		paints: [ARCH_CRAFT_PAINTS[1]],
-		instructions: ARCH_PAINTING_INSTRUCTIONS[1],
-		imagePath: ARCHWAY_PAINTING_GALLERY[5]
+		paints: [ARCH_CRAFT_PAINTS[5]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[5],
+		imagePath: ARCHWAY_PAINTING_GALLERY[6],
+		carouselImagePaths: [
+			ARCHWAY_PAINTING_GALLERY[7],
+			ARCHWAY_PAINTING_GALLERY[8],
+			ARCHWAY_PAINTING_GALLERY[9],
+			ARCHWAY_PAINTING_GALLERY[10],
+		]
 	},
-		{
-		paints: [ARCH_CRAFT_PAINTS[2]],
-		instructions: ARCH_PAINTING_INSTRUCTIONS[2],
-		imagePath: ARCHWAY_PAINTING_GALLERY[6]
-	},
-		{
-		paints: [ARCH_CRAFT_PAINTS[3]],
-		instructions: ARCH_PAINTING_INSTRUCTIONS[3],
-		imagePath: ARCHWAY_PAINTING_GALLERY[7]
-	},
-
-]
+];
