@@ -1,7 +1,7 @@
 ---
 title: Grand Archway - part IV
 description: A build blog for my most involved terrain project to date - a large stone archway.
-date: 11/01/2025
+date: 01/17/2026
 projectId: miniatures
 published: false
 dev: true
@@ -18,8 +18,6 @@ previous: { slug: "crafting-grand-archway_pt3", title: "Part III" }
     import PaintingTutorial from "../lib/components/painting/PaintingTutorial.svelte";
     import { ARCH_CRAFT_PAINTS } from "../lib/data/paintColourData";
     import { ARCHWAY_RECIPE_STEPS } from "../lib/data/paintingStepsData";
-
-    const coverImage = "miniatures/arch/painting/p8_3.webp";
 </script>
 
 ![Ready for paint...](miniatures/arch/build_3/s34_1.webp)
@@ -35,11 +33,22 @@ The top of the thing took a lot more layers before it was looking nice and smoot
 
 <PaintingTutorial
     paints={ARCH_CRAFT_PAINTS}
-    coverImage={coverImage}
     paintingSteps={ARCHWAY_RECIPE_STEPS}
     alt="Archway terrain piece"
     title="Archway painting recipe"/>
 
+
+![View from the top.](miniatures/arch/painting/p7_0.webp)
+
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/arch/painting/p8_0.webp" },
+        { path: "images/miniatures/arch/painting/p8_1.webp" },
+        { path: "images/miniatures/arch/painting/p8_2.webp" },
+        { path: "images/miniatures/arch/painting/p8_3.webp" },
+    ]}
+    cols={[1,1,1,1]}
+/>
 
 <!-- ![s](miniatures/arch/painting/p4_0.webp)
 ![df](miniatures/arch/painting/p4_1.webp)
