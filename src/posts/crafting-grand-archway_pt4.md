@@ -44,7 +44,7 @@ And there you go. The piece was finally finished. It took a lot longer than I th
 
 ![View from the top.](miniatures/arch/painting/p7_0.webp)
 
-The piece is nice and weighty due the unspeakable amount of hot glue used to attach all the foam bricks. It's an odd size in the 28mm scale though, but then again all my recent foam creations are slightly oversized. I am going with the idea that my frozen city that I am crafting for playing [FrostGrave](https://www.ospreypublishing.com/us/discover/gaming-resources/frostgrave-stargrave/) was once lived in by giants, who mysteriously vanished and left the place frozen in the ice - only now, a millenia later, beginning to thaw.
+The piece is nice and weighty due the unspeakable amount of hot glue used to attach all the foam bricks. It's an odd size in the 28mm scale though, but then again all my recent foam creations are slightly oversized. I am going with the idea that my frozen city that I am crafting for playing [FrostGrave](https://www.ospreypublishing.com/us/discover/gaming-resources/frostgrave-stargrave/) was once lived in by giants, who mysteriously vanished and left the place frozen in the ice - only now, a millenium later, beginning to thaw.
 
 <ImgGrid
     imgs={[

@@ -87,7 +87,7 @@ While the shapes I was adding were simple, enough variety helps to sell the look
 
 ![Measuring once, cutting twice..](miniatures/arch/build_1/s4_0.webp)
 
-I was enjoying working with the thinner, white foam for detailing, because it was much easier to cut with a knife than the pink stuff. But my gun-ho approach did result in a lot of cutting things after glueing them, trying to be roughly symmetrical.
+I was enjoying working with the thinner, white foam for detailing, because it was much easier to cut with a knife than the pink stuff. But my Gung-ho approach did result in a lot of cutting things after glueing them, trying to be roughly symmetrical.
 
 <ImgGrid
     cols={[1, 1, 1]}

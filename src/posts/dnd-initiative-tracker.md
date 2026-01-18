@@ -1,5 +1,5 @@
 ---
-title: D&D Initaitve Tracker
+title: D&D Initiaitve Tracker
 description: An aesthetic and functional tool for the Dungeon Master to track combat in D&D. A single page, serverless svelte app that makes use of local storage for saving and recovering state between browser sessions.
 date: 05/09/2023
 projectId: programming
