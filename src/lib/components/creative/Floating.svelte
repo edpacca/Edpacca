@@ -9,6 +9,7 @@
 <style>
     .floating__container {
         border: 1px solid red;
+        cursor: pointer;
 
     }
 
@@ -19,13 +20,13 @@
 
     @keyframes float {
         0% {
-            transform: translateY(0em);
+            transform: translateY(0em) skewX(0);
         }
         50% {
-            transform: translateY(1em);
+            transform: translateY(1em) skewX(4deg);
         }
         100% {
-            transform: translateY(0em);
+            transform: translateY(0em) skewX(0);
         }
     }
 </style>
