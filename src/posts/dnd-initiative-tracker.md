@@ -67,3 +67,5 @@ Clicking on the creature's icon will cycle between different types of enemy trac
 The real power of the Minion though is when it comes to damage and conditions. When in combat mode, you can just deal damange and healing directly to a given entity - but additionally all creatures and players have the option to open a modal focussed on that creature, shown below. Here it's a doddle to mange things, especially with the minions.
 
 ![A handful of Goblins is now easy to manage!](dnd-initiative/minions-0.webp)
+
+...writeup to be continued...
