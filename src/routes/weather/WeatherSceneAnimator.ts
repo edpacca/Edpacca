@@ -101,7 +101,7 @@ export class WeatherSceneController extends Animator {
 					randIntBetween(0, this.height / 4),
 					randIntBetween(20, 60),
 					randIntBetween(10, 30),
-					speed,
+					Math.max(1.1, speed),
 					`rgb(${gray}, ${gray}, ${gray})`,
 				),
 			);
