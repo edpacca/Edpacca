@@ -19,7 +19,7 @@ footnotes:
     import ImgGrid from "../lib/components/layout/ImgGrid.svelte";
 </script>
 
-![Where we left things...](/miniatures/arch/build_2/s19_0.webp)
+![Where we left things...](miniatures/arch/build_2/s19_0.webp)
 
 With both sides completed it was looking great, but definitely missing some panache. There were a lot of gaps between my non-perfect cuts of foam that needed filling, and the top needed some detailing. Wanting to consolidate the work I'd already done, before braving more foam, I grabbed some spackle and started slapping it into all the gaps.
 
