@@ -1,16 +1,16 @@
-import { Artist } from '../../lib/canvas/Artist';
+import { Artist } from "../../Artist";
 
-const AMBER = 'rgb(245, 167, 66)';
+const AMBER = "rgb(245, 167, 66)";
 // const DARK_ORANGE = "rgb(200, 100, 100)";
-const WHITE = 'white';
-const BLACK = 'black';
+const WHITE = "white";
+const BLACK = "black";
 // const GREY = "rgb(50, 50, 50)";
-const ORANGE_BROWN = 'rgb(220, 150, 110)';
-const SHADOW_BROWN = 'rgb(120, 80, 20)';
-const DARK_SHADOW_BROWN = 'rgb(71, 50, 44)';
-const DARK_GREY = 'rgb(50, 50, 50)';
-const PINK = 'rgb(220, 100, 150)';
-const DARK_PINK = 'rgb(150, 50, 100)';
+const ORANGE_BROWN = "rgb(220, 150, 110)";
+const SHADOW_BROWN = "rgb(120, 80, 20)";
+const DARK_SHADOW_BROWN = "rgb(71, 50, 44)";
+const DARK_GREY = "rgb(50, 50, 50)";
+const PINK = "rgb(220, 100, 150)";
+const DARK_PINK = "rgb(150, 50, 100)";
 
 export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: number) {
 	const a = new Artist(context, x, y);
@@ -30,7 +30,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 		// chin
 		[-10, 10],
 		[-10, 5],
-		[-10, 0]
+		[-10, 0],
 	];
 
 	const HEAD_PATCH_POINTS: Points = [
@@ -40,7 +40,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 		[10, 35],
 		[-20, -15],
 		[-15, -8],
-		[-20, 0]
+		[-20, 0],
 	];
 
 	const RIGHT_EAR_POINTS: Points = [
@@ -61,7 +61,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 		[-5, -10],
 		[-5, -10],
 		[5, -20],
-		[-5, -20]
+		[-5, -20],
 	];
 
 	const LEFT_EAR_POINTS: Points = [
@@ -79,7 +79,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 		[10, 5],
 		[12, -20],
 		[0, -25],
-		[5, -10]
+		[5, -10],
 	];
 
 	const NOSE: Points = [
@@ -89,7 +89,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 		[-2, 4],
 		[-4, 2],
 		[-3, 0],
-		[-3, -1]
+		[-3, -1],
 	];
 
 	const TONGUE: Points = [
@@ -98,7 +98,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 		[-1, 10],
 		[-4, 5],
 		[-4, 3],
-		[-4, 0]
+		[-4, 0],
 	];
 
 	a.drawShape(HEAD_POINTS, true, 0, 0, 2, ORANGE_BROWN, ORANGE_BROWN);
@@ -109,7 +109,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 	a.endX = a.startX + 20;
 	a.endY = a.startY + 35;
 	context.bezierCurveTo(a.startX, a.startY, a.startX, a.startY + 15, a.endX, a.endY);
-	context.lineCap = 'round';
+	context.lineCap = "round";
 	context.lineWidth = 4;
 	context.strokeStyle = SHADOW_BROWN;
 	context.stroke();
@@ -119,7 +119,7 @@ export function drawCharacter(context: CanvasRenderingContext2D, x: number, y: n
 	a.endX = a.startX - 20;
 	a.endY = a.startY + 35;
 	context.bezierCurveTo(a.startX, a.startY, a.startX, a.startY + 15, a.endX, a.endY);
-	context.lineCap = 'round';
+	context.lineCap = "round";
 	context.lineWidth = 4;
 	context.strokeStyle = SHADOW_BROWN;
 	context.stroke();
@@ -178,7 +178,7 @@ function drawFaceLines(context: CanvasRenderingContext2D, x: number, y: number) 
 	endY = startY - 5;
 	context.bezierCurveTo(startX, startY, startX - 2, startY - 7, endX, endY);
 
-	context.lineCap = 'round';
+	context.lineCap = "round";
 	context.lineWidth = 4;
 	context.strokeStyle = SHADOW_BROWN;
 	context.stroke();
