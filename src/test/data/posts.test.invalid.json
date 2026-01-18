@@ -1,0 +1,46 @@
+[
+    {
+        "slug": "missing-title",
+        "description": "A valid description",
+        "published": true,
+        "date": "01/04/2021"
+    },
+    {
+        "title": "missing slug",
+        "description": "A valid description",
+        "published": false,
+        "date": "01/04/2021"
+    },
+    {
+        "title": "Test",
+        "slug": "missing description",
+        "published": true,
+        "date": "01/04/2021"
+    },
+    {
+        "title": "missing published",
+        "slug": "a-valid-slug",
+        "description": "A valid description",
+        "date": "01/04/2021"
+    },
+    {
+        "title": "Missing date",
+        "slug": "a-valid-slug",
+        "description": "A valid description",
+        "published": true
+    },
+    {
+        "title": 123,
+        "slug": "title is number",
+        "description": "A valid description",
+        "published": false,
+        "date": "01/04/2021"
+    },
+    {
+        "title": "date is numnber",
+        "slug": "title is number",
+        "description": "A valid description",
+        "published": false,
+        "date": 112394912
+    }
+]

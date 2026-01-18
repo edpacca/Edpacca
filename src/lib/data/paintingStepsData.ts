@@ -1,15 +1,17 @@
-import { DA_ARMOUR_GALLERY, DW_ARMOUR_GALLERY, HIGHLAND_BASES_GALLERY } from './galleries';
+import { ARCHWAY_PAINTING_GALLERY, DA_ARMOUR_GALLERY, DW_ARMOUR_GALLERY, HIGHLAND_BASES_GALLERY } from './galleries';
 import {
 	DA_ARMOUR_PAINTS,
 	HIGHLAND_BASE_PAINTS,
 	DW_ARMOUR_PAINTS,
-	type PaintColourType
+	type PaintColourType,
+	ARCH_CRAFT_PAINTS
 } from './paintColourData';
 
 export interface PaintingStep {
 	paints: PaintColourType[];
 	instructions: string[];
 	imagePath: string;
+	carouselImagePaths?: string[];
 }
 
 const DA_ARMOUR_INSTRUCTIONS: string[][] = [
@@ -193,6 +195,36 @@ export const DW_ARMOUR_INSTRUCTIONS: string[][] = [
 	]
 ];
 
+export const ARCH_PAINTING_INSTRUCTIONS: string[][] = [
+	[
+		"Mix acrylic craft paint with modge-podge, or equivalent PVA glue.",
+		"This is well known combo in the terrain crafting world, to provide both a protective coat over the foam and a base coat.",
+		"It will be very tacky and shiny at this stage.",
+	],
+	[
+		"Keeping things simple, a heavy drybrush with white.",
+		"I would recommend getting some mid-range acrylic craft paint for this  rather than the cheapest one, it will make a difference.",
+		"The trick is to keep your brush a little moist. You can achieve this by rubbing the paint off on a piece of cardboard rather than a paper towel, which tends to absorb the moisture.",
+		"You can see that I didn't really get a smooth application, but this is terrain! Texture is good.",
+	],
+	[
+		"The fun bit - pick some colours you like and stab random patches all over the piece.",
+		"I chose cold greeny-blue to give the feel I was after: an ancient, dank frostbitten city.",
+		"Really you can pick any colours you want. I find that having a slight variaion in hue can go a long way to adding depth and character to the paint job.",
+	],
+	[
+		"Although it was looking very bright and saturated at this stage, I punched it up a step futher with another dry brush with a pale blue.",
+		"I also added some random patches in the same way as the previous step, but less dense as this colour stands out a lot.",
+	],
+	[
+		"And the final step to bring it all back down to earth - a lovely black oil wash.",
+		"Oil washes on terrain pieces are an incredible way to deepen shadows and bring out all the fine details.",
+		"You can also use watered down acrylic, but I find oils give a deeper finish - I was going to say saturated, but this is black!",
+		"I let it dry for a few hours before wiping off what I could from the surface.",
+		"The final result is back to being quite grey, but the subtle colours add a lot I think."
+	],
+]
+
 export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
 	{
 		paints: [DW_ARMOUR_PAINTS[0]],
@@ -224,4 +256,45 @@ export const DW_ARMOUR_RECIPE_STEPS: PaintingStep[] = [
 		instructions: DW_ARMOUR_INSTRUCTIONS[5],
 		imagePath: DW_ARMOUR_GALLERY[7]
 	}
+];
+
+export const ARCHWAY_RECIPE_STEPS: PaintingStep[] = [
+	{
+		paints: [ARCH_CRAFT_PAINTS[0]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[0],
+		imagePath: ARCHWAY_PAINTING_GALLERY[0]
+	},
+	{
+		paints: [ARCH_CRAFT_PAINTS[1]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[1],
+		imagePath: ARCHWAY_PAINTING_GALLERY[3]
+	},
+	{
+		paints: [
+			ARCH_CRAFT_PAINTS[2],
+			ARCH_CRAFT_PAINTS[3],
+		],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[2],
+		imagePath: ARCHWAY_PAINTING_GALLERY[2]
+	},
+	{
+		paints: [ARCH_CRAFT_PAINTS[4]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[3],
+		imagePath: ARCHWAY_PAINTING_GALLERY[4],
+		carouselImagePaths: [
+			ARCHWAY_PAINTING_GALLERY[4],
+			ARCHWAY_PAINTING_GALLERY[5]
+		]
+	},
+	{
+		paints: [ARCH_CRAFT_PAINTS[5]],
+		instructions: ARCH_PAINTING_INSTRUCTIONS[4],
+		imagePath: ARCHWAY_PAINTING_GALLERY[6],
+		carouselImagePaths: [
+			ARCHWAY_PAINTING_GALLERY[7],
+			ARCHWAY_PAINTING_GALLERY[8],
+			ARCHWAY_PAINTING_GALLERY[9],
+			ARCHWAY_PAINTING_GALLERY[10],
+		]
+	},
 ];

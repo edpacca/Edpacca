@@ -1,13 +1,21 @@
+import { parsePostFile } from '$lib/utils/parse.js';
+import { canLoadPost } from '$lib/utils/post.js';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
 	try {
-		const post = await import(`../../posts/${params.slug}.md`);
+		const file = await import(`../../posts/${params.slug}.md`);
+		const post = parsePostFile(file, params.slug);
+
+		if (!canLoadPost(post)) {
+			throw new Error(`cannot load post: ${params.slug}`)
+		}
 
 		return {
-			content: post.default,
-			meta: post.metadata
+			content: file.default,
+			meta: file.metadata
 		};
+
 	} catch (e) {
 		console.error(e);
 		error(404, `Hmmm couldn't find ${params.slug}`);

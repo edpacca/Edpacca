@@ -129,7 +129,7 @@ So there you have it. The well good well. A simple throwaway project that turned
 
 ---
 
-### <a name="chemistry">Pub chemistry <sup>1</sup></a> <FaIcon icon="flask"/>
+### <a id="chemistry">Pub chemistry <sup>1</sup></a> <FaIcon icon="flask"/>
 
 **_Caveat - "Pub chemistry" implies this is the rubbish I would be happy (and likely) to spew forth excitedly over a pint of ale, and should be taken as such. I 'cite' Wikipedia and other pages as general and digestible references for particular concepts. Most scientific papers are sadly hidden behind paywalls anyway. Do *not* quote this as it simply represents my intuition. After all I am building a well out of chopsticks for my plastic wizards... That being said, fire me an email if you have a better explanation and I'll happily quote and credit you!_**
 

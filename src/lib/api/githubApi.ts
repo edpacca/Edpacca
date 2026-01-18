@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { EXTERNAL_CODE_LANGS, getLangShortName } from './data/codeLangData';
+import { EXTERNAL_CODE_LANGS, getLangShortName } from '../data/codeLangData';
 
 export async function ghGet(url: string, token: string) {
 	return await fetch(url, {

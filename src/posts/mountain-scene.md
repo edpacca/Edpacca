@@ -3,9 +3,9 @@ title: Mountain Scene - HTML Canvas
 description: A canvas scene used to track my running progress
 date: 10/09/2023
 projectId: programming
-# published: true
+published: false
 dev: true
-technologies: [Typescript, HTML]
+technologies: [HTML5, Typescript]
 ---
 
 <script>

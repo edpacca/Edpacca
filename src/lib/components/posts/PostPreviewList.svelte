@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { PROJECTS } from '$lib/data/projectData';
-	import { comparePinnedPosts } from '$lib/utils';
+	import { comparePinnedPosts } from '$lib/utils/post';
 	export let posts: Post[];
 	import PostPreview from './PostPreview.svelte';
 	import ProjectFilter from '$lib/components/ProjectFilter.svelte';

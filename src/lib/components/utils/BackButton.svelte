@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { grow } from '$lib/utils';
+	import { grow } from '$lib/utils/animation';
 	import FaIcon from './FaIcon.svelte';
 
 	export let text: string;

@@ -1,4 +1,4 @@
-import { Artist } from '../../Artist';
+import { Artist } from './Artist';
 import { drawCircle } from './canvasUtils';
 import { TREE_LINE_LEFT, TREE_LINE_RIGHT } from '../data/mountainSceneData';
 

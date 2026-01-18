@@ -1,4 +1,4 @@
-import { Artist } from '../../Artist';
+import { Artist } from '../../lib/canvas/Artist';
 
 const AMBER = 'rgb(245, 167, 66)';
 // const DARK_ORANGE = "rgb(200, 100, 100)";

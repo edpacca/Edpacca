@@ -85,6 +85,36 @@ export const PAINT_COLOURS: Record<string, PaintColourType> = {
 		range: 'ArmyPainter Speedpaint',
 		code: '#e1cc93',
 		url: 'https://www.thearmypainter.com/shop/us/wp2006p'
+	},
+	black: {
+		name: "Black",
+		code: "#000000",
+		range: "acrylic craft paint"
+	},
+	white: {
+		name: "White acrylic",
+		code: "#ffffff",
+		range: "acrylic craft paint"
+	},
+	graphite: {
+		name: "graphite acrylic",
+		range: "acrylic craft paint",
+		code: '#2a2a2aff',
+	},
+	folk_art_bleu_sarcelle: {
+		name: "Bleu Sarcelle",
+		range: "FolkArt Matte craft paint",
+		code: '#008080',
+	},
+	americana_thicket: {
+		name: "Thicket",
+		range: "DecoArt Americana craft paint",
+		code: '#4f776eff',
+	},
+	americana_winter_blue: {
+		name: "Winter Blue",
+		range: "DecoArt Americana craft paint",
+		code: '#9ebacf',
 	}
 };
 
@@ -113,4 +143,13 @@ export const DW_ARMOUR_PAINTS = [
 	PAINT_COLOURS['vallejo_bone_white'],
 	PAINT_COLOURS['burnt_umber_oil_wash'],
 	PAINT_COLOURS['vallejo_pale_sand']
+];
+
+export const ARCH_CRAFT_PAINTS = [
+	PAINT_COLOURS['black'],
+	PAINT_COLOURS['white'],
+	PAINT_COLOURS['folk_art_bleu_sarcelle'],
+	PAINT_COLOURS['americana_thicket'],
+	PAINT_COLOURS['americana_winter_blue'],
+	PAINT_COLOURS['black_oil_wash'],
 ];
