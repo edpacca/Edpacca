@@ -18,9 +18,12 @@
 			>
 				<a href="/projects">Projects</a>
 			</li>
-			<!-- <li aria-current={$page.url.pathname.startsWith('/weather') ? 'page' : undefined}>
+			<li aria-current={$page.url.pathname.startsWith('/weather') ? 'page' : undefined}>
 				<a href="/weather">Weather</a>
-			</li> -->
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('/devtest') ? 'page' : undefined}>
+				<a href="/devtest">Backend</a>
+			</li>
 			<!-- <li aria-current={$page.url.pathname.startsWith('/cv') ? 'page' : undefined}>
 				<a href="https://edpacca.github.io/cv">CV</a>
 			</li> -->
