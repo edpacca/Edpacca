@@ -66,8 +66,8 @@ The pink, thicker foam bricks were a lot easier to get sized up for the two side
 
 Then it was a simple job of cutting a piece to cover the remaining card and marking up the rest of the bricks to make it look cohesive with the existing sides. I didn't end up implementing the diamond shapes that I drew in the initial design because I had already had some ideas about the roof - I didn't think there would be enough space for them to look good in the end.
 
-![The 'facade'.](/miniatures/arch/build_2/s16_0.webp)
-![The edge where the two foam pieces meet would need covering.](/miniatures/arch/build_2/s17_0.webp)
+![The 'facade'.](miniatures/arch/build_2/s16_0.webp)
+![The edge where the two foam pieces meet would need covering.](miniatures/arch/build_2/s17_0.webp)
 
 `Now I was really starting to get buzzed - this was by far the <FootnoteRef text="coolest piece of terrain" ref="2" anchor="well"/> I'd ever put together - And I wasn't even finished. Because the outside was looking great, it felt right to cover the disgusting exposed cardboad on the inside. I cut some pink pillars to go in the corners and took a few attempts to get the interior facades cut just right, so the gaps were minimal - although I wasn't holding myself to too high of a standard here.
 
@@ -83,7 +83,7 @@ Then it was a simple job of cutting a piece to cover the remaining card and mark
 
 Obviously I would measure the pieces out and score the bricks before glueing it in place. The extra effort to do the inside really paid off and the piece hard started to feel great to hold and look at - although it was a little wobbly on the table.
 
-![Hmmm.. we can do better than that.](/miniatures/arch/build_2/s20_0.webp)
+![Hmmm.. we can do better than that.](miniatures/arch/build_2/s20_0.webp)
 
 To stabilise the bottom I then cut and glued squares of cardstock on the feet and underside of the roof. I had thought to try some intricate dome shape with bricks - but I'm not _that_ crazy... yet.
 
@@ -100,7 +100,7 @@ However I was crazy enough to realise that even though no one would ever see the
 
 After inserting and glueing this floor/ceiling bit in I was really starting to feel accomplished! The piece was really getting some weight and heft to it which made it feel more substantial. Despite being an amalgamation of insulation foam, hot glue and cardboard it was almost.. *art*?
 
-![Really coming together at this point!](/miniatures/arch/build_2/s19_0.webp)
+![Really coming together at this point!](miniatures/arch/build_2/s19_0.webp)
 
 I decided this was a good place to leave it for this 'episode'. [Part III](crafting-grand-archway_pt3) covers the roof and "edge bits".
 

@@ -19,7 +19,7 @@ footnotes:
     import ImgGrid from "../lib/components/layout/ImgGrid.svelte";
 </script>
 
-![Where we left things...](/miniatures/arch/build_2/s19_0.webp)
+![Where we left things...](miniatures/arch/build_2/s19_0.webp)
 
 With both sides completed it was looking great, but definitely missing some panache. There were a lot of gaps between my non-perfect cuts of foam that needed filling, and the top needed some detailing. Wanting to consolidate the work I'd already done, before braving more foam, I grabbed some spackle and started slapping it into all the gaps.
 
@@ -59,7 +59,7 @@ I felt really good glueing this slab onto the top of the build. If I had more ha
 
 ![Kind of feels like a cake at this stage.](miniatures/arch/build_3/s25_0.webp)
 
-I then started adding definition to the strips of foam on the eges, giving them impression they were great slabs. After making a pig's ear of the first one, I measured out the marks on the other sides. Fortunately, mistakes are somewhat easily covered up at this stage with more grout.
+I then started adding definition to the strips of foam on the edges, giving them impression they were great slabs. After making a pig's ear of the first one, I measured out the marks on the other sides. Fortunately, mistakes are somewhat easily covered up at this stage with more grout.
 
 <ImgGrid
     imgs={[

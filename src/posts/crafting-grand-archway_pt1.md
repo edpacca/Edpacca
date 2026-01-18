@@ -10,7 +10,7 @@ next:
     title: "Part II"
 footnotes:
     - ref: "1"
-      title: "hoarding"
+      anchor: "hoarding"
       titleIcon: "cubes"
       text: "A key skill of any terrain crafter is identifying 'potentially useful' pieces of rubbish/garbage/trash. However, if living with a partner, you must also become proficient in convinving _them_ that there is some use for it. The problem is you just don't know exactly what it could be yet..."
 ---
@@ -87,7 +87,7 @@ While the shapes I was adding were simple, enough variety helps to sell the look
 
 ![Measuring once, cutting twice..](miniatures/arch/build_1/s4_0.webp)
 
-I was enjoying working with the thinner, white foam for detailing, because it was much easier to cut with a knife than the pink stuff. But my gun-ho approach did result in a lot of cutting things after glueing them, trying to be roughly symmetrical.
+I was enjoying working with the thinner, white foam for detailing, because it was much easier to cut with a knife than the pink stuff. But my Gung-ho approach did result in a lot of cutting things after glueing them, trying to be roughly symmetrical.
 
 <ImgGrid
     cols={[1, 1, 1]}
