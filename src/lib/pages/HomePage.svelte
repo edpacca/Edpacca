@@ -5,12 +5,13 @@ import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
 
 <section>
 	<MagicIconSelector/>
+	<OpenCloseBook />
 
 	<div class="text-over">
 		<img class="wizard" src="images/wizard-grenade/wizard.webp" alt="wizard pixel art" />
 		<h1>Hi</h1>
 	</div>
-	<p>I'm Eddie. Welcome to my corner of the internet.</p>
+	<!-- <p>I'm Eddie. Welcome to my corner of the internet.</p>
 	<p>
 		I have many interests, both creative and technical - usually involving wizards. Over the years
 		I've found it harder to keep track of all my projects, so I decided to document them here. This
@@ -18,10 +19,7 @@ import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
 			>'post factum'</em
 		>.
 	</p>
-	<p>See <a href="/projects">Projects</a> for posts by category.</p>
-	<p>
-		<OpenCloseBook />
-	</p>
+	<p>See <a href="/projects">Projects</a> for posts by category.</p> -->
 </section>
 
 <style>
