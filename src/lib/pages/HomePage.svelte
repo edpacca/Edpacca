@@ -1,8 +1,11 @@
 <script>
-	import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
+	import MagicIconSelector from '$lib/components/creative/MagicIconSelector.svelte';
+import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
 </script>
 
 <section>
+	<MagicIconSelector/>
+
 	<div class="text-over">
 		<img class="wizard" src="images/wizard-grenade/wizard.webp" alt="wizard pixel art" />
 		<h1>Hi</h1>
