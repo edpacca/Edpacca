@@ -3,8 +3,7 @@ title: Grand Archway - part IV
 description: A build blog for my most involved terrain project to date - a large stone archway.
 date: 01/17/2026
 projectId: miniatures
-published: false
-dev: true
+published: true
 icon: institution
 previous: { slug: "crafting-grand-archway_pt3", title: "Part III" }
 ---
@@ -31,6 +30,10 @@ The top of the thing took a lot more layers before it was looking nice and smoot
 
 ![It took several layers to get the top nice and smooth](miniatures/arch/painting/p3_0.webp)
 
+I had time to use the piece in a game of [FrostGrave](https://www.ospreypublishing.com/us/discover/gaming-resources/frostgrave-stargrave/). It certainly adds some height, although the scale could perhaps be a bit smaller.
+
+![The arch in action before being painted]()
+
 <PaintingTutorial
     paints={ARCH_CRAFT_PAINTS}
     paintingSteps={ARCHWAY_RECIPE_STEPS}
@@ -53,14 +56,4 @@ The piece is nice and weighty due the unspeakable amount of hot glue used to att
     cols={[1,1,1,1]}
 />
 
-<!-- ![s](miniatures/arch/painting/p4_0.webp)
-![df](miniatures/arch/painting/p4_1.webp)
-![aa](miniatures/arch/painting/p4_2.webp)
-![asd](miniatures/arch/painting/p4_3_p6.webp)
-![capasd](miniatures/arch/painting/p5_0.webp)
-![](miniatures/arch/painting/p5_1.webp)
-![](miniatures/arch/painting/p7_0.webp)
-![](miniatures/arch/painting/p8_0.webp)
-![](miniatures/arch/painting/p8_1.webp)
-![](miniatures/arch/painting/p8_2.webp)
-![](miniatures/arch/painting/p8_3.webp) -->
+I finished this in January 2025 but it took me a while to get around to writing it up. I have had the arch sitting somewhere nearby me on display for about a year, and I am pleased whenever I look at it. But writing this has reminded me just much how much work went into it. A glorious journey of discovery, flow state and hot glue.

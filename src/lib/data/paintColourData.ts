@@ -148,7 +148,6 @@ export const DW_ARMOUR_PAINTS = [
 export const ARCH_CRAFT_PAINTS = [
 	PAINT_COLOURS['black'],
 	PAINT_COLOURS['white'],
-	PAINT_COLOURS['graphite'],
 	PAINT_COLOURS['folk_art_bleu_sarcelle'],
 	PAINT_COLOURS['americana_thicket'],
 	PAINT_COLOURS['americana_winter_blue'],

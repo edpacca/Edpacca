@@ -271,14 +271,14 @@ export const ARCHWAY_RECIPE_STEPS: PaintingStep[] = [
 	},
 	{
 		paints: [
+			ARCH_CRAFT_PAINTS[2],
 			ARCH_CRAFT_PAINTS[3],
-			ARCH_CRAFT_PAINTS[4],
 		],
 		instructions: ARCH_PAINTING_INSTRUCTIONS[2],
 		imagePath: ARCHWAY_PAINTING_GALLERY[2]
 	},
 	{
-		paints: [ARCH_CRAFT_PAINTS[5]],
+		paints: [ARCH_CRAFT_PAINTS[4]],
 		instructions: ARCH_PAINTING_INSTRUCTIONS[3],
 		imagePath: ARCHWAY_PAINTING_GALLERY[4],
 		carouselImagePaths: [
@@ -287,7 +287,7 @@ export const ARCHWAY_RECIPE_STEPS: PaintingStep[] = [
 		]
 	},
 	{
-		paints: [ARCH_CRAFT_PAINTS[6]],
+		paints: [ARCH_CRAFT_PAINTS[5]],
 		instructions: ARCH_PAINTING_INSTRUCTIONS[4],
 		imagePath: ARCHWAY_PAINTING_GALLERY[6],
 		carouselImagePaths: [
