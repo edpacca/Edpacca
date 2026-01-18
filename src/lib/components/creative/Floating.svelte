@@ -8,8 +8,8 @@
 
 <style>
     .floating__container {
-        border: 1px solid red;
         cursor: pointer;
+        color: var(--highlight);
 
     }
 
@@ -23,7 +23,7 @@
             transform: translateY(0em) skewX(0);
         }
         50% {
-            transform: translateY(1em) skewX(4deg);
+            transform: translateY(0.5em) skewX(4deg);
         }
         100% {
             transform: translateY(0em) skewX(0);
