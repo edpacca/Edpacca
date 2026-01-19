@@ -24,6 +24,8 @@
 <style>
 	h1 {
 		margin-bottom: 0.5rem;
+		position: relative;
+		z-index: 2;
 	}
 
 	.wizard {
@@ -32,7 +34,7 @@
 		right: 0;
 		top: -1rem;
 		margin: auto;
-		z-index: -1;
+		z-index: 1;
 		text-align: center;
 		animation: pop-in 360ms ease-in-out;
 	}
