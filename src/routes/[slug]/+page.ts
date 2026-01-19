@@ -7,7 +7,7 @@ export async function load({ params }) {
 		const file = await import(`../../posts/${params.slug}.md`);
 		const post = parsePostFile(file, params.slug);
 
-		if (!canLoadPost(post)) {
+		if (!canLoadPost(post, import.meta.env.PROD)) {
 			throw new Error(`cannot load post: ${params.slug}`)
 		}
 

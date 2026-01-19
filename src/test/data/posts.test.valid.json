@@ -30,6 +30,7 @@
         "technologies": [
             "tech1",
             "tech2"
-        ]
+        ],
+        "dev": true
     }
 ]

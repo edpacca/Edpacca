@@ -4,7 +4,6 @@ description: I made a miniature diorama for a good friend of mine.
 date: 01/18/2025
 projectId: miniatures
 published: true
-dev: true
 icon: umbrella-beach
 coverImage: miniatures/diorama-strike-at-dawn/diorama-backdrop.webp
 footnotes:

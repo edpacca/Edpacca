@@ -11,7 +11,7 @@ async function getPosts() {
 	for (const path in paths) {
 		const file = paths[path];
 		const post = parsePostFile(file, path);
-		post && canLoadPost(post) && posts.push(post);
+		post && canLoadPost(post, import.meta.env.PROD) && posts.push(post);
 	}
 
 	posts = posts.sort(
