@@ -80,8 +80,16 @@ export const MINIATURE_SPOTLIGHT_IMG = '/images/miniatures/gallery/dw-knights-al
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
 	{
-		path: '/images/miniatures/arch/build_1/s6_0.webp',
+		path: '/images/miniatures/dw-librarian/finished-0-alpha.webp',
+		alt: 'Deathwing Librarian',
+	},
+	{
+		path: '/images/miniatures/arch/painting/p8_0.webp',
 		alt: 'The Grand Archway'
+	},
+	{
+		path: '/images/miniatures/diorama-strike-at-dawn/diorama-backdrop.webp',
+		alt: 'Diorama: Strike at Dawn'
 	},
 	{
 		path: '/images/miniatures/diorama-strike-at-dawn/diorama-0.webp',
@@ -97,10 +105,15 @@ export const MINIATURE_GALLERY: ImageMetadata[] = [
 		wide: true
 	},
 	{
+		path: '/images/miniatures/gallery/frostgrave-dude.webp',
+		alt: 'Tower Shield',
+	},
+	{
 		path: '/images/miniatures/gallery/deathwing2-alpha.webp',
 		alt: 'Ebay rescued Deathwing Terminators',
 		wide: true
 	},
+
 	{
 		path: '/images/miniatures/gallery/intercessors-alpha.webp',
 		alt: 'Primaris Intercessors',
@@ -123,6 +136,10 @@ export const MINIATURE_GALLERY: ImageMetadata[] = [
 	{
 		path: '/images/miniatures/gallery/ravenwing-sergeant-alpha.webp',
 		alt: 'Ravenwing Sergeant'
+	},
+	{
+		path: '/images/miniatures/gallery/jerymiah-and-grim.webp',
+		alt: 'Jerymiah Snagglebark and \'Grim\''
 	},
 	{
 		path: '/images/miniatures/gallery/ezekiel-alpha.webp',
