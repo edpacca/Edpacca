@@ -1,10 +1,9 @@
 ---
 title: First Diorama - Strike at Dawn
 description: I made a miniature diorama for a good friend of mine.
-date: 01/18/2025
+date: 01/18/2026
 projectId: miniatures
 published: true
-dev: true
 icon: umbrella-beach
 coverImage: miniatures/diorama-strike-at-dawn/diorama-backdrop.webp
 footnotes:
@@ -67,35 +66,44 @@ The campfire is just pieces of sprue, shaved at jaunty angles to try to play int
 
 I was already pleased with the outcome - it had this anticlockwise spiral moving up from the flattened area up to the edge of the cliff.
 
-I wanted to draw the eye up from the campsite to the top of the cliff, and tried a few things before settling on a wee cat critter. This came from the [Frostgrave](https://www.ospreypublishing.com/uk/frostgrave-second-edition-9781472834683/) [Wizards II](https://www.northstarfigures.com/prod.php?prod=14244) sprue and really helps to tell the story of this piece. Cats tend to be associated with the night time, and I think it turns the perception of what this guy's mission might be - initially I was thinking a clandestine assassination but now perhaps he is delivering an important message, or maybe still in the darker realm of things, planting a shamanic cursed item within the Lord's abode...
+I wanted to draw the eye up from the campsite to the top of the cliff, and tried a few things before settling on a wee cat critter. This came from the [Frostgrave](https://www.ospreypublishing.com/uk/frostgrave-second-edition-9781472834683/) [Wizards II](https://www.northstarfigures.com/prod.php?prod=14244) sprue and really helps to tell the story of this piece. Cats tend to be associated with the night time, and I think it turns the perception of what this guy's mission might be - initially I was thinking a clandestine assassination but now perhaps he is delivering an important message. Or perhaps on the darker side of things, he intends to plant a cursed shamanic totem within the corrupt Lord's abode... although, why wait until dawn for that? wouldn't you want to break in during... ah nevermind.
 
 ![The cat critter surveys the valley](miniatures/diorama-strike-at-dawn/base-4.webp)
 
 # Painting the base
 
-I wish I had more photos of this process, but I put it together quite quickly in the end. I began with watered down browns, purples, greens and even a bit of khaki just building up thin layers and blending the hell out of them.
+When it came to painting, I knew I wanted to create a red OSL effect for the campfire. I'd been reading that the best way to get vibrancy was to use a light undercoat. So I took a can of bone colour (lightest spray I had) and applied a target spritz to the front of the base.
 
-Then to try to achieve a moonlight glow I built up a light blue drybrush over the whole backside of the piece. I also dusted the plants with the same blue to tie them into the piece, after they were attached of course.
+I applied a few watered down coats of a red.orange mix. At first I wasn't too impressed with the result at first, but there is always a crap phase when painting so I soldiered on.
 
-![I tried to make it look like night time..](miniatures/diorama-strike-at-dawn/diorama-5.webp)
+![Initially I didn't like it.](miniatures/diorama-strike-at-dawn/fire-in-progress.webp)
 
-I tried to include more browns and warmer tones towards the front of the piece where the light was going to be coming from the campfire. I applied a very very thin layer of a dark red over the whole area, careful to try to leave shadows where they would be cast by the campfire. Then I painted a white over the campfire area before covering it in layers of orange, and building up to yellow. The logs themselves I tried to keep dark on the top. I tried to catch gentle bits of red under the cliff where light would flicker, and even put a tiny bit of red under the guy's hand.
+I wish I had more photos of this process, because it really transformed as I worked more colours onto the base. I began with watered down indigo, purple and applied more of a red brown towards the edges of the fire. I applied the colours in patches and blended them a bit by dragging my brush along the edges, whilst trying to leave distinct areas of certain colours.
 
-Overall, it came out okay - I think it sells the effect I'm after. But I think if the piece had more detail I would need to do a better job of bringing contrast into the piece. We can imagine it's a cartoonish scene where there's more artificial light than in reality. Given the overall vibe I'm going for is whimsical fantasy, I'm pretty pleased!
+Then to try to achieve a moonlight glow on the rear side, I built up a light drybrush of pale blue over the whole backside of the piece. The next photo shows the subtle colour blending quite well.
+
+![A subtle mix of colours](miniatures/diorama-strike-at-dawn/diorama-before-plants.webp)
+
+I tried to include more browns and warmer tones towards the front of the piece at the edges where the light was coming from the campfire. Over time I was able to tame the initial intense blob to a nicer blend of shadow to firelight. Within the fire area itself I build up thin layers going towards orange and then yellow. The logs themselves I tried to keep dark on the top. I tried to catch gentle bits of red under the cliff where light would flicker, and even put a tiny bit of red under the guy's hand.
+
+The final touch was to add some shrubs and plants. I aquired these awesome little pop-out plants from GamersGrass (I think?), which were already purple and tied into the night time aesthetic. I also added a few tufts and some realistic little bushes which are incredible and really brought that last little bit of life to the piece. I diluted some paint and washed the plants to tie them in, but the splash of green really offsets the blues and reds I think.
+
+Overall, it came out pretty good considering the amount of experimentation going on. I don't think it quite sells the idea that this is midnight under a full moon, but it does tell a bit of a story. I think I could really lean in to the contrast and darked down the backside of the whole thing, and probably make the fire more intense. We can imagine it's a cartoonish scene where there's more artificial light than in reality, like in a video game with the gamma turned up! Given the overall vibe I was going for though I'd say 'whimsical fantasy' strikes again!
 
 <CarouselGallery
     title="Strike at Dawn"
     imagePaths={DIORAMA_GALLERY}
 />
 
-My friend who this was a gift for is an artist. He has done commissions for MTG before and I think he nearly ended up doing some art for Hearthstone. So I knew his standards would be pretty high, but I think he appreciated the work that I put into this. We don't live in the same country anymore, so I'm glad I was able to give it to him before I left.
+My friend i gifted the piece to is an artist. He has done commissions for MTG before and I think he nearly ended up doing some art for Hearthstone which is amazing, and far beyond my artistic abilities! So knowing his standards would be pretty high was a litte nerve-wracking, but I think he appreciated the work that I put into this, and that I had made him something personal. We don't live in the same country anymore, so I'm glad I was able to give it to him before I left. The Warlocky druid forever looking down from whatever shelf he lives on.
 
-![All packed up!](miniatures/diorama-strike-at-dawn/diorama-packed.webp)
+![Creative packaging](miniatures/diorama-strike-at-dawn/diorama-packed.webp)
+
 
 In the end I learned a lot by trying to challenge myself to go out of my comfort zone. I thoroughly enjoyed diorama building and already have ideas for more in the future, so watch this space.
 
-![Actually quite like the starry background...](miniatures/diorama-strike-at-dawn/diorama-backdrop.webp)
+![I actually quite like the starry background](miniatures/diorama-strike-at-dawn/diorama-backdrop.webp)
 
-I thought this background was corny when I was initially putting the images together, but coming back to it I kind of like it. I think next time I could paint something behind which would really add to the scene...
+I thought this background was corny when I was initially editing the images, but now after some time, I kind of like it. I think next time I could paint a real backdrop behind which would really add to the scene...
 
 Alright, I'm off to bed. For at dawn...we strike!
