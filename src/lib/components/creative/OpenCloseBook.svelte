@@ -1,5 +1,5 @@
 <script lang="ts">
-	let isOpen = false;
+	export let isOpen = false;
 	let openImg = 'book2-open.webp';
 	let closedImg = 'book2-closed.webp';
 
