@@ -1,28 +1,25 @@
 <script lang="ts">
 	import { PROJECTS } from '$lib/data/projectData';
 	import { comparePinnedPosts } from '$lib/utils/post';
-	export let posts: Post[];
 	import PostPreview from './PostPreview.svelte';
 	import ProjectFilter from '$lib/components/ProjectFilter.svelte';
 	import ProjectPreview from './ProjectPreview.svelte';
 
+	export let posts: Post[];
+	export let selectedProject: ProjectType | undefined;
+	export let onProjectSelected: (project: ProjectType | undefined) => void;
 	const sortedPosts = posts.sort(comparePinnedPosts);
 
-	let filter: ProjectType | undefined = undefined;
-	const onProjectFilterSelected = (project: ProjectType | undefined) => {
-		filter = project;
-	};
-
-	$: filteredPosts = filter ? sortedPosts.filter((p) => p.projectId == filter?.id) : sortedPosts;
+	$: filteredPosts = selectedProject ? sortedPosts.filter((p) => p.projectId == selectedProject?.id) : sortedPosts;
 </script>
 
-<ProjectFilter onFilterChanged={onProjectFilterSelected} projects={PROJECTS} />
+<ProjectFilter onFilterChanged={onProjectSelected} projects={PROJECTS} />
 <div class="posts">
 	{#each filteredPosts as post (post.slug)}
 		<PostPreview {post} hasPostImage={false} />
 	{/each}
-	{#if filter?.id == 'dnd'}
-		<ProjectPreview project={filter} />
+	{#if selectedProject?.id == 'dnd'}
+		<ProjectPreview project={selectedProject} />
 	{/if}
 </div>
 

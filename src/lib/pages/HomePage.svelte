@@ -1,16 +1,31 @@
 <script>
+	import Floating from '$lib/components/creative/Floating.svelte';
 	import MagicIconSelector from '$lib/components/creative/MagicIconSelector.svelte';
-import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
+	import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
+	import { PROJECTS } from '$lib/data/projectData';
+	import { selectedProject, selectProject } from '../../store';
+
+	let isBookOpen = false;
 </script>
 
 <section>
-	<MagicIconSelector/>
-	<OpenCloseBook />
+	{#if isBookOpen}
+		<MagicIconSelector
+			projects={PROJECTS}
+			onProjectSelect={selectProject}
+			selectedProject={$selectedProject}/>
+	{/if}
+	<div class="book__container">
+		<Floating>
+			<OpenCloseBook bind:isOpen={isBookOpen}/>
+		</Floating>
+		<div class="caption">{isBookOpen ? "why are you here?" : "Open the book"}</div>
+	</div>
 
-	<div class="text-over">
+	<!-- <div class="text-over">
 		<img class="wizard" src="images/wizard-grenade/wizard.webp" alt="wizard pixel art" />
 		<h1>Hi</h1>
-	</div>
+	</div> -->
 	<!-- <p>I'm Eddie. Welcome to my corner of the internet.</p>
 	<p>
 		I have many interests, both creative and technical - usually involving wizards. Over the years
@@ -25,6 +40,11 @@ import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
 <style>
 	h1 {
 		margin-bottom: 0.5rem;
+	}
+
+	.book__container {
+		margin-top: 3em;
+		z-index: 1;
 	}
 
 	.wizard {
@@ -64,6 +84,7 @@ import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
 		justify-content: center;
 		align-items: center;
 		width: 100%;
+		padding: 8rem 0;
 	}
 
 	img {

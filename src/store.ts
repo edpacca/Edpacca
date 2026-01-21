@@ -21,6 +21,7 @@ function getColourTheme(): string {
 
 export const isUsingDarkTheme: Writable<boolean> = writable(defaultDarkTheme);
 export const currentColourTheme: Writable<string> = writable(defaultColourTheme);
+export const selectedProject: Writable<ProjectType | undefined> = writable(undefined);
 
 export function setUpThemes() {
 	isUsingDarkTheme.set(getDarkTheme());
@@ -43,4 +44,9 @@ export function setUpThemes() {
 export function resetThemes() {
 	isUsingDarkTheme.set(defaultDarkTheme);
 	currentColourTheme.set(defaultColourTheme);
+}
+
+export function selectProject(project: ProjectType | undefined) {
+	selectedProject.set(project);
+	console.log(project);
 }
