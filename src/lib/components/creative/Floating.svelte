@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let offset: number;
+    export let offset: number = 0;
 </script>
 
 <div class="floating__container floating-animation" style={`--offset: ${offset}s`}>
@@ -9,8 +9,6 @@
 <style>
     .floating__container {
         cursor: pointer;
-        color: var(--highlight);
-
     }
 
     .floating-animation {
@@ -20,13 +18,18 @@
 
     @keyframes float {
         0% {
-            transform: translateY(0em) skewX(0);
+            transform: translateY(0em) skew(0deg, 0deg);
+        }
+        25% {
+
+            transform: translateY(0.25em) skew(1deg, 1deg);
         }
         50% {
-            transform: translateY(0.5em) skewX(4deg);
+            transform: translateY(0.5em) skey(0deg, 0deg);
         }
-        100% {
-            transform: translateY(0em) skewX(0);
+        75% {
+            transform: translateY(0.25em) skew(-1deg, -1deg);
         }
     }
+
 </style>
