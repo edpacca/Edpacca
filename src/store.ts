@@ -48,5 +48,4 @@ export function resetThemes() {
 
 export function selectProject(project: ProjectType | undefined) {
 	selectedProject.set(project);
-	console.log(project);
 }

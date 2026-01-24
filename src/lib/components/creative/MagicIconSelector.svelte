@@ -2,6 +2,7 @@
 	import { fade, fly } from "svelte/transition";
 	import FaIcon from "../utils/FaIcon.svelte";
 	import Floating from "./Floating.svelte";
+	import { flip } from "svelte/animate";
 
     export let projects: ProjectType[];
     export let onProjectSelect: (project: ProjectType | undefined) => void;
@@ -13,13 +14,31 @@
         const factor = Math.abs(index - centre);
         return factor * factor
     }
+
+    const sortPlaceInMiddle = (project: ProjectType) => {
+        if (!projects.includes(project)) {
+            return;
+        }
+        const currentIndex = projects.indexOf(project);
+
+        const buffer = projects[centre];
+        projects[centre] = project;
+        projects[currentIndex] = buffer;
+    }
+
+    const onSelected = (project: ProjectType | undefined) => {
+        if (project) {
+            sortPlaceInMiddle(project);
+        }
+        onProjectSelect(project);
+    }
 </script>
 
 <div class="magic-icons__container" transition:fly>
     <div class="floating-icons__container">
-        {#each projects as project, i}
-            <div class="circle-icon" style={`--arc-position: ${calcArcPosition(i)}em;`}>
-                <button on:click={() => onProjectSelect(project)} class:selected={selectedProject?.id == project.id}>
+        {#each projects as project, i (project.id)}
+            <div animate:flip class="circle-icon" style={`--arc-position: ${calcArcPosition(i)}em;`}>
+                <button on:click={() => onSelected(project)} class:selected={selectedProject?.id == project.id}>
                     <Floating offset={i * 1.5}>
                         <FaIcon icon={project.icon} size={"3em"} />
                     </Floating>
@@ -50,9 +69,16 @@
         border: none;
         background: none;
         color: var(--highlight);
+        transition: 200ms ease-in;
     }
 
     button.selected {
         color: var(--white) !important;
+    }
+
+    button:hover {
+        color: var(--white);
+        transform: translateY(-13px);
+        transition: 200ms ease-in;
     }
 </style>

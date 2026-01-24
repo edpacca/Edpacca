@@ -45,6 +45,7 @@
 	.book__container {
 		margin-top: 3em;
 		z-index: 1;
+		text-align: center;
 	}
 
 	.wizard {
