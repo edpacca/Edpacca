@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade, fly } from "svelte/transition";
+	import { fly } from "svelte/transition";
 	import FaIcon from "../utils/FaIcon.svelte";
 	import Floating from "./Floating.svelte";
 	import { flip } from "svelte/animate";
@@ -37,8 +37,11 @@
 <div class="magic-icons__container" transition:fly>
     <div class="floating-icons__container">
         {#each projects as project, i (project.id)}
-            <div animate:flip class="circle-icon" style={`--arc-position: ${calcArcPosition(i)}em;`}>
-                <button on:click={() => onSelected(project)} class:selected={selectedProject?.id == project.id}>
+            <div animate:flip={{ duration: 300 }} class="circle-icon" style={`--arc-position: ${calcArcPosition(i)}em;`}>
+                <button
+                    class:none-selected={!selectedProject}
+                    on:click={() => onSelected(project)}
+                    class:selected={selectedProject?.id == project.id}>
                     <Floating offset={i * 1.5}>
                         <FaIcon icon={project.icon} size={"3em"} />
                     </Floating>
@@ -68,17 +71,23 @@
     button {
         border: none;
         background: none;
-        color: var(--highlight);
+        color: var(--primary-50);
         transition: 200ms ease-in;
+    }
+
+    button.none-selected {
+        color: var(--white);
     }
 
     button.selected {
-        color: var(--white) !important;
+        color: var(--highlight) !important;
     }
 
     button:hover {
-        color: var(--white);
+        color: var(--highlight);
         transform: translateY(-13px);
         transition: 200ms ease-in;
     }
+
+
 </style>

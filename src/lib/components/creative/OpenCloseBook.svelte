@@ -6,6 +6,7 @@
 	let audio: HTMLAudioElement;
 	const toggle = async () => {
 		isOpen = !isOpen;
+		audio.volume = 0.2;
 		await audio.play();
 	};
 

@@ -17,4 +17,4 @@
 	$: selectedIcon = selectedItem?.icon ?? 'filter';
 </script>
 
-<Filter {onFilterChanged} filterItems={projectFilters} {selectedIcon} bind:selectedItem />
+<Filter onFilterChanged={onFilterChanged} filterItems={projectFilters} selectedIcon={selectedIcon} bind:selectedItem />
