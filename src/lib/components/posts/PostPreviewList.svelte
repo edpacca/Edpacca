@@ -13,7 +13,10 @@
 	$: filteredPosts = selectedProject ? sortedPosts.filter((p) => p.projectId == selectedProject?.id) : sortedPosts;
 </script>
 
-<ProjectFilter onFilterChanged={onProjectSelected} projects={PROJECTS} />
+<ProjectFilter
+	selectedProject={selectedProject}
+	onFilterChanged={onProjectSelected}
+	projects={PROJECTS} />
 <div class="posts">
 	{#each filteredPosts as post (post.slug)}
 		<PostPreview {post} hasPostImage={false} />

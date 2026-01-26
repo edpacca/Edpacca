@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from "svelte/transition";
+	import { fade, fly } from "svelte/transition";
 	import FaIcon from "../utils/FaIcon.svelte";
 	import Floating from "./Floating.svelte";
 	import { flip } from "svelte/animate";
@@ -37,7 +37,7 @@
 <div class="magic-icons__container" transition:fly>
     <div class="floating-icons__container">
         {#each projects as project, i (project.id)}
-            <div animate:flip={{ duration: 300 }} class="circle-icon" style={`--arc-position: ${calcArcPosition(i)}em;`}>
+            <div in:fade animate:flip={{ duration: 300 }} class="circle-icon" style={`--arc-position: ${calcArcPosition(i)}em;`}>
                 <button
                     class:none-selected={!selectedProject}
                     on:click={() => onSelected(project)}

@@ -2,15 +2,27 @@
 	import PostPreviewList from '../lib/components/posts/PostPreviewList.svelte';
 	import { selectedProject, selectProject } from '../store';
 	import ProjectSelectionPage from '$lib/pages/ProjectSelectionPage.svelte';
+	import HomePage from '$lib/pages/HomePage.svelte';
+	import GlyphButton from '$lib/components/creative/GlyphButton.svelte';
 	let { data } = $props();
+	let isBookSummoned = $state(true);
 </script>
 
  <section>
-	<ProjectSelectionPage />
+	{#if isBookSummoned}
+	<ProjectSelectionPage/>
+		<GlyphButton
+			text={"Banish"}
+			onClick={() => isBookSummoned = false}/>
+	{:else}
+	<HomePage>
+		<GlyphButton
+			text={"Summon Tome"}
+			onClick={() => isBookSummoned = true}/>
+	</HomePage>
+	{/if}
  </section>
-{#if $selectedProject}
-	<PostPreviewList posts={data.posts} selectedProject={$selectedProject} onProjectSelected={selectProject}/>
-{/if}
+<PostPreviewList posts={data.posts} selectedProject={$selectedProject} onProjectSelected={selectProject}/>
 
 <style>
 	section {
@@ -19,6 +31,6 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		padding: 8rem 0;
+		padding: 2rem 0;
 	}
 </style>

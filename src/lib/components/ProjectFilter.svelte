@@ -3,18 +3,23 @@
 
 	export let onFilterChanged: (project: ProjectType | undefined) => void;
 	export let projects: ProjectType[];
-	let selectedItem: FilterType<ProjectType> | undefined;
+	export let selectedProject: ProjectType | undefined;
 	let selectedIcon: string | undefined = undefined;
 
-	const projectFilters: FilterType<ProjectType>[] = projects.map((p) => {
+	const toProjectFilterType = (project: ProjectType) => {
 		return {
-			name: p.name,
-			icon: p.icon,
-			filterTarget: p
-		};
+			name: project.name,
+			icon: project.icon,
+			filterTarget:project
+		}
+	}
+
+	const projectFilters: FilterType<ProjectType>[] = projects.map((p) => {
+		return toProjectFilterType(p);
 	});
 
-	$: selectedIcon = selectedItem?.icon ?? 'filter';
+	$: selectedProjectFilterType = selectedProject ? toProjectFilterType(selectedProject) : undefined;
+	$: selectedIcon = selectedProject?.icon ?? 'filter';
 </script>
 
-<Filter onFilterChanged={onFilterChanged} filterItems={projectFilters} selectedIcon={selectedIcon} bind:selectedItem />
+<Filter onFilterChanged={onFilterChanged} filterItems={projectFilters} selectedIcon={selectedIcon} selectedItem={selectedProjectFilterType}/>

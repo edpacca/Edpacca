@@ -4,28 +4,31 @@
 	import MagicIconSelector from '$lib/components/creative/MagicIconSelector.svelte';
 	import OpenCloseBook from '$lib/components/creative/OpenCloseBook.svelte';
 	import { PROJECTS } from '$lib/data/projectData';
+	import { goto } from '$app/navigation';
+	import { flip } from 'svelte/animate';
 
-	let isBookOpen = $state(false);
+	let isBookOpen: boolean;
 
 	const onSelect = (project: ProjectType | undefined) => {
-		selectProject(project);
-		isBookOpen = false;
+		const url = `/projects/${project?.id}`;
+		goto(url);
 	};
 </script>
 
 {#if isBookOpen || $selectedProject }
-    <MagicIconSelector
-        projects={PROJECTS}
-        onProjectSelect={onSelect}
-        selectedProject={$selectedProject}
-    />
+<div transition:flip>
+	<MagicIconSelector
+		projects={PROJECTS}
+		onProjectSelect={onSelect}
+		selectedProject={$selectedProject}/>
+</div>
 {/if}
 <div class="book__container">
     <Floating>
         <OpenCloseBook bind:isOpen={isBookOpen} />
     </Floating>
-    {#if !selectedProject}
-    <div class="caption">{isBookOpen ? 'why are you here?' : 'Open the book'}</div>
+    {#if !$selectedProject}
+    <div class="caption">{isBookOpen ? 'why are you here?' : 'Tome of Projects'}</div>
     {/if}
 </div>
 
