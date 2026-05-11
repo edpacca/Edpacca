@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footnote from '$lib/components/posts/Footnote.svelte';
+	import NotWrittenBy from '$lib/components/posts/NotWrittenBy.svelte';
 	import PostSeriesNavigation from '$lib/components/posts/PostSeriesNavigation.svelte';
 	import BackButton from '$lib/components/utils/BackButton.svelte';
 	import { getProjectData } from '$lib/data/projectData';
@@ -70,6 +71,7 @@
 		{/each}
 	{/if}
 </article>
+<NotWrittenBy/>
 
 <style>
 	h1 {
