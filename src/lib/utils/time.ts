@@ -1,12 +1,16 @@
 export function timeNoun(time: Date): string {
 	const hour = time.getHours();
+	return hourNoun(hour);
+}
+
+export function hourNoun(hour: number): string {
 	switch (hour) {
 		case 6:
-			return 'dawn';
+			return "dawn";
 		case 7:
-			return 'sunrise';
+			return "sunrise";
 		case 8:
-			return 'morning';
+			return "morning";
 		case 9:
 		case 10:
 		case 11:
@@ -17,13 +21,13 @@ export function timeNoun(time: Date): string {
 		case 16:
 		case 17:
 		case 18:
-			return 'day';
+			return "day";
 		case 19:
-			return 'evening';
+			return "evening";
 		case 20:
-			return 'sunset';
+			return "sunset";
 		case 21:
-			return 'dusk';
+			return "dusk";
 		case 22:
 		case 23:
 		case 24:
@@ -33,9 +37,9 @@ export function timeNoun(time: Date): string {
 		case 3:
 		case 4:
 		case 5:
-			return 'night';
+			return "night";
 		default:
-			return 'day';
+			return "day";
 	}
 }
 
