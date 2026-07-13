@@ -6,7 +6,18 @@ projectId: miniatures
 published: true
 icon: horse
 ---
+<script>
+    import FootnoteRef from "../lib/components/posts/FootnoteRef.svelte";
+</script>
 
-After getting back into Warhammer after a break of around 15 years I just picked up where I left off collecting and painting Dark Angels, the moodiest emo army of course - but I'd be lying if I didn't say that fantasy always had my heart. In particular the call of chaos has always been The Dark Angels are pretty metal with their robes and candles and wings and gothic stuff like that, whereas the legions of Chaos are arguably the kings of the metal vibe with the horns, spikes and skulls. Well to be fair all of warhammer has skulls. If Dark Angels are classic Iron Maiden then fantasy Chaos are a full on doom metal act like Conan! Another thing I was eyeing up for a while is the game Spearhead - 40k is just far too long and in depth for me to fully enjoy it. I don't mind complexity at all, in fact I tend to prefer a complex game, but great deal of the complexity in 40k comes down to the sheer number of variables one has to consider when it comes to stats and abilities. The condensed versions of both age of Sigmar and 40k are Spearhead and Combat Patrol which definitely seemed like they might tick a few more boxes for me. Long story short (and probably obvious from the title) I got myself the Slaves to Darkness box that felt the most metally and fantasy to me.
+# The Call of Chaos
 
+Long have the hoards of Chaos called to me - horned helmets, demonic sorcery and enthusiasm for axes are compelling enough reasons for me. Throw in some tattered capes and a chariot and you have yourself something worth painting! I rarely buy new Warhammer (honest!) and I'd been eyeing up the game of Spearhead for a while now as an alternative to 40k, a game I find to be more about statistics and long slogs than pure strategy - I like a complex game I just want to do it in 2 hours rather than 5. <FootnoteRef text="Before you get your pitchforks out - I've had plenty of fun games of 40k, and yes it can be done quickly. I just think I'd enjoy it more if it was a little more condensed!" ref="*" anchor="well"/> Although the new Slaves to Darkness box had just come out I had to go for the old one; see prior comment about tattered cloaks and chariots.
 
+The other nice thing about the smaller number of units is simply the realistic possibility of actually finishing an army in a reasonable amount of time.
+
+## Colour Scheme
+
+I usually make things up as I go. This often leads to fun ideas but also invokes a drift in continuity across different units - probably not surprising how much ones mood can affect the choice of colour. Having a whole army in one box felt like a nice opportunity to do a bit of planning and paint some test models before committing to anything for the whole army.
+
+I masked off different areas of a black and white photo then digitally coloured in the different areas. My other army Dark Angels are painted with warm tones, dark green, parchment bone colour and red accents - so I opted for a cooler scheme.
