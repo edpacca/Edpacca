@@ -3,6 +3,7 @@ export interface PaintColourType {
 	code: string;
 	range?: string;
 	url?: string;
+	isMetallic?: boolean
 }
 
 // https://acrylicosvallejo.com/wp-content/uploads/2021/09/CC070-Model_Color-Rev18-baja.pdf
@@ -115,6 +116,74 @@ export const PAINT_COLOURS: Record<string, PaintColourType> = {
 		name: "Winter Blue",
 		range: "DecoArt Americana craft paint",
 		code: '#9ebacf',
+	},
+	army_painter_temple_gate_teal: {
+		name: 'Temple Gate Teal',
+		range: 'Army Painter Warpaints Fanatic',
+		code: '#005E4F'
+	},
+	scale75_black: {
+		name: 'Black',
+		range: 'Scale75',
+		code: '#000000'
+	},
+	ak_interactive_mahogany_brown: {
+		name: 'Mahogany Brown',
+		range: 'AK Interactive 3rd Gen',
+		code: '#612C10'
+	},
+	citadel_rhinox_hide: {
+		name: 'Rhinox Hide',
+		range: 'Citadel Base',
+		code: '#4E3433'
+	},
+	army_painter_dusty_skull: {
+		name: 'Dusty Skull',
+		range: 'Army Painter Warpaints Fanatic',
+		code: '#92856E'
+	},
+	vallejo_magenta: {
+		name: 'Magenta',
+		range: 'Vallejo Model Color',
+		code: '#A92A56'
+	},
+	army_painter_toxic_mist: {
+		name: 'Toxic Mist',
+		range: 'Army Painter Warpaints',
+		code: '#39C0C5'
+	},
+	vallejo_aluminium: {
+		name: 'Aluminium',
+		range: 'Vallejo Metal Color',
+		code: '#acacae',
+		isMetallic: true,
+		url: 'https://acrylicosvallejo.com/en/product/hobby/metal-color-en/aluminium-77701/'
+
+	},
+	vallejo_burnt_iron: {
+		name: 'Burnt Iron',
+		range: 'Vallejo Metal Color',
+		code: '#686461',
+		isMetallic: true,
+		url: 'https://acrylicosvallejo.com/en/product/hobby/metal-color-en/burnt-iron-77721/'
+	},
+	vallejo_bronze: {
+		name: 'Bronze',
+		range: 'Vallejo Model Color',
+		code: '#533c1d',
+		isMetallic: true,
+		url: 'https://acrylicosvallejo.com/en/product/hobby/model-color-en/bronze-70998/'
+	},
+	aluminium_gold: {
+		name: 'Aluminium/Gold',
+		code: '#aba264',
+		isMetallic: true,
+	},
+	pro_acryl_paynes_grey: {
+		name: 'Payne\'s Grey',
+		range: 'Monument Pro Acryl',
+		code: '#343a52',
+		url: 'https://monumenthobbies.com/products/s02-vince-venturella-paynes-grey'
 	}
 };
 
@@ -153,3 +222,7 @@ export const ARCH_CRAFT_PAINTS = [
 	PAINT_COLOURS['americana_winter_blue'],
 	PAINT_COLOURS['black_oil_wash'],
 ];
+
+export default {
+	DA_ARMOUR_PAINTS
+}

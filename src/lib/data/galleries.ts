@@ -80,8 +80,13 @@ export const MINIATURE_SPOTLIGHT_IMG = '/images/miniatures/gallery/dw-knights-al
 
 export const MINIATURE_GALLERY: ImageMetadata[] = [
 	{
+		path: '/images/miniatures/spearhead/warriors/spearhead_warriors.webp',
+		alt: 'Chaos Warriors',
+		wide: true
+	},
+	{
 		path: '/images/miniatures/dw-librarian/finished-0-alpha.webp',
-		alt: 'Deathwing Librarian',
+		alt: 'Deathwing Librarian'
 	},
 	{
 		path: '/images/miniatures/arch/painting/p8_0.webp',
@@ -106,7 +111,7 @@ export const MINIATURE_GALLERY: ImageMetadata[] = [
 	},
 	{
 		path: '/images/miniatures/gallery/frostgrave-dude.webp',
-		alt: 'Tower Shield',
+		alt: 'Tower Shield'
 	},
 	{
 		path: '/images/miniatures/gallery/deathwing2-alpha.webp',
@@ -139,7 +144,7 @@ export const MINIATURE_GALLERY: ImageMetadata[] = [
 	},
 	{
 		path: '/images/miniatures/gallery/jerymiah-and-grim.webp',
-		alt: 'Jerymiah Snagglebark and \'Grim\''
+		alt: "Jerymiah Snagglebark and 'Grim'"
 	},
 	{
 		path: '/images/miniatures/gallery/ezekiel-alpha.webp',
