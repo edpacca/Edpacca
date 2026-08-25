@@ -8,7 +8,7 @@ dev: true
 icon: horse
 footnotes:
     - ref: "1"
-      text: "Before you get your pitchforks out - I've had plenty of fun games of 40k, and yes it can be done quickly. I just think I'd enjoy it more if it was a little more condensed!"
+      text: "Dark Angels may never be finished, and the day I paint all of my Cursed City will be a cold day in hell!"
     - ref: "2"
       text: "Unfortunately I didn't take any photos of these."
 ---
@@ -24,24 +24,27 @@ footnotes:
 
 # The Call of Chaos
 
-_Long have the hoards of Chaos called to me...  horned helmets, demonic sorcery and enthusiasm for axes - throw in some tattered capes and a chariot and you have yourself something worth painting!_
+_Long have the horned helmets and demonic sorceries of the Chaos Hordes called to me... the chariots, tattered capes and the enthusiasm for axes make for exellent subject matter._
 
 ![My finished Chaos Warriors](miniatures/spearhead/warriors/spearhead_warriors.webp)
 
-I rarely buy new Warhammer (honest!) but I'd been eyeing up the [game of Spearhead](https://ageofsigmar.com/spearhead/) for a while now as an alternative to 40k, which is a game I find tends to be more about statistics and long slogs than pure strategy - I like a complex game, <FootnoteRef text="I just want to do it in 2 hours rather than 5" ref="1" />. Although a new _Slaves to Darkness_ (S2D) box had just come out I had to go for the old one; see prior comment about tattered cloaks and chariots.
+I'd been eyeing up [Spearhead](https://ageofsigmar.com/spearhead/) as an alternative to Warhammer 40k for a while. The Age of Sigmar minis are way more up my street in terms of style, but I don't really want to have another unfinshed army <FootnoteRef text="hanging over my head" ref="1"/>. But a skirmish force is perfect; just ambitious enough to be a proper project whilst being achievable. I got my hands on the old _Slaves to Darkness_ (S2D). Although the latest _Slaves to Darkness_ (S2D) box had just come out I had to go for the old one; see prior comment about tattered cloaks and chariots.
 
-The other nice thing about having less units is simply the realistic possibility of finishing painting a whole army in a reasonable amount of time.
+Unlike my previous army projects I wanted to plan out my paint scheme before starting painting everything.
 
-## Theme
+In terms of painting I usually make things up as I go. This often leads to fun ideas - but over time the style drifts between different units. This is also probably due to buying the army in units over time; having a whole army in one box felt like a nice opportunity to see what a bit of planning might do.
 
-To me the Warriors are the quintiscential Choas unit; I picture them as near souless husks bound to the will of their God's and Masters. I imagined a cold dark forest in winter would make a fitting setting, and it would contrast nicely with my Dark Angels army, which is painted with warm tones: dark green, bone, parchment and rust red accents.
+## We need a theme Captain
+
+To me the Warriors are the quintiscential Choas unit; I picture them as near souless husks, bound to the will of their God's and Masters.
+
+I imagined a cold dark forest in winter would make a fitting setting. And it would make a nice change in feel to my Dark Angels army, which is painted with warm tones: dark green, bone, parchment and rust red accents.
 
 <DarkAngelsPalette/>
 <div class="caption" style="text-align: center">Dark Angels palette</div>
 
-I usually make things up as I go. This often leads to fun ideas but over time my style drifts for different units - which I enjoy doing as a painter, but a coherent sheme always has so much impact. Having a whole army in one box felt like a nice opportunity to see what a bit of planning might do. I thought that instead of learning what I'm after as I progress through different units I'd practice on a test model and refine a sheme before committing to it for all the units.
-
 ### Digital exploration
+
 I decided to at least try to digitize some of the exploratory process. I masked off different areas of a black and white photo then filled them in to compare the colours. I knew I didn't want to go with the standard black for _S2D_, and I didn't want to be aligned with a particular Chaos god.
 
 I honestly aimed to go for a completely differnt sheme to my Dark Angels but after much deliberation I settled for a turquoise colour for the armour; yes I know turquoise is basically just cold green! Colour theory took over from there and I ended up with a pale gold trim (steel just doesn't contrast enough) and magenta for the accents. I unwittingly chose the cold analogues of each of the colours from the Dark Angels - I'm nothing if not predictable. I do really like green...
@@ -66,3 +69,25 @@ I made up two similar swatches and asked a few mates what they thought - it's al
 ### A note on efficiency
 
 Another reason for going with a set scheme was to try to optimise it - going for a balance of speed whilst keeping it impactful. I tend to mix different colours from unit to unit but hopefully through planning I can get some consistency between the units which should further add to the impact.
+
+## Bases
+
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/spearhead/warriors/base_1.webp" },
+        { path: "images/miniatures/spearhead/warriors/base_2.webp" }
+    ]}
+    cols={[2, 3]}
+/>
+
+![Oil wash stage](miniatures/spearhead/warriors/oil_wash_1.webp)
+![Oil wash stage](miniatures/spearhead/warriors/oil_wash_2.webp)
+<ImgGrid
+    imgs={[
+        { path: "images/miniatures/spearhead/warriors/test_model_front.webp" },
+        { path: "images/miniatures/spearhead/warriors/test_model_back.webp" }
+    ]}
+/>
+
+
+![Verdigris banner](miniatures/spearhead/warriors/verdegris_banner.webp)
